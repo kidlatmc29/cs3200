@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PA1", "PA1\PA1.csproj", "{B3987D05-C4E2-4D38-8DE7-D83C602F834C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntreeUnitTest", "EntreeUnitTest\EntreeUnitTest.csproj", "{BAA258CB-3691-4437-89A1-267295B8172B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntreeUnitTests", "EntreeUnitTest\EntreeUnitTests.csproj", "{BAA258CB-3691-4437-89A1-267295B8172B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
