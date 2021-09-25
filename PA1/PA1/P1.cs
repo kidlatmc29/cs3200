@@ -20,7 +20,7 @@ using System.IO;
         public static void readFile()
         {
             string txtLine;
-            int lineCount = 1;
+            int lineCount = 1; // used to skip the first line in the .txt file
         /*
          * Entree File Fomatting: 
          *  entreeName, number of servings, 
@@ -31,7 +31,7 @@ using System.IO;
             if (File.Exists(FILE_NAME))  // check if file exists
             {
                 Console.WriteLine(FILE_NAME + " exists! \n");
-                StreamReader file = new StreamReader(FILE_NAME); // if file exits open it
+                StreamReader file = new StreamReader(FILE_NAME); // if file exists open it
                 while((txtLine = file.ReadLine()) != null) {
                     if (lineCount != 1)
                     {
@@ -39,15 +39,11 @@ using System.IO;
                     }
                  lineCount++;
                 }
+                file.Close(); // close file
             }
             else
             {
                 Console.WriteLine("File does not exists! :( \n");
             }
-  
-            // begin reading from file
-            // read until end of file
-            // close file
-            
         }
     }
