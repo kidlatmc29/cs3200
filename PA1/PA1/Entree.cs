@@ -4,7 +4,7 @@ using System;
 
 namespace PA1
 {
-    class Entree
+    public class Entree // Class invarients: 
     {
         private string name; 
         
@@ -13,10 +13,13 @@ namespace PA1
             name = entreeName;
         }
 
-
+        // PRE:
+        // POST: 
         public string getName()
         {
             return name; 
         }
     }
 }
+
+// Implementation invarients

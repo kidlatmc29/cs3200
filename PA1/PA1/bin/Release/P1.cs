@@ -30,7 +30,7 @@ using System.IO;
 
             if (File.Exists(FILE_NAME))  // check if file exists
             {
-                Console.WriteLine(FILE_NAME + " exists! \n");
+                Console.WriteLine(FILE_NAME + "exists! \n");
                 StreamReader file = new StreamReader(FILE_NAME); // if file exits open it
                 while((txtLine = file.ReadLine()) != null) {
                     if (lineCount != 1)

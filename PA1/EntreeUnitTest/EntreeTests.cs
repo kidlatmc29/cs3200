@@ -11,9 +11,17 @@ namespace PA1
         [TestMethod]
         public void getEntreeName()
         {
-           //Arrange 
-           //Act
-           //Assert
+            //Arrange 
+            string expected = "Mint Chip";
+            Entree cookie;
+
+            //Act
+            cookie = new Entree(expected);
+
+            //Assert
+            string actual = cookie.getName();
+            Assert.AreEqual(expected, actual);
+
         }
     }
 }
