@@ -3,6 +3,7 @@
 
 using System;
 using System.IO;
+using System.Collections.Generic; 
     class P1
     {
         public const string FILE_NAME = "EntreesTabDelimited.txt";
@@ -32,7 +33,8 @@ using System.IO;
             {
                 Console.WriteLine(FILE_NAME + " exists! \n");
                 StreamReader file = new StreamReader(FILE_NAME); // if file exists open it
-                while((txtLine = file.ReadLine()) != null) {
+                while((txtLine = file.ReadLine()) != null) 
+                {
                     if (lineCount != 1)
                     {
                         Console.WriteLine(txtLine + "\n");
