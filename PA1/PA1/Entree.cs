@@ -43,7 +43,10 @@ namespace PA1
         public void printIngredients()
         {
             Console.WriteLine("Ingredients:\n"); 
-
+            for(int i = 0; i < ingredients.Count; i++)
+            {
+                Console.WriteLine(ingredients[i] + "\n");
+            }
         }
 
         public uint getNumOfServings()

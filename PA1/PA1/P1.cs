@@ -3,7 +3,8 @@
 
 using System;
 using System.IO;
-using System.Collections.Generic; 
+using System.Collections.Generic;
+using PA1; 
     class P1
     {
         public const string FILE_NAME = "EntreesTabDelimited.txt";
@@ -12,7 +13,32 @@ using System.Collections.Generic;
         {
             Console.WriteLine("Welcome to PA 1 \n");
 
-            readFile();
+            // readFile();
+            /*
+            List<string> oreoIng = new List<string>();
+            oreoIng.Add("Flour");
+            oreoIng.Add("Sugar");
+            oreoIng.Add("Palm Oil");
+            oreoIng.Add("Cocoa");
+            oreoIng.Add("High Fructose Corn Syrup");
+            oreoIng.Add("Salt");
+
+            List<uint> oreoNutr = new List<uint>();
+            oreoNutr.Add(1);
+            oreoNutr.Add(77);
+            oreoNutr.Add(3);
+            oreoNutr.Add(1);
+            oreoNutr.Add(0);
+            oreoNutr.Add(0);
+            oreoNutr.Add(66);
+            oreoNutr.Add(12);
+            oreoNutr.Add(1);
+            oreoNutr.Add(7);
+            oreoNutr.Add(1);
+            Entree cookie = new Entree("Oreos", oreoIng, oreoNutr);
+
+            cookie.printIngredients();
+            */
 
             Console.WriteLine("End of PA 1 \n");
 
