@@ -9,7 +9,7 @@ namespace PA1
     {
         private string name;
         private List<string> ingredients;
-        private List<uint> nutritionStats;
+        private List<float> nutritionStats;
         
         private string experationDate;
         private bool refrigerated;
@@ -21,7 +21,7 @@ namespace PA1
             this.name = name;
         }
 
-        public Entree(string name, List<string> ingredients, List<uint> nutritionStats)
+        public Entree(string name, List<string> ingredients, List<float> nutritionStats)
         {
             this.name = name;
             this.ingredients = ingredients;
@@ -49,7 +49,7 @@ namespace PA1
             }
         }
 
-        public uint getNumOfServings()
+        public float getNumOfServings()
         {
             return 1;
         }
@@ -64,7 +64,7 @@ namespace PA1
             return 0;
         }
 
-        public uint getSFat()
+        public float getSFat()
         {
             return 0;
         }
