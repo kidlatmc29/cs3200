@@ -11,7 +11,7 @@ namespace PA1
         // Class invarients:
         private string name;
         private List<string> ingredients;
-        private List<float> nutritionStats;
+        private List<double> nutritionStats;
         
         private DateTime expirationDate;
         private bool refrigerated;
@@ -23,7 +23,7 @@ namespace PA1
             this.name = name;
         }
 
-        public Entree(string name, List<string> ingredients, List<float> nutritionStats)
+        public Entree(string name, List<string> ingredients, List<double> nutritionStats)
         {
             this.name = name;
             this.ingredients = ingredients;
@@ -64,7 +64,16 @@ namespace PA1
             }
         }
 
-        public float getNumOfServings()
+        public void printNutritionStats()
+        {
+            Console.WriteLine("Nutrition Facts:");
+            for(int i = 0; i < nutritionStats.Count; i++)
+            {
+                Console.WriteLine(nutritionStats[i] + "\n");
+            }
+        }
+
+        public double getNumOfServings()
         {
             return 1;
         }
@@ -79,7 +88,7 @@ namespace PA1
             return 0;
         }
 
-        public float getSFat()
+        public double getSFat()
         {
             return 0;
         }

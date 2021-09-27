@@ -14,7 +14,7 @@ using PA1;
             Console.WriteLine("Welcome to PA 1 \n");
 
             // readFile();
-            /*
+            
             List<string> oreoIng = new List<string>();
             oreoIng.Add("Flour");
             oreoIng.Add("Sugar");
@@ -23,12 +23,12 @@ using PA1;
             oreoIng.Add("High Fructose Corn Syrup");
             oreoIng.Add("Salt");
 
-            List<uint> oreoNutr = new List<uint>();
+            List<double> oreoNutr = new List<double>();
             oreoNutr.Add(1);
             oreoNutr.Add(77);
             oreoNutr.Add(3);
             oreoNutr.Add(1);
-            oreoNutr.Add(0);
+            oreoNutr.Add(0.3);
             oreoNutr.Add(0);
             oreoNutr.Add(66);
             oreoNutr.Add(12);
@@ -38,7 +38,7 @@ using PA1;
             Entree cookie = new Entree("Oreos", oreoIng, oreoNutr);
 
             cookie.printIngredients();
-            */
+    
 
             Console.WriteLine("End of PA 1 \n");
 
