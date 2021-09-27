@@ -139,6 +139,11 @@ namespace PA1
         public bool isSpoiled()
         {
             // if isExpired is true, then spoiled is true
+            // if isRefrigerated false and requires refridgeration is true
+            if(isExpired() == true || (refrigerated == false && needsRefrigeration == true))
+            {
+                spoiled = true;
+            }
             return spoiled;
         }
 
