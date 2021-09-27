@@ -132,8 +132,8 @@ namespace PA1
             return expirationDate;
         }
         public bool isExpired()
-        {
-            return false; 
+        { 
+            return (expirationDate < DateTime.Today); 
         }
 
         public bool isSpoiled()

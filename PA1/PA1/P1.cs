@@ -37,8 +37,8 @@ using PA1;
             oreoNutr.Add(1);
             Entree cookie = new Entree("Oreos", oreoIng, oreoNutr);
 
-            cookie.printIngredients();
-    
+            // cookie.printIngredients();
+            Console.WriteLine("The expiration date is: " + cookie.getExpirationDate());
 
             Console.WriteLine("End of PA 1 \n");
 
