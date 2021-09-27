@@ -13,7 +13,7 @@ namespace PA1
         private List<string> ingredients;
         private List<float> nutritionStats;
         
-        private string experationDate;
+        private DateTime expirationDate;
         private bool refrigerated;
         private bool needsRefrigeration;
         private bool spoiled; 
@@ -29,12 +29,25 @@ namespace PA1
             this.ingredients = ingredients;
             this.nutritionStats = nutritionStats;
 
-            experationDate = "Jan 2022";
+            expirationDate = createExperiationDate();
             refrigerated = true;
             needsRefrigeration = true;
             spoiled = false;
         }
 
+        // PRE:
+        // POST:
+        private DateTime createExperiationDate()
+        {
+            Random generator = new Random();
+
+            DateTime lowerBounds = new DateTime(2020, 1, 1); // oldest expiration date is Jan 1st, 2020
+            DateTime upperBounds = new DateTime(2030, 1, 1); // latest expiration date is Jan 1st, 2030
+            int range = (upperBounds - lowerBounds).Days;
+
+            return lowerBounds.AddDays(generator.Next(range)); 
+        }
+    
         // PRE:
         // POST: 
         public string getName()
@@ -105,9 +118,9 @@ namespace PA1
             return 0;
         }
 
-        public string getExperationDate()
+        public DateTime getExpirationDate()
         {
-            return experationDate;
+            return expirationDate;
         }
         public bool isExpired()
         {
