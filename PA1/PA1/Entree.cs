@@ -1,12 +1,14 @@
 ﻿// Isabel Ovalles
+// 09/23/2021
 
 using System;
 using System.Collections.Generic; 
 
 namespace PA1
 {
-    public class Entree // Class invarients: 
+    public class Entree 
     {
+        // Class invarients:
         private string name;
         private List<string> ingredients;
         private List<float> nutritionStats;
@@ -107,13 +109,18 @@ namespace PA1
         {
             return experationDate;
         }
+        public bool isExpired()
+        {
+            return false; 
+        }
 
         public bool isSpoiled()
         {
+            // if isExpired is true, then spoiled is true
             return spoiled;
         }
 
     }
 }
 
-// Implementation invarients
+// Implementation invarients:
