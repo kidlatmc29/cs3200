@@ -45,6 +45,11 @@ namespace PA1
                 nutritionStats.Add(data[i]);
             }
 
+            for(int i = 0; i < ingredientsBuffer.Length; i++)
+            {
+                ingredients.Add(ingredientsBuffer[i]);
+            }
+
             for(int i = 0; i < containsBuffer.Length; i++)
             {
                 contains.Add(containsBuffer[i]);

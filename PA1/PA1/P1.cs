@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using PA1; 
     class P1
     {
-        public const string FILE_NAME = "EntreesTabDelimited.txt";
+        public const string FILE_NAME = "CookieData.txt";
 
         public static void Main(string[] args)
         {
@@ -15,9 +15,9 @@ using PA1;
             
             Console.WriteLine("Welcome to PA 1 \n");
 
-            readFile(menu);   
+            readFile(menu);
 
-            
+            menu[0].printIngredients(); 
 
             Console.WriteLine("End of PA 1 \n");
 
