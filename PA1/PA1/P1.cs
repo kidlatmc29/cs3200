@@ -15,6 +15,7 @@ using PA1;
 
             // readFile();
             
+            
             List<string> oreoIng = new List<string>();
             oreoIng.Add("Flour");
             oreoIng.Add("Sugar");
@@ -59,7 +60,7 @@ using PA1;
             {
                 Console.WriteLine(FILE_NAME + " exists! \n");
                 StreamReader file = new StreamReader(FILE_NAME); // if file exists open it
-                while((txtLine = file.ReadLine()) != null) 
+                while((txtLine = file.ReadLine()) != null)  // need to write more specific parsing for members
                 {
                     if (lineCount != 1)
                     {

@@ -12,7 +12,7 @@ namespace PA1
     {
 
         [TestMethod]
-        public void getEntreeName()
+        public void getEntreeCookiName()
         {
             //Arrange 
             string expected = "Oreos";
@@ -49,7 +49,7 @@ namespace PA1
         }
 
         [TestMethod]
-        public void isExpired()
+        public void isCookieExpired()
         {
             // Arrange 
             List<string> oreoIng = new List<string>();
@@ -79,9 +79,19 @@ namespace PA1
 
             // Act
             bool actual = cookie.isExpired();
+            // Console.WriteLine("isExpired: " + actual + "\n");
 
             // Assert
             Assert.AreEqual(expected, actual, "Should be expired!");
+        }
+
+        [TestMethod]
+        public void isCookieSpoiled()
+        {
+            // Arrange
+
+            // Act
+            // Assert
         }
     }
 }
