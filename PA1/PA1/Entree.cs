@@ -28,8 +28,8 @@ namespace PA1
         private List<string> contains;
         
         private DateTime expirationDate;
-        private bool refrigerated;
         private bool needsRefrigeration;
+        private bool refrigerated;
         private bool spoiled; 
 
         public Entree(string txtLine)
@@ -51,7 +51,8 @@ namespace PA1
             }
 
             expirationDate = createExpiriationDate();
-
+            needsRefrigeration = randBoolGen();
+            refrigerated = randBoolGen();
             spoiled = isSpoiled(); 
 
         }
@@ -176,9 +177,8 @@ namespace PA1
             {
                 spoiled = true;
             }
-            return spoiled;
+            return false;
         }
-
     }
 }
 
