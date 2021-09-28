@@ -19,21 +19,18 @@ namespace PA1
         private const int TOT_CARBS_INDEX = 7;
         private const int FIBER_INDEX = 8;
         private const int TOT_SUGAR_INDEX = 9;
-        private const int PROTIEN_INDEX = 10; 
+        private const int PROTIEN_INDEX = 10;
+        private const int TOTAL_NUTR_STATS = 11; 
 
         private string name;
         private List<string> ingredients;
-        private List<double> nutritionStats;
+        private List<string> nutritionStats;
         
         private DateTime expirationDate;
         private bool refrigerated;
         private bool needsRefrigeration;
         private bool spoiled; 
         
-        public Entree(string name)
-        {
-            this.name = name;
-        }
 
         public Entree(string name, List<string> ingredients, List<double> nutritionStats)
         {
@@ -45,6 +42,19 @@ namespace PA1
             refrigerated = true;
             needsRefrigeration = true;
             spoiled = false;
+        }
+
+        public Entree(string txtLine)
+        {
+            string[] data = txtLine.Split('\t');
+            string[] ingredientsBuffer = data[12].Split('$'); // index of data is assumming the input file was formatting correctly 
+
+            name = data[0];
+
+            for(int i = 1; i < TOTAL_NUTR_STATS; i++)
+            {
+                nutritionStats.Add(data[i]);
+            }
         }
 
         // PRE:
@@ -86,56 +96,56 @@ namespace PA1
             
         }
 
-        public double getNumOfServings()
+        public string getNumOfServings()
         {
             return nutritionStats[NUM_OF_SERVINGS_INDEX];
         }
 
-        public double getCals()
+        public string getCals()
         {
             return nutritionStats[CALORIES_INDEX];
         }
 
-        public double getTotalFat()
+        public string getTotalFat()
         {
             return nutritionStats[TOTAL_FAT_INDEX];
         }
 
-        public double getSFat()
+        public string getSFat()
         {
             return nutritionStats[SAT_FAT_INDEX];
         }
 
-        public double getTFat()
+        public string getTFat()
         {
             return nutritionStats[TRANS_FAT_INDEX];
         }
 
-        public double getCholest()
+        public string getCholest()
         {
             return nutritionStats[CHOLEST_INDEX];
         }
-        public double getSodium()
+        public string getSodium()
         {
             return nutritionStats[SODIUM_INDEX];
         }
 
-        public double getTotalCarbs()
+        public string getTotalCarbs()
         {
             return nutritionStats[TOT_CARBS_INDEX];
         }
 
-        public double getFiber()
+        public string getFiber()
         {
             return nutritionStats[FIBER_INDEX];
         }
 
-        public double getTotalSugar()
+        public string getTotalSugar()
         {
             return nutritionStats[TOT_SUGAR_INDEX];
         }
 
-        public double getProtein()
+        public string getProtein()
         {
             return nutritionStats[PROTIEN_INDEX];
         }
