@@ -9,6 +9,17 @@ namespace PA1
     public class Entree 
     {
         // Class invarients:
+        private const uint NUM_OF_SERVINGS_INDEX = 0;
+        private const uint TOTAL_FAT_INDEX = 1;
+        private const uint SAT_FAT_INDEX = 2;
+        private const uint TRANS_FAT_INDEX = 3;
+        private const uint CHOLEST_INDEX = 4;
+        private const uint SODIUM_INDEX = 5;
+        private const uint TOT_CARBS = 6;
+        private const uint FIBER_INDEX = 7;
+        private const uint TOTSUGAR_INDEX = 8;
+        private const uint PROTIEN_INDEX = 9; 
+
         private string name;
         private List<string> ingredients;
         private List<double> nutritionStats;
@@ -71,6 +82,7 @@ namespace PA1
             {
                 Console.WriteLine(nutritionStats[i] + "\n");
             }
+            
         }
 
         public double getNumOfServings()
