@@ -10,15 +10,16 @@ namespace PA1
     {
         // Class invarients:
         private const int NUM_OF_SERVINGS_INDEX = 0;
-        private const int TOTAL_FAT_INDEX = 1;
-        private const int SAT_FAT_INDEX = 2;
-        private const int TRANS_FAT_INDEX = 3;
-        private const int CHOLEST_INDEX = 4;
-        private const int SODIUM_INDEX = 5;
-        private const int TOT_CARBS = 6;
-        private const int FIBER_INDEX = 7;
-        private const int TOTSUGAR_INDEX = 8;
-        private const int PROTIEN_INDEX = 9; 
+        private const int CALORIES_INDEX = 1;
+        private const int TOTAL_FAT_INDEX = 2;
+        private const int SAT_FAT_INDEX = 3;
+        private const int TRANS_FAT_INDEX = 4;
+        private const int CHOLEST_INDEX = 5;
+        private const int SODIUM_INDEX = 6;
+        private const int TOT_CARBS_INDEX = 7;
+        private const int FIBER_INDEX = 8;
+        private const int TOT_SUGAR_INDEX = 9;
+        private const int PROTIEN_INDEX = 10; 
 
         private string name;
         private List<string> ingredients;
@@ -90,53 +91,53 @@ namespace PA1
             return nutritionStats[NUM_OF_SERVINGS_INDEX];
         }
 
-        public uint getCals()
+        public double getCals()
         {
-            return 0;
+            return nutritionStats[CALORIES_INDEX];
         }
 
-        public uint getTotalFat()
+        public double getTotalFat()
         {
-            return 0;
+            return nutritionStats[TOTAL_FAT_INDEX];
         }
 
         public double getSFat()
         {
-            return 0;
+            return nutritionStats[SAT_FAT_INDEX];
         }
 
-        public uint getTFat()
+        public double getTFat()
         {
-            return 0;
+            return nutritionStats[TRANS_FAT_INDEX];
         }
 
-        public uint getCholest()
+        public double getCholest()
         {
-            return 0;
+            return nutritionStats[CHOLEST_INDEX];
         }
-        public uint getSodium()
+        public double getSodium()
         {
-            return 0;
-        }
-
-        public uint getTotalCarbs()
-        {
-            return 0;
+            return nutritionStats[SODIUM_INDEX];
         }
 
-        public uint getFiber()
+        public double getTotalCarbs()
         {
-            return 0;
+            return nutritionStats[TOT_CARBS_INDEX];
         }
 
-        public uint getTotalSugar()
+        public double getFiber()
         {
-            return 0;
+            return nutritionStats[FIBER_INDEX];
         }
 
-        public uint getProtein()
+        public double getTotalSugar()
         {
-            return 0;
+            return nutritionStats[TOT_SUGAR_INDEX];
+        }
+
+        public double getProtein()
+        {
+            return nutritionStats[PROTIEN_INDEX];
         }
 
         public DateTime getExpirationDate()
