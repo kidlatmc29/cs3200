@@ -27,12 +27,13 @@ using PA1;
         {
             string txtLine;
             int lineCount = 1; // used to skip the first line in the .txt file
-        Entree newEntree; 
+            Entree newEntree; 
+
         /*
          * Entree File Fomatting: 
          *  entreeName, number of servings, 
          *  calories, total fat, sat fat, trans fat, cholesteral , sodium, fiber, total sugar, protien, 
-         *  ingredients
+         *  ingredients, contains
          */
 
             if (File.Exists(FILE_NAME))  // check if file exists

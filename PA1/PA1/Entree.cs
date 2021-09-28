@@ -25,29 +25,18 @@ namespace PA1
         private string name;
         private List<string> ingredients;
         private List<string> nutritionStats;
+        private List<string> contains;
         
         private DateTime expirationDate;
         private bool refrigerated;
         private bool needsRefrigeration;
         private bool spoiled; 
-        
-
-        public Entree(string name, List<string> ingredients, List<double> nutritionStats)
-        {
-            this.name = name;
-            this.ingredients = ingredients;
-            this.nutritionStats = nutritionStats;
-
-            expirationDate = createExperiationDate();
-            refrigerated = true;
-            needsRefrigeration = true;
-            spoiled = false;
-        }
 
         public Entree(string txtLine)
         {
             string[] data = txtLine.Split('\t');
-            string[] ingredientsBuffer = data[12].Split('$'); // index of data is assumming the input file was formatting correctly 
+            string[] ingredientsBuffer = data[12].Split('$'); // index of specific data is assumming the input file was formatted correctly 
+            string[] containsBuffer = data[13].Split('$');
 
             name = data[0];
 
@@ -55,11 +44,21 @@ namespace PA1
             {
                 nutritionStats.Add(data[i]);
             }
+
+            for(int i = 0; i < containsBuffer.Length; i++)
+            {
+                contains.Add(containsBuffer[i]);
+            }
+
+            expirationDate = createExpiriationDate();
+
+            spoiled = isSpoiled(); 
+
         }
 
         // PRE:
         // POST:
-        private DateTime createExperiationDate()
+        private DateTime createExpiriationDate()
         {
             Random generator = new Random();
 
@@ -68,6 +67,16 @@ namespace PA1
             int range = (upperBounds - lowerBounds).Days;
 
             return lowerBounds.AddDays(generator.Next(range)); 
+        }
+
+        private bool randBoolGen()
+        {
+            Random generator = new Random();
+            int lowerBounds = 0;
+            int upperBounds = 1;
+            int range = (upperBounds - lowerBounds) + 1;
+
+            return (generator.Next(range) == 1);
         }
     
         // PRE:
