@@ -23,9 +23,9 @@ namespace PA1
         private const int TOTAL_NUTR_STATS = 11; 
 
         private string name;
-        private List<string> ingredients;
-        private List<string> nutritionStats;
-        private List<string> contains;
+        private List<string> ingredients = new List<string>();
+        private List<string> nutritionStats = new List<string>();
+        private List<string> contains = new List<string>();
         
         private DateTime expirationDate;
         private bool needsRefrigeration;
@@ -182,7 +182,8 @@ namespace PA1
             {
                 spoiled = true;
             }
-            return false;
+            spoiled = false;
+            return spoiled;
         }
     }
 }

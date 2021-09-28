@@ -100,3 +100,4 @@ C:\dev\cs3200\PA1\EntreeUnitTest\obj\Release\netcoreapp3.1\EntreeUnitTests.pdb
 C:\dev\cs3200\PA1\EntreeUnitTest\obj\Release\netcoreapp3.1\EntreeUnitTests.genruntimeconfig.cache
 C:\dev\cs3200\PA1\EntreeUnitTest\bin\Release\netcoreapp3.1\P1.cs
 C:\dev\cs3200\PA1\EntreeUnitTest\bin\Release\netcoreapp3.1\EntreesTabDelimited.txt
+C:\dev\cs3200\PA1\EntreeUnitTest\bin\Release\netcoreapp3.1\CookieData.txt

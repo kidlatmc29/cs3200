@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using PA1; 
     class P1
     {
-        public const string FILE_NAME = "CookieData.txt";
+        public const string FILE_NAME = "EntreesTabDelimited.txt";
 
         public static void Main(string[] args)
         {
@@ -17,7 +17,8 @@ using PA1;
 
             readFile(menu);
 
-            menu[0].printIngredients(); 
+            Console.WriteLine(menu[0].getName() + "\n");
+            menu[0].printIngredients();
 
             Console.WriteLine("End of PA 1 \n");
 
@@ -27,7 +28,7 @@ using PA1;
         {
             string txtLine;
             int lineCount = 1; // used to skip the first line in the .txt file
-            Entree newEntree; 
+            
 
         /*
          * Entree File Fomatting: 
@@ -38,13 +39,12 @@ using PA1;
 
             if (File.Exists(FILE_NAME))  // check if file exists
             {
-                Console.WriteLine(FILE_NAME + " exists! \n");
                 StreamReader file = new StreamReader(FILE_NAME); // if file exists open it
                 while((txtLine = file.ReadLine()) != null)  // need to write more specific parsing for members
                 {
                     if (lineCount != 1)
                     {
-                        newEntree = new Entree(txtLine);
+                        Entrees.Add(new Entree(txtLine));
                     }
                  lineCount++;
                 }
@@ -54,5 +54,7 @@ using PA1;
             {
                 Console.WriteLine("File does not exists! :( \n");
             }
+
+            Console.WriteLine("menu length is " + Entrees.Count + "\n");
         }
     }
