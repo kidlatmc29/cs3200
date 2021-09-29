@@ -1,6 +1,12 @@
 ﻿// Isabel Ovalles
 // CPSC 3200
 
+// document your driver:
+// ProgrammingByContract NOT used for drivers
+//DO NOT assume that the reader has access to this assignment specification
+// provide an overview of your program
+// explicitly state ALL assumptions
+
 using System;
 using System.IO;
 using System.Collections.Generic;
@@ -17,8 +23,11 @@ using PA1;
 
             readFile(menu);
 
-            Console.WriteLine(menu[0].getName() + "\n");
-            menu[0].printIngredients();
+            // printEntreeNames(menu);
+
+            getTotalSugar(menu);
+
+            
 
             Console.WriteLine("End of PA 1 \n");
 
@@ -54,7 +63,25 @@ using PA1;
             {
                 Console.WriteLine("File does not exists! :( \n");
             }
+        }
+        
+        public static void printEntreeNames(List<Entree> Entrees)
+        {
+            for(int i = 0; i < Entrees.Count; i++)
+            {
+                Console.WriteLine(Entrees[i].getName() + "\n");
+            }
+        }
 
-            Console.WriteLine("menu length is " + Entrees.Count + "\n");
+        public static void getTotalSugar(List<Entree> Entrees)
+        {
+            Random generator = new Random();
+            int lowerBounds = 0;
+            int upperBounds = Entrees.Count - 1;
+            int range = (upperBounds - lowerBounds);
+
+            int randomEntreeIndex = generator.Next(range);
+           
+            Console.WriteLine(Entrees[randomEntreeIndex].getName() + "\'s Total Sugar is: " + Entrees[randomEntreeIndex].getTotalSugar());
         }
     }

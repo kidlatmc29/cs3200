@@ -29,6 +29,7 @@ namespace PA1
         
         private DateTime expirationDate;
         private bool needsRefrigeration;
+
         private bool refrigerated;
         private bool spoiled; 
 
@@ -86,6 +87,8 @@ namespace PA1
             return lowerBounds.AddDays(generator.Next(range)); 
         }
 
+        // PRE:
+        // POST:
         private bool randBoolGen()
         {
             Random generator = new Random();
@@ -103,6 +106,8 @@ namespace PA1
             return name; 
         }
 
+        // PRE:
+        // POST: 
         public void printIngredients()
         {
             Console.WriteLine("Ingredients:\n"); 
@@ -112,6 +117,8 @@ namespace PA1
             }
         }
 
+        // PRE:
+        // POST: 
         public void printNutritionStats()
         {
             Console.WriteLine("Nutrition Facts:");
