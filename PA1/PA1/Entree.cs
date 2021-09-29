@@ -239,7 +239,7 @@ namespace PA1
         public void powerOut()
         {
             refrigerated = false;
-            if(refrigerated == false && needsRefrigeration == true)
+            if(needsRefrigeration == true)
             {
                 spoiled = true;
             }
