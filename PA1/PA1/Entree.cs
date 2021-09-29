@@ -20,7 +20,9 @@ namespace PA1
         private const int FIBER_INDEX = 8;
         private const int TOT_SUGAR_INDEX = 9;
         private const int PROTIEN_INDEX = 10;
-        private const int TOTAL_NUTR_STATS = 11; 
+        private const int TOTAL_NUTR_STATS = 11;
+
+        private static Random generator = new Random();
 
         private string name;
         private List<string> ingredients = new List<string>();
@@ -78,7 +80,6 @@ namespace PA1
         // POST:
         private DateTime createExpiriationDate()
         {
-            Random generator = new Random();
 
             DateTime lowerBounds = new DateTime(2020, 1, 1); // oldest expiration date is Jan 1st, 2020
             DateTime upperBounds = new DateTime(2030, 1, 1); // latest expiration date is Jan 1st, 2030
@@ -91,7 +92,6 @@ namespace PA1
         // POST:
         private bool randBoolGen()
         {
-            Random generator = new Random();
             int lowerBounds = 0;
             int upperBounds = 1;
             int range = (upperBounds - lowerBounds) + 1;

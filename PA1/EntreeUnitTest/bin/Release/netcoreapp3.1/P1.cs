@@ -19,19 +19,23 @@ using PA1;
         public static void Main(string[] args)
         {
             List<Entree> menu = new List<Entree>();
+            int milkIndex;
             
             Console.WriteLine("Welcome to PA 1 \n");
 
             readFile(menu);
+            milkIndex = 0;
 
             printEntreeNames(menu);
-            getTotalSugar(menu);
-            isPeanutsAnIngredient(menu);
-            isEntreeExpired(menu);
-            isEntreeSpoiled(menu);
+            getTotalSugar(menu, milkIndex);
+            isPeanutsAnIngredient(menu, milkIndex);
+            isEntreeExpired(menu, milkIndex);
+
+            Console.WriteLine("");
+            isEntreeSpoiled(menu, milkIndex);
             powerOutageOnEntrees(menu);
-            checkRefridgeration(menu);
-            isEntreeSpoiled(menu);
+            checkRefridgeration(menu, milkIndex);
+            isEntreeSpoiled(menu, milkIndex);
             
             Console.WriteLine("\nEnd of PA 1\n");
         }
@@ -79,16 +83,13 @@ using PA1;
             Console.WriteLine("");
         }
 
-        public static void getTotalSugar(List<Entree> Entrees)
+        public static void getTotalSugar(List<Entree> Entrees, int index)
         {
-            int index = getRandomEntreeIndex(Entrees);
             Console.WriteLine(Entrees[index].getName() + "\'s Total Sugar is: " + Entrees[index].getTotalSugar());
         }
 
-        public static void isPeanutsAnIngredient(List<Entree> Entrees)
-        {
-            int index = getRandomEntreeIndex(Entrees); 
-
+        public static void isPeanutsAnIngredient(List<Entree> Entrees, int index)
+        { 
             Console.Write(Entrees[index].getName() + " does ");
             if (Entrees[index].hasIngredient("Peanuts") == false)
             {
@@ -106,9 +107,8 @@ using PA1;
             return generator.Next(range);
         }
         
-        public static void isEntreeExpired(List<Entree> Entrees)
+        public static void isEntreeExpired(List<Entree> Entrees, int index)
         {
-            int index = getRandomEntreeIndex(Entrees);
             Console.WriteLine(Entrees[index].getName() + "'s expiration date is: " + Entrees[index].getExpirationDate());
             Console.Write(Entrees[index].getName() + " is ");
             if(Entrees[index].isExpired() == false)
@@ -119,9 +119,8 @@ using PA1;
             Console.WriteLine("");
         }
 
-        public static void isEntreeSpoiled(List<Entree> Entrees)
+        public static void isEntreeSpoiled(List<Entree> Entrees, int index)
         {
-            int index = getRandomEntreeIndex(Entrees);
             if ((Entrees[index].isSpoiled()) == true)
             {
             Console.WriteLine(Entrees[index].getName() + " is spoiled!");
@@ -140,9 +139,8 @@ using PA1;
             }
         }
 
-        public static void checkRefridgeration(List<Entree> Entrees)
+        public static void checkRefridgeration(List<Entree> Entrees, int index)
         {
-            int index = getRandomEntreeIndex(Entrees);
             Console.Write(Entrees[index].getName() + " does ");
             if(Entrees[index].getNeedsRefrigeration() == false)
             {
