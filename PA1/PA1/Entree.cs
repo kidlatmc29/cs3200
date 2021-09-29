@@ -61,6 +61,17 @@ namespace PA1
             spoiled = isSpoiled(); 
 
         }
+        public Entree(string name, List<string> ingredients, List<string> nutritionStats) // only for unit tests
+        {
+            this.name = name;
+            this.ingredients = ingredients;
+            this.nutritionStats = nutritionStats;
+
+            expirationDate = createExpiriationDate();
+            refrigerated = randBoolGen();
+            needsRefrigeration = randBoolGen();
+            spoiled = isSpoiled();
+        }
 
         // PRE:
         // POST:
@@ -111,69 +122,99 @@ namespace PA1
             
         }
 
+        // PRE:
+        // POST:
         public string getNumOfServings()
         {
             return nutritionStats[NUM_OF_SERVINGS_INDEX];
         }
 
+        // PRE:
+        // POST:
         public string getCals()
         {
             return nutritionStats[CALORIES_INDEX];
         }
 
+        // PRE:
+        // POST:
         public string getTotalFat()
         {
             return nutritionStats[TOTAL_FAT_INDEX];
         }
 
+        // PRE:
+        // POST:
         public string getSFat()
         {
             return nutritionStats[SAT_FAT_INDEX];
         }
 
+        // PRE:
+        // POST:
         public string getTFat()
         {
             return nutritionStats[TRANS_FAT_INDEX];
         }
 
+        // PRE:
+        // POST:
         public string getCholest()
         {
             return nutritionStats[CHOLEST_INDEX];
         }
+
+        // PRE:
+        // POST:
         public string getSodium()
         {
             return nutritionStats[SODIUM_INDEX];
         }
 
+        // PRE:
+        // POST:
         public string getTotalCarbs()
         {
             return nutritionStats[TOT_CARBS_INDEX];
         }
 
+        // PRE:
+        // POST:
         public string getFiber()
         {
             return nutritionStats[FIBER_INDEX];
         }
 
+        // PRE:
+        // POST:
         public string getTotalSugar()
         {
             return nutritionStats[TOT_SUGAR_INDEX];
         }
 
+        // PRE:
+        // POST:
         public string getProtein()
         {
             return nutritionStats[PROTIEN_INDEX];
         }
 
+        // PRE:
+        // POST:
         public DateTime getExpirationDate()
         {
             return expirationDate;
         }
+
+        // PRE:
+        // POST:
         public bool isExpired()
         { 
             return (expirationDate < DateTime.Today); 
         }
 
+        // PRE:
+        // POST:
         public bool isSpoiled()
         {
             // if isExpired is true, then spoiled is true
@@ -184,6 +225,17 @@ namespace PA1
             }
             spoiled = false;
             return spoiled;
+        }
+
+        // PRE:
+        // POST:
+        public void powerOut()
+        {
+            refrigerated = false;
+            if(refrigerated == false && needsRefrigeration == true)
+            {
+                spoiled = true;
+            }
         }
     }
 }

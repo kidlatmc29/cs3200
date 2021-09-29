@@ -1,6 +1,12 @@
 ﻿// Isabel Ovalles
 // CPSC 3200
 
+// document your driver:
+// ProgrammingByContract NOT used for drivers
+//DO NOT assume that the reader has access to this assignment specification
+// provide an overview of your program
+// explicitly state ALL assumptions
+
 using System;
 using System.IO;
 using System.Collections.Generic;
