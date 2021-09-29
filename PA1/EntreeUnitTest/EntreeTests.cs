@@ -39,7 +39,7 @@ namespace PA1
             oreoNutr.Add("1");
 
             //Act
-            cookie = new Entree("Oreos", oreoIng, oreoNutr);
+            cookie = new Entree("Oreos", oreoIng, oreoNutr, false, false);
 
             //Assert
             string actual = cookie.getName();
@@ -72,7 +72,7 @@ namespace PA1
             oreoNutr.Add("7");
             oreoNutr.Add("1");
 
-            Entree cookie = new Entree("Oreos", oreoIng, oreoNutr);
+            Entree cookie = new Entree("Oreos", oreoIng, oreoNutr, false, false);
 
             bool expected = cookie.getExpirationDate() < DateTime.Today;
 
@@ -88,11 +88,33 @@ namespace PA1
         public void isMilkSpoiled()
         {
             // Arrange
+            List<string> milkIng = new List<string>();
+            milkIng.Add("Grade A Organic Milk");
+            milkIng.Add("Vitamin D3");
 
+            List<string> milkNutr = new List<string>();
+            milkNutr.Add("1");
+            milkNutr.Add("150");
+            milkNutr.Add("8");
+            milkNutr.Add("5");
+            milkNutr.Add("0");
+            milkNutr.Add("35");
+            milkNutr.Add("130");
+            milkNutr.Add("0");
+            milkNutr.Add("12");
+            milkNutr.Add("8");
+
+            Entree milk = new Entree("Horizon Organic Whole Milk", milkIng, milkNutr, true, false);
+
+            bool expected = true;
             // Act
+
+            bool actual = milk.isSpoiled();
+
             // Assert
+            Assert.AreEqual(actual, expected, "The milk is not spoiled, even though it requires refrigeration!");
         }
-    
+
         [TestMethod]
         public void getCheezItServerings()
         {
@@ -117,7 +139,7 @@ namespace PA1
             cheezNutr.Add("0");
             cheezNutr.Add("3");
 
-            Entree CheezIt = new Entree("Cheez It", cheezIng, cheezNutr);
+            Entree CheezIt = new Entree("Cheez It", cheezIng, cheezNutr, false, false);
             string actual = "1";
 
             string expected = CheezIt.getNumOfServings();
