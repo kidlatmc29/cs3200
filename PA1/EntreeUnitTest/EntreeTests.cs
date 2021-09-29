@@ -10,9 +10,8 @@ namespace PA1
     [TestClass]
     public class EntreeTests
     {
-
         [TestMethod]
-        public void getEntreeCookiName()
+        public void getEntreeCookieName()
         {
             //Arrange 
             string expected = "Oreos";
@@ -38,7 +37,6 @@ namespace PA1
             oreoNutr.Add("1");
             oreoNutr.Add("7");
             oreoNutr.Add("1");
-
 
             //Act
             cookie = new Entree("Oreos", oreoIng, oreoNutr);
@@ -76,23 +74,69 @@ namespace PA1
 
             Entree cookie = new Entree("Oreos", oreoIng, oreoNutr);
 
-           bool expected = cookie.getExpirationDate() < DateTime.Today;
+            bool expected = cookie.getExpirationDate() < DateTime.Today;
 
             // Act
-           bool actual = cookie.isExpired();
-             Console.WriteLine("isExpired: " + actual + "\n");
+            bool actual = cookie.isExpired();
+            Console.WriteLine("isExpired: " + actual + "\n");
 
             // Assert
            Assert.AreEqual(expected, actual, "Should be expired!");
         }
 
         [TestMethod]
-        public void isCookieSpoiled()
+        public void isMilkSpoiled()
         {
             // Arrange
 
             // Act
             // Assert
         }
+    
+        [TestMethod]
+        public void getCheezItServerings()
+        {
+            List<string> cheezIng = new List<string>();
+            cheezIng.Add("Enriched flour (wheat flour, niacin, reduced iron, thiamin mononitrate, roboflavin, folic acid)");
+            cheezIng.Add("vegetable oil (high oleic soybeen, soybean, palm, canola oil)");
+            cheezIng.Add("salt");
+            cheezIng.Add("paprika extract color");
+            cheezIng.Add("yeast");
+            cheezIng.Add("soy lecithin");
+
+            List<string> cheezNutr = new List<string>();
+            cheezNutr.Add("1");
+            cheezNutr.Add("140");
+            cheezNutr.Add("7");
+            cheezNutr.Add("1.5");
+            cheezNutr.Add("0");
+            cheezNutr.Add("0");
+            cheezNutr.Add("210");
+            cheezNutr.Add("16");
+            cheezNutr.Add("0");
+            cheezNutr.Add("0");
+            cheezNutr.Add("3");
+
+            Entree CheezIt = new Entree("Cheez It", cheezIng, cheezNutr);
+            string actual = "1";
+
+            string expected = CheezIt.getNumOfServings();
+
+            Assert.AreEqual(actual, expected, "The number of servings is incorrect!");
+
+        }
+
+        [TestMethod] 
+        public void getCheezItCals()
+        {
+
+        }
+
+        [TestMethod]
+        public void getCheezeItTotalFat()
+        {
+
+        }
     }
+
 }

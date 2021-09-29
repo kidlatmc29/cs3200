@@ -15,27 +15,28 @@ using PA1;
     {
         public const string FILE_NAME = "EntreesTabDelimited.txt";
         private static Random generator = new Random();
-
+        public const int MILK_INDEX = 0;
+        public const int CHEEZIT_INDEX = 8;
+        public const int COOKIE_INDEX = 3;
         public static void Main(string[] args)
         {
             List<Entree> menu = new List<Entree>();
-            int milkIndex;
             
-            Console.WriteLine("Welcome to PA 1 \n");
+
+        Console.WriteLine("Welcome to PA 1 \n");
 
             readFile(menu);
-            milkIndex = 3;
 
             printEntreeNames(menu);
-            getTotalSugar(menu, milkIndex);
-            isPeanutsAnIngredient(menu, milkIndex);
-            isEntreeExpired(menu, milkIndex);
+            getTotalSugar(menu, CHEEZIT_INDEX);
+            isPeanutsAnIngredient(menu, MILK_INDEX);
+            isEntreeExpired(menu, COOKIE_INDEX);
 
             Console.WriteLine("");
-            isEntreeSpoiled(menu, milkIndex);
+            isEntreeSpoiled(menu, MILK_INDEX);
             powerOutageOnEntrees(menu);
-            checkRefridgeration(menu, milkIndex);
-            isEntreeSpoiled(menu, milkIndex);
+            checkRefridgeration(menu, MILK_INDEX);
+            isEntreeSpoiled(menu, MILK_INDEX);
             
             Console.WriteLine("\nEnd of PA 1\n");
         }

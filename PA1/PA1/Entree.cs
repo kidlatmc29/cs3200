@@ -209,6 +209,8 @@ namespace PA1
             return expirationDate;
         }
 
+        // PRE:
+        // POST:
         public bool getNeedsRefrigeration()
         {
             return needsRefrigeration;
@@ -226,7 +228,7 @@ namespace PA1
         public bool isSpoiled()
         {
             // if isExpired is true, then spoiled is true
-            // if isRefrigerated false and requires refridgeration is true
+            // if isRefrigerated false and requires refridgeration is true, then spoiled is true
             if (isExpired() == true || (refrigerated == false && needsRefrigeration == true))
             {
                 spoiled = true;
