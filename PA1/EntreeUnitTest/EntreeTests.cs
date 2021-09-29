@@ -520,15 +520,9 @@ namespace PA1
             Entree peanuts = new Entree("Planters Nuts on the Go Salted Peanuts", nutsIng, nutsNutr, false, false);
             bool expected = true;
 
-            bool actual = peanuts.hasIngredient("peanuts");
+            bool actual = peanuts.hasIngredient("Peanuts");
 
             Assert.AreEqual(expected, actual);
-        }
-        
-        [TestMethod]
-        public void isApplesExpired()
-        {
-
         }
     }
 

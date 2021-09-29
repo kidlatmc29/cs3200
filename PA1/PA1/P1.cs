@@ -24,7 +24,7 @@ using PA1;
             List<Entree> menu = new List<Entree>();
             
 
-        Console.WriteLine("Welcome to PA 1 \n");
+            Console.WriteLine("Welcome to PA 1 \n");
 
             readFile(menu);
 
