@@ -112,7 +112,7 @@ namespace PA1
             bool actual = milk.isSpoiled();
 
             // Assert
-            Assert.AreEqual(actual, expected, "The milk is not spoiled, even though it requires refrigeration!");
+            Assert.AreEqual(expected, actual, "The milk is not spoiled, even though it requires refrigeration!");
         }
 
         [TestMethod]
@@ -140,22 +140,341 @@ namespace PA1
             cheezNutr.Add("3");
 
             Entree CheezIt = new Entree("Cheez It", cheezIng, cheezNutr, false, false);
-            string actual = "1";
+            string expected = "1";
 
-            string expected = CheezIt.getNumOfServings();
+            string actual = CheezIt.getNumOfServings();
 
-            Assert.AreEqual(actual, expected, "The number of servings is incorrect!");
-
+            Assert.AreEqual(expected, actual, "The number of servings is incorrect!");
         }
 
         [TestMethod] 
         public void getCheezItCals()
         {
+            List<string> cheezIng = new List<string>();
+            cheezIng.Add("Enriched flour (wheat flour, niacin, reduced iron, thiamin mononitrate, roboflavin, folic acid)");
+            cheezIng.Add("vegetable oil (high oleic soybeen, soybean, palm, canola oil)");
+            cheezIng.Add("salt");
+            cheezIng.Add("paprika extract color");
+            cheezIng.Add("yeast");
+            cheezIng.Add("soy lecithin");
+
+            List<string> cheezNutr = new List<string>();
+            cheezNutr.Add("1");
+            cheezNutr.Add("140");
+            cheezNutr.Add("7");
+            cheezNutr.Add("1.5");
+            cheezNutr.Add("0");
+            cheezNutr.Add("0");
+            cheezNutr.Add("210");
+            cheezNutr.Add("16");
+            cheezNutr.Add("0");
+            cheezNutr.Add("0");
+            cheezNutr.Add("3");
+
+            Entree CheezIt = new Entree("Cheez It", cheezIng, cheezNutr, false, false);
+            string expected = "140";
+
+            string actual = CheezIt.getCals();
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void getCheezItTotalFat()
+        {
+            List<string> cheezIng = new List<string>();
+            cheezIng.Add("Enriched flour (wheat flour, niacin, reduced iron, thiamin mononitrate, roboflavin, folic acid)");
+            cheezIng.Add("vegetable oil (high oleic soybeen, soybean, palm, canola oil)");
+            cheezIng.Add("salt");
+            cheezIng.Add("paprika extract color");
+            cheezIng.Add("yeast");
+            cheezIng.Add("soy lecithin");
+
+            List<string> cheezNutr = new List<string>();
+            cheezNutr.Add("1");
+            cheezNutr.Add("140");
+            cheezNutr.Add("7");
+            cheezNutr.Add("1.5");
+            cheezNutr.Add("0");
+            cheezNutr.Add("0");
+            cheezNutr.Add("210");
+            cheezNutr.Add("16");
+            cheezNutr.Add("0");
+            cheezNutr.Add("0");
+            cheezNutr.Add("3");
+
+            Entree CheezIt = new Entree("Cheez It", cheezIng, cheezNutr, false, false);
+            string expected = "7";
+
+            string actual = CheezIt.getTotalFat();
+
+            Assert.AreEqual(expected, actual);
+        }
+        
+        [TestMethod]
+        public void getCheezItSFat()
+        {
+            List<string> cheezIng = new List<string>();
+            cheezIng.Add("Enriched flour (wheat flour, niacin, reduced iron, thiamin mononitrate, roboflavin, folic acid)");
+            cheezIng.Add("vegetable oil (high oleic soybeen, soybean, palm, canola oil)");
+            cheezIng.Add("salt");
+            cheezIng.Add("paprika extract color");
+            cheezIng.Add("yeast");
+            cheezIng.Add("soy lecithin");
+
+            List<string> cheezNutr = new List<string>();
+            cheezNutr.Add("1");
+            cheezNutr.Add("140");
+            cheezNutr.Add("7");
+            cheezNutr.Add("1.5");
+            cheezNutr.Add("0");
+            cheezNutr.Add("0");
+            cheezNutr.Add("210");
+            cheezNutr.Add("16");
+            cheezNutr.Add("0");
+            cheezNutr.Add("0");
+            cheezNutr.Add("3");
+
+            Entree CheezIt = new Entree("Cheez It", cheezIng, cheezNutr, false, false);
+            string expected = "1.5";
+
+            string actual = CheezIt.getSFat();
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void getCheezItTFat()
+        {
+            List<string> cheezIng = new List<string>();
+            cheezIng.Add("Enriched flour (wheat flour, niacin, reduced iron, thiamin mononitrate, roboflavin, folic acid)");
+            cheezIng.Add("vegetable oil (high oleic soybeen, soybean, palm, canola oil)");
+            cheezIng.Add("salt");
+            cheezIng.Add("paprika extract color");
+            cheezIng.Add("yeast");
+            cheezIng.Add("soy lecithin");
+
+            List<string> cheezNutr = new List<string>();
+            cheezNutr.Add("1");
+            cheezNutr.Add("140");
+            cheezNutr.Add("7");
+            cheezNutr.Add("1.5");
+            cheezNutr.Add("0");
+            cheezNutr.Add("0");
+            cheezNutr.Add("210");
+            cheezNutr.Add("16");
+            cheezNutr.Add("0");
+            cheezNutr.Add("0");
+            cheezNutr.Add("3");
+
+            Entree CheezIt = new Entree("Cheez It", cheezIng, cheezNutr, false, false);
+            string expected = "0";
+
+            string actual = CheezIt.getTFat();
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void getCheezItCholest()
+        {
+            List<string> cheezIng = new List<string>();
+            cheezIng.Add("Enriched flour (wheat flour, niacin, reduced iron, thiamin mononitrate, roboflavin, folic acid)");
+            cheezIng.Add("vegetable oil (high oleic soybeen, soybean, palm, canola oil)");
+            cheezIng.Add("salt");
+            cheezIng.Add("paprika extract color");
+            cheezIng.Add("yeast");
+            cheezIng.Add("soy lecithin");
+
+            List<string> cheezNutr = new List<string>();
+            cheezNutr.Add("1");
+            cheezNutr.Add("140");
+            cheezNutr.Add("7");
+            cheezNutr.Add("1.5");
+            cheezNutr.Add("0");
+            cheezNutr.Add("0");
+            cheezNutr.Add("210");
+            cheezNutr.Add("16");
+            cheezNutr.Add("0");
+            cheezNutr.Add("0");
+            cheezNutr.Add("3");
+
+            Entree CheezIt = new Entree("Cheez It", cheezIng, cheezNutr, false, false);
+            string expected = "0";
+
+            string actual = CheezIt.getCholest();
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void getCheezItSodium()
+        {
+            List<string> cheezIng = new List<string>();
+            cheezIng.Add("Enriched flour (wheat flour, niacin, reduced iron, thiamin mononitrate, roboflavin, folic acid)");
+            cheezIng.Add("vegetable oil (high oleic soybeen, soybean, palm, canola oil)");
+            cheezIng.Add("salt");
+            cheezIng.Add("paprika extract color");
+            cheezIng.Add("yeast");
+            cheezIng.Add("soy lecithin");
+
+            List<string> cheezNutr = new List<string>();
+            cheezNutr.Add("1");
+            cheezNutr.Add("140");
+            cheezNutr.Add("7");
+            cheezNutr.Add("1.5");
+            cheezNutr.Add("0");
+            cheezNutr.Add("0");
+            cheezNutr.Add("210");
+            cheezNutr.Add("16");
+            cheezNutr.Add("0");
+            cheezNutr.Add("0");
+            cheezNutr.Add("3");
+
+            Entree CheezIt = new Entree("Cheez It", cheezIng, cheezNutr, false, false);
+            string expected = "210";
+
+            string actual = CheezIt.getSodium();
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void getCheezItTotalCarbs()
+        {
+            List<string> cheezIng = new List<string>();
+            cheezIng.Add("Enriched flour (wheat flour, niacin, reduced iron, thiamin mononitrate, roboflavin, folic acid)");
+            cheezIng.Add("vegetable oil (high oleic soybeen, soybean, palm, canola oil)");
+            cheezIng.Add("salt");
+            cheezIng.Add("paprika extract color");
+            cheezIng.Add("yeast");
+            cheezIng.Add("soy lecithin");
+
+            List<string> cheezNutr = new List<string>();
+            cheezNutr.Add("1");
+            cheezNutr.Add("140");
+            cheezNutr.Add("7");
+            cheezNutr.Add("1.5");
+            cheezNutr.Add("0");
+            cheezNutr.Add("0");
+            cheezNutr.Add("210");
+            cheezNutr.Add("16");
+            cheezNutr.Add("0");
+            cheezNutr.Add("0");
+            cheezNutr.Add("3");
+
+            Entree CheezIt = new Entree("Cheez It", cheezIng, cheezNutr, false, false);
+            string expected = "16";
+
+            string actual = CheezIt.getTotalCarbs();
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void getCheezItFiber()
+        {
+            List<string> cheezIng = new List<string>();
+            cheezIng.Add("Enriched flour (wheat flour, niacin, reduced iron, thiamin mononitrate, roboflavin, folic acid)");
+            cheezIng.Add("vegetable oil (high oleic soybeen, soybean, palm, canola oil)");
+            cheezIng.Add("salt");
+            cheezIng.Add("paprika extract color");
+            cheezIng.Add("yeast");
+            cheezIng.Add("soy lecithin");
+
+            List<string> cheezNutr = new List<string>();
+            cheezNutr.Add("1");
+            cheezNutr.Add("140");
+            cheezNutr.Add("7");
+            cheezNutr.Add("1.5");
+            cheezNutr.Add("0");
+            cheezNutr.Add("0");
+            cheezNutr.Add("210");
+            cheezNutr.Add("16");
+            cheezNutr.Add("0");
+            cheezNutr.Add("0");
+            cheezNutr.Add("3");
+
+            Entree CheezIt = new Entree("Cheez It", cheezIng, cheezNutr, false, false);
+            string expected = "0";
+
+            string actual = CheezIt.getFiber();
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void getCheezItTotalSugar()
+        {
+            List<string> cheezIng = new List<string>();
+            cheezIng.Add("Enriched flour (wheat flour, niacin, reduced iron, thiamin mononitrate, roboflavin, folic acid)");
+            cheezIng.Add("vegetable oil (high oleic soybeen, soybean, palm, canola oil)");
+            cheezIng.Add("salt");
+            cheezIng.Add("paprika extract color");
+            cheezIng.Add("yeast");
+            cheezIng.Add("soy lecithin");
+
+            List<string> cheezNutr = new List<string>();
+            cheezNutr.Add("1");
+            cheezNutr.Add("140");
+            cheezNutr.Add("7");
+            cheezNutr.Add("1.5");
+            cheezNutr.Add("0");
+            cheezNutr.Add("0");
+            cheezNutr.Add("210");
+            cheezNutr.Add("16");
+            cheezNutr.Add("0");
+            cheezNutr.Add("0");
+            cheezNutr.Add("3");
+
+            Entree CheezIt = new Entree("Cheez It", cheezIng, cheezNutr, false, false);
+            string expected = "0";
+
+            string actual = CheezIt.getTotalSugar();
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void getCheezItProtien()
+        {
+            List<string> cheezIng = new List<string>();
+            cheezIng.Add("Enriched flour (wheat flour, niacin, reduced iron, thiamin mononitrate, roboflavin, folic acid)");
+            cheezIng.Add("vegetable oil (high oleic soybeen, soybean, palm, canola oil)");
+            cheezIng.Add("salt");
+            cheezIng.Add("paprika extract color");
+            cheezIng.Add("yeast");
+            cheezIng.Add("soy lecithin");
+
+            List<string> cheezNutr = new List<string>();
+            cheezNutr.Add("1");
+            cheezNutr.Add("140");
+            cheezNutr.Add("7");
+            cheezNutr.Add("1.5");
+            cheezNutr.Add("0");
+            cheezNutr.Add("0");
+            cheezNutr.Add("210");
+            cheezNutr.Add("16");
+            cheezNutr.Add("0");
+            cheezNutr.Add("0");
+            cheezNutr.Add("3");
+
+            Entree CheezIt = new Entree("Cheez It", cheezIng, cheezNutr, false, false);
+            string expected = "3";
+
+            string actual = CheezIt.getProtein();
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void doesPopcornHaveChocolate()
+        {
 
         }
 
         [TestMethod]
-        public void getCheezeItTotalFat()
+        public void doesPlanterNutsHavePeanuts()
         {
 
         }
