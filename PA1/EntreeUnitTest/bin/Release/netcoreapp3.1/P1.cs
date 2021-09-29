@@ -24,7 +24,7 @@ using PA1;
             Console.WriteLine("Welcome to PA 1 \n");
 
             readFile(menu);
-            milkIndex = 0;
+            milkIndex = 3;
 
             printEntreeNames(menu);
             getTotalSugar(menu, milkIndex);

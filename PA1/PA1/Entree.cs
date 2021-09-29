@@ -22,8 +22,6 @@ namespace PA1
         private const int PROTIEN_INDEX = 10;
         private const int TOTAL_NUTR_STATS = 11;
 
-        private static Random generator = new Random();
-
         private string name;
         private List<string> ingredients = new List<string>();
         private List<string> nutritionStats = new List<string>();
@@ -60,7 +58,7 @@ namespace PA1
 
             expirationDate = createExpiriationDate();
             needsRefrigeration = randBoolGen();
-            refrigerated = randBoolGen();
+            refrigerated = needsRefrigeration;
             spoiled = isSpoiled(); 
 
         }
@@ -80,7 +78,7 @@ namespace PA1
         // POST:
         private DateTime createExpiriationDate()
         {
-
+            Random generator = new Random();
             DateTime lowerBounds = new DateTime(2020, 1, 1); // oldest expiration date is Jan 1st, 2020
             DateTime upperBounds = new DateTime(2030, 1, 1); // latest expiration date is Jan 1st, 2030
             int range = (upperBounds - lowerBounds).Days;
@@ -92,10 +90,8 @@ namespace PA1
         // POST:
         private bool randBoolGen()
         {
-            int lowerBounds = 0;
-            int upperBounds = 1;
-            int range = (upperBounds - lowerBounds) + 1;
-
+            Random generator = new Random();
+            int range = 2; 
             return (generator.Next(range) == 1);
         }
     
@@ -231,11 +227,14 @@ namespace PA1
         {
             // if isExpired is true, then spoiled is true
             // if isRefrigerated false and requires refridgeration is true
-            if(isExpired() == true || (refrigerated == false && needsRefrigeration == true))
+            if (isExpired() == true || (refrigerated == false && needsRefrigeration == true))
             {
                 spoiled = true;
             }
-            spoiled = false;
+            else
+            {
+                spoiled = false;
+            }
             return spoiled;
         }
 
