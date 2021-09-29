@@ -27,8 +27,7 @@ using PA1;
             printEntreeNames(menu);
             getTotalSugar(menu);
             isPeanutsAnIngredient(menu);
-
-
+            isEntreeExpired(menu);
             
             Console.WriteLine("\nEnd of PA 1\n");
         }
@@ -100,6 +99,27 @@ using PA1;
             int range = (upperBounds - lowerBounds);
 
             return generator.Next(range);
+        }
+        
+        public static void isEntreeExpired(List<Entree> Entrees)
+        {
+            int index = getRandomEntreeIndex(Entrees);
+            Console.Write(Entrees[index].getName() + " is ");
+            if(Entrees[index].isExpired() == false)
+            {
+            Console.Write("not ");
+            }
+            Console.Write("expired.");
+        }
+
+        public static void isEntreeSpoiled(List<Entree> Entrees)
+        {
+            int index = getRandomEntreeIndex(Entrees);
+    }
+
+        public static void powerOutageOnEntrees(List<Entree> Entrees)
+        {
+            int index = getRandomEntreeIndex(Entrees);
         }
 
     }
