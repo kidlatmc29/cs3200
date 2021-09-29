@@ -1,4 +1,5 @@
 ﻿// Isabel Ovalles
+// Entree.cs
 // 09/23/2021
 // CPSC 3200
 
@@ -13,7 +14,7 @@ namespace PA1
         //  -An Entree object holds a list of ingredients, nutrition facts, and contains of allergens
         //  -An Entree object holds an expiration date
         //  -Cannot get any member variable unless Entree is initalized
-        // 
+        
         private const int NUM_OF_SERVINGS_INDEX = 0;
         private const int CALORIES_INDEX = 1;
         private const int TOTAL_FAT_INDEX = 2;

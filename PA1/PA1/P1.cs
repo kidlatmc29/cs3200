@@ -1,12 +1,13 @@
 ﻿// Isabel Ovalles
+// P1.cs
 // 9/23/2021
 // CPSC 3200
 
-// document your driver:
-// ProgrammingByContract NOT used for drivers
-//DO NOT assume that the reader has access to this assignment specification
-// provide an overview of your program
-// explicitly state ALL assumptions
+// Overview: 
+// A list of Entrees is created from the given text file: EntreesTabDelimite.txt
+// Series of tests are called on specific Entrees in the list.
+// Results of each test function is printed out to console. 
+
 
 using System;
 using System.IO;
