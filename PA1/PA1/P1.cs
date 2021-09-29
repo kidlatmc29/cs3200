@@ -29,7 +29,7 @@ using PA1;
             isPeanutsAnIngredient(menu);
             isEntreeExpired(menu);
             isEntreeSpoiled(menu);
-        powerOutageOnEntrees(menu);
+            powerOutageOnEntrees(menu);
             
             Console.WriteLine("\nEnd of PA 1\n");
         }
@@ -113,6 +113,7 @@ using PA1;
             Console.Write("not ");
             }
             Console.Write("expired.");
+            Console.WriteLine("");
         }
 
         public static void isEntreeSpoiled(List<Entree> Entrees)
@@ -136,4 +137,9 @@ using PA1;
             }
         }
 
+        public static void checkRefridgeration(List<Entree> Entrees)
+        {
+            int index = getRandomEntreeIndex(Entrees);
+            Console.WriteLine(Entrees[index].getName() + " does ");
+        }
     }

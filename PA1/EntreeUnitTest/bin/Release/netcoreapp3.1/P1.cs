@@ -28,6 +28,8 @@ using PA1;
             getTotalSugar(menu);
             isPeanutsAnIngredient(menu);
             isEntreeExpired(menu);
+            isEntreeSpoiled(menu);
+            powerOutageOnEntrees(menu);
             
             Console.WriteLine("\nEnd of PA 1\n");
         }
@@ -89,7 +91,7 @@ using PA1;
             {
                 Console.Write("not ");
             }
-            Console.Write("have peanuts \n");
+            Console.Write("have peanuts. \n");
         }
 
         public static int getRandomEntreeIndex(List<Entree> Entrees)
@@ -104,22 +106,35 @@ using PA1;
         public static void isEntreeExpired(List<Entree> Entrees)
         {
             int index = getRandomEntreeIndex(Entrees);
+            Console.WriteLine(Entrees[index].getName() + "'s expiration date is: " + Entrees[index].getExpirationDate());
             Console.Write(Entrees[index].getName() + " is ");
             if(Entrees[index].isExpired() == false)
             {
             Console.Write("not ");
             }
             Console.Write("expired.");
+            Console.WriteLine("");
         }
 
         public static void isEntreeSpoiled(List<Entree> Entrees)
         {
             int index = getRandomEntreeIndex(Entrees);
-    }
+            if ((Entrees[index].isSpoiled()) == true)
+            {
+            Console.WriteLine(Entrees[index].getName() + " is spoiled!");
+            } else
+            {
+            Console.WriteLine(Entrees[index].getName() + " is not spoiled!");
+            }
+        }
 
         public static void powerOutageOnEntrees(List<Entree> Entrees)
         {
-            int index = getRandomEntreeIndex(Entrees);
+            Console.WriteLine("A long power outage has occured!");
+            for(int i = 0; i < Entrees.Count; i++)
+            {
+                Entrees[i].powerOut();
+            }
         }
 
     }

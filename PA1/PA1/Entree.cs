@@ -213,6 +213,11 @@ namespace PA1
             return expirationDate;
         }
 
+        public bool getNeedsRefrigeration()
+        {
+            return needsRefrigeration;
+        }
+
         // PRE:
         // POST:
         public bool isExpired()
