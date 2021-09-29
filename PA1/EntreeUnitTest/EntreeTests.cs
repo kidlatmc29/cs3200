@@ -116,7 +116,7 @@ namespace PA1
         }
 
         [TestMethod]
-        public void getCheezItServerings()
+        public void getCheezItServings()
         {
             List<string> cheezIng = new List<string>();
             cheezIng.Add("Enriched flour (wheat flour, niacin, reduced iron, thiamin mononitrate, roboflavin, folic acid)");
@@ -470,13 +470,60 @@ namespace PA1
         [TestMethod]
         public void doesPopcornHaveChocolate()
         {
+            List<string> popcornIng = new List<string>();
+            popcornIng.Add("Popcorn");
+            popcornIng.Add("Sunflower oil");
+            popcornIng.Add("salt");
 
+            List<string> popcornNutr = new List<string>();
+            popcornNutr.Add("1");
+            popcornNutr.Add("100");
+            popcornNutr.Add("6");
+            popcornNutr.Add("0.5");
+            popcornNutr.Add("0");
+            popcornNutr.Add("9");
+            popcornNutr.Add("45");
+            popcornNutr.Add("9");
+            popcornNutr.Add("9");
+            popcornNutr.Add("0");
+            popcornNutr.Add("2");
+
+            Entree popcorn = new Entree("Skinny Pop Popcorn", popcornIng, popcornNutr, false, false);
+            bool expected = false;
+
+            bool actual = popcorn.hasIngredient("chocolate");
+
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
         public void doesPlanterNutsHavePeanuts()
         {
+            List<string> nutsIng = new List<string>();
+            nutsIng.Add("Peanuts");
+            nutsIng.Add("Peanut and/or Cottonseed oil");
+            nutsIng.Add("sea salt");
 
+            // 1	170	14	2	0	0	95	5	2	1	7
+            List<string> nutsNutr = new List<string>();
+            nutsNutr.Add("1");
+            nutsNutr.Add("170");
+            nutsNutr.Add("14");
+            nutsNutr.Add("2");
+            nutsNutr.Add("0");
+            nutsNutr.Add("0");
+            nutsNutr.Add("95");
+            nutsNutr.Add("5");
+            nutsNutr.Add("2");
+            nutsNutr.Add("1");
+            nutsNutr.Add("7");
+
+            Entree peanuts = new Entree("Planters Nuts on the Go Salted Peanuts", nutsIng, nutsNutr, false, false);
+            bool expected = true;
+
+            bool actual = peanuts.hasIngredient("peanuts");
+
+            Assert.AreEqual(expected, actual);
         }
     }
 
