@@ -75,8 +75,8 @@ namespace PA1
             spoiled = isSpoiled();
         }
 
-        // PRE:
-        // POST:
+        // PRE: N/A
+        // POST: Returns a Datetime object that is in between Jan 1, 2021 to Jan 1, 2030
         private DateTime createExpiriationDate()
         {
             Random generator = new Random();
@@ -87,7 +87,7 @@ namespace PA1
             return lowerBounds.AddDays(generator.Next(range)); 
         }
 
-        // PRE:
+        // PRE: N/A
         // POST:
         private bool randBoolGen()
         {
@@ -96,15 +96,15 @@ namespace PA1
             return (generator.Next(range) == 1);
         }
     
-        // PRE:
-        // POST: 
+        // PRE: N/A
+        // POST: N/A
         public string getName()
         {
             return name; 
         }
 
-        // PRE:
-        // POST: 
+        // PRE: N/A
+        // POST: N/A 
         public void printIngredients()
         {
             Console.WriteLine("Ingredients:\n"); 
@@ -114,8 +114,8 @@ namespace PA1
             }
         }
 
-        // PRE:
-        // POST: 
+        // PRE: N/A
+        // POST: N/A
         public void printNutritionStats()
         {
             Console.WriteLine("Nutrition Facts:");
@@ -126,99 +126,99 @@ namespace PA1
             
         }
 
-        // PRE:
-        // POST:
+        // PRE: N/A
+        // POST: N/A
         public string getNumOfServings()
         {
             return nutritionStats[NUM_OF_SERVINGS_INDEX];
         }
 
-        // PRE:
-        // POST:
+        // PRE: N/A
+        // POST: N/A
         public string getCals()
         {
             return nutritionStats[CALORIES_INDEX];
         }
 
-        // PRE:
-        // POST:
+        // PRE: N/A
+        // POST: N/A
         public string getTotalFat()
         {
             return nutritionStats[TOTAL_FAT_INDEX];
         }
 
-        // PRE:
-        // POST:
+        // PRE: N/A
+        // POST: N/A
         public string getSFat()
         {
             return nutritionStats[SAT_FAT_INDEX];
         }
 
-        // PRE:
-        // POST:
+        // PRE: N/A
+        // POST: N/A
         public string getTFat()
         {
             return nutritionStats[TRANS_FAT_INDEX];
         }
 
-        // PRE:
-        // POST:
+        // PRE: N/A
+        // POST: N/A
         public string getCholest()
         {
             return nutritionStats[CHOLEST_INDEX];
         }
 
-        // PRE:
-        // POST:
+        // PRE: N/A
+        // POST: N/A
         public string getSodium()
         {
             return nutritionStats[SODIUM_INDEX];
         }
 
-        // PRE:
-        // POST:
+        // PRE: N/A
+        // POST: N/A
         public string getTotalCarbs()
         {
             return nutritionStats[TOT_CARBS_INDEX];
         }
 
-        // PRE:
-        // POST:
+        // PRE: N/A
+        // POST: N/A
         public string getFiber()
         {
             return nutritionStats[FIBER_INDEX];
         }
 
-        // PRE:
-        // POST:
+        // PRE: N/A
+        // POST: N/A
         public string getTotalSugar()
         {
             return nutritionStats[TOT_SUGAR_INDEX];
         }
 
-        // PRE:
-        // POST:
+        // PRE: N/A
+        // POST: N/A
         public string getProtein()
         {
             return nutritionStats[PROTIEN_INDEX];
         }
 
-        // PRE:
-        // POST:
+        // PRE: N/A
+        // POST: N/A
         public DateTime getExpirationDate()
         {
             return expirationDate;
         }
 
-        // PRE:
-        // POST:
+        // PRE: N/A
+        // POST: N/A
         public bool getNeedsRefrigeration()
         {
             return needsRefrigeration;
         }
 
         // PRE:
-        // POST:
+        // POST: 
         public bool isExpired()
         { 
             return (expirationDate < DateTime.Today); 
