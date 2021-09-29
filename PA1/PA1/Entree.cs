@@ -244,6 +244,29 @@ namespace PA1
                 spoiled = true;
             }
         }
+
+        // PRE:
+        // POST:
+        public void hasIngredient(string target)
+        {
+            bool foundIngredient = false;
+            
+            if(target == "")
+            {
+                foundIngredient = false; 
+            } else
+            {
+                int count = 0;
+                while(foundIngredient == false && count < ingredients.Count)
+                {
+                    if(target == ingredients[count])
+                    {
+                        foundIngredient = true;
+                    }
+                    count++;
+                }
+            }
+        }
     }
 }
 

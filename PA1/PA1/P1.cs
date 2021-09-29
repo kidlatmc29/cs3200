@@ -25,11 +25,12 @@ using PA1;
 
             // printEntreeNames(menu);
 
-            getTotalSugar(menu);
+            // getTotalSugar(menu);
+
+
 
             
-
-            Console.WriteLine("End of PA 1 \n");
+            Console.WriteLine("\n End of PA 1 \n");
 
         }
 
@@ -75,13 +76,22 @@ using PA1;
 
         public static void getTotalSugar(List<Entree> Entrees)
         {
+            int index = getRandomEntreeIndex(Entrees);
+            Console.WriteLine(Entrees[index].getName() + "\'s Total Sugar is: " + Entrees[index].getTotalSugar());
+        }
+        public static void isChocoAnIngredient(List<Entree> Entrees)
+        {
+
+        }
+
+        public static int getRandomEntreeIndex(List<Entree> Entrees)
+        {
             Random generator = new Random();
             int lowerBounds = 0;
             int upperBounds = Entrees.Count - 1;
             int range = (upperBounds - lowerBounds);
 
-            int randomEntreeIndex = generator.Next(range);
-           
-            Console.WriteLine(Entrees[randomEntreeIndex].getName() + "\'s Total Sugar is: " + Entrees[randomEntreeIndex].getTotalSugar());
+            return generator.Next(range);
         }
+
     }
