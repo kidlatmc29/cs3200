@@ -67,6 +67,7 @@ using PA1;
         
         public static void printEntreeNames(List<Entree> Entrees)
         {
+            Console.WriteLine("All Entrees:");
             for(int i = 0; i < Entrees.Count; i++)
             {
                 Console.WriteLine(Entrees[i].getName());
@@ -99,6 +100,21 @@ using PA1;
             int range = (upperBounds - lowerBounds);
 
             return generator.Next(range);
+        }
+        
+        public static void isEntreeExpired(List<Entree> Entrees)
+        {
+
+        }
+
+        public static void isEntreeSpoiled(List<Entree> Entrees)
+        {
+
+        }
+
+        public static void powerOutageOnEntrees(List<Entree> Entrees)
+        {
+
         }
 
     }

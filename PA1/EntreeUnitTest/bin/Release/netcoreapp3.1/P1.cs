@@ -67,6 +67,7 @@ using PA1;
         
         public static void printEntreeNames(List<Entree> Entrees)
         {
+            Console.WriteLine("All Entrees:");
             for(int i = 0; i < Entrees.Count; i++)
             {
                 Console.WriteLine(Entrees[i].getName());
