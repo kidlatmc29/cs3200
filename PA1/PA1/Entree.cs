@@ -247,7 +247,7 @@ namespace PA1
 
         // PRE:
         // POST:
-        public void hasIngredient(string target)
+        public bool hasIngredient(string target)
         {
             bool foundIngredient = false;
             
@@ -266,6 +266,7 @@ namespace PA1
                     count++;
                 }
             }
+            return foundIngredient;
         }
     }
 }

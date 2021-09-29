@@ -14,6 +14,7 @@ using PA1;
     class P1
     {
         public const string FILE_NAME = "EntreesTabDelimited.txt";
+        private static Random generator = new Random();
 
         public static void Main(string[] args)
         {
@@ -23,14 +24,13 @@ using PA1;
 
             readFile(menu);
 
-            // printEntreeNames(menu);
-
+            printEntreeNames(menu);
             getTotalSugar(menu);
+            isPeanutsAnIngredient(menu);
+
 
             
-
-            Console.WriteLine("End of PA 1 \n");
-
+            Console.WriteLine("\nEnd of PA 1\n");
         }
 
         public static void readFile(List<Entree> Entrees)
@@ -69,19 +69,36 @@ using PA1;
         {
             for(int i = 0; i < Entrees.Count; i++)
             {
-                Console.WriteLine(Entrees[i].getName() + "\n");
+                Console.WriteLine(Entrees[i].getName());
             }
+
+            Console.WriteLine("");
         }
 
         public static void getTotalSugar(List<Entree> Entrees)
         {
-            Random generator = new Random();
+            int index = getRandomEntreeIndex(Entrees);
+            Console.WriteLine(Entrees[index].getName() + "\'s Total Sugar is: " + Entrees[index].getTotalSugar());
+        }
+        public static void isPeanutsAnIngredient(List<Entree> Entrees)
+        {
+            int index = getRandomEntreeIndex(Entrees); 
+
+            Console.Write(Entrees[index].getName() + " does ");
+            if (Entrees[index].hasIngredient("Peanuts") == false)
+            {
+                Console.Write("not ");
+            }
+            Console.Write("have peanuts \n");
+        }
+
+        public static int getRandomEntreeIndex(List<Entree> Entrees)
+        {
             int lowerBounds = 0;
             int upperBounds = Entrees.Count - 1;
             int range = (upperBounds - lowerBounds);
 
-            int randomEntreeIndex = generator.Next(range);
-           
-            Console.WriteLine(Entrees[randomEntreeIndex].getName() + "\'s Total Sugar is: " + Entrees[randomEntreeIndex].getTotalSugar());
+            return generator.Next(range);
         }
+
     }
