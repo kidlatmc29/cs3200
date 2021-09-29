@@ -30,6 +30,8 @@ using PA1;
             isEntreeExpired(menu);
             isEntreeSpoiled(menu);
             powerOutageOnEntrees(menu);
+            checkRefridgeration(menu);
+            isEntreeSpoiled(menu);
             
             Console.WriteLine("\nEnd of PA 1\n");
         }
@@ -82,6 +84,7 @@ using PA1;
             int index = getRandomEntreeIndex(Entrees);
             Console.WriteLine(Entrees[index].getName() + "\'s Total Sugar is: " + Entrees[index].getTotalSugar());
         }
+
         public static void isPeanutsAnIngredient(List<Entree> Entrees)
         {
             int index = getRandomEntreeIndex(Entrees); 
@@ -137,4 +140,14 @@ using PA1;
             }
         }
 
+        public static void checkRefridgeration(List<Entree> Entrees)
+        {
+            int index = getRandomEntreeIndex(Entrees);
+            Console.Write(Entrees[index].getName() + " does ");
+            if(Entrees[index].getNeedsRefrigeration() == false)
+            {
+            Console.Write("not ");
+            }
+            Console.Write("need refrigeration.\n");
+        }
     }
