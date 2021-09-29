@@ -1,14 +1,19 @@
 ﻿// Isabel Ovalles
 // 09/23/2021
+// CPSC 3200
 
 using System;
 using System.Collections.Generic; 
 
 namespace PA1
-{
+{ 
     public class Entree 
     {
-        // Class invarients:
+        // Class and Interface invarients:
+        //  -An Entree object holds a list of ingredients, nutrition facts, and contains of allergens
+        //  -An Entree object holds an expiration date
+        //  -Cannot get any member variable unless Entree is initalized
+        // 
         private const int NUM_OF_SERVINGS_INDEX = 0;
         private const int CALORIES_INDEX = 1;
         private const int TOTAL_FAT_INDEX = 2;
@@ -217,15 +222,15 @@ namespace PA1
             return needsRefrigeration;
         }
 
-        // PRE:
-        // POST: 
+        // PRE: expirationDate is initalized
+        // POST: N/A
         public bool isExpired()
         { 
             return (expirationDate < DateTime.Today); 
         }
 
-        // PRE:
-        // POST:
+        // PRE: N/A
+        // POST: spoiled might be set to true or false depending
         public bool isSpoiled()
         {
             // if isExpired is true, then spoiled is true
@@ -241,8 +246,8 @@ namespace PA1
             return spoiled;
         }
 
-        // PRE:
-        // POST:
+        // PRE: N/A
+        // POST: refrigerated is set to false for the Entree. spoiled maybe set to true.
         public void powerOut()
         {
             refrigerated = false;
@@ -252,7 +257,7 @@ namespace PA1
             }
         }
 
-        // PRE:
+        // PRE: Assuming target is exactly written like it is on the Ingredients list to be found. 
         // POST:
         public bool hasIngredient(string target)
         {
@@ -279,3 +284,5 @@ namespace PA1
 }
 
 // Implementation invarients:
+ // -Given list of ingredients and nutrition facts are assumed ordered correctly
+ // -Cannot get an nutrience fact since index will never be out of range
