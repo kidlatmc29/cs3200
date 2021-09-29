@@ -8,7 +8,6 @@
 // Series of tests are called on specific Entrees in the list.
 // Results of each test function is printed out to console. 
 
-
 using System;
 using System.IO;
 using System.Collections.Generic;
@@ -36,7 +35,7 @@ using PA1;
             isEntreeExpired(menu, COOKIE_INDEX);
 
             Console.WriteLine("");
-            isEntreeSpoiled(menu, MILK_INDEX);
+            isEntreeSpoiled(menu, MILK_INDEX); // testing power outage on an Entre
             powerOutageOnEntrees(menu);
             checkRefridgeration(menu, MILK_INDEX);
             isEntreeSpoiled(menu, MILK_INDEX);

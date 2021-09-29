@@ -94,7 +94,7 @@ namespace PA1
         }
 
         // PRE: N/A
-        // POST:
+        // POST: Return a random boolean 
         private bool randBoolGen()
         {
             Random generator = new Random();
@@ -248,7 +248,7 @@ namespace PA1
         }
 
         // PRE: N/A
-        // POST: refrigerated is set to false for the Entree. spoiled maybe set to true.
+        // POST: refrigerated is set to false for the Entree. spoiled maybe set to true
         public void powerOut()
         {
             refrigerated = false;
@@ -258,8 +258,8 @@ namespace PA1
             }
         }
 
-        // PRE: Assuming target is exactly written like it is on the Ingredients list to be found. 
-        // POST:
+        // PRE: Assuming target is exactly written like it is on the Ingredients list to be found
+        // POST: returns a bool if target is found in Ingredients list
         public bool hasIngredient(string target)
         {
             bool foundIngredient = false;
