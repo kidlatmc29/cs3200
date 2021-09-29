@@ -16,8 +16,9 @@ using PA1;
         public const string FILE_NAME = "EntreesTabDelimited.txt";
         private static Random generator = new Random();
         public const int MILK_INDEX = 0;
-        public const int CHEEZIT_INDEX = 8;
-        public const int COOKIE_INDEX = 3;
+        public const int COOKIE_INDEX = 2;
+        public const int CHEEZIT_INDEX = 7;
+        
         public static void Main(string[] args)
         {
             List<Entree> menu = new List<Entree>();
@@ -97,15 +98,6 @@ using PA1;
                 Console.Write("not ");
             }
             Console.Write("have peanuts. \n");
-        }
-
-        public static int getRandomEntreeIndex(List<Entree> Entrees)
-        {
-            int lowerBounds = 0;
-            int upperBounds = Entrees.Count - 1;
-            int range = (upperBounds - lowerBounds);
-
-            return generator.Next(range);
         }
         
         public static void isEntreeExpired(List<Entree> Entrees, int index)

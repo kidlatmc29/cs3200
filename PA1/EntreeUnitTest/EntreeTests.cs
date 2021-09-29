@@ -504,7 +504,6 @@ namespace PA1
             nutsIng.Add("Peanut and/or Cottonseed oil");
             nutsIng.Add("sea salt");
 
-            // 1	170	14	2	0	0	95	5	2	1	7
             List<string> nutsNutr = new List<string>();
             nutsNutr.Add("1");
             nutsNutr.Add("170");
@@ -524,6 +523,12 @@ namespace PA1
             bool actual = peanuts.hasIngredient("peanuts");
 
             Assert.AreEqual(expected, actual);
+        }
+        
+        [TestMethod]
+        public void isApplesExpired()
+        {
+
         }
     }
 
