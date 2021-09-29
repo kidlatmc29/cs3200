@@ -62,15 +62,16 @@ namespace PA1
             spoiled = isSpoiled(); 
 
         }
-        public Entree(string name, List<string> ingredients, List<string> nutritionStats) // only for unit tests
+        public Entree(string name, List<string> ingredients, List<string> nutritionStats, 
+                       bool needsRefrigeration,  bool refrigerated) // only for unit tests
         {
             this.name = name;
             this.ingredients = ingredients;
             this.nutritionStats = nutritionStats;
 
             expirationDate = createExpiriationDate();
-            refrigerated = randBoolGen();
-            needsRefrigeration = randBoolGen();
+            this.refrigerated = refrigerated;
+            this.needsRefrigeration = needsRefrigeration;
             spoiled = isSpoiled();
         }
 
