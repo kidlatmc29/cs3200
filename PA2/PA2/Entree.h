@@ -13,10 +13,11 @@ class Entree {
 		vector<string> *nutritionStats;
 		vector<string> *contains;
 
-		string experiationDate; 
+		string expirationDate; 
 		
 		bool needsRefridge;
 		bool refrigerated; 
+		bool expired; 
 		bool spoiled;
 		
 		enum nutritionStatIndex
@@ -35,7 +36,7 @@ class Entree {
 	public:
 		// constructor
 		Entree(string name, vector<string> *ingredients, vector<string> *nutrionStats, 
-						vector<string> *contains, bool needsRefridge, bool refrigerated);
+						vector<string> *contains, string expirationDate, bool needsRefridge, bool refrigerated);
 
 		// copy constrtor
 		Entree(const Entree& original);
@@ -43,15 +44,17 @@ class Entree {
 		// deconstructor
 		~Entree();
 
-		bool setIsSpoiled();
+		bool setSpoiled();
 
-		bool getIsSpoiled();
+		bool getSpoiled();
 
 		bool getIsRefridge();
 
 		string getName();
 
-		bool isExpired();
+		bool getExpired();
+
+		bool setExpired();
 
 		void powerOut();
 
