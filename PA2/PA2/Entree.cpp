@@ -20,8 +20,8 @@ Entree::Entree(string name, vector<string> *ingredients, vector<string> *nutrion
 	this->expirationDate = expirationDate;
 	this->needsRefridge = needsRefridge;
 	this->refrigerated = refrigerated;
-	spoiled = setSpoiled();
-	expired = setExpired();
+	setSpoiled();
+	setExpired();
 }
 
 Entree::~Entree()
@@ -47,11 +47,22 @@ Entree::Entree(const Entree& orginal)
 
 }
 
-bool Entree::setSpoiled() 
+void Entree::setSpoiled() 
 {
 	if ((needsRefridge && !refrigerated) || getExpired()) {
 		spoiled = true;
 	}
+}
+
+void Entree::setExpired()
+{
+
+
+}
+
+string Entree::getName()
+{
+	return name;
 }
 
 bool Entree::getSpoiled() 
@@ -68,23 +79,10 @@ bool Entree::getExpired()
 {
 	return expired; 
 }
-string Entree::getName()
-{
-	return name;
-}
-
-bool Entree::setExpired()
-{
-	time_t today = time(0);
-	char* todayChar = ctime(&today);
-
-	char* parseExp = strtok(expirationDate, "/");
-
-	return false;
-}
 
 void Entree::powerOut()
 {
+
 }
 
 bool Entree::hasIngredient(string target)

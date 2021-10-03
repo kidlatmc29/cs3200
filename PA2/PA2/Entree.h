@@ -44,7 +44,9 @@ class Entree {
 		// deconstructor
 		~Entree();
 
-		bool setSpoiled();
+		void setSpoiled();
+
+		void setExpired();
 
 		bool getSpoiled();
 
@@ -54,7 +56,7 @@ class Entree {
 
 		bool getExpired();
 
-		bool setExpired();
+		
 
 		void powerOut();
 
