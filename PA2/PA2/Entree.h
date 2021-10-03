@@ -19,6 +19,18 @@ class Entree {
 		bool refrigerated; 
 		bool spoiled;
 		
+		enum nutritionStatIndex
+		{
+			numOfServings = 0,
+			calories,
+			totalFat,
+			satFat,
+			transFat,
+			cholest,
+			sodium,
+			totalSugar,
+			protein
+		};
 		
 	public:
 		// constructor
@@ -31,5 +43,20 @@ class Entree {
 		// deconstructor
 		~Entree();
 
-		bool isSpoiled();
+		bool setIsSpoiled();
+
+		bool getIsSpoiled();
+
+		bool getIsRefridge();
+
+		string getName();
+
+		bool isExpired();
+
+		void powerOut();
+
+		bool hasIngredient(string target);
+
+// Implementation Invarients:
+
 };

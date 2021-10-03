@@ -16,7 +16,7 @@ Entree::Entree(string name, vector<string> *ingredients, vector<string> *nutrion
 
 	this->needsRefridge = needsRefridge;
 	this->refrigerated = refrigerated;
-	spoiled = isSpoiled();
+	spoiled = setIsSpoiled();
 }
 
 Entree::~Entree()
@@ -26,7 +26,7 @@ Entree::~Entree()
 	nutritionStats->clear();
 	contains->clear();
 
-	// removes memory allocated for vector
+	// removes memory allocated for vectors
 	ingredients->resize(0);
 	nutritionStats->resize(0);
 	contains->resize(0);
@@ -42,11 +42,16 @@ Entree::Entree(const Entree& orginal)
 
 }
 
-
-bool Entree::isSpoiled() 
+bool Entree::setIsSpoiled() 
 {
-	if (needsRefridge && !refrigerated) {
+	if ((needsRefridge && !refrigerated) || isExpired()) {
 		spoiled = true;
 	}
-	return spoiled; 
 }
+
+bool Entree::getIsSpoiled() 
+{
+	return spoiled;
+}
+
+
