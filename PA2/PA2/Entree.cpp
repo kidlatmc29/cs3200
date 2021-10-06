@@ -9,8 +9,8 @@
 
 using namespace std;
 
-Entree::Entree(string name, vector<string> *ingredients, vector<string> *nutrionStats,
-	vector<string> *contains, string expirationDate, bool needsRefridge, bool refrigerated)
+Entree::Entree(string name, string ingredients, string *nutrionStats,
+	string contains, string expirationDate, bool needsRefridge, bool refrigerated)
 {
 	this->name = name;
 	this->ingredients = ingredients;
@@ -26,20 +26,9 @@ Entree::Entree(string name, vector<string> *ingredients, vector<string> *nutrion
 
 Entree::~Entree()
 {
-	// clears contents of vectors
-	ingredients->clear();
-	nutritionStats->clear();
-	contains->clear();
-
-	// removes memory allocated for vectors
-	ingredients->resize(0);
-	nutritionStats->resize(0);
-	contains->resize(0);
-
+	delete[] nutritionStats;
 	// sets pointers to null
-	ingredients = nullptr;
 	nutritionStats = nullptr;
-	contains = nullptr;
 }
 
 Entree::Entree(const Entree& orginal)

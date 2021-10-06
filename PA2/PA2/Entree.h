@@ -9,9 +9,9 @@ class Entree {
 
 	private:
 		string name;
-		vector<string> *ingredients; 
-		vector<string> *nutritionStats;
-		vector<string> *contains;
+		string ingredients; 
+		string *nutritionStats;
+		string contains;
 
 		string expirationDate; 
 		
@@ -35,8 +35,8 @@ class Entree {
 		
 	public:
 		// constructor
-		Entree(string name, vector<string> *ingredients, vector<string> *nutrionStats, 
-						vector<string> *contains, string expirationDate, bool needsRefridge, bool refrigerated);
+		Entree(string name, string ingredients, string *nutrionStats, 
+						string contains, string expirationDate, bool needsRefridge, bool refrigerated);
 
 		// copy constrtor
 		Entree(const Entree& original);
