@@ -56,7 +56,7 @@ class Entree {
 
 		bool getExpired();
 
-		
+		// need to add getters for nutritional facts
 
 		void powerOut();
 

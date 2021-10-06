@@ -57,7 +57,7 @@ void Entree::setSpoiled()
 void Entree::setExpired()
 {
 
-
+	// can we use a const???? 
 }
 
 string Entree::getName()
