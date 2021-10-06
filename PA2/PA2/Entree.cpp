@@ -69,6 +69,11 @@ bool Entree::getExpired()
 	return expired; 
 }
 
+string Entree::getExpirationDate()
+{
+	return expirationDate;
+}
+
 void Entree::powerOut()
 {
 

@@ -1,11 +1,9 @@
-// P2.cpp 
 // Isabel Ovalles
 // Oct 2, 2021
 
-
 #include <iostream>
 #include "Entree.h"
-using namespace std; 
+using namespace std;
 
 int main()
 {
@@ -24,14 +22,9 @@ int main()
   cookieNutr[10] = "2";
   string cookieIng = "Enriched flour(bleached wheat flour, niacin, reduced iron, thiamin mononitrate, roboflavin, folic acid)$vegetable shortening (palm and canola oil [with TBHQ to preserve freshness])$ semi-sweet chocolate chips (sugar, chocolate liquor, cocoa butter, dextrose, milk fat, soy lecithin, natural and artificial flavors)$sugar$high fructose corn syrup$dairy product solids$less 2% of$molasses$fructose$modified corn starch$polydextrose$leavening (baking soda, ammonium bicarbonate)$propylene glycol mono- and diesters of fats and fatty acides, mono- and diglycerides$soy lecithin$salt$eggs$caramel color$natural and artificial flavors";
   string cookieContains = "egg$milk$soy$wheat";
-  
+
   Entree cookie(cookieName, cookieIng,cookieNutr,cookieContains, "5/1/2028", false, false);
   cout << "Welcome to P2" << endl << endl;
   cout << "Creating an Entree..." << endl;
-
-  cout << "Entree Name: " << cookie.getName();
-  cout << "Entree Expiration Date: " << cookie.getExpirationDate(); 
-
-  cout << endl << "End of P2" << endl << endl;
 
 }

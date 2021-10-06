@@ -1,24 +1,22 @@
-// Entree.h 
 // Isabel Ovalles
-
-#include <string>
+// entree.h
 
 class Entree {
-	//Class and Interface invarients: 
+	//Class and Interface invarients:
 
 	private:
 		string name;
-		string ingredients; 
+		string ingredients;
 		string *nutritionStats;
 		string contains;
 
-		string expirationDate; 
-		
+		string expirationDate;
+
 		bool needsRefridge;
-		bool refrigerated; 
-		bool expired; 
+		bool refrigerated;
+		bool expired;
 		bool spoiled;
-		
+
 		enum nutritionStatIndex
 		{
 			numOfServings = 0,
@@ -31,15 +29,15 @@ class Entree {
 			totalSugar,
 			protein
 		};
-		
+
 	public:
 		// constructor
-		Entree(string name, string ingredients, string *nutrionStats, 
+		Entree(string name, string ingredients, string *nutrionStats,
 						string contains, string expirationDate, bool needsRefridge, bool refrigerated);
 
 		// copy constrtor
 		Entree(const Entree& original);
-		
+
 		// deconstructor
 		~Entree();
 
@@ -54,8 +52,6 @@ class Entree {
 		string getName();
 
 		bool getExpired();
-
-		string getExpirationDate();
 
 		// need to add getters for nutritional facts
 
