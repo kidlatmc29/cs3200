@@ -1,7 +1,0 @@
-C:\dev\cs3200\PA1\PA1\bin\Debug\PA1.exe.config
-C:\dev\cs3200\PA1\PA1\bin\Debug\PA1.exe
-C:\dev\cs3200\PA1\PA1\bin\Debug\PA1.pdb
-C:\dev\cs3200\PA1\PA1\obj\Debug\PA1.csproj.AssemblyReference.cache
-C:\dev\cs3200\PA1\PA1\obj\Debug\PA1.csproj.CoreCompileInputs.cache
-C:\dev\cs3200\PA1\PA1\obj\Debug\PA1.exe
-C:\dev\cs3200\PA1\PA1\obj\Debug\PA1.pdb

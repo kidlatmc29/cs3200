@@ -1,6 +1,7 @@
 // Isabel Ovalles
 // entree.h
 
+#include <string>
 class Entree {
 	//Class and Interface invarients:
 
@@ -52,6 +53,8 @@ class Entree {
 		string getName();
 
 		bool getExpired();
+
+    string getExpirationDate();
 
 		// need to add getters for nutritional facts
 
