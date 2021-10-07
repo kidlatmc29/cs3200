@@ -1,67 +1,68 @@
 // Isabel Ovalles
 // entree.h
 
-#include <string>
+#include<string>
+using namespace std;
+
 class Entree {
-	//Class and Interface invarients:
+  //Class and Interface invarients:
+  	private:
+  		string name;
+  		string ingredients;
+  		string *nutritionStats;
+  		string contains;
 
-	private:
-		string name;
-		string ingredients;
-		string *nutritionStats;
-		string contains;
+  		string expirationDate;
 
-		string expirationDate;
+  		bool needsRefridge;
+  		bool refrigerated;
+  		bool expired;
+  		bool spoiled;
 
-		bool needsRefridge;
-		bool refrigerated;
-		bool expired;
-		bool spoiled;
+  		enum nutritionStatIndex
+  		{
+  			numOfServings = 0,
+  			calories,
+  			totalFat,
+  			satFat,
+  			transFat,
+  			cholest,
+  			sodium,
+  			totalSugar,
+  			protein
+  		};
 
-		enum nutritionStatIndex
-		{
-			numOfServings = 0,
-			calories,
-			totalFat,
-			satFat,
-			transFat,
-			cholest,
-			sodium,
-			totalSugar,
-			protein
-		};
+  	public:
+  		// constructor
+  		Entree(string name, string ingredients, string *nutrionStats,
+  						string contains, string expirationDate, bool needsRefridge, bool refrigerated);
 
-	public:
-		// constructor
-		Entree(string name, string ingredients, string *nutrionStats,
-						string contains, string expirationDate, bool needsRefridge, bool refrigerated);
+  		// copy constrtor
+  		Entree(const Entree& original);
 
-		// copy constrtor
-		Entree(const Entree& original);
+  		// deconstructor
+  		~Entree();
 
-		// deconstructor
-		~Entree();
+  		void setSpoiled();
 
-		void setSpoiled();
+  		void setExpired();
 
-		void setExpired();
+  		bool getSpoiled();
 
-		bool getSpoiled();
+  		bool getIsRefridge();
 
-		bool getIsRefridge();
+  		string getName();
 
-		string getName();
+  		bool getExpired();
 
-		bool getExpired();
+  		string getExpirationDate();
 
-    string getExpirationDate();
+  		// need to add getters for nutritional facts
 
-		// need to add getters for nutritional facts
+  		void powerOut();
 
-		void powerOut();
+  		bool hasIngredient(string target);
 
-		bool hasIngredient(string target);
-
-// Implementation Invarients:
+  // Implementation Invarients:
 
 };

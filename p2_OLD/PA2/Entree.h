@@ -2,6 +2,7 @@
 // Isabel Ovalles
 
 #include <string>
+using namespace std; 
 
 class Entree {
 	//Class and Interface invarients: 

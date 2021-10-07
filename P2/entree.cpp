@@ -4,8 +4,6 @@
 #include <iostream>
 #include "entree.h"
 
-using namespace std;
-
 Entree::Entree(string name, string ingredients, string *nutrionStats,
 	string contains, string expirationDate, bool needsRefridge, bool refrigerated)
 {
@@ -58,7 +56,7 @@ bool Entree::getSpoiled()
 
 bool Entree::getIsRefridge()
 {
-	return getIsRefridge;
+	return refrigerated;
 }
 
 bool Entree::getExpired()
