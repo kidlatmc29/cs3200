@@ -9,7 +9,7 @@ using namespace std;
 
 int main()
 {
-  string cookieName = "Grandma's Chocolate Chip Cookies";
+    string cookieName = "Grandma's Chocolate Chip Cookies";
     string* cookieNutr = new string[11]; // 2	200	10	4	0	0	125	25	1	12	2
     cookieNutr[0] = "2";
     cookieNutr[1] = "200";
@@ -31,7 +31,7 @@ int main()
 
     cout << "Entree Name: " << cookie.getName() << endl;
     cout << "Entree Expiration Date: " << cookie.getExpirationDate() << endl;
-    
+
 
     cout << endl << "End of P2" << endl << endl;
 

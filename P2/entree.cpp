@@ -15,8 +15,6 @@ Entree::Entree(string name, string ingredients, string *nutrionStats,
 	this->expirationDate = expirationDate;
 	this->needsRefridge = needsRefridge;
 	this->refrigerated = refrigerated;
-	setSpoiled();
-	setExpired();
 }
 
 Entree::~Entree()
@@ -31,19 +29,6 @@ Entree::Entree(const Entree& orginal)
 
 }
 
-void Entree::setSpoiled()
-{
-	if ((needsRefridge && !refrigerated) || getExpired()) {
-		spoiled = true;
-	}
-}
-
-void Entree::setExpired()
-{
-
-	// can we use a const????
-}
-
 string Entree::getName()
 {
 	return name;
@@ -51,7 +36,7 @@ string Entree::getName()
 
 bool Entree::getSpoiled()
 {
-	return spoiled;
+	return ((needsRefridge && !refrigerated) || getExpired());
 }
 
 bool Entree::getIsRefridge()
@@ -61,7 +46,8 @@ bool Entree::getIsRefridge()
 
 bool Entree::getExpired()
 {
-	return expired;
+	// if date is less than today's day, return true
+	return false;
 }
 
 string Entree::getExpirationDate()

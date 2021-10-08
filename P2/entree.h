@@ -16,8 +16,6 @@ class Entree {
 
   		bool needsRefridge;
   		bool refrigerated;
-  		bool expired;
-  		bool spoiled;
 
   		enum nutritionStatIndex
   		{
@@ -42,10 +40,6 @@ class Entree {
 
   		// deconstructor
   		~Entree();
-
-  		void setSpoiled();
-
-  		void setExpired();
 
   		bool getSpoiled();
 
