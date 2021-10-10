@@ -2,13 +2,14 @@
 // Oct 2, 2021
 
 #include <iostream>
-#include <string>
 #include "entree.h"
 
 using namespace std;
 
 int main()
 {
+    cout << "Welcome to P2" << endl << endl;
+  /*
     string cookieName = "Grandma's Chocolate Chip Cookies";
     string* cookieNutr = new string[11]; // 2	200	10	4	0	0	125	25	1	12	2
     cookieNutr[0] = "2";
@@ -26,13 +27,13 @@ int main()
     string cookieContains = "egg$milk$soy$wheat";
 
     Entree cookie(cookieName, cookieIng,cookieNutr,cookieContains, "5/1/2028", false, false);
-    cout << "Welcome to P2" << endl << endl;
+
     cout << "Creating an Entree..." << endl;
 
     cout << "Entree Name: " << cookie.getName() << endl;
     cout << "Entree Expiration Date: " << cookie.getExpirationDate() << endl;
 
-
+    */
     cout << endl << "End of P2" << endl << endl;
 
 

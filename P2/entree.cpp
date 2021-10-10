@@ -2,14 +2,15 @@
 // entree.cpp
 
 #include <iostream>
+#include <sstream>
 #include "entree.h"
 
-Entree::Entree(string name, string ingredients, string *nutrionStats,
+Entree::Entree(string name, string ingredients, string nutrionStats,
 	string contains, string expirationDate, bool needsRefridge, bool refrigerated)
 {
 	this->name = name;
 	this->ingredients = ingredients;
-	this->nutritionStats = nutrionStats;
+
 	this->contains = contains;
 
 	this->expirationDate = expirationDate;
@@ -19,14 +20,23 @@ Entree::Entree(string name, string ingredients, string *nutrionStats,
 
 Entree::~Entree()
 {
-	delete[] nutritionStats;
-	// sets pointers to null
-	nutritionStats = nullptr;
 }
 
 Entree::Entree(const Entree& orginal)
 {
 
+}
+
+void Entree::setNutritionStats(string stats)
+{
+	stringstream ss(stats);
+	string stat;
+	int count = 0;
+	while (ss >> stat)
+	{
+		nutritionStats[count] = stat;
+		count++;
+	}
 }
 
 string Entree::getName()
