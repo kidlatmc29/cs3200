@@ -6,78 +6,77 @@ using namespace std;
 
 class Entree {
   //Class and Interface invarients:
-  	private:
-      const int NUM_OF_NUTR_STATS = 11;
-  		string name;
-  		string ingredients;
-  		string nutritionStats[NUM_OF_NUTR_STATS];
-  		string contains;
+  private:
+    const int NUM_OF_NUTR_STATS = 11;
+  	string name;
+  	string ingredients;
+  	string nutritionStats[NUM_OF_NUTR_STATS];
+  	string contains;
 
-  		string expirationDate;
+  	string expirationDate;
 
-  		bool needsRefridge;
-  		bool refrigerated;
+  	bool needsRefridge;
+  	bool isRefrigerated;
 
-  		enum nutritionStatIndex
-  		{
-  			NUM_OF_SERVINGS = 0,
-  			CALORIES,
-  			TOTAL_FAT,
-  			SAT_FAT,
-  			TRANS_FAT,
-  			CHOLEST,
-  			SODIUM,
-  			TOTAL_SUGAR,
-  			PROTEIN
-  		};
+  	enum nutritionStatIndex
+  	{
+			NUM_OF_SERVINGS = 0,
+      CALORIES,
+  		TOTAL_FAT,
+  		SAT_FAT,
+  		TRANS_FAT,
+  		CHOLEST,
+  		SODIUM,
+  		TOTAL_SUGAR,
+  		PROTEIN
+  	};
 
-  	public:
-  		// constructor
-  		Entree(string name, string ingredients, string nutrionStats,
-  						string contains, string expirationDate, bool needsRefridge,
-              bool refrigerated);
+  public:
+  	// constructor
+  	Entree(string name, string ingredients, string nutritionStats,
+  				 string contains, string expirationDate, bool needsRefridge,
+           bool refrigerated);
 
-  		// copy constrtor
-  		Entree(const Entree& original);
+  	// copy constrtor
+  	Entree(const Entree& original);
 
-  		// deconstructor
-  		~Entree();
+  	// deconstructor
+  	~Entree();
 
-      void setNutritionStats(string stats);
+    void setNutritionStats(string stats);
 
-  		bool getSpoiled();
+  	bool getSpoiled();
 
-  		bool getIsRefridge();
+  	bool isRefrigerated();
 
-  		string getName();
+  	string getName();
 
-  		bool getExpired();
+  	bool getExpired();
 
-  		string getExpirationDate();
+  	string getExpirationDate();
 
-  		// getters for nutrionStats
-      string getNumOfServings();
+  	// getters for nutrionStats
+    string getNumOfServings();
 
-      string getCalories();
+    string getCalories();
 
-      string getTotalFat();
+    string getTotalFat();
 
-      string getSatFat();
+    string getSatFat();
 
-      string getTransFat();
+    string getTransFat();
 
-      string getCholest();
+    string getCholest();
 
-      string getSodium();
+    string getSodium();
 
-      string getTotalSugar();
+    string getTotalSugar();
 
-      string getProtein();
+    string getProtein();
 
+  	void powerOut();
 
-  		void powerOut();
-
-  		bool hasIngredient(string target);
+  	bool hasIngredient(string target);
 
   // Implementation Invarients:
 

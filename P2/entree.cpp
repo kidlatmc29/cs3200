@@ -5,12 +5,12 @@
 #include <sstream>
 #include "entree.h"
 
-Entree::Entree(string name, string ingredients, string nutrionStats,
+Entree::Entree(string name, string ingredients, string nutritionStats,
 	string contains, string expirationDate, bool needsRefridge, bool refrigerated)
 {
 	this->name = name;
 	this->ingredients = ingredients;
-
+	setNutritionStats(nutritionStats);
 	this->contains = contains;
 
 	this->expirationDate = expirationDate;
@@ -49,7 +49,7 @@ bool Entree::getSpoiled()
 	return ((needsRefridge && !refrigerated) || getExpired());
 }
 
-bool Entree::getIsRefridge()
+bool Entree::isRefrigerated()
 {
 	return refrigerated;
 }
