@@ -49,23 +49,6 @@ string Entree::getName()
 	return name;
 }
 
-bool Entree::getSpoiled()
-{
-	return ((needsRefridge && !isRefrigerated) || getExpired());
-}
-
-bool Entree::getExpired()
-{
-	// if date is less than today's day, return true
-	time_t today = time(0);
-	char *todayChar = ctime(&today);
-
-	// convert char array into string to compare
-	cout << "Today's Date: " << 
-
-	return false;
-}
-
 string Entree::getExpirationDate()
 {
 	return expirationDate;
@@ -119,6 +102,45 @@ string Entree::getProtein()
 void Entree::powerOut()
 {
 	isRefrigerated = false;
+}
+
+bool Entree::isExpired()
+{
+	bool isExpired;
+	// create tm struct from expirationDate
+	struct tm expDate;
+	strptime(expirationDate.c_str(), "%D", &expDate);
+
+	// get current date
+	time_t today = time(0);
+	tm *ltm = localtime(&today);
+
+	//compares expDate with ltm
+	if(expDate.tm_year > ltm->tm_year)
+	{
+		isExpired = false;
+	}
+	else if(expDate.tm_year < ltm->tm_year)
+	{
+		isExpired = true;
+	}
+	else {
+		if(expDate.tm_mon == ltm->tm_mon &&
+			expDate.tm_mday == ltm->tm_mday)
+		{
+			isExpired = true;
+		}
+		else
+		{
+			isExpired = false;
+		}
+	}
+	return isExpired;
+}
+
+bool Entree::isSpoiled()
+{
+	return ((needsRefridge && !isRefrigerated) || isExpired());
 }
 
 bool Entree::hasIngredient(string target)

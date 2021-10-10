@@ -46,11 +46,7 @@ class Entree {
 
     void setNutritionStats(string stats);
 
-  	bool getSpoiled();
-
   	string getName();
-
-  	bool getExpired();
 
   	string getExpirationDate();
 
@@ -74,6 +70,10 @@ class Entree {
     string getProtein();
 
   	void powerOut();
+
+    bool isExpired();
+
+    bool isSpoiled();
 
   	bool hasIngredient(string target);
 

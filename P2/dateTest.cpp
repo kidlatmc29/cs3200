@@ -24,7 +24,6 @@ int main()
   struct tm birthdayStruct;
   strptime("12/25/01", "%D", &birthdayStruct);
 
-
   cout << "My birthday is: " << birthdayStruct.tm_mon + 1 << "/"
        << birthdayStruct.tm_mday << "/"
        << 1900 + birthdayStruct.tm_year << endl;
