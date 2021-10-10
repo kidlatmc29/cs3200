@@ -117,5 +117,13 @@ void Entree::powerOut()
 
 bool Entree::hasIngredient(string target)
 {
-	return false;
+	bool foundIngredient = false;
+	if(target != "") {
+		size_t found = ingredients.find(target);
+		if(found != string::npos)
+		{
+			foundIngredient = true;
+		}
+	}
+	return foundIngredient;
 }

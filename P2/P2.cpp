@@ -6,7 +6,7 @@
 
 using namespace std;
 
-void makeCookieEntree(); 
+void makeCookieEntree();
 
 int main()
 {
@@ -40,4 +40,31 @@ void makeCookieEntree()
    cout << "Sodium: " << cookie.getSodium() << endl;
    cout << "Total Sugar: " << cookie.getTotalSugar() << endl;
    cout << "Protein: " << cookie.getProtein() << endl;
+
+   cout << "Does cookie contain peanuts? ";
+   if(cookie.hasIngredient("peanuts")) {
+     cout << "YES" << endl;
+   }
+   else
+   {
+     cout << "NO" << endl;
+   }
+
+   cout << "Does cookie contain Enriched flour? ";
+   if(cookie.hasIngredient("Enriched flour")) {
+     cout << "YES" << endl;
+   }
+   else
+   {
+     cout << "NO" << endl;
+   }
+
+   cout << "Does cookie contain \"\"? ";
+   if(cookie.hasIngredient("")) {
+     cout << "YES";
+   }
+   else
+   {
+     cout << "NO" << endl;
+   }
  }
