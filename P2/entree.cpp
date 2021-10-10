@@ -6,7 +6,8 @@
 #include "entree.h"
 
 Entree::Entree(string name, string ingredients, string nutritionStats,
-	string contains, string expirationDate, bool needsRefridge, bool refrigerated)
+							 string contains, string expirationDate, bool needsRefridge,
+							 bool isRefrigerated)
 {
 	this->name = name;
 	this->ingredients = ingredients;
@@ -15,7 +16,7 @@ Entree::Entree(string name, string ingredients, string nutritionStats,
 
 	this->expirationDate = expirationDate;
 	this->needsRefridge = needsRefridge;
-	this->refrigerated = refrigerated;
+	this->isRefrigerated = isRefrigerated;
 }
 
 Entree::~Entree()
@@ -24,14 +25,18 @@ Entree::~Entree()
 
 Entree::Entree(const Entree& orginal)
 {
-
+	delete[] nutritionStats;
+	nutritionStats = nullptr;
 }
 
 void Entree::setNutritionStats(string stats)
 {
+	nutritionStats = new string[NUM_OF_NUTR_STATS];
+
 	stringstream ss(stats);
 	string stat;
 	int count = 0;
+
 	while (ss >> stat)
 	{
 		nutritionStats[count] = stat;
@@ -46,12 +51,7 @@ string Entree::getName()
 
 bool Entree::getSpoiled()
 {
-	return ((needsRefridge && !refrigerated) || getExpired());
-}
-
-bool Entree::isRefrigerated()
-{
-	return refrigerated;
+	return ((needsRefridge && !isRefrigerated) || getExpired());
 }
 
 bool Entree::getExpired()
@@ -64,6 +64,9 @@ string Entree::getExpirationDate()
 {
 	return expirationDate;
 }
+
+
+
 
 void Entree::powerOut()
 {

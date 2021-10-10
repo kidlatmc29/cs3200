@@ -10,7 +10,7 @@ class Entree {
     const int NUM_OF_NUTR_STATS = 11;
   	string name;
   	string ingredients;
-  	string nutritionStats[NUM_OF_NUTR_STATS];
+  	string *nutritionStats;
   	string contains;
 
   	string expirationDate;
@@ -47,15 +47,13 @@ class Entree {
 
   	bool getSpoiled();
 
-  	bool isRefrigerated();
-
   	string getName();
 
   	bool getExpired();
 
   	string getExpirationDate();
 
-  	// getters for nutrionStats
+  	// getters for nutr stats
     string getNumOfServings();
 
     string getCalories();
