@@ -21,12 +21,12 @@ Entree::Entree(string name, string ingredients, string nutritionStats,
 
 Entree::~Entree()
 {
+	delete[] nutritionStats;
+	nutritionStats = nullptr;
 }
 
 Entree::Entree(const Entree& orginal)
 {
-	delete[] nutritionStats;
-	nutritionStats = nullptr;
 }
 
 void Entree::setNutritionStats(string stats)
@@ -57,6 +57,12 @@ bool Entree::getSpoiled()
 bool Entree::getExpired()
 {
 	// if date is less than today's day, return true
+	time_t today = time(0);
+	char *todayChar = ctime(&today);
+
+	// convert char array into string to compare
+	cout << "Today's Date: " << 
+
 	return false;
 }
 
@@ -112,7 +118,7 @@ string Entree::getProtein()
 
 void Entree::powerOut()
 {
-
+	isRefrigerated = false;
 }
 
 bool Entree::hasIngredient(string target)
