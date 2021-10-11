@@ -5,6 +5,7 @@ class vendor
 {
   private:
   // members:
+  // vendors have a name!!!
   // some container for Entrees needs to be dynamic, var number
   // each item in stock has a quanity, price and characteristics of that entree?
     // possibily make an array corresponding with those attributes?
