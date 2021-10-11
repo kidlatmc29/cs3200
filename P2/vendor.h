@@ -9,11 +9,12 @@ class vendor
   // each item in stock has a quanity, price and characteristics of that entree?
     // possibily make an array corresponding with those attributes?
     // ex.) Oreos qty:10 price: $1.00
-  Entree *stock; 
+  Entree *stock;
   // is stored in refridge
   bool isRefrigerator;
 
   // behaviors
+  Vendor();
   // load() adds specific num of Entrees
   // sells sells ONE of the items to a specific customer IF they can pay for it
     // NO SELLING SPOILED OR EXPIERED Entrees
