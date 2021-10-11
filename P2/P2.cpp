@@ -13,6 +13,7 @@ int main()
     cout << "Welcome to P2" << endl << endl;
     makeCookieEntree();
     cout << endl << "End of P2" << endl << endl;
+  return 0;
 }
 
 void makeCookieEntree()
@@ -23,7 +24,7 @@ void makeCookieEntree()
    string cookieIng = "Enriched flour(bleached wheat flour, niacin, reduced iron, thiamin mononitrate, roboflavin, folic acid)$vegetable shortening (palm and canola oil [with TBHQ to preserve freshness])$ semi-sweet chocolate chips (sugar, chocolate liquor, cocoa butter, dextrose, milk fat, soy lecithin, natural and artificial flavors)$sugar$high fructose corn syrup$dairy product solids$less 2% of$molasses$fructose$modified corn starch$polydextrose$leavening (baking soda, ammonium bicarbonate)$propylene glycol mono- and diesters of fats and fatty acides, mono- and diglycerides$soy lecithin$salt$eggs$caramel color$natural and artificial flavors";
    string cookieContains = "egg$milk$soy$wheat";
 
-   Entree cookie(cookieName, cookieIng,cookieNutr,cookieContains, "10/10/21",
+   Entree cookie(cookieName, cookieIng,cookieNutr,cookieContains, "10/10/28",
                   false, false);
 
    cout << "Creating an Entree..." << endl << endl;
@@ -71,6 +72,16 @@ void makeCookieEntree()
 
    cout << "Is Cookie expired?" << endl;
    if(cookie.isExpired() == true)
+   {
+     cout << "YES" << endl;
+   }
+   else
+   {
+     cout << "NO" << endl;
+   }
+
+   cout << "Is cookie spoiled?" << endl;
+   if(cookie.isSpoiled() == true)
    {
      cout << "YES" << endl;
    }

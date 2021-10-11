@@ -14,7 +14,7 @@ Entree::Entree(string name, string ingredients, string nutritionStats,
 	setNutritionStats(nutritionStats);
 	this->contains = contains;
 
-	this->expirationDate = expirationDate;
+	this->expirationDate = expirationDate; // assuming MM/DD/YY format
 	this->needsRefridge = needsRefridge;
 	this->isRefrigerated = isRefrigerated;
 }

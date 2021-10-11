@@ -13,9 +13,7 @@ class Entree {
   	string ingredients;
   	string *nutritionStats;
   	string contains;
-
   	string expirationDate;
-
   	bool needsRefridge;
   	bool isRefrigerated;
 
