@@ -30,19 +30,19 @@ class Entree {
   		PROTEIN
   	};
 
-    // supressing copying and assignment operator
-    Entree(const Entree &original);
-    Entree& operator=(const Entree& original);
-
   public:
   	// constructor
   	Entree(string name, string ingredients, string nutritionStats,
   				 string contains, string expirationDate, bool needsRefridge,
            bool isRefrigerated);
 
-    // no parama constructor
+    // no param constructor
     Entree();
-    
+
+    // supressing copying and assignment operator
+    Entree(const Entree &original);
+    Entree& operator=(const Entree& original);
+
   	// move constructor
   	Entree(Entree&& original);
 

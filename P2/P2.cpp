@@ -124,7 +124,7 @@ void testingEntreeMove()
   Entree cookie(cookieName, cookieIng,cookieNutr,cookieContains, "10/10/28",
                   false, false);
 
-  Entree newCookie();
+  Entree newCookie("", "", "", "", "", false, false);
 
   newCookie = cookie;
 
