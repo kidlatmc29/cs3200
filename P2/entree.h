@@ -40,6 +40,9 @@ class Entree {
   				 string contains, string expirationDate, bool needsRefridge,
            bool isRefrigerated);
 
+    // no parama constructor
+    Entree();
+    
   	// move constructor
   	Entree(Entree&& original);
 

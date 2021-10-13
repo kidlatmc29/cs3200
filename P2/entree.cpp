@@ -19,6 +19,17 @@ Entree::Entree(string name, string ingredients, string nutritionStats,
 	this->isRefrigerated = isRefrigerated;
 }
 
+Entree::Entree()
+{
+	name = "";
+	ingredients = "";
+	nutritionStats = nullptr;
+	contains = "";
+	expirationDate = "";
+	needsRefridge = false;
+	isRefrigerated = false;
+}
+
 Entree::Entree(Entree&& original)
 {
 	name = original.name;
