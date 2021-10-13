@@ -8,11 +8,14 @@ using namespace std;
 
 void makeCookieEntree();
 
+void makeVendingMachine();
+
 int main()
 {
-    cout << "Welcome to P2" << endl << endl;
-    makeCookieEntree();
-    cout << endl << "End of P2" << endl << endl;
+  cout << "Welcome to P2" << endl << endl;
+  makeCookieEntree();
+  makeVendingMachine();
+  cout << endl << "End of P2" << endl << endl;
   return 0;
 }
 
@@ -89,4 +92,25 @@ void makeCookieEntree()
   {
     cout << "NO" << endl;
   }
+}
+
+void makeVendingMachine()
+{
+  string cookieName = "Grandma's Chocolate Chip Cookies";
+  string cookieNutr = "2 200 10 4 0 0 125 25 1 12 2";
+  string cookieIng = "Enriched flour(bleached wheat flour, niacin, reduced iron, thiamin mononitrate, roboflavin, folic acid)$vegetable shortening (palm and canola oil [with TBHQ to preserve freshness])$ semi-sweet chocolate chips (sugar, chocolate liquor, cocoa butter, dextrose, milk fat, soy lecithin, natural and artificial flavors)$sugar$high fructose corn syrup$dairy product solids$less 2% of$molasses$fructose$modified corn starch$polydextrose$leavening (baking soda, ammonium bicarbonate)$propylene glycol mono- and diesters of fats and fatty acides, mono- and diglycerides$soy lecithin$salt$eggs$caramel color$natural and artificial flavors";
+  string cookieContains = "egg$milk$soy$wheat";
+  Entree cookie(cookieName, cookieIng,cookieNutr,cookieContains, "10/10/28",
+                  false, false);
+
+  string pieName = "Apple Pie";
+  string pieNutr = "3 100 12 1 0 0 126 28 1 19 0";
+  string pieIng = "Apples (Apples, Ascorbic Acid, Salt, Citric Acid), Enriched Flour (Bleached Wheat Flour, Niacin, Reduced Iron, Thiamine Mononitrate, Riboflavin, Folic Acid), Sugar, Palm Oil, Water, Apple Juice Concentrate, Modified Food Starch, Invert Syrup, Contains 2% or Less: Yeast, Salt, Cinnamon, Sunflower Lecithin, L-cysteine (Dough Conditioner), Yeast Extract, Enzyme, Beta-carotene (Color)";
+  string pieContains = "wheat";
+  Entree pie(pieName, pieNutr, pieIng, pieContains, "11/12/30", true, true);
+
+  Vendor snacks("Snack Machine", true);
+
+  
+
 }
