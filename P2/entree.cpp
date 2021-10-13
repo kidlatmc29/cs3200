@@ -19,20 +19,18 @@ Entree::Entree(string name, string ingredients, string nutritionStats,
 	this->isRefrigerated = isRefrigerated;
 }
 
-/**
-Entree::Entree(const Entree &&original) : _name(""), _ingredients(""),
-			_nutritionStats(nullptr), _contains(""), _expirationDate(""),
-			_needsRefridge(false), _isRefrigerated(false)
-{
-	_name = original.name;
-	_ingredients = original.ingredients;
-	_nutritionStats = other.nutritionStats;
-	_contains = original.contains;
-	_expirationDate = original.expirationDate;
-	_needsRefridge = original.needsRefridge;
-	_isRefrigerated = original.isRefrigerated;
 
-	orginal.name = "";
+Entree::Entree(Entree&& original)
+{
+	name = original.name;
+	ingredients = original.ingredients;
+	nutritionStats = original.nutritionStats;
+	contains = original.contains;
+	expirationDate = original.expirationDate;
+	needsRefridge = original.needsRefridge;
+	isRefrigerated = original.isRefrigerated;
+
+	original.name = "";
 	original.ingredients = "";
 	original.nutritionStats = nullptr;
 	original.contains = "";
@@ -40,7 +38,21 @@ Entree::Entree(const Entree &&original) : _name(""), _ingredients(""),
 	original.needsRefridge = false;
 	original.isRefrigerated = false;
 }
-**/ 
+
+Entree& Entree::operator=(const Entree& original)
+{
+	if(&original != this)
+	{
+		name = original.name;
+		ingredients = original.ingredients;
+		nutritionStats = original.nutritionStats;
+		contains = original.contains;
+		expirationDate = original.expirationDate;
+		needsRefridge = original.needsRefridge;
+		isRefrigerated = original.isRefrigerated;
+	}
+	return *this;
+}
 
 Entree::~Entree()
 {
