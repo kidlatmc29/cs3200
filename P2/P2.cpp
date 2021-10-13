@@ -9,12 +9,14 @@ using namespace std;
 
 void makeCookieEntree();
 void testingEntreeMove();
+void testingEntreeDefaultCtor();
 void makeVendingMachine();
 
 int main()
 {
   cout << "Welcome to P2" << endl << endl;
-  testingEntreeMove();
+
+   testingEntreeMove();
   // makeCookieEntree();
   // makeVendingMachine();
   cout << endl << "End of P2" << endl << endl;
@@ -124,7 +126,7 @@ void testingEntreeMove()
   Entree cookie(cookieName, cookieIng,cookieNutr,cookieContains, "10/10/28",
                   false, false);
 
-  Entree newCookie("", "", "", "", "", false, false);
+  Entree newCookie;
 
   newCookie = cookie;
 
