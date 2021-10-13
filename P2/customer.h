@@ -1,7 +1,7 @@
 // customer.h
 // Isabel Ovalles
 
-class customer
+class Customer
 {
   private:
     uint accountNum;
@@ -12,7 +12,7 @@ class customer
   // customers can add money to their account
 
   public:
-    Customer();
+    Customer(int accountNum = 0000, double currentBalance = 0.0);
 
     ~Customer();
 

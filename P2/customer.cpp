@@ -4,7 +4,7 @@
 #include<iostream>
 #include "customer.h"
 
-Customer::Customer(int accountNum = 0000, double currentBalance = 0.0)
+Customer::Customer(int accountNum, double currentBalance)
 {
   this->accountNum = accountNum;
   this->currentBalance = currentBalance;
