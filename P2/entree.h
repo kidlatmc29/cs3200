@@ -43,7 +43,8 @@ class Entree {
   	// move constructor
   	Entree(Entree&& original);
 
-
+    // move assignment
+    Entree& operator=(const Entree&& original);
 
   	// deconstructor
   	~Entree();

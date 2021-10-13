@@ -39,7 +39,7 @@ Entree::Entree(Entree&& original)
 	original.isRefrigerated = false;
 }
 
-Entree& Entree::operator=(const Entree& original)
+Entree& Entree::operator=(const Entree&& original)
 {
 	if(&original != this)
 	{
@@ -53,7 +53,7 @@ Entree& Entree::operator=(const Entree& original)
 	}
 	return *this;
 }
-
+ 
 Entree::~Entree()
 {
 	delete[] nutritionStats;
