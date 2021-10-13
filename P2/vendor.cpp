@@ -36,6 +36,7 @@ void Vendor::load(Entree newItem, int qty, double price)
     quanties[totalItems] = qty;
     prices[totalItems] = price;
   }
+}
 
 void Vendor::resize()
 {
@@ -68,5 +69,5 @@ void Vendor::resize()
   quanties = resizeQuanties;
   prices = resizePrices;
 
-  currentSize = newSize; 
+  currentSize = newSize;
 }

@@ -3,18 +3,18 @@
 
 #include <iostream>
 #include "entree.h"
+// #include "vendor.h"
 
 using namespace std;
 
 void makeCookieEntree();
-
 void makeVendingMachine();
 
 int main()
 {
   cout << "Welcome to P2" << endl << endl;
   makeCookieEntree();
-  makeVendingMachine();
+  // makeVendingMachine();
   cout << endl << "End of P2" << endl << endl;
   return 0;
 }
@@ -109,8 +109,8 @@ void makeVendingMachine()
   string pieContains = "wheat";
   Entree pie(pieName, pieNutr, pieIng, pieContains, "11/12/30", true, true);
 
-  Vendor snacks("Snack Machine", true);
+//  Vendor snacks("Snack Machine", true);
 
-  
+
 
 }

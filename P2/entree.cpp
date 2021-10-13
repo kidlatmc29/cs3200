@@ -19,14 +19,32 @@ Entree::Entree(string name, string ingredients, string nutritionStats,
 	this->isRefrigerated = isRefrigerated;
 }
 
+Entree::Entree(const Entree &&original) : _name(""), _ingredients(""),
+			_nutritionStats(nullptr), _contains(""), _expirationDate(""),
+			_needsRefridge(false), _isRefrigerated(false)
+{
+	_name = original.name;
+	_ingredients = original.ingredients;
+	_nutritionStats = other.nutritionStats;
+	_contains = original.contains;
+	_expirationDate = original.expirationDate;
+	_needsRefridge = original.needsRefridge;
+	_isRefrigerated = original.isRefrigerated;
+
+	orginal.name = "";
+	original.ingredients = "";
+	original.nutritionStats = nullptr;
+	original.contains = "";
+	original.expirationDate = "";
+	original.needsRefridge = false;
+	original.isRefrigerated = false; 
+
+}
+
 Entree::~Entree()
 {
 	delete[] nutritionStats;
 	nutritionStats = nullptr;
-}
-
-Entree::Entree(const Entree& orginal)
-{
 }
 
 void Entree::setNutritionStats(string stats)

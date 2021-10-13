@@ -1,6 +1,9 @@
 // vendor.h
 // Isabel Ovalles
 
+#include <string>
+#include "entree.h"
+
 class Vendor
 {
   private:
