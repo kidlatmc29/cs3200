@@ -36,11 +36,12 @@ class Entree {
   				 string contains, string expirationDate, bool needsRefridge,
            bool isRefrigerated);
 
+/**
   	// move constructor
   	Entree(const Entree&& original) : {_name(""), _ingredients(""),
     			_nutritionStats(nullptr), _contains(""), _expirationDate(""),
     			_needsRefridge(false), _isRefrigerated(false)};
-
+**/ 
   	// deconstructor
   	~Entree();
 
