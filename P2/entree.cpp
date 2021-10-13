@@ -19,7 +19,6 @@ Entree::Entree(string name, string ingredients, string nutritionStats,
 	this->isRefrigerated = isRefrigerated;
 }
 
-
 Entree::Entree(Entree&& original)
 {
 	name = original.name;
@@ -53,7 +52,7 @@ Entree& Entree::operator=(const Entree&& original)
 	}
 	return *this;
 }
- 
+
 Entree::~Entree()
 {
 	delete[] nutritionStats;
