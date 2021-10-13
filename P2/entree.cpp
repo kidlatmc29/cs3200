@@ -116,47 +116,84 @@ string Entree::getExpirationDate()
 
 string Entree::getNumOfServings()
 {
-	return nutritionStats[NUM_OF_SERVINGS];
+	string servings = "";
+	if(nutritionStats != nullptr) {
+		servings = nutritionStats[NUM_OF_SERVINGS];
+	}
+
+	return servings;
 }
 
 string Entree::getCalories()
 {
-	return nutritionStats[CALORIES];
+	string calories = "";
+	if(nutritionStats != nullptr) {
+		calories = nutritionStats[CALORIES];
+	}
+	return calories;
 }
 
 string Entree::getTotalFat()
 {
-	return nutritionStats[TOTAL_FAT];
+	string totalFat = "";
+	if(nutritionStats != nullptr) {
+		totalFat = nutritionStats[TOTAL_FAT];
+	}
+	return totalFat;
 }
 
 string Entree::getSatFat()
 {
-	return nutritionStats[SAT_FAT];
+	string satFat = "";
+	if(nutritionStats != nullptr) {
+		satFat = nutritionStats[SAT_FAT];
+	}
+	return satFat;
 }
 
 string Entree::getTransFat()
 {
-	return nutritionStats[TRANS_FAT];
+	string transFat = "";
+	if(nutritionStats != nullptr) {
+		transFat = nutritionStats[TRANS_FAT];
+	}
+	return transFat;
 }
 
 string Entree::getCholest()
 {
-	return nutritionStats[CHOLEST];
+	string cholest = "";
+	if(nutritionStats != nullptr) {
+		cholest = nutritionStats[CHOLEST];
+	}
+	return cholest;
 }
 
 string Entree::getSodium()
 {
-	return nutritionStats[SODIUM];
+	string sodium = "";
+	if(nutritionStats != nullptr) {
+		sodium = nutritionStats[SODIUM];
+	}
+	return sodium;
 }
 
 string Entree::getTotalSugar()
 {
-	return nutritionStats[TOTAL_SUGAR];
+	string totalSugar = "";
+	if(nutritionStats != nullptr) {
+		totalSugar = nutritionStats[TOTAL_SUGAR];
+	}
+	return totalSugar;
 }
 
 string Entree::getProtein()
 {
-	return nutritionStats[PROTEIN];
+	string protein = "";
+	if(nutritionStats != nullptr) {
+		protein = nutritionStats[PROTEIN];
+	}
+	return protein;
 }
 
 void Entree::powerOut()

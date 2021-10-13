@@ -9,15 +9,14 @@ using namespace std;
 
 void makeCookieEntree();
 void testingEntreeMove();
-void testingEntreeDefaultCtor();
 void makeVendingMachine();
 
 int main()
 {
   cout << "Welcome to P2" << endl << endl;
 
-   testingEntreeMove();
-  // makeCookieEntree();
+   // testingEntreeMove();
+   makeCookieEntree();
   // makeVendingMachine();
   cout << endl << "End of P2" << endl << endl;
   return 0;
