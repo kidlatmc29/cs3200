@@ -30,6 +30,23 @@ Entree::Entree()
 	isRefrigerated = false;
 }
 
+Entree::Entree(const Entree &original)
+{
+	name = original.name;
+	ingredients = original.ingredients;
+	string *newNutrStats = new string[NUM_OF_NUTR_STATS];
+	for(int i = NUM_OF_NUTR_STATS; i < NUM_OF_NUTR_STATS; i++)
+	{
+		newNutrStats[i] = original.nutritionStats[i];
+	}
+	delete [] nutritionStats;
+	nutritionStats = newNutrStats;
+	contains = original.contains;
+	expirationDate = original.expirationDate;
+	needsRefridge = original.needsRefridge;
+	isRefrigerated = original.isRefrigerated;
+}
+
 Entree& Entree::operator=(const Entree& original)
 {
 	if(&original != this)
@@ -41,6 +58,8 @@ Entree& Entree::operator=(const Entree& original)
 		{
 			newNutrStats[i] = original.nutritionStats[i];
 		}
+		delete [] nutritionStats;
+		nutritionStats = newNutrStats;
 		contains = original.contains;
 		expirationDate = original.expirationDate;
 		needsRefridge = original.needsRefridge;

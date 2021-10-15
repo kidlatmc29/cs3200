@@ -39,8 +39,10 @@ class Entree {
     // no param constructor
     Entree();
 
-    // supressing copying and assignment operator
+    // deep copy ctor
     Entree(const Entree &original);
+
+    // deep copy assignment operator
     Entree& operator=(const Entree& original);
 
   	// move constructor
@@ -86,5 +88,4 @@ class Entree {
   	bool hasIngredient(string target);
 
   // Implementation Invarients:
-
 };

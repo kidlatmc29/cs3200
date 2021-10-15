@@ -2,8 +2,7 @@
 // Oct 2, 2021
 
 #include <iostream>
-#include "entree.h"
-// #include "vendor.h"
+#include "vendor.h"
 
 using namespace std;
 
@@ -15,9 +14,9 @@ int main()
 {
   cout << "Welcome to P2" << endl << endl;
 
-   // testingEntreeMove();
-   makeCookieEntree();
-  // makeVendingMachine();
+  // testingEntreeMove();
+  // makeCookieEntree();
+  makeVendingMachine();
   cout << endl << "End of P2" << endl << endl;
   return 0;
 }
@@ -112,7 +111,9 @@ void makeVendingMachine()
   string pieContains = "wheat";
   Entree pie(pieName, pieNutr, pieIng, pieContains, "11/12/30", true, true);
 
-//  Vendor snacks("Snack Machine", true);
+  Vendor snacks("Snack Machine", true);
+  snacks.load(pie, 5, 3.00);
+
 
 }
 
