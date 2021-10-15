@@ -11,7 +11,7 @@ class Vendor
     // members:
     struct Item
     {
-      Entree food;
+      Entree *food;
       unsigned int qty;
       double price;
     };
@@ -33,7 +33,7 @@ class Vendor
 
     ~Vendor();
 
-  //  void load(Entree newItem, int qty, double price);
+    void load(Entree *food, int qty, double price);
     // adds specific num of Entrees
 
     // sells sells ONE of the items to a specific customer IF they can pay for it
