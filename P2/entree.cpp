@@ -39,8 +39,9 @@ Entree::Entree(const Entree &original)
 	{
 		newNutrStats[i] = original.nutritionStats[i];
 	}
-	delete [] nutritionStats;
+	delete[] nutritionStats;
 	nutritionStats = newNutrStats;
+
 	contains = original.contains;
 	expirationDate = original.expirationDate;
 	needsRefridge = original.needsRefridge;
@@ -58,8 +59,9 @@ Entree& Entree::operator=(const Entree& original)
 		{
 			newNutrStats[i] = original.nutritionStats[i];
 		}
-		delete [] nutritionStats;
+		delete[] nutritionStats;
 		nutritionStats = newNutrStats;
+
 		contains = original.contains;
 		expirationDate = original.expirationDate;
 		needsRefridge = original.needsRefridge;

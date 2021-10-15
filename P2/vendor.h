@@ -9,7 +9,6 @@ class Vendor
   private:
     const int INITIAL_SIZE = 10;
     // members:
-    string name;
     struct Item
     {
       Entree food;
@@ -19,6 +18,7 @@ class Vendor
 
     Item *stock;
 
+    string name;
     int totalItems;
     int currentSize;
     bool isRefrigerator;
@@ -29,11 +29,11 @@ class Vendor
 
   public:
     // behaviors
-    Vendor(string name = "New_Vendor", bool isRefrigerator = false);
+    Vendor(string name, bool isRefrigerator);
 
     ~Vendor();
 
-    void load(Entree newItem, int qty, double price);
+  //  void load(Entree newItem, int qty, double price);
     // adds specific num of Entrees
 
     // sells sells ONE of the items to a specific customer IF they can pay for it
@@ -48,4 +48,6 @@ class Vendor
       // spoiled or expired
 
       // deep copying must be supported
+
+      string getName();
 };

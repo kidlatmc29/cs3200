@@ -15,10 +15,11 @@ Vendor::Vendor(string name, bool isRefrigerator)
 
 Vendor::~Vendor()
 {
-  delete[] stock;
-  stock = nullptr;
+    delete[] stock;
+    stock = nullptr;
 }
 
+/**
 void Vendor::load(Entree food, int qty, double price)
 {
   Item newItem;
@@ -34,8 +35,14 @@ void Vendor::load(Entree food, int qty, double price)
 
   totalItems++;
 }
+**/
 
 void Vendor::resize()
 {
 
+}
+
+string Vendor::getName()
+{
+  return name;
 }
