@@ -6,44 +6,35 @@
 Vendor::Vendor(string name, bool isRefrigerator)
 {
   this->name = name;
-  this->isRefrigerator = isRefrigerator;
+  this-> isRefrigerator = isRefrigerator;
 
-  stock = new Item[INITIAL_SIZE];
-  totalItems = 0;
-  currentSize = INITIAL_SIZE;
+  head = nullptr;
+  size = 0;
+}
+
+Vendor::vendorNode::vendorNode(Entree food, int qty, float price)
+{
+  this->food = food;
+  this->qty = qty;
+  this->price = price;
 }
 
 Vendor::~Vendor()
 {
-    for(int i = 0; i < totalItems; i++)
-    {
-      
-    }
-    delete[] stock;
-    stock = nullptr;
-}
+  vendorNode *nPtr = head;
+  vendorNode *nextPtr;
 
-void Vendor::load(Entree *food, int qty, double price)
-{
-  Item newItem;
-
-  if(totalItems + 1 > currentSize)
+  while(nPtr)
   {
-    resize();
+    nextPtr = nPtr->next;
+    delete nPtr;
+    nPtr = nextPtr;
   }
-
-  newItem.food = food;
-  newItem.qty = qty;
-  newItem.price = price;
-
-  stock[totalItems] = newItem;
-
-  totalItems++;
+  head = nullptr;
 }
 
-void Vendor::resize()
+void Vendor::load(Entree food, int qty, double price)
 {
-
 }
 
 string Vendor::getName()

@@ -7,33 +7,31 @@
 class Vendor
 {
   private:
-    const int INITIAL_SIZE = 10;
     // members:
-    struct Item
-    {
-      Entree *food;
-      unsigned int qty;
-      double price;
-    };
-
-    Item *stock;
-
     string name;
-    int totalItems;
-    int currentSize;
     bool isRefrigerator;
+    int size;
 
     // utility functions
-    // resize array
-    void resize();
 
   public:
+    class vendorNode{
+      public:
+        vendorNode(Entree food, int qty, float price);
+        Entree food;
+        int qty;
+        float price;
+        vendorNode *next;
+    };
+
+    vendorNode *head;
+
     // behaviors
     Vendor(string name, bool isRefrigerator);
 
     ~Vendor();
 
-    void load(Entree *food, int qty, double price);
+    void load(Entree food, int qty, double price);
     // adds specific num of Entrees
 
     // sells sells ONE of the items to a specific customer IF they can pay for it
