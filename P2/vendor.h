@@ -2,7 +2,10 @@
 // Isabel Ovalles
 
 #include <string>
+#include <iostream>
 #include "entree.h"
+
+using namespace std;
 
 class Vendor
 {
@@ -48,4 +51,6 @@ class Vendor
       // deep copying must be supported
 
       string getName();
+
+      int getSize();
 };

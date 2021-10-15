@@ -17,6 +17,7 @@ Vendor::vendorNode::vendorNode(Entree food, int qty, float price)
   this->food = food;
   this->qty = qty;
   this->price = price;
+  this->next = nullptr;
 }
 
 Vendor::~Vendor()
@@ -35,9 +36,28 @@ Vendor::~Vendor()
 
 void Vendor::load(Entree food, int qty, double price)
 {
+  vendorNode *newItem = new vendorNode(food, qty, price);
+  vendorNode *nPtr;
+
+  if(head == nullptr)
+  {
+    head = newItem;
+  } else {
+    nPtr = head;
+    while(nPtr->next) {
+      nPtr = nPtr->next;
+    }
+    nPtr->next = newItem;
+  }
+  size++;
 }
 
 string Vendor::getName()
 {
   return name;
+}
+
+int Vendor::getSize()
+{
+  return size;
 }

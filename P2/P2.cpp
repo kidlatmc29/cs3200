@@ -14,9 +14,9 @@ int main()
 {
   cout << "Welcome to P2" << endl << endl;
 
-  // testingEntreeMove();
+   testingEntreeMove();
   // makeCookieEntree();
-  makeVendingMachine();
+  // makeVendingMachine();
   cout << endl << "End of P2" << endl << endl;
   return 0;
 }
@@ -100,14 +100,18 @@ void makeVendingMachine()
 {
   Vendor snacks("Snaccc", true);
   cout << "This vendor's name is: " << snacks.getName() << endl;
-/**
+
   string pieName = "Apple Pie";
   string pieNutr = "3 100 12 1 0 0 126 28 1 19 0";
   string pieIng = "Apples (Apples, Ascorbic Acid, Salt, Citric Acid), Enriched Flour (Bleached Wheat Flour, Niacin, Reduced Iron, Thiamine Mononitrate, Riboflavin, Folic Acid), Sugar, Palm Oil, Water, Apple Juice Concentrate, Modified Food Starch, Invert Syrup, Contains 2% or Less: Yeast, Salt, Cinnamon, Sunflower Lecithin, L-cysteine (Dough Conditioner), Yeast Extract, Enzyme, Beta-carotene (Color)";
   string pieContains = "wheat";
-  Entree pie(pieName, pieNutr, pieIng, pieContains, "11/12/30", true, true);
+  Entree pie = Entree(pieName, pieNutr, pieIng, pieContains, "11/12/30", true, true);
 
-**/
+  snacks.load(pie, 5, 3.00);
+
+  int s = snacks.getSize();
+  cout << "Size of snacks is " << s << endl;
+
 }
 
 void testingEntreeMove()
