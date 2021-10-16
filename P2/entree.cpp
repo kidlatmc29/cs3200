@@ -1,8 +1,6 @@
 // Isabel Ovalles
 // entree.cpp
 
-#include <iostream>
-#include <sstream>
 #include "entree.h"
 
 Entree::Entree(string name, string ingredients, string nutritionStats,
@@ -41,7 +39,7 @@ Entree::Entree(const Entree &original)
 	}
 
 	nutritionStats = newNutrStats;
-	
+
 	contains = original.contains;
 	expirationDate = original.expirationDate;
 	needsRefridge = original.needsRefridge;
@@ -224,36 +222,20 @@ void Entree::powerOut()
 
 bool Entree::isExpired()
 {
-	bool isExpired;
-	// create tm struct from expirationDate
-	struct tm expDate;
-	strptime(expirationDate.c_str(), "%D", &expDate);
-
 	// get current date
 	time_t today = time(0);
-	tm *ltm = localtime(&today);
 
-	//compares expDate with ltm
-	if(expDate.tm_year > ltm->tm_year)
-	{
-		isExpired = false;
-	}
-	else if(expDate.tm_year < ltm->tm_year)
-	{
-		isExpired = true;
-	}
-	else {
-		if(expDate.tm_mon == ltm->tm_mon &&
-			expDate.tm_mday == ltm->tm_mday)
-		{
-			isExpired = true;
-		}
-		else
-		{
-			isExpired = false;
-		}
-	}
-	return isExpired;
+	// convert expirationDate into tm
+	struct tm tm;
+	istringstream inputss(expirationDate);
+	inputss >> get_time(&tm, "m%/d%/y%");
+	time_t expDate = mktime(&tm);
+
+	// find diff of between today and exp date
+	double diff = difftime(expDate, today);
+
+	// if diff is negative or = to 0, expDate has occured
+	return diff <= 0;
 }
 
 bool Entree::isSpoiled()

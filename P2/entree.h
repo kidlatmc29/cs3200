@@ -1,8 +1,11 @@
 // Isabel Ovalles
 // entree.h
 
-#include<string>
-#include<ctime>
+#include <string>
+#include <ctime>
+#include <sstream>
+#include <iostream>
+#include <iomanip>
 
 using namespace std;
 
