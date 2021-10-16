@@ -1,10 +1,12 @@
 // customer.h
 // Isabel Ovalles
 
+#include "vendor.h"
+
 class Customer
 {
   private:
-    uint accountNum;
+    unsigned int accountNum;
     double currentBalance;
 
   // behaviors
@@ -18,6 +20,6 @@ class Customer
 
     void addMoney(double amount = 0.0);
 
-    void buyEntree(Vendor market = nullptr, string entreeName = "");
+    void buyEntree(Vendor market, string entreeName = "");
 
 };

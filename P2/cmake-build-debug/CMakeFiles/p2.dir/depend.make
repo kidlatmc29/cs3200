@@ -3,15 +3,17 @@
 
 CMakeFiles/p2.dir/customer.cpp.obj: \
  ../customer.cpp \
- ../customer.h
-CMakeFiles/p2.dir/dateTest.cpp.obj: \
- ../dateTest.cpp
+ ../customer.h \
+ ../entree.h \
+ ../vendor.h
 CMakeFiles/p2.dir/entree.cpp.obj: \
  ../entree.cpp \
  ../entree.h
 CMakeFiles/p2.dir/p2.cpp.obj: \
  ../entree.h \
- ../p2.cpp
+ ../p2.cpp \
+ ../vendor.h
 CMakeFiles/p2.dir/vendor.cpp.obj: \
+ ../entree.h \
  ../vendor.cpp \
  ../vendor.h

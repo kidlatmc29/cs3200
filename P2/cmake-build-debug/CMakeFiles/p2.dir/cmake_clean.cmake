@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/p2.dir/customer.cpp.obj"
-  "CMakeFiles/p2.dir/dateTest.cpp.obj"
   "CMakeFiles/p2.dir/entree.cpp.obj"
   "CMakeFiles/p2.dir/p2.cpp.obj"
   "CMakeFiles/p2.dir/vendor.cpp.obj"

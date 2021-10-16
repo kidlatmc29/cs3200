@@ -79,24 +79,10 @@ CMakeFiles/p2.dir/customer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/p2.dir/customer.cpp.s"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\dev\cs3200\p2\customer.cpp -o CMakeFiles\p2.dir\customer.cpp.s
 
-CMakeFiles/p2.dir/dateTest.cpp.obj: CMakeFiles/p2.dir/flags.make
-CMakeFiles/p2.dir/dateTest.cpp.obj: CMakeFiles/p2.dir/includes_CXX.rsp
-CMakeFiles/p2.dir/dateTest.cpp.obj: ../dateTest.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\dev\cs3200\p2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/p2.dir/dateTest.cpp.obj"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\p2.dir\dateTest.cpp.obj -c C:\dev\cs3200\p2\dateTest.cpp
-
-CMakeFiles/p2.dir/dateTest.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/p2.dir/dateTest.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\dev\cs3200\p2\dateTest.cpp > CMakeFiles\p2.dir\dateTest.cpp.i
-
-CMakeFiles/p2.dir/dateTest.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/p2.dir/dateTest.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\dev\cs3200\p2\dateTest.cpp -o CMakeFiles\p2.dir\dateTest.cpp.s
-
 CMakeFiles/p2.dir/entree.cpp.obj: CMakeFiles/p2.dir/flags.make
 CMakeFiles/p2.dir/entree.cpp.obj: CMakeFiles/p2.dir/includes_CXX.rsp
 CMakeFiles/p2.dir/entree.cpp.obj: ../entree.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\dev\cs3200\p2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/p2.dir/entree.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\dev\cs3200\p2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/p2.dir/entree.cpp.obj"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\p2.dir\entree.cpp.obj -c C:\dev\cs3200\p2\entree.cpp
 
 CMakeFiles/p2.dir/entree.cpp.i: cmake_force
@@ -110,7 +96,7 @@ CMakeFiles/p2.dir/entree.cpp.s: cmake_force
 CMakeFiles/p2.dir/p2.cpp.obj: CMakeFiles/p2.dir/flags.make
 CMakeFiles/p2.dir/p2.cpp.obj: CMakeFiles/p2.dir/includes_CXX.rsp
 CMakeFiles/p2.dir/p2.cpp.obj: ../p2.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\dev\cs3200\p2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/p2.dir/p2.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\dev\cs3200\p2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/p2.dir/p2.cpp.obj"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\p2.dir\p2.cpp.obj -c C:\dev\cs3200\p2\p2.cpp
 
 CMakeFiles/p2.dir/p2.cpp.i: cmake_force
@@ -124,7 +110,7 @@ CMakeFiles/p2.dir/p2.cpp.s: cmake_force
 CMakeFiles/p2.dir/vendor.cpp.obj: CMakeFiles/p2.dir/flags.make
 CMakeFiles/p2.dir/vendor.cpp.obj: CMakeFiles/p2.dir/includes_CXX.rsp
 CMakeFiles/p2.dir/vendor.cpp.obj: ../vendor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\dev\cs3200\p2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/p2.dir/vendor.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\dev\cs3200\p2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/p2.dir/vendor.cpp.obj"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\p2.dir\vendor.cpp.obj -c C:\dev\cs3200\p2\vendor.cpp
 
 CMakeFiles/p2.dir/vendor.cpp.i: cmake_force
@@ -138,7 +124,6 @@ CMakeFiles/p2.dir/vendor.cpp.s: cmake_force
 # Object files for target p2
 p2_OBJECTS = \
 "CMakeFiles/p2.dir/customer.cpp.obj" \
-"CMakeFiles/p2.dir/dateTest.cpp.obj" \
 "CMakeFiles/p2.dir/entree.cpp.obj" \
 "CMakeFiles/p2.dir/p2.cpp.obj" \
 "CMakeFiles/p2.dir/vendor.cpp.obj"
@@ -147,7 +132,6 @@ p2_OBJECTS = \
 p2_EXTERNAL_OBJECTS =
 
 p2.exe: CMakeFiles/p2.dir/customer.cpp.obj
-p2.exe: CMakeFiles/p2.dir/dateTest.cpp.obj
 p2.exe: CMakeFiles/p2.dir/entree.cpp.obj
 p2.exe: CMakeFiles/p2.dir/p2.cpp.obj
 p2.exe: CMakeFiles/p2.dir/vendor.cpp.obj
@@ -155,7 +139,7 @@ p2.exe: CMakeFiles/p2.dir/build.make
 p2.exe: CMakeFiles/p2.dir/linklibs.rsp
 p2.exe: CMakeFiles/p2.dir/objects1.rsp
 p2.exe: CMakeFiles/p2.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\dev\cs3200\p2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable p2.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\dev\cs3200\p2\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable p2.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\p2.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

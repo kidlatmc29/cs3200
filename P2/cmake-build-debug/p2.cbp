@@ -88,9 +88,6 @@
 		<Unit filename="C:/dev/cs3200/p2/customer.h">
 			<Option target="p2"/>
 		</Unit>
-		<Unit filename="C:/dev/cs3200/p2/dateTest.cpp">
-			<Option target="p2"/>
-		</Unit>
 		<Unit filename="C:/dev/cs3200/p2/entree.cpp">
 			<Option target="p2"/>
 		</Unit>

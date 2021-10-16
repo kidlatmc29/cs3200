@@ -13,14 +13,8 @@ customer.h
 C:/dev/cs3200/p2/customer.h
 
 C:/dev/cs3200/p2/customer.h
-
-C:/dev/cs3200/p2/dateTest.cpp
-iostream
--
-ctime
--
-sstream
--
+vendor.h
+C:/dev/cs3200/p2/vendor.h
 
 C:/dev/cs3200/p2/entree.cpp
 iostream
@@ -39,12 +33,18 @@ ctime
 C:/dev/cs3200/p2/p2.cpp
 iostream
 -
-entree.h
-C:/dev/cs3200/p2/entree.h
+vendor.h
+C:/dev/cs3200/p2/vendor.h
 
 C:/dev/cs3200/p2/vendor.cpp
 vendor.h
 C:/dev/cs3200/p2/vendor.h
 
 C:/dev/cs3200/p2/vendor.h
+string
+-
+iostream
+-
+entree.h
+C:/dev/cs3200/p2/entree.h
 

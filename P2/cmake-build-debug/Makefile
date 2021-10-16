@@ -152,30 +152,6 @@ customer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\p2.dir\build.make CMakeFiles/p2.dir/customer.cpp.s
 .PHONY : customer.cpp.s
 
-dateTest.obj: dateTest.cpp.obj
-.PHONY : dateTest.obj
-
-# target to build an object file
-dateTest.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\p2.dir\build.make CMakeFiles/p2.dir/dateTest.cpp.obj
-.PHONY : dateTest.cpp.obj
-
-dateTest.i: dateTest.cpp.i
-.PHONY : dateTest.i
-
-# target to preprocess a source file
-dateTest.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\p2.dir\build.make CMakeFiles/p2.dir/dateTest.cpp.i
-.PHONY : dateTest.cpp.i
-
-dateTest.s: dateTest.cpp.s
-.PHONY : dateTest.s
-
-# target to generate assembly for a file
-dateTest.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\p2.dir\build.make CMakeFiles/p2.dir/dateTest.cpp.s
-.PHONY : dateTest.cpp.s
-
 entree.obj: entree.cpp.obj
 .PHONY : entree.obj
 
@@ -260,9 +236,6 @@ help:
 	@echo ... customer.obj
 	@echo ... customer.i
 	@echo ... customer.s
-	@echo ... dateTest.obj
-	@echo ... dateTest.i
-	@echo ... dateTest.s
 	@echo ... entree.obj
 	@echo ... entree.i
 	@echo ... entree.s
