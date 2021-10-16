@@ -13,8 +13,8 @@ int main()
 {
   cout << endl << "Welcome to P2" << endl << endl;
 
-  makeCookieEntree();
-  makeVendingMachine();
+  // makeCookieEntree();
+  loadVendingMachine();
 
   cout << endl << "End of P2" << endl << endl;
   return 0;
@@ -119,6 +119,12 @@ void loadVendingMachine()
   int s = snacks.getSize();
   cout << "Size of snacks is " << s << endl;
 
+  Vendor librarySnacks("Byte Cafe", true);
+
+  librarySnacks = snacks;
+
+  cout << "The number of items in librarySnacks is " << librarySnacks.getSize()
+       << endl;
 }
 
 // testing Entrees

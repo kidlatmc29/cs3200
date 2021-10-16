@@ -19,6 +19,37 @@ Vendor::vendorNode::vendorNode(Entree f, int q, float p)
   price = p;
 }
 
+Vendor::Vendor(Vendor &original)
+{
+  head = nullptr;
+  size = 0;
+
+  vendorNode *copy = original.head;
+
+  while(copy)
+  {
+    load(copy->food, copy->qty, copy->price);
+    copy = copy->next;
+  }
+}
+
+Vendor& Vendor::operator=(const Vendor &original)
+{
+  if(this->head != original.head) {
+    head = nullptr;
+    size = 0;
+
+    vendorNode *copy = original.head;
+
+    while(copy)
+    {
+      load(copy->food, copy->qty, copy->price);
+      copy = copy->next;
+    }
+  }
+  return *this;
+}
+
 Vendor::~Vendor()
 {
   vendorNode *nPtr = head;
@@ -44,7 +75,8 @@ void Vendor::load(Entree food, int qty, double price)
     head = newItem;
   } else {
     nPtr = head;
-    while(nPtr->next) {
+    while(nPtr->next)
+    {
       nPtr = nPtr->next;
     }
     nPtr->next = newItem;

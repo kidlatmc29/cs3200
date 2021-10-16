@@ -14,12 +14,12 @@ using namespace std;
 class Vendor
 {
   private:
-
     string name;
     bool isRefrigerator;
     int size;
 
     // utility functions
+  //  void copy();
 
   public:
     class vendorNode{
@@ -36,6 +36,10 @@ class Vendor
     // behaviors
     Vendor(string name, bool isRefrigerator);
 
+    Vendor(Vendor &original);
+
+    Vendor& operator=(const Vendor &original);
+
     ~Vendor();
 
     void load(Entree food, int qty, double price);
@@ -51,8 +55,6 @@ class Vendor
 
       // isStocked(string itemName) checks if current item is available for sale and is not
       // spoiled or expired
-
-      // deep copying must be supported
 
       string getName();
 
