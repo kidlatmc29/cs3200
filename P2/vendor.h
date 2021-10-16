@@ -55,8 +55,8 @@ class Vendor
       //based on current date, items that are expired or spoiled are
       // removed from stock
 
-      // isStocked(string itemName) checks if current item is available for sale and is not
-      // spoiled or expired
+      bool isStocked(string itemName);
+      // checks if current item is available for sale and is not spoiled or expired
 
       string getName();
 

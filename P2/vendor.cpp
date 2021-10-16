@@ -93,8 +93,7 @@ void Vendor::cleanStock()
     vendorNode *temp;
 
     // deleteing head
-    cout << "Is " << nPtr->food.getName() << " expired? " << nPtr->food.isExpired();
-    if(nPtr->food.isExpired())
+    if(nPtr->food.isExpired() == true)
     {
       temp = head;
       head = nPtr;
@@ -107,8 +106,7 @@ void Vendor::cleanStock()
 
     while(nPtr)
     {
-      cout << "Is " << nPtr->food.getName() << " expired? " << nPtr->food.isExpired();
-      if(nPtr->food.isExpired())
+      if(nPtr->food.isExpired() == true)
       {
         temp = nPtr;
         previous->next = nPtr->next; // assigning prev node's next to the next of deleted node
@@ -121,6 +119,27 @@ void Vendor::cleanStock()
   }
 }
 
+bool Vendor::isStocked(string itemName)
+{
+  vendorNode *nPtr = head;
+  bool inStock = false;
+
+  if(nPtr->food.getName() == itemName && !(nPtr->food.isSpoiled()) && nPtr->qty>0)
+  {
+    inStock = true;
+  } else {
+    while(nPtr && nPtr->food.getName() != itemName)
+    {
+      nPtr = nPtr->next;
+    }
+    if(nPtr && !(nPtr->food.isSpoiled()) && nPtr->qty > 0)
+    {
+      inStock = true;
+    }
+  }
+
+  return inStock;
+}
 string Vendor::getName()
 {
   return name;
