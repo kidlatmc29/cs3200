@@ -6,8 +6,11 @@
 
 using namespace std;
 
+// Class invarients:
+// Interface invarients:
+// Implementation invarients:
+
 class Entree {
-  //Class and Interface invarients:
   private:
     const int NUM_OF_NUTR_STATS = 11;
   	string name;
@@ -88,5 +91,4 @@ class Entree {
 
   	bool hasIngredient(string target);
 
-  // Implementation Invarients:
 };

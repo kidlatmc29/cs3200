@@ -7,10 +7,14 @@
 
 using namespace std;
 
+// Class invarients:
+// Interface invarients:
+// Implementation invarients:
+
 class Vendor
 {
   private:
-    // members:
+
     string name;
     bool isRefrigerator;
     int size;
@@ -45,7 +49,7 @@ class Vendor
       // cleanStock() based on current date, items that are expired or spoiled are
       // removed from stock
 
-      // isStocked checks if current item is available for sale and is not
+      // isStocked(string itemName) checks if current item is available for sale and is not
       // spoiled or expired
 
       // deep copying must be supported

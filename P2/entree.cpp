@@ -35,13 +35,13 @@ Entree::Entree(const Entree &original)
 	name = original.name;
 	ingredients = original.ingredients;
 	string *newNutrStats = new string[NUM_OF_NUTR_STATS];
-	for(int i = NUM_OF_NUTR_STATS; i < NUM_OF_NUTR_STATS; i++)
+	for(int i = 0; i < NUM_OF_NUTR_STATS; i++)
 	{
 		newNutrStats[i] = original.nutritionStats[i];
 	}
-	delete[] nutritionStats;
-	nutritionStats = newNutrStats;
 
+	nutritionStats = newNutrStats;
+	
 	contains = original.contains;
 	expirationDate = original.expirationDate;
 	needsRefridge = original.needsRefridge;
@@ -55,11 +55,11 @@ Entree& Entree::operator=(const Entree& original)
 		name = original.name;
 		ingredients = original.ingredients;
 		string *newNutrStats = new string[NUM_OF_NUTR_STATS];
-		for(int i = NUM_OF_NUTR_STATS; i < NUM_OF_NUTR_STATS; i++)
+		for(int i = 0; i < NUM_OF_NUTR_STATS; i++)
 		{
 			newNutrStats[i] = original.nutritionStats[i];
 		}
-		delete[] nutritionStats;
+
 		nutritionStats = newNutrStats;
 
 		contains = original.contains;
