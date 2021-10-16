@@ -123,23 +123,36 @@ bool Vendor::isStocked(string itemName)
 {
   vendorNode *nPtr = head;
   bool inStock = false;
-
-  if(nPtr->food.getName() == itemName && !(nPtr->food.isSpoiled()) && nPtr->qty>0)
-  {
-    inStock = true;
-  } else {
-    while(nPtr && nPtr->food.getName() != itemName)
-    {
-      nPtr = nPtr->next;
-    }
-    if(nPtr && !(nPtr->food.isSpoiled()) && nPtr->qty > 0)
+  if(!isEmpty()) {
+    if(nPtr->food.getName() == itemName &&
+      !(nPtr->food.isSpoiled()) && nPtr->qty>0)
     {
       inStock = true;
+    } else {
+      while(nPtr && nPtr->food.getName() != itemName)
+      {
+        nPtr = nPtr->next;
+      }
+      if(nPtr && !(nPtr->food.isSpoiled()) && nPtr->qty > 0)
+      {
+        inStock = true;
+      }
     }
   }
-
   return inStock;
 }
+
+void Vendor::poweroutage()
+{
+  vendorNode *nPtr = head;
+  if(!isEmpty()) {
+    while(nPtr)
+    {
+      nPtr->food.powerOut();
+    }
+  }
+}
+
 string Vendor::getName()
 {
   return name;

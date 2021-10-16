@@ -46,19 +46,20 @@ class Vendor
     void load(Entree food, int qty, double price);
     // adds specific num of Entrees
 
-    // sells sells ONE of the items to a specific customer IF they can pay for it
-      // NO SELLING SPOILED OR EXPIERED Entrees
-
-      // poweroutage() vendor loses power, and food req refridge is SPOILED
-
-      void cleanStock();
+    void cleanStock();
       //based on current date, items that are expired or spoiled are
       // removed from stock
 
-      bool isStocked(string itemName);
-      // checks if current item is available for sale and is not spoiled or expired
+    bool isStocked(string itemName);
+      // checks if current item is available for sale and is not spoiled
 
-      string getName();
+    // sells sells ONE of the items to a specific customer IF they can pay for it
+      // NO SELLING SPOILED OR EXPIERED Entrees
 
-      int getSize();
+    void poweroutage();
+    // vendor loses power, and food req refridge is SPOILED
+
+    string getName();
+
+    int getSize();
 };
