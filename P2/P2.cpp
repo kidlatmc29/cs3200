@@ -9,7 +9,7 @@ using namespace std;
 void makeCookieEntree();
 void loadVendingMachine();
 void cleanStockOnVendingMachine();
-void findItem();
+void findInStockItem();
 
 int main()
 {
@@ -18,7 +18,7 @@ int main()
   // makeCookieEntree();
   //loadVendingMachine();
   // cleanStockOnVendingMachine();
-  findItem();
+  findInStockItem();
   cout << endl << "End of P2" << endl << endl;
   return 0;
 }
@@ -154,9 +154,9 @@ void cleanStockOnVendingMachine()
   cout << "Size of Quik Food is now: " << cStreet.getSize() << endl;
 }
 
-void findItem()
+void findInStockItem()
 {
-  string itemName = "carrots";
+  string itemName = "Apple Pie";
 
   string cookieName = "Grandma's Chocolate Chip Cookies";
   string cookieNutr = "2 200 10 4 0 0 125 25 1 12 2";
@@ -169,7 +169,7 @@ void findItem()
   string pieNutr = "3 100 12 1 0 0 126 28 1 19 0";
   string pieIng = "Apples (Apples, Ascorbic Acid, Salt, Citric Acid), Enriched Flour (Bleached Wheat Flour, Niacin, Reduced Iron, Thiamine Mononitrate, Riboflavin, Folic Acid), Sugar, Palm Oil, Water, Apple Juice Concentrate, Modified Food Starch, Invert Syrup, Contains 2% or Less: Yeast, Salt, Cinnamon, Sunflower Lecithin, L-cysteine (Dough Conditioner), Yeast Extract, Enzyme, Beta-carotene (Color)";
   string pieContains = "wheat";
-  Entree pie(pieName, pieIng, pieNutr, pieContains, "11/12/30", true, true);
+  Entree pie(pieName, pieIng, pieNutr, pieContains, "10/12/21", true, false);
 
   Vendor snacks("Snacc", true);
   snacks.load(pie, 11, 4.00);
@@ -179,9 +179,9 @@ void findItem()
 
   if(inStock)
   {
-    cout << "Grandma's Chocolate Chip Cookies is in stock" << endl;
+    cout << "Apple Pie is instock" << endl;
   } else {
-    cout << "sorry, this item is not in stock" << endl;
+    cout << "sorry, " << itemName << " is not in stock" << endl;
   }
 }
 // testing Entrees
