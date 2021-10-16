@@ -20,6 +20,7 @@ class Vendor
 
     // utility functions
   //  void copy();
+  bool isEmpty();
 
   public:
     class vendorNode{
@@ -50,7 +51,8 @@ class Vendor
 
       // poweroutage() vendor loses power, and food req refridge is SPOILED
 
-      // cleanStock() based on current date, items that are expired or spoiled are
+      void cleanStock();
+      //based on current date, items that are expired or spoiled are
       // removed from stock
 
       // isStocked(string itemName) checks if current item is available for sale and is not

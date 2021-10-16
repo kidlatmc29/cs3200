@@ -70,7 +70,7 @@ void Vendor::load(Entree food, int qty, double price)
   newItem->next = nullptr;
   vendorNode *nPtr;
 
-  if(head == nullptr)
+  if(isEmpty())
   {
     head = newItem;
   } else {
@@ -84,6 +84,43 @@ void Vendor::load(Entree food, int qty, double price)
   size++;
 }
 
+void Vendor::cleanStock()
+{
+  if(!(isEmpty()))
+  {
+    vendorNode *previous = head;
+    vendorNode *nPtr = previous->next;
+    vendorNode *temp;
+
+    // deleteing head
+    cout << "Is " << nPtr->food.getName() << " expired? " << nPtr->food.isExpired();
+    if(nPtr->food.isExpired())
+    {
+      temp = head;
+      head = nPtr;
+      delete temp;
+      size--;
+
+      nPtr = nPtr->next;
+      previous = previous->next;
+    }
+
+    while(nPtr)
+    {
+      cout << "Is " << nPtr->food.getName() << " expired? " << nPtr->food.isExpired();
+      if(nPtr->food.isExpired())
+      {
+        temp = nPtr;
+        previous->next = nPtr->next; // assigning prev node's next to the next of deleted node
+        delete nPtr;
+        size--;
+      }
+      nPtr = nPtr->next;
+      previous = previous->next;
+    }
+  }
+}
+
 string Vendor::getName()
 {
   return name;
@@ -92,4 +129,9 @@ string Vendor::getName()
 int Vendor::getSize()
 {
   return size;
+}
+
+bool Vendor::isEmpty()
+{
+  return !(head);
 }
