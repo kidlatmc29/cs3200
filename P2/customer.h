@@ -20,6 +20,8 @@ class Customer
 
     void addMoney(double amount = 0.0);
 
-    void buyEntree(Vendor market, string entreeName = "");
+    void buyEntree(Vendor *market, string entreeName = "");
+
+    double getCurrentBalance();
 
 };

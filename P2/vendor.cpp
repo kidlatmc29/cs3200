@@ -153,9 +153,19 @@ void Vendor::poweroutage()
   }
 }
 
+void sell(string entreeName, Customer buyer)
+{
+
+}
+
 string Vendor::getName()
 {
   return name;
+}
+
+double Vendor::getItemPrice()
+{
+
 }
 
 int Vendor::getSize()

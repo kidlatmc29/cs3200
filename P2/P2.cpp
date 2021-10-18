@@ -10,13 +10,14 @@ void makeCookieEntree();
 void loadVendingMachine();
 void cleanStockOnVendingMachine();
 void findInStockItem();
+void buyAndSell();
 
 int main()
 {
   cout << endl << "Welcome to P2" << endl << endl;
 
   // makeCookieEntree();
-  //loadVendingMachine();
+  // loadVendingMachine();
   // cleanStockOnVendingMachine();
   findInStockItem();
   cout << endl << "End of P2" << endl << endl;
@@ -184,6 +185,39 @@ void findInStockItem()
     cout << "sorry, " << itemName << " is not in stock" << endl;
   }
 }
+
+void buyAndSell()
+{
+    Vendor drinks("Soda Machine", true);
+
+    string soda1Name = "Coca-Cola";
+    string soda1Nutr = "1 240 0 0 0 0 75 65 0 65 0";
+    string soda1Ing = "CARBONATED WATER$HIGH FRUCTOSE CORN SYRUP$CARAMEL COLOR$PHOSPHORIC ACID$NATURAL FLAVORS$CAFFEINE";
+    string soda1Contains = "";
+    Entree soda1(soda1Name, soda1Ing, soda1Nutr, soda1Contains, "12/20/20", true, true);
+
+    string soda2Name = "Sprite";
+    string soda2Nutr = "1 140 0 0 0 0 75 65 0 65 0";
+    string soda2Ing = "CARBONATED WATER$HIGH FRUCTOSE CORN SYRUP$CITRIC ACID$NATURAL FLAVORS$SODIUM CITRATE$SODIUM BENZOATE ";
+    string soda2Contains = "";
+    Entree soda2(soda2Name, soda2Ing, soda2Nutr, soda2Contains, "12/20/21", true, true);
+
+    string soda3Name = "Fanta";
+    string soda3Nutr = "1 270 0 0 0 0 75 73 0 73 0";
+    string soda3Ing = "CARBONATED WATER$HIGH FRUCTOSE CORN SYRUP$CITRIC ACID$SODIUM BENZOATE (TO PROTECT TASTE)$NATURAL FLAVORS$MODIFIED FOOD STARCH$SODIUM POLYPHOSPHATES$GLYCEROL ESTER OF ROSIN$YELLOW 6$RED 40";
+    string soda3Contains = "";
+    Entree soda3(soda3Name, soda3Ing, soda3Nutr, soda3Contains, "12/20/21", true, true);
+
+    drinks.load(soda1, 3, 2.00);
+    drinks.load(soda2, 10, 2.00);
+    drinks.load(soda3, 10, 2.00);
+
+    Customer student(1000, 10.00);
+
+    student.buyEntree(load, "Sprite");
+}
+
+
 // testing Entrees
 /**
 string cookieName = "Grandma's Chocolate Chip Cookies";

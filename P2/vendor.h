@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 #include "entree.h"
+#include "customer.h"
 
 using namespace std;
 
@@ -59,7 +60,11 @@ class Vendor
     void poweroutage();
     // vendor loses power, and food req refridge is SPOILED
 
+    void sell(string entreeName, Customer buyer);
+
     string getName();
+
+    double getItemPrice();
 
     int getSize();
 };

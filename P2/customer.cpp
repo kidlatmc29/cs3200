@@ -1,7 +1,6 @@
 // customer.cpp
 // Isabel Ovalles
 
-#include<iostream>
 #include "customer.h"
 
 Customer::Customer(int accountNum, double currentBalance)
@@ -22,7 +21,18 @@ void Customer::addMoney(double amount)
   }
 }
 
-void Customer::buyEntree(Vendor market, string entreeName)
+void Customer::buyEntree(Vendor *market, string entreeName = "")
 {
-    // check if there's enough money to buy
+  if(market != nullptr)
+  {
+    if(market->isStocked(entreeName))
+    {
+      cout << "Need to check if you have enough money to buy item!!" << endl;
+    }
+  }
+}
+
+double Customer::getCurrentBalance()
+{
+  return currentBalance;
 }
