@@ -25,7 +25,13 @@ void Customer::buyEntree(Vendor market, string entreeName)
 {
   if(market.isStocked(entreeName))
   {
-    
+    cout << "Item you want to buy is stocked...." << endl;
+    if(currentBalance >= market.getItemPrice(entreeName))
+    {
+      market.sell(entreeName);
+    }
+  } else {
+    cout << "sorry item you want to buy is out of stock...." << endl;
   }
 }
 

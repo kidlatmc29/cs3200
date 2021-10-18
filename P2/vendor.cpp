@@ -153,9 +153,25 @@ void Vendor::poweroutage()
   }
 }
 
-void sell(string entreeName)
+void Vendor::sell(string entreeName)
 {
-
+  cout << entreeName << " is being sold... " << endl;
+  vendorNode *nPtr = head;
+  if(!isEmpty()) {
+    if(nPtr->food.getName() == entreeName)
+    {
+      nPtr->qty--;
+    } else {
+      while(nPtr && nPtr->food.getName() != entreeName)
+      {
+        nPtr = nPtr->next;
+      }
+      if(nPtr)
+      {
+        nPtr->qty--;
+      }
+    }
+  }
 }
 
 string Vendor::getName()
@@ -187,6 +203,7 @@ float Vendor::getItemPrice(string itemName)
       }
     }
   }
+  cout << itemName << " price is : " << itemPrice << endl;
   return itemPrice;
 }
 
