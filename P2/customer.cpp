@@ -21,14 +21,11 @@ void Customer::addMoney(double amount)
   }
 }
 
-void Customer::buyEntree(Vendor *market, string entreeName = "")
+void Customer::buyEntree(Vendor market, string entreeName)
 {
-  if(market != nullptr)
+  if(market.isStocked(entreeName))
   {
-    if(market->isStocked(entreeName))
-    {
-      cout << "Need to check if you have enough money to buy item!!" << endl;
-    }
+    cout << "Need to check if you have enough money to buy item!!" << endl;
   }
 }
 

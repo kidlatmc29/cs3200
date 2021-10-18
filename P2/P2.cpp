@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "vendor.h"
+#include "customer.h"
 
 using namespace std;
 
@@ -19,7 +20,8 @@ int main()
   // makeCookieEntree();
   // loadVendingMachine();
   // cleanStockOnVendingMachine();
-  findInStockItem();
+  // findInStockItem();
+  buyAndSell();
   cout << endl << "End of P2" << endl << endl;
   return 0;
 }
@@ -214,7 +216,7 @@ void buyAndSell()
 
     Customer student(1000, 10.00);
 
-    student.buyEntree(load, "Sprite");
+    student.buyEntree(drinks, "Sprite");
 }
 
 

@@ -1,10 +1,12 @@
 // vendor.h
 // Isabel Ovalles
 
+#ifndef VENDOR_H
+#define VENDOR_H
+
 #include <string>
 #include <iostream>
 #include "entree.h"
-#include "customer.h"
 
 using namespace std;
 
@@ -31,6 +33,8 @@ class Vendor
         int qty;
         float price;
         vendorNode *next;
+
+        float getItemPrice() {return price;}
     };
 
     vendorNode *head;
@@ -60,11 +64,11 @@ class Vendor
     void poweroutage();
     // vendor loses power, and food req refridge is SPOILED
 
-    void sell(string entreeName, Customer buyer);
+    void sell(string entreeName);
 
     string getName();
 
-    double getItemPrice();
-
     int getSize();
 };
+
+#endif
