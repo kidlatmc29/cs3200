@@ -21,9 +21,8 @@ class Vendor
     bool isRefrigerator;
     int size;
 
-    // utility functions
-  //  void copy();
-  bool isEmpty();
+   // utility functions
+   bool isEmpty();
 
   public:
     class vendorNode{
@@ -69,6 +68,8 @@ class Vendor
     string getName();
 
     int getSize();
+
+    float getItemPrice(string itemName);
 };
 
 #endif

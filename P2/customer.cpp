@@ -25,7 +25,7 @@ void Customer::buyEntree(Vendor market, string entreeName)
 {
   if(market.isStocked(entreeName))
   {
-    cout << "Need to check if you have enough money to buy item!!" << endl;
+    
   }
 }
 

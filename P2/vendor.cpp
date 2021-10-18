@@ -168,6 +168,28 @@ int Vendor::getSize()
   return size;
 }
 
+float Vendor::getItemPrice(string itemName)
+{
+  vendorNode *nPtr = head;
+  float itemPrice = -1;
+  if(!isEmpty()) {
+    if(nPtr->food.getName() == itemName)
+    {
+      itemPrice = nPtr->price;
+    } else {
+      while(nPtr && nPtr->food.getName() != itemName)
+      {
+        nPtr = nPtr->next;
+      }
+      if(nPtr)
+      {
+        itemPrice = nPtr->price;
+      }
+    }
+  }
+  return itemPrice;
+}
+
 bool Vendor::isEmpty()
 {
   return !(head);
