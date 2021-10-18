@@ -222,10 +222,10 @@ void Entree::powerOut()
 
 bool Entree::isExpired()
 {
-	// get current date
+	//get today's Date
 	time_t today = time(0);
 
-	// convert expirationDate into tm
+	// convert expirationDate into time_t
 	struct tm tm;
 	istringstream inputss(expirationDate);
 	inputss >> get_time(&tm, "m%/d%/y%");
@@ -233,7 +233,7 @@ bool Entree::isExpired()
 
 	// find diff of between today and exp date
 	double diff = difftime(expDate, today);
-	
+	cout << "diff = " << diff << endl;
 	// if diff is negative or = to 0, expDate has occured
 	return diff <= 0;
 }
