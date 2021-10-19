@@ -17,11 +17,11 @@ int main()
 {
   cout << endl << "Welcome to P2" << endl << endl;
 
-  makeCookieEntree();
+//  makeCookieEntree();
   // loadVendingMachine();
   // cleanStockOnVendingMachine();
   // findInStockItem();
-  // buyAndSell();
+   buyAndSell();
   cout << endl << "End of P2" << endl << endl;
   return 0;
 }
@@ -184,7 +184,7 @@ void findInStockItem()
 
   if(inStock)
   {
-    cout << "Apple Pie is instock" << endl;
+    cout << "Apple Pie is in stock" << endl;
   } else {
     cout << "sorry, " << itemName << " is not in stock" << endl;
   }
@@ -218,6 +218,8 @@ void buyAndSell()
   drinks.load(soda3, 10, 2.00);
 
   Customer student(1000, 10.00);
-
+  cout << "Student Balance: " << student.getCurrentBalance() << endl;
+  cout << "Buying a Fanta from Soda Machine...." << endl;
   student.buyEntree(drinks, "Fanta");
+  cout << "Student Balance: " << student.getCurrentBalance() << endl;
 }

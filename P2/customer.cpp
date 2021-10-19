@@ -25,9 +25,11 @@ void Customer::buyEntree(Vendor market, string entreeName)
 {
   if(market.isStocked(entreeName))
   {
-    if(currentBalance >= market.getItemPrice(entreeName))
+    float itemPrice =  market.getItemPrice(entreeName);
+    if(currentBalance >= itemPrice)
     {
       market.sell(entreeName);
+      currentBalance -= itemPrice; 
     }
   }
 }
