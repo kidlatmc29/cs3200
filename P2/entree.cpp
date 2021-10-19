@@ -197,6 +197,24 @@ string Entree::getSodium()
 	return sodium;
 }
 
+string Entree::getTotalCarbs()
+{
+	string totalCarbs = "";
+	if(nutritionStats != nullptr) {
+		totalCarbs = nutritionStats[TOTAL_CARBS];
+	}
+	return totalCarbs;
+}
+
+string Entree::getFiber()
+{
+	string fiber = "";
+	if(nutritionStats != nullptr) {
+		fiber = nutritionStats[FIBER];
+	}
+	return fiber;
+}
+
 string Entree::getTotalSugar()
 {
 	string totalSugar = "";
