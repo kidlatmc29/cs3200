@@ -21,7 +21,7 @@ int main()
   // loadVendingMachine();
   // cleanStockOnVendingMachine();
   // findInStockItem();
-//  buyAndSell();
+  // buyAndSell();
   cout << endl << "End of P2" << endl << endl;
   return 0;
 }

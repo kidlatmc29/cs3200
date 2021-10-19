@@ -11,8 +11,21 @@
 using namespace std;
 
 // Class invarients:
+// -Vendor contains a list of items that represent the Vendor's stock.
+// -It also holds the name of the Vendor and if the Vendor's stock is a
+//    refridgerator
+// -Vendor is instatiated with 0 items to begin with
+
 // Interface invarients:
+//  - Entree objects must be instatiated before loading them into a Vendor
+// - When instatiating a Vendor object, must provide a name and if it's a
+//    refridgerator in the paramterized ctor for a valid state
+
 // Implementation invarients:
+//  - the list of Items in Vendor is implemented using a linked list
+//   - vendorNode consists of the Entree, the quanty of the Entree and the price
+//  -sell is called from the Customer object, see Customer class for checking
+//    validity of purchase
 
 class Vendor
 {
@@ -21,7 +34,7 @@ class Vendor
     bool isRefrigerator;
     int size;
 
-   // utility functions
+   // utility function
    bool isEmpty();
 
   public:
@@ -38,7 +51,6 @@ class Vendor
 
     vendorNode *head;
 
-    // behaviors
     Vendor(string name, bool isRefrigerator);
 
     Vendor(Vendor &original);
@@ -47,29 +59,36 @@ class Vendor
 
     ~Vendor();
 
+    // PRE: Entree food is already been instatiated and it assumed to be valid
+    // POST: One vendorNode is added to the linked list, size is incremented by
+    //        1
     void load(Entree food, int qty, double price);
-    // adds specific num of Entrees
 
+    // PRE: N/A
+    // POST: If there is any spoiled or expired items, they are removed from
+    //      the linked list
     void cleanStock();
-      //based on current date, items that are expired or spoiled are
-      // removed from stock
 
+    // PRE: itemName must be exactly as what is saved in Entree's name
+    // POST: N/A
     bool isStocked(string itemName);
-      // checks if current item is available for sale and is not spoiled
 
-    // sells sells ONE of the items to a specific customer IF they can pay for it
-      // NO SELLING SPOILED OR EXPIERED Entrees
-
+    // PRE: N/A
+    // POST: All Entree's isRefrigered is set to false
     void poweroutage();
-    // vendor loses power, and food req refridge is SPOILED
 
+    // PRE: isStocked has returned true and the Customer has enough money to
+    //      purchase item
+    // POST: The item sold's qty is decremented by 1
     void sell(string entreeName);
 
+    // PRE: N/A
+    // POST: N/A
     string getName();
 
+    // PRE: N/A
+    // POST: N/A
     int getSize();
-
-    float getItemPrice(string itemName);
 };
 
 #endif
