@@ -89,6 +89,10 @@ class Vendor
     // PRE: N/A
     // POST: N/A
     int getSize();
+
+    // PRE: itemName must be exactly as what is saved in Entree's name
+    // POST: N/A
+    float getItemPrice(string itemName);
 };
 
 #endif
