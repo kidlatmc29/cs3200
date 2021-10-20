@@ -2,34 +2,33 @@
 // Isabel Ovalles
 
 #include <iostream>
+#include <vector>
+#include <memory>
 #include "vendor.h"
 #include "customer.h"
-#include <vector>
 
 using namespace std;
 
 int main()
 {
-  vector<Vendor> cStreet;
-  shared_ptr<Vendor> drinks;
-  shared_ptr<Vendor> snacks;
-  shared_ptr<Vendor> freezer;
+  vector<shared_ptr<Vendor>> cStreet;
 
   cout << endl << "Welcome to P2" << endl << endl;
 
   cout << "Creating list of vendors..." << endl;
-  drinks = new Vendor("Soda Machine", true);
-  snacks = new Vendor("Snack Counter", false);
-  freezer = new Vendor("Frozen Deserts", true);
+
+  shared_ptr<Vendor> drinks(new Vendor("Soda Machine", true));
+  shared_ptr<Vendor> snacks(new Vendor("Snack Counter", false));
+  shared_ptr<Vendor> freezer(new Vendor("Frozen Deserts", true));
 
   cStreet.push_back(drinks);
   cStreet.push_back(snacks);
   cStreet.push_back(freezer);
 
   cout << "Vendors in cStreet:" << endl;
-  for(int i = 0; i < cStreet.size(); i++)
+  for(int i = 0; i < (int) cStreet.size(); i++)
   {
-    cout << cStreet[i].getName() << endl;
+    cout << cStreet.at(i)->getName() << endl;
   }
 
   cout << endl << "End of P2" << endl << endl;

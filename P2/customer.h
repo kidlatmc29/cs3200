@@ -6,7 +6,7 @@
 
 #include "vendor.h"
 
-// Class invarients: 
+// Class invarients:
 
 // Interface invarients:
 
@@ -34,7 +34,7 @@ class Customer
 
     // PRE: N/A
     // POST: N/A
-    double getCurrentBalance();
+    float getCurrentBalance();
 };
 
 #endif
