@@ -207,6 +207,49 @@ float Vendor::getItemPrice(string itemName)
   return itemPrice;
 }
 
+string Vendor::getItemNutrFacts(string itemName)
+{
+  vendorNode *nPtr = head;
+  string nutrFacts = "";
+  if(!isEmpty()) {
+    if(nPtr->food.getName() == itemName)
+    {
+      nutrFacts = "Num of Servings: " + nPtr->food.getNumOfServings() + "\n";
+      nutrFacts += "Calories: " + nPtr->food.getCalories() + "\n";
+      nutrFacts += "Total Fat: " + nPtr->food.getTotalFat() + "\n";
+      nutrFacts += "Saturated Fat: " + nPtr->food.getSatFat() + "\n";
+      nutrFacts += "Trans Fat: " + nPtr->food.getTransFat() + "\n";
+      nutrFacts += "Cholest: " + nPtr->food.getCholest() + "\n";
+      nutrFacts += "Sodium: " + nPtr->food.getSodium() + "\n";
+      nutrFacts += "Total Carbs: " + nPtr->food.getTotalCarbs() + "\n";
+      nutrFacts += "Fiber: " + nPtr->food.getFiber() + "\n";
+      nutrFacts += "Total Sugar: " + nPtr->food.getTotalSugar() + "\n";
+      nutrFacts += "Protein: " + nPtr->food.getProtein() + "\n";
+    } else {
+      while(nPtr && nPtr->food.getName() != itemName)
+      {
+        nPtr = nPtr->next;
+      }
+      if(nPtr)
+      {
+        nutrFacts = "Num of Servings: " + nPtr->food.getNumOfServings() + "\n";
+        nutrFacts += "Calories: " + nPtr->food.getCalories() + "\n";
+        nutrFacts += "Total Fat: " + nPtr->food.getTotalFat() + "\n";
+        nutrFacts += "Saturated Fat: " + nPtr->food.getSatFat() + "\n";
+        nutrFacts += "Trans Fat: " + nPtr->food.getTransFat() + "\n";
+        nutrFacts += "Cholest: " + nPtr->food.getCholest() + "\n";
+        nutrFacts += "Sodium: " + nPtr->food.getSodium() + "\n";
+        nutrFacts += "Total Carbs: " + nPtr->food.getTotalCarbs() + "\n";
+        nutrFacts += "Fiber: " + nPtr->food.getFiber() + "\n";
+        nutrFacts += "Total Sugar: " + nPtr->food.getTotalSugar() + "\n";
+        nutrFacts += "Protein: " + nPtr->food.getProtein() + "\n";
+      }
+    }
+  }
+
+  return nutrFacts;
+}
+
 bool Vendor::isEmpty()
 {
   return !(head);
