@@ -6,27 +6,35 @@
 
 #include "vendor.h"
 
+// Class invarients: 
+
+// Interface invarients:
+
+// Implementation invarients:
+
 class Customer
 {
   private:
     unsigned int accountNum;
-    double currentBalance;
-
-  // behaviors
-  // customers can buy entrees from vendors
-  // customers can add money to their account
+    float currentBalance;
 
   public:
-    Customer(int accountNum = 0000, double currentBalance = 0.0);
+    Customer(int accountNum = 0000, float currentBalance = 0.0);
 
     ~Customer();
 
-    void addMoney(double amount = 0.0);
+    // PRE: N/A
+    // POST: Adds given amount of money to Customer's currentBalance
+    void addMoney(float amount = 0.0);
 
+    // PRE: The item's name that Customer wants to buy is written exactly as it
+    //        is saved in Entree name
+    // POST: Subtracts price of item bought from Customer's balance
     void buyEntree(Vendor market, string entreeName = "");
 
+    // PRE: N/A
+    // POST: N/A
     double getCurrentBalance();
-
 };
 
 #endif

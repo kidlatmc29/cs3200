@@ -12,10 +12,10 @@ using namespace std;
 // Class invarients:
 // -An Entree object holds a list of ingredients, nutrition facts,
 //    contains of allergens, an expiration date, as well as if it needs
-//    refridgeration and if it is refrigerated.
+//    refrigeration and if it is refrigerated.
 // -Entree object will be in a valid state when instantiated with the
 //    parameterized ctor.
-// -Cannot get any member variable unless Entree is initalized.
+// -Cannot get any member variable unless Entree is initialized.
 
 // Interface invarients:
 //  -When instantiating an Entree object, the client is responsible for:

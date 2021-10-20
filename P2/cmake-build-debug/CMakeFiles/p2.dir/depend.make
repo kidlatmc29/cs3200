@@ -10,6 +10,7 @@ CMakeFiles/p2.dir/entree.cpp.obj: \
  ../entree.cpp \
  ../entree.h
 CMakeFiles/p2.dir/p2.cpp.obj: \
+ ../customer.h \
  ../entree.h \
  ../p2.cpp \
  ../vendor.h

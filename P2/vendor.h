@@ -14,16 +14,16 @@ using namespace std;
 // -Vendor contains a list of items that represent the Vendor's stock.
 // -It also holds the name of the Vendor and if the Vendor's stock is a
 //    refridgerator
-// -Vendor is instatiated with 0 items to begin with
+// -Vendor is instantiated with 0 items to begin with
 
 // Interface invarients:
-//  - Entree objects must be instatiated before loading them into a Vendor
-// - When instatiating a Vendor object, must provide a name and if it's a
-//    refridgerator in the paramterized ctor for a valid state
+//  - Entree objects must be instantiated before loading them into a Vendor
+// - When instantiating a Vendor object, must provide a name and if it's a
+//    refrigerator in the parameterized ctor for a valid state
 
 // Implementation invarients:
 //  - the list of Items in Vendor is implemented using a linked list
-//   - vendorNode consists of the Entree, the quanty of the Entree and the price
+//   - vendorNode consists of the Entree, the quantity of the Entree and the price
 //  -sell is called from the Customer object, see Customer class for checking
 //    validity of purchase
 
@@ -61,7 +61,7 @@ class Vendor
 
     // PRE: Entree food is already been instatiated and it assumed to be valid
     // POST: One vendorNode is added to the linked list, size is incremented by
-    //        1
+    //        one
     void load(Entree food, int qty, double price);
 
     // PRE: N/A

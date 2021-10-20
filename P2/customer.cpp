@@ -3,7 +3,7 @@
 
 #include "customer.h"
 
-Customer::Customer(int accountNum, double currentBalance)
+Customer::Customer(int accountNum, float currentBalance)
 {
   this->accountNum = accountNum;
   this->currentBalance = currentBalance;
@@ -13,7 +13,7 @@ Customer::~Customer()
 {
 }
 
-void Customer::addMoney(double amount)
+void Customer::addMoney(float amount)
 {
   if(amount > 0.0) // checking if amount is pos
   {
@@ -29,12 +29,12 @@ void Customer::buyEntree(Vendor market, string entreeName)
     if(currentBalance >= itemPrice)
     {
       market.sell(entreeName);
-      currentBalance -= itemPrice; 
+      currentBalance -= itemPrice;
     }
   }
 }
 
-double Customer::getCurrentBalance()
+float Customer::getCurrentBalance()
 {
   return currentBalance;
 }

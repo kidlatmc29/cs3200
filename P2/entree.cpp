@@ -252,7 +252,7 @@ bool Entree::isExpired()
 	// find diff of between today and exp date
 	double diff = difftime(expDate, today);
 	cout << "diff = " << diff << endl;
-	// if diff is negative or = to 0, expDate has occured
+	// if diff is negative or = to 0, expDate has occurred
 	return diff <= 0;
 }
 
