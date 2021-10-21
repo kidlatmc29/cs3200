@@ -125,7 +125,7 @@ bool Vendor::isStocked(string itemName)
   bool inStock = false;
   if(!isEmpty()) {
     if(nPtr->food.getName() == itemName &&
-      !(nPtr->food.isSpoiled()) && nPtr->qty>0)
+      !(nPtr->food.isSpoiled()) && nPtr->qty > 0)
     {
       inStock = true;
     } else {

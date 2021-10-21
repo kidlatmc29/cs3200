@@ -12,21 +12,28 @@ using namespace std;
 void creatingVendors(vector<shared_ptr<Vendor>> &cStreet);
 void loadEntreesInVendor(vector<shared_ptr<Vendor>> &cStreet);
 void getEntreeNutrFacts(vector<shared_ptr<Vendor>> cStreet);
-void inStockFanta(vector<shared_ptr<Vendor>> cStreet);
-void sellItem(vector<shared_ptr<Vendor>> &cStreet);
+void isStockedFanta(vector<shared_ptr<Vendor>> cStreet);
+
+void creatingCustomers(vector<Customer> &students);
+void sellInStockItem(vector<shared_ptr<Vendor>> &cStreet);
+void sellExpiredItem(vector<shared_ptr<Vendor>> &cStreet);
+
 void poweroutageFreezer(vector<shared_ptr<Vendor>> &cStreet);
+void sellSpoiledItem(vector<shared_ptr<Vendor>> &cStreet);
 void cleanStockFreezer(vector<shared_ptr<Vendor>> &cStreet);
-void removeVendorFromCStreet(vector<shared_ptr<Vendor>> &cStreet);
+void removeVendorsFromCStreet(vector<shared_ptr<Vendor>> &cStreet);
 
 int main()
 {
   vector<shared_ptr<Vendor>> cStreet;
+  vector<Customer> students;
 
   cout << endl << "Welcome to P2" << endl << endl;
 
   creatingVendors(cStreet);
   loadEntreesInVendor(cStreet);
   getEntreeNutrFacts(cStreet);
+  isStockedFanta(cStreet);
 
   cout << endl << "End of P2" << endl << endl;
   return 0;
@@ -66,7 +73,7 @@ void loadEntreesInVendor(vector<shared_ptr<Vendor>> &cStreet)
   string soda2Nutr = "1 140 0 0 0 0 75 65 0 65 0";
   string soda2Ing = "CARBONATED WATER$HIGH FRUCTOSE CORN SYRUP$CITRIC ACID$NATURAL FLAVORS$SODIUM CITRATE$SODIUM BENZOATE ";
   string soda2Contains = "";
-  Entree soda2(soda2Name, soda2Ing, soda2Nutr, soda2Contains, "12/20/21", true, true);
+  Entree soda2(soda2Name, soda2Ing, soda2Nutr, soda2Contains, "12/20/19", true, true);
 
   string soda3Name = "Fanta";
   string soda3Nutr = "1 270 0 0 0 0 75 73 0 73 0";
@@ -130,4 +137,44 @@ void getEntreeNutrFacts(vector<shared_ptr<Vendor>> cStreet)
   cout << endl << "Skinny Pop Popcorn Nutrition Facts===========" << endl;
   cout << cStreet.at(1)->getItemNutrFacts("Skinny Pop Popcorn");
   cout << "=============================================" << endl;
+}
+
+void isStockedFanta(vector<shared_ptr<Vendor>> cStreet)
+{
+  string itemName = "Fanta";
+  string vendorName;
+  bool inStock;
+  bool found;
+
+  cout << endl << "Checking if Fanta is inStock in any Vendor...." << endl;
+  for(int i = 0; i < (int) cStreet.size(); i++)
+  {
+    inStock = cStreet.at(i)->isStocked(itemName);
+    if(inStock)
+    {
+      found = true;
+      vendorName = cStreet.at(i)->getName();
+    }
+  }
+
+  if(found) {
+    cout << "Fanta is in stock at the " << vendorName << endl;
+  } else {
+    cout << "Sorry, Fanta is not in stock at any Vendor..." << endl;
+  }
+}
+
+void creatingCustomers(vector<Customer> &students)
+{
+  Customer student1(0001, 14.00);
+  Customer student2(0002, 10.00);
+  Customer student3(0003, 1.00);
+
+  students.push_back(student1);
+  students.push_back(student2);
+  students.push_back(student3);
+}
+
+void sellInStockItem(vector<shared_ptr<Vendor>> &cStreet)
+{
 }
