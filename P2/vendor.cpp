@@ -139,6 +139,7 @@ bool Vendor::isStocked(string itemName)
       }
     }
   }
+//  cout << "inStock is: " << inStock << endl;
   return inStock;
 }
 
@@ -155,7 +156,6 @@ void Vendor::poweroutage()
 
 void Vendor::sell(string entreeName)
 {
-  cout << entreeName << " is being sold... " << endl;
   vendorNode *nPtr = head;
   if(!isEmpty()) {
     if(nPtr->food.getName() == entreeName)
@@ -203,7 +203,6 @@ float Vendor::getItemPrice(string itemName)
       }
     }
   }
-  cout << itemName << " price is : " << itemPrice << endl;
   return itemPrice;
 }
 

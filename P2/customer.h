@@ -4,6 +4,7 @@
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
 
+#include <memory>
 #include "vendor.h"
 
 // Class invarients:

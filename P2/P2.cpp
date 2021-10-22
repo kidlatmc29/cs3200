@@ -16,10 +16,11 @@ void isStockedFanta(vector<shared_ptr<Vendor>> cStreet);
 
 void creatingCustomers(vector<Customer> &students);
 void sellInStockItem(vector<shared_ptr<Vendor>> &cStreet,
-                     vector<Customer> students);
-void sellExpiredItem(vector<shared_ptr<Vendor>> &cStreet);
+                     vector<Customer> &students);
+void sellExpiredItem(vector<shared_ptr<Vendor>> &cStreet,
+                     vector<Customer> &students);
 
-void poweroutageFreezer(vector<shared_ptr<Vendor>> &cStreet);
+void poweroutageDrinks(vector<shared_ptr<Vendor>> &cStreet);
 void sellSpoiledItem(vector<shared_ptr<Vendor>> &cStreet);
 void cleanStockFreezer(vector<shared_ptr<Vendor>> &cStreet);
 void removeVendorsFromCStreet(vector<shared_ptr<Vendor>> &cStreet);
@@ -37,6 +38,9 @@ int main()
   loadEntreesInVendor(cStreet);
   getEntreeNutrFacts(cStreet);
   isStockedFanta(cStreet);
+
+  sellInStockItem(cStreet, students);
+  sellExpiredItem(cStreet, students);
 
   cout << endl << "End of P2" << endl << endl;
   return 0;
@@ -108,7 +112,7 @@ void loadEntreesInVendor(vector<shared_ptr<Vendor>> &cStreet)
   string chipsNutr = "2 160 10 2 0 0 170 15 1 0 2";
   string chipsIng = "Potatoes$Vegetable Oil(Sunflower, Corn and/or Canola Oil)$Salt";
   string chipsContains = "";
-  Entree chips(chipsName, chipsIng, chipsNutr, chipsContains, "12/1/21", false, false);
+  Entree chips(chipsName, chipsIng, chipsNutr, chipsContains, "12/1/20", false, false);
 
   string nutsName = "Planters Nuts on the Go Salted Peanuts";
   string nutsNutr = "1 170 14 2 0 0 95 5 2 1 7";
@@ -186,13 +190,13 @@ void creatingCustomers(vector<Customer> &students)
 }
 
 void sellInStockItem(vector<shared_ptr<Vendor>> &cStreet,
-                    vector<Customer> students)
+                    vector<Customer> &students)
 {
-  string item1Name = "Fanta";
-  string item2Name = "Skinny Pop Popcorn";
-  string item3Name = "Lay's Classic Potato Chips";
+  string itemName1 = "Fanta";
+  string itemName2 = "Skinny Pop Popcorn";
 
-  if(student.at(0).buyEntree(cStreet.at(0)->getName(), itemName1))
+  cout << endl <<  "Trying to sell in stock items..." << endl;
+  if(students.at(0).buyEntree(cStreet.at(0), itemName1))
   {
     cout << itemName1 << " was purchased..." << endl;
   } else {
@@ -200,19 +204,35 @@ void sellInStockItem(vector<shared_ptr<Vendor>> &cStreet,
          << endl;
   }
 
-  if(student.at(1).buyEntree(cStreet.at(1)->getName(), itemName2))
+  if(students.at(1).buyEntree(cStreet.at(1), itemName2))
   {
-    cout << itemName2 << "was purchased..." << endl;
+    cout << itemName2 << " was purchased..." << endl;
   } else {
     cout << "Sorry, that item was not instock or insufficent balance..."
          << endl;
   }
+}
 
-  if(student.at(2).buyEntree(cStreet.at(2)->getName(), itemName3))
+void sellExpiredItem(vector<shared_ptr<Vendor>> &cStreet,
+                     vector<Customer> &students)
+{
+  string itemName1 = "Coca-Cola";
+  string itemName2 = "Sprite";
+
+  cout << endl << "Trying to sell expired items..." << endl;
+  if(students.at(0).buyEntree(cStreet.at(0), itemName1))
   {
-    cout << itemName3 << "was purchased..." << endl;
+    cout << itemName1 << " was purchased..." << endl;
   } else {
-    cout << "Sorry, that item was not instock or insufficent balance..."
+    cout << "Sorry, that item was not instock..."
+         << endl;
+  }
+
+  if(students.at(0).buyEntree(cStreet.at(0), itemName2))
+  {
+    cout << itemName2 << " was purchased..." << endl;
+  } else {
+    cout << "Sorry, that item was not instock..."
          << endl;
   }
 }
