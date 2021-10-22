@@ -88,33 +88,26 @@ void Vendor::cleanStock()
 {
   if(!(isEmpty()))
   {
-    vendorNode *previous = head;
-    vendorNode *nPtr = previous->next;
-    vendorNode *temp;
-
-    // deleteing head
-    if(nPtr->food.isExpired() == true)
-    {
-      temp = head;
-      head = nPtr;
-      delete temp;
-      size--;
-
-      nPtr = nPtr->next;
-      previous = previous->next;
-    }
-
+    vendorNode *previous = nullptr;
+    vendorNode *nPtr = head;
     while(nPtr)
     {
-      if(nPtr->food.isExpired() == true)
+      if(nPtr->qty < 1 || nPtr->food.isSpoiled())
       {
-        temp = nPtr;
-        previous->next = nPtr->next; // assigning prev node's next to the next of deleted node
-        delete nPtr;
-        size--;
+        if(head == nPtr)
+        {
+          head = nPtr->next;
+          delete nPtr;
+          size--;
+        } else {
+          vendorNode *temp = nPtr;
+          previous->next = nPtr->next;
+          delete temp;
+          size--;
+        }
       }
+      previous = nPtr;
       nPtr = nPtr->next;
-      previous = previous->next;
     }
   }
 }

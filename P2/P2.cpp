@@ -21,8 +21,9 @@ void sellExpiredItem(vector<shared_ptr<Vendor>> &cStreet,
                      vector<Customer> &students);
 
 void poweroutageDrinks(vector<shared_ptr<Vendor>> &cStreet);
-void sellSpoiledItem(vector<shared_ptr<Vendor>> &cStreet);
-void cleanStockFreezer(vector<shared_ptr<Vendor>> &cStreet);
+void sellSpoiledItem(vector<shared_ptr<Vendor>> &cStreet,
+                      vector<Customer> &students);
+void cleanStock(vector<shared_ptr<Vendor>> &cStreet);
 void removeVendorsFromCStreet(vector<shared_ptr<Vendor>> &cStreet);
 
 int main()
@@ -43,6 +44,9 @@ int main()
   sellExpiredItem(cStreet, students);
 
   poweroutageDrinks(cStreet);
+  sellSpoiledItem(cStreet, students);
+
+  cleanStock(cStreet);
 
   cout << endl << "End of P2" << endl << endl;
   return 0;
@@ -241,6 +245,59 @@ void sellExpiredItem(vector<shared_ptr<Vendor>> &cStreet,
 
 void poweroutageDrinks(vector<shared_ptr<Vendor>> &cStreet)
 {
-  cout << "A power outage as occured at the Drinks Machine! " << endl;
+  cout << endl << "A power outage as occured at the Drinks Machine! " << endl;
   cStreet.at(0)->poweroutage();
+}
+
+void sellSpoiledItem(vector<shared_ptr<Vendor>> &cStreet,
+                      vector<Customer> &students)
+{
+  cout << endl << "Trying to sell spoiled items..." << endl;
+  string itemName1 = "Coca-Cola";
+  string itemName2 = "Sprite";
+  string itemName3 = "Fanta";
+
+  if(students.at(0).buyEntree(cStreet.at(0), itemName1))
+  {
+    cout << itemName1 << " was purchased..." << endl;
+  } else {
+    cout << "Sorry, that item was not instock..."
+         << endl;
+  }
+
+  if(students.at(0).buyEntree(cStreet.at(0), itemName2))
+  {
+    cout << itemName2 << " was purchased..." << endl;
+  } else {
+    cout << "Sorry, that item was not instock..."
+         << endl;
+  }
+
+  if(students.at(0).buyEntree(cStreet.at(0), itemName3))
+  {
+    cout << itemName3 << " was purchased..." << endl;
+  } else {
+    cout << "Sorry, that item was not instock..."
+         << endl;
+  }
+}
+
+void cleanStock(vector<shared_ptr<Vendor>> &cStreet)
+{
+  cout << endl << "Cleaning all Vendors' stock...." << endl;
+  for(int i = 0; i < (int) cStreet.size(); i++)
+  {
+    cout << "Num of Items in " << cStreet.at(i)->getName() << ": "
+         << cStreet.at(i)->getSize() << endl;
+  }
+  for(int i = 0; i < (int) cStreet.size(); i++)
+  {
+    cStreet.at(i)->cleanStock();
+  }
+
+  for(int i = 0; i < (int) cStreet.size(); i++)
+  {
+    cout << "Num of Items in " << cStreet.at(i)->getName() << ": "
+         << cStreet.at(i)->getSize() << endl;
+  }
 }
