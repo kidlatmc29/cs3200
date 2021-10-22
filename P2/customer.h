@@ -8,8 +8,13 @@
 #include "vendor.h"
 
 // Class invarients:
+// - Customer has an account number and a current balance
+// - If no parameters are given when ctor is called, default values are given
+//    to accountNum and currentBalance
 
 // Interface invarients:
+// - Customers can be created without specifying account number or getCurrentBalance
+//    These values can be set after instantiation
 
 // Implementation invarients:
 
@@ -41,6 +46,10 @@ class Customer
     // PRE: N/A
     // POST: N/A
     int getAccountNum();
+
+    // PRE: N/A
+    // POST: accountNum is set to num
+    void setAccountNum(int num);
 };
 
 #endif
