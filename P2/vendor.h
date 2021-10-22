@@ -23,7 +23,8 @@ using namespace std;
 
 // Implementation invarients:
 //  - the list of Items in Vendor is implemented using a linked list
-//   - vendorNode consists of the Entree, the quantity of the Entree and the price
+//   - vendorNode consists of the Entree, the quantity of the Entree and the
+//      price
 //  -sell is called from the Customer object, see Customer class for checking
 //    validity of purchase
 

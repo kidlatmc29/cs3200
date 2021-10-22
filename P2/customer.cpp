@@ -47,7 +47,7 @@ int Customer::getAccountNum()
   return accountNum;
 }
 
-void setAccountNum(int num)
+void Customer::setAccountNum(int num)
 {
-  accountNum = num; 
+  accountNum = num;
 }

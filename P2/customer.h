@@ -13,7 +13,8 @@
 //    to accountNum and currentBalance
 
 // Interface invarients:
-// - Customers can be created without specifying account number or getCurrentBalance
+// - Customers can be created without specifying account number or
+//    getCurrentBalance
 //    These values can be set after instantiation
 
 // Implementation invarients:

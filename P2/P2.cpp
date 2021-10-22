@@ -47,6 +47,7 @@ int main()
   sellSpoiledItem(cStreet, students);
 
   cleanStock(cStreet);
+  removeVendorsFromCStreet(cStreet);
 
   cout << endl << "End of P2" << endl << endl;
   return 0;
@@ -261,7 +262,7 @@ void sellSpoiledItem(vector<shared_ptr<Vendor>> &cStreet,
   {
     cout << itemName1 << " was purchased..." << endl;
   } else {
-    cout << "Sorry, that item was not instock..."
+    cout << "Sorry " << itemName1 << " was not instock..."
          << endl;
   }
 
@@ -269,7 +270,7 @@ void sellSpoiledItem(vector<shared_ptr<Vendor>> &cStreet,
   {
     cout << itemName2 << " was purchased..." << endl;
   } else {
-    cout << "Sorry, that item was not instock..."
+    cout << "Sorry " << itemName2 << " was not instock..."
          << endl;
   }
 
@@ -277,27 +278,33 @@ void sellSpoiledItem(vector<shared_ptr<Vendor>> &cStreet,
   {
     cout << itemName3 << " was purchased..." << endl;
   } else {
-    cout << "Sorry, that item was not instock..."
+    cout << "Sorry " << itemName3 << " was not instock..."
          << endl;
   }
 }
 
 void cleanStock(vector<shared_ptr<Vendor>> &cStreet)
 {
-  cout << endl << "Cleaning all Vendors' stock...." << endl;
-  for(int i = 0; i < (int) cStreet.size(); i++)
-  {
-    cout << "Num of Items in " << cStreet.at(i)->getName() << ": "
-         << cStreet.at(i)->getSize() << endl;
-  }
-  for(int i = 0; i < (int) cStreet.size(); i++)
-  {
-    cStreet.at(i)->cleanStock();
-  }
+  cout << endl << "Before cleaning Soda Machine stock...." << endl;
+  cout << "Num of Items in " << cStreet.at(0)->getName() << ": "
+         << cStreet.at(0)->getSize() << endl;
 
+  cStreet.at(0)->cleanStock();
+
+  cout << endl << "After cleaning Soda Machine stock...." << endl;
+  cout << "Num of Items in " << cStreet.at(0)->getName() << ": "
+         << cStreet.at(0)->getSize() << endl;
+}
+
+void removeVendorsFromCStreet(vector<shared_ptr<Vendor>> &cStreet)
+{
+  cout << endl << "Removing Vendors with no stock from cStreet...." << endl;
   for(int i = 0; i < (int) cStreet.size(); i++)
   {
-    cout << "Num of Items in " << cStreet.at(i)->getName() << ": "
-         << cStreet.at(i)->getSize() << endl;
+    if(cStreet.at(i)->getSize() == 0)
+    {
+      cout << "Removing " << cStreet.at(i)->getName() << endl;
+      cStreet.erase(cStreet.begin() + i);
+    }
   }
 }
