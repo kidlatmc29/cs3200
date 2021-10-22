@@ -19,7 +19,7 @@ class Customer
     float currentBalance;
 
   public:
-    Customer(int accountNum = 0000, float currentBalance = 0.0);
+    Customer(int accountNum = 0, float currentBalance = 0.0);
 
     ~Customer();
 
@@ -29,12 +29,17 @@ class Customer
 
     // PRE: The item's name that Customer wants to buy is written exactly as it
     //        is saved in Entree name
-    // POST: Subtracts price of item bought from Customer's balance
-    void buyEntree(Vendor market, string entreeName = "");
+    // POST: Subtracts price of item bought from Customer's balance,
+    //        returns true, else false
+    bool buyEntree(shared_ptr<Vendor> market, string entreeName = "");
 
     // PRE: N/A
     // POST: N/A
     float getCurrentBalance();
+
+    // PRE: N/A
+    // POST: N/A
+    int getAccountNum();
 };
 
 #endif

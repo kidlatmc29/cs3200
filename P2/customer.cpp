@@ -21,20 +21,28 @@ void Customer::addMoney(float amount)
   }
 }
 
-void Customer::buyEntree(Vendor market, string entreeName)
+bool Customer::buyEntree(shared_ptr<Vendor> market, string entreeName)
 {
-  if(market.isStocked(entreeName))
+  bool sold = false;
+  if(market->isStocked(entreeName))
   {
-    float itemPrice =  market.getItemPrice(entreeName);
+    float itemPrice =  market->getItemPrice(entreeName);
     if(currentBalance >= itemPrice)
     {
-      market.sell(entreeName);
+      market->sell(entreeName);
       currentBalance -= itemPrice;
+      sold = true;
     }
   }
+  return sold;
 }
 
 float Customer::getCurrentBalance()
 {
   return currentBalance;
+}
+
+int Customer::getAccountNum()
+{
+  return accountNum;
 }

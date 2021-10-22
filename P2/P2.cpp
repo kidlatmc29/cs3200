@@ -15,7 +15,8 @@ void getEntreeNutrFacts(vector<shared_ptr<Vendor>> cStreet);
 void isStockedFanta(vector<shared_ptr<Vendor>> cStreet);
 
 void creatingCustomers(vector<Customer> &students);
-void sellInStockItem(vector<shared_ptr<Vendor>> &cStreet);
+void sellInStockItem(vector<shared_ptr<Vendor>> &cStreet,
+                     vector<Customer> students);
 void sellExpiredItem(vector<shared_ptr<Vendor>> &cStreet);
 
 void poweroutageFreezer(vector<shared_ptr<Vendor>> &cStreet);
@@ -31,6 +32,8 @@ int main()
   cout << endl << "Welcome to P2" << endl << endl;
 
   creatingVendors(cStreet);
+  creatingCustomers(students);
+
   loadEntreesInVendor(cStreet);
   getEntreeNutrFacts(cStreet);
   isStockedFanta(cStreet);
@@ -166,15 +169,50 @@ void isStockedFanta(vector<shared_ptr<Vendor>> cStreet)
 
 void creatingCustomers(vector<Customer> &students)
 {
-  Customer student1(0001, 14.00);
-  Customer student2(0002, 10.00);
-  Customer student3(0003, 1.00);
+  cout << endl << "Creating Customers...." << endl;
+  Customer student1(1, 14.00);
+  Customer student2(2, 10.00);
+  Customer student3(3, 1.00);
 
   students.push_back(student1);
   students.push_back(student2);
   students.push_back(student3);
+
+  for(int i = 0; i < (int) students.size(); i++)
+  {
+    cout << "Account #: " << students.at(i).getAccountNum()
+         << "   Balance: " << students.at(i).getCurrentBalance() << endl;
+  }
 }
 
-void sellInStockItem(vector<shared_ptr<Vendor>> &cStreet)
+void sellInStockItem(vector<shared_ptr<Vendor>> &cStreet,
+                    vector<Customer> students)
 {
+  string item1Name = "Fanta";
+  string item2Name = "Skinny Pop Popcorn";
+  string item3Name = "Lay's Classic Potato Chips";
+
+  if(student.at(0).buyEntree(cStreet.at(0)->getName(), itemName1))
+  {
+    cout << itemName1 << " was purchased..." << endl;
+  } else {
+    cout << "Sorry, that item was not instock or insufficent balance..."
+         << endl;
+  }
+
+  if(student.at(1).buyEntree(cStreet.at(1)->getName(), itemName2))
+  {
+    cout << itemName2 << "was purchased..." << endl;
+  } else {
+    cout << "Sorry, that item was not instock or insufficent balance..."
+         << endl;
+  }
+
+  if(student.at(2).buyEntree(cStreet.at(2)->getName(), itemName3))
+  {
+    cout << itemName3 << "was purchased..." << endl;
+  } else {
+    cout << "Sorry, that item was not instock or insufficent balance..."
+         << endl;
+  }
 }
