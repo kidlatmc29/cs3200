@@ -150,6 +150,7 @@ void Vendor::poweroutage()
     while(nPtr)
     {
       nPtr->food.powerOut();
+      nPtr = nPtr->next;
     }
   }
 }

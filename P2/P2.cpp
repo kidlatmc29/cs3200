@@ -42,6 +42,8 @@ int main()
   sellInStockItem(cStreet, students);
   sellExpiredItem(cStreet, students);
 
+  poweroutageDrinks(cStreet);
+
   cout << endl << "End of P2" << endl << endl;
   return 0;
 }
@@ -235,4 +237,10 @@ void sellExpiredItem(vector<shared_ptr<Vendor>> &cStreet,
     cout << "Sorry, that item was not instock..."
          << endl;
   }
+}
+
+void poweroutageDrinks(vector<shared_ptr<Vendor>> &cStreet)
+{
+  cout << "A power outage as occured at the Drinks Machine! " << endl;
+  cStreet.at(0)->poweroutage();
 }
