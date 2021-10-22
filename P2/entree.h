@@ -143,6 +143,11 @@ class Entree {
 
     // PRE: N/A
     // POST: N/A
+    // Note: isExpired has a known issue where difftime() sometimes returns
+    //  different values when the program is run. This can cause issues with
+    //  other functions such as isSpoiled or cleanStock which could return
+    //  an incorrect results.
+
     bool isExpired();
 
     // PRE: N/A
