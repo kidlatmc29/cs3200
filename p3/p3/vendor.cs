@@ -4,7 +4,7 @@ using System.Text;
 
 namespace p3
 {
-    class vendor
+    class Vendor
     {
     }
 }
