@@ -53,8 +53,9 @@ namespace p3
         {
             string[] data = txtLine.Split('\t');
             List<string> ingredients = data[12].Split('$').ToList();
-            List<string> contains = data[13].Split('$').ToList(); 
-
+            List<string> contains = data[13].Split('$').ToList();
+            // need to figure out a safer way to parse data since contains is an optional field
+         
             name = data[0];
 
             for (int i = 1; i < NUM_OF_NUTR_STATS; i++)
@@ -156,6 +157,13 @@ namespace p3
         public bool isExpired()
         {
             return expirationDate < DateTime.Today; 
+        }
+
+        // PRE: N/A
+        // POST: N/A
+        public bool isSpoiled()
+        {
+            return ((!isRefrigerated) && needsRefridge) || isExpired();
         }
     }
 }
