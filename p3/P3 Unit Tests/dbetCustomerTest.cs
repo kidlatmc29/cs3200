@@ -3,7 +3,7 @@
 namespace p3
 {
     [TestClass]
-    public class carbCustomerTest
+    public class dbetCustomerTest
     {
         [TestMethod]
         public void TestMethod1()

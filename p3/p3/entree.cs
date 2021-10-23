@@ -24,7 +24,7 @@ namespace p3
     // -isExpired and isSpoiled is not saved as internal states, Client
     //    must request for states
 
-    class Entree
+    public class Entree
     {
 
         private const int NUM_OF_SERVINGS_INDEX = 0;
@@ -65,6 +65,13 @@ namespace p3
             this.expirationDate = expirationDate;
             this.needsRefridge = needsRefridge;
             this.isRefrigerated = isRefrigerated; 
+        }
+
+        // PRE: N/A
+        // POST: N/A
+        public string getName()
+        {
+            return name; 
         }
 
         // PRE: N/A

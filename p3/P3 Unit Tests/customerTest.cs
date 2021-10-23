@@ -6,7 +6,7 @@ namespace p3
     public class customerTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void Test_addMoney_customer_True()
         {
         }
     }

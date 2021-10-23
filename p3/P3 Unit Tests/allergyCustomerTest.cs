@@ -1,12 +1,12 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace p3
+namespace P3_Unit_Testing
 {
     [TestClass]
     public class carbCustomerTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void Test_getName()
         {
         }
     }
