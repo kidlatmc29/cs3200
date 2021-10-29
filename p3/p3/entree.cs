@@ -22,11 +22,10 @@ namespace p3
 
     // Implementation invarients:
     // -isExpired and isSpoiled is not saved as internal states, Client
-    //    must request for states
+    //    must request for them
 
     public class Entree
     {
-
         private const int NUM_OF_SERVINGS_INDEX = 0;
         private const int CALORIES_INDEX = 1;
         private const int TOTAL_FAT_INDEX = 2;
@@ -51,16 +50,25 @@ namespace p3
 
         public Entree(string txtLine, DateTime expirationDate, bool needsRefridge, bool isRefrigerated)
         {
-            string[] data = txtLine.Split('\t');
-            List<string> ingredients = data[12].Split('$').ToList();
-            List<string> contains = data[13].Split('$').ToList();
-            // need to figure out a safer way to parse data since contains is an optional field
+            List<string> data = txtLine.Split('\t').ToList();
+            int count = 0; 
          
             name = data[0];
+            data.RemoveAt(0);
 
-            for (int i = 1; i < NUM_OF_NUTR_STATS; i++)
+            while (count > NUM_OF_NUTR_STATS)
             {
-                nutritionStats.Add(Int32.Parse(data[i]));
+                nutritionStats.Add(Int32.Parse(data[count]));
+                count++;
+                data.RemoveAt(0);
+            }
+
+            List<string> ingredients = data[0].Split('$').ToList();
+            data.RemoveAt(0);
+            
+            if(data.Count > 0)
+            {
+               List<string> contains = data[0].Split('$').ToList();
             }
 
             this.expirationDate = expirationDate;
