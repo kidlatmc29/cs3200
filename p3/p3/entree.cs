@@ -56,9 +56,10 @@ namespace p3
             name = data[0];
             data.RemoveAt(0);
 
-            while (count > NUM_OF_NUTR_STATS)
+            while (count < NUM_OF_NUTR_STATS)
             {
-                nutritionStats.Add(Int32.Parse(data[count]));
+                nutritionStats.Add(int.Parse(data[count]));
+                // figure out how why the formatting from the string isn't correct???
                 count++;
                 data.RemoveAt(0);
             }

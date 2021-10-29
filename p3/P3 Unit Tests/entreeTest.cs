@@ -85,5 +85,52 @@ namespace p3
             // Assert
             Assert.AreEqual(actual, false);
         }
+
+        [TestMethod]
+        public void Test_powerOut_isSpoiled_entree_true()
+        {
+            // Arrange
+            string txt = "Horizon Organic Whole Milk	1	150	8	5	0	35	130	13	0	12	8	Grade A Organic Milk$Vitamin D3	milk";
+            DateTime exp = new DateTime(2022, 10, 10);
+            Entree obj = new Entree(txt, exp, true, true);
+
+            // Act
+            obj.powerOut();
+            bool actual = obj.isSpoiled();
+
+            // Assert
+            Assert.AreEqual(actual, true);
+        }
+
+        [TestMethod]
+        public void Test_powerOut_isSpoiled_entree_false()
+        {
+            // Arrange
+            string txt = "Fritos Original Corn Chips	1	160	10	1.5	0	0	170	16	1	0	2	Corn$Corn oil$salt";
+            DateTime exp = new DateTime(2022, 10, 10);
+            Entree obj = new Entree(txt, exp, false, false);
+
+            // Act
+            obj.powerOut();
+            bool actual = obj.isSpoiled();
+
+            // Assert
+            Assert.AreEqual(actual, false);
+        }
+
+        [TestMethod]
+        public void Test_hasIngredient_entree_true()
+        {
+            // Arrange
+            string txt = "Planters Nuts on the Go Salted Peanuts	1	170	14	2	0	0	95	5	2	1	7	Peanuts$Peanut and/or Cottonseed oil$sea salt	peanuts";
+            DateTime exp = new DateTime(2022, 10, 10);
+            Entree obj = new Entree(txt, exp, false, false);
+
+            // Act
+            bool actual = obj.hasIngredient("peanuts");
+
+            // Assert
+            Assert.AreEqual(actual, true);
+        }
     }
 }
