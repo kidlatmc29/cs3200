@@ -185,25 +185,7 @@ namespace p3
 
         public bool hasIngredient(string target)
         {
-            bool foundIngredient = false;
-
-            if (target == "")
-            {
-                foundIngredient = false;
-            }
-            else
-            {
-                int count = 0;
-                while (foundIngredient == false && count < ingredients.Count)
-                {
-                    if (target == ingredients[count])
-                    {
-                        foundIngredient = true;
-                    }
-                    count++;
-                }
-            }
-            return foundIngredient;
+            return ingredients.Contains(target);
         }
     }
 }

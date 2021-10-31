@@ -23,7 +23,7 @@ namespace p3
             string actual = obj.getName(); 
 
             // Assert
-            Assert.AreEqual(actual, expected);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -38,7 +38,7 @@ namespace p3
             bool actual = obj.isExpired();
 
             // Assert
-            Assert.AreEqual(actual, true);
+            Assert.AreEqual(true, actual);
         }
 
         [TestMethod]
@@ -53,7 +53,7 @@ namespace p3
             bool actual = obj.isExpired();
 
             // Assert
-            Assert.AreEqual(actual, false);
+            Assert.AreEqual(false, actual);
         }
 
         [TestMethod]
@@ -68,7 +68,7 @@ namespace p3
             bool actual = obj.isSpoiled();
 
             // Assert
-            Assert.AreEqual(actual, true);
+            Assert.AreEqual(true, actual);
         }
 
         [TestMethod]
@@ -83,7 +83,7 @@ namespace p3
             bool actual = obj.isSpoiled();
 
             // Assert
-            Assert.AreEqual(actual, false);
+            Assert.AreEqual(false, actual);
         }
 
         [TestMethod]
@@ -99,7 +99,7 @@ namespace p3
             bool actual = obj.isSpoiled();
 
             // Assert
-            Assert.AreEqual(actual, true);
+            Assert.AreEqual(true, actual);
         }
 
         [TestMethod]
@@ -115,7 +115,7 @@ namespace p3
             bool actual = obj.isSpoiled();
 
             // Assert
-            Assert.AreEqual(actual, false);
+            Assert.AreEqual(false, actual);
         }
 
         [TestMethod]
@@ -127,10 +127,25 @@ namespace p3
             Entree obj = new Entree(txt, exp, false, false);
 
             // Act
-            bool actual = obj.hasIngredient("peanuts");
+            bool actual = obj.hasIngredient("Peanuts");
 
             // Assert
-            Assert.AreEqual(actual, true);
+            Assert.AreEqual(false, actual);
+        }
+
+        [TestMethod]
+        public void Test_hasIngredient_entree_false()
+        {
+            // Arrange
+            string txt = "Planters Nuts on the Go Salted Peanuts	1	170	14	2	0	0	95	5	2	1	7	Peanuts$Peanut and/or Cottonseed oil$sea salt	peanuts";
+            DateTime exp = new DateTime(2022, 10, 10);
+            Entree obj = new Entree(txt, exp, false, false);
+
+            // Act
+            bool actual = obj.hasIngredient("carrots");
+
+            // Assert
+            Assert.AreEqual(false, actual);
         }
     }
 }
