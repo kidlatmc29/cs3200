@@ -6,8 +6,7 @@ namespace p3
     public class vendorTest
     {
         [TestMethod]
-        public void TestMethod1()
-
+        public void Test_getName_vendor_true()
         {
         }
     }
