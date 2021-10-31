@@ -1,10 +1,6 @@
 using System; 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-// Arrange
-// Act
-// Assert
-
 namespace p3
 {
     [TestClass]

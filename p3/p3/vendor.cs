@@ -19,7 +19,7 @@ namespace p3
     //  - Item is implemented as a struct, stock is a list of item structs
     //  -sell is called from the Customer object, see Customer class for checking
     //    validity of purchase
-    class Vendor
+    public class Vendor
     {
         string name;
         bool isRefrigerator;
@@ -59,6 +59,11 @@ namespace p3
 
             stock.Add(a);
             size++; 
+        }
+
+        public string getName()
+        {
+            return name; 
         }
     }
 }
