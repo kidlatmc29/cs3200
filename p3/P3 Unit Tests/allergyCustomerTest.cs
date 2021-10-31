@@ -1,9 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace P3_Unit_Testing
+namespace p3
 {
     [TestClass]
-    public class carbCustomerTest
+    public class allergyCustomerTest
     {
         [TestMethod]
         public void Test_getName()

@@ -23,17 +23,16 @@ namespace p3
     {
         string name;
         bool isRefrigerator;
-        int size; 
         private List<Item> stock; 
 
-        private struct Item
+         private struct Item
         {
-            Entree name;
-            int qty;
-            double price; 
-            public Item(Entree n, int q, double p)
+            public Entree food;
+            public int qty;
+            public double price; 
+            public Item(Entree f, int q, double p)
             {
-                name = n;
+                food = f;
                 qty = q;
                 price = p; 
             }
@@ -43,12 +42,10 @@ namespace p3
         {
             this.name = name;
             this.isRefrigerator = isRefrigerator;
-
-            size = 0;
             stock = null;
         }
 
-        void load(Entree food, int qty, double price)
+        public void load(Entree food, int qty, double price)
         {
             if(stock == null)
             {
@@ -57,13 +54,40 @@ namespace p3
 
             Item a = new Item(food, qty, price);
 
-            stock.Add(a);
-            size++; 
+            stock.Add(a); 
+        }
+
+        public void cleanStock()
+        {
+
+        }
+
+
+        public int isStocked(string itemName)
+        {
+            int index = -1;
+            int count = 0;
+            while(stock[count].food.getName() != itemName)
+            {
+                count++; 
+            }
+
+            if(count != stock.Count)
+            {
+                index = count; 
+            }
+
+            return index; 
         }
 
         public string getName()
         {
             return name; 
+        }
+
+        public int getSize()
+        {
+            return stock.Count; 
         }
     }
 }
