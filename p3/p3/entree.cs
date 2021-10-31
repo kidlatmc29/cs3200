@@ -41,7 +41,7 @@ namespace p3
 
         private string name;
         private List<string> ingredients = new List<string>();
-        private List<int> nutritionStats = new List<int>();
+        private List<string> nutritionStats = new List<string>();
         private List<string> contains = new List<string>();
         private DateTime expirationDate;
         private bool needsRefridge;
@@ -51,16 +51,17 @@ namespace p3
         public Entree(string txtLine, DateTime expirationDate, bool needsRefridge, bool isRefrigerated)
         {
             List<string> data = txtLine.Split('\t').ToList();
-            int count = 0; 
          
             name = data[0];
             data.RemoveAt(0);
-
-            while (count < NUM_OF_NUTR_STATS)
+            
+            for(int i = 0; i < NUM_OF_NUTR_STATS; i++)
             {
-                nutritionStats.Add(int.Parse(data[count]));
-                // figure out how why the formatting from the string isn't correct???
-                count++;
+              nutritionStats.Add((data[i].Trim()));
+            }
+         
+            for(int i = 0; i < NUM_OF_NUTR_STATS; i++)
+            {
                 data.RemoveAt(0);
             }
 
@@ -86,77 +87,77 @@ namespace p3
 
         // PRE: N/A
         // POST: N/A
-        public int getNumOfServings()
+        public string getNumOfServings()
         {
             return nutritionStats[NUM_OF_SERVINGS_INDEX];
         }
 
         // PRE: N/A
         // POST: N/A
-        public int getCals()
+        public string getCals()
         {
             return nutritionStats[CALORIES_INDEX];
         }
 
         // PRE: N/A
         // POST: N/A
-        public int getTotalFat()
+        public string getTotalFat()
         {
             return nutritionStats[TOTAL_FAT_INDEX];
         }
 
         // PRE: N/A
         // POST: N/A
-        public int getSFat()
+        public string getSFat()
         {
             return nutritionStats[SAT_FAT_INDEX];
         }
 
         // PRE: N/A
         // POST: N/A
-        public int getTFat()
+        public string getTFat()
         {
             return nutritionStats[TRANS_FAT_INDEX];
         }
 
         // PRE: N/A
         // POST: N/A
-        public int getCholest()
+        public string getCholest()
         {
             return nutritionStats[CHOLEST_INDEX];
         }
 
         // PRE: N/A
         // POST: N/A
-        public int getSodium()
+        public string getSodium()
         {
             return nutritionStats[SODIUM_INDEX];
         }
 
         // PRE: N/A
         // POST: N/A
-        public int getTotalCarbs()
+        public string getTotalCarbs()
         {
             return nutritionStats[TOT_CARBS_INDEX];
         }
 
         // PRE: N/A
         // POST: N/A
-        public int getFiber()
+        public string getFiber()
         {
             return nutritionStats[FIBER_INDEX];
         }
 
         // PRE: N/A
         // POST: N/A
-        public int getTotalSugar()
+        public string getTotalSugar()
         {
             return nutritionStats[TOT_SUGAR_INDEX];
         }
 
         // PRE: N/A
         // POST: N/A
-        public int getProtein()
+        public string getProtein()
         {
             return nutritionStats[PROTEIN_INDEX];
         }

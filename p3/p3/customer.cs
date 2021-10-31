@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-
 // Class invarients:
 // - Customer has an account number and a current balance
 // - If no parameters are given when ctor is called, default values are given
