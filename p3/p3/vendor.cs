@@ -59,9 +59,14 @@ namespace p3
 
         public void cleanStock()
         {
-
+            for(int i = 0; i < stock.Count; i++)
+            {
+                if(stock[i].food.isSpoiled())
+                {
+                    stock.RemoveAt(i);
+                }
+            }
         }
-
 
         public int isStocked(string itemName)
         {
