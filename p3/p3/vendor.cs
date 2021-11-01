@@ -26,7 +26,7 @@ namespace p3
         private List<Item> stock; 
 
          private struct Item
-        {
+         {
             public Entree food;
             public int qty;
             public double price; 
@@ -36,7 +36,7 @@ namespace p3
                 qty = q;
                 price = p; 
             }
-        }
+         }
 
         // helper fxns
         // PRE: N/A 
@@ -116,7 +116,11 @@ namespace p3
 
         public void sell(string entreeName)
         {
-
+            int itemIndex = findIndex(entreeName);
+            if(itemIndex >= 0)
+            {
+                stock[itemIndex] = new Item(stock[itemIndex].food, stock[itemIndex].qty - 1, stock[itemIndex].price); 
+            } 
         }
 
         // PRE: itemName is exactly what is saved in Entree's name
