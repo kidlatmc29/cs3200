@@ -173,7 +173,7 @@ namespace p3
         // POST: N/A
         public bool isSpoiled()
         {
-            return ((!isRefrigerated) && needsRefridge) || isExpired();
+            return (isExpired() || (!isRefrigerated) && needsRefridge);
         }
 
         // PRE: N/A
