@@ -56,11 +56,12 @@ namespace p3
             {
                 while (!found && index != stock.Count)
                 {
-                    index++;
                     found = stock[index].food.getName() == itemName;
+                    index++;
                 }
+                // need to check if it's the last item 
 
-                if (stock[index].food.isSpoiled())
+                if (stock[index].food.isSpoiled() || index == stock.Count)
                 {
                     index = -1; 
                 }
@@ -134,6 +135,19 @@ namespace p3
                 itemPrice = stock[itemIndex].price; 
             }
             return itemPrice;
+        }
+
+        // PRE: itemName is exactly what is saved in Entree's name
+        // POST: Returns the qty of the entree, if entree is not in stock, return -1
+        public int getItemQuantity(string itemName)
+        {
+            int itemQty = -1;
+            int itemIndex = findIndex(itemName);
+            if (itemIndex >= 0)
+            {
+                itemQty = stock[itemIndex].qty;
+            }
+            return itemQty; 
         }
 
         public string getName()
