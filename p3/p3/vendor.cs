@@ -68,21 +68,23 @@ namespace p3
             }
         }
 
-        public int isStocked(string itemName)
+        public bool isStocked(string itemName)
         {
             int index = -1;
-            int count = 0;
-            while(stock[count].food.getName() != itemName)
+            bool found = false;
+
+            while(!found && index != stock.Count)
             {
-                count++; 
+                index++;
+                found = stock[index].food.getName() == itemName; 
             }
 
-            if(count != stock.Count)
+            if(stock[index].food.isSpoiled())
             {
-                index = count; 
+                found = false; 
             }
 
-            return index; 
+            return found; 
         }
 
         public string getName()
