@@ -92,5 +92,32 @@ namespace p3
 
         }
 
+        [TestMethod]
+        public void Test_cleanStock_vendor_true()
+        {
+            // Arrange
+            string txt1 = "";
+            DateTime exp1 = new DateTime(2010, 5, 1);
+            Entree milk = new Entree(txt1, exp1, false, false);
+
+            string txt2 = "";
+            DateTime exp2 = new DateTime(2021, 9, 30);
+            Entree sprite = new Entree(txt2, exp2, false, false);
+
+            string txt3 = "";
+            DateTime exp3 = new DateTime(2001, 10, 30);
+            Entree coke = new Entree(txt3, exp3, false, false);
+
+
+            Vendor cold = new Vendor("Fridge", false);
+            cold.load(milk, 12, 2.00);
+            cold.load(sprite, 5, 1.50);
+            cold.load(coke, 3, .50);
+
+            // Act
+
+            // Assert
+        }
+
     }
 }
