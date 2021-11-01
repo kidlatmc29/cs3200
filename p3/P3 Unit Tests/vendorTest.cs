@@ -112,7 +112,7 @@ namespace p3
             DateTime exp4 = new DateTime(2020, 1, 20);
             Entree cupcake = new Entree(txt4, exp4, true, true);
 
-            Vendor cold = new Vendor("Fridge", false);
+            Vendor cold = new Vendor("Fridge", true);
             cold.load(milk, 12, 2.00);
             cold.load(sprite, 5, 1.50);
             cold.load(coke, 3, 1.00);
@@ -128,5 +128,41 @@ namespace p3
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod]
+        public void Test_powerOut_cleanStock_vendor_true()
+        {
+            // Arrange
+            string txt1 = "Horizon Organic Whole Milk	1	150	8	5	0	35	130	13	0	12	8	Grade A Organic Milk$Vitamin D3	milk";
+            DateTime exp1 = new DateTime(2023, 5, 1);
+            Entree milk = new Entree(txt1, exp1, true, true);
+
+            string txt2 = "Sprite	1	140	0	0	0	0	75	65	0	65	0	CARBONATED WATER$HIGH FRUCTOSE CORN SYRUP$CITRIC ACID$NATURAL FLAVORS$SODIUM CITRATE$SODIUM BENZOATE";
+            DateTime exp2 = new DateTime(2021, 12, 30);
+            Entree sprite = new Entree(txt2, exp2, true, true);
+
+            string txt3 = "Coke	1	240	0	0	0	0	75	65	0	65	0	CARBONATED WATER$HIGH FRUCTOSE CORN SYRUP$CARAMEL COLOR$PHOSPHORIC ACID$NATURAL FLAVORS$CAFFEINE";
+            DateTime exp3 = new DateTime(2022, 10, 30);
+            Entree coke = new Entree(txt3, exp3, true, true);
+
+            string txt4 = "Vanilla Cupcake	1	240	10	3	0	15	160	35	0	26	1	Sugar$ Bleached Enriched Flour (wheat Flour$ Malted Barley Flour$ Niacin$ Iron$ Thiamin Mononitrate$ Riboflavin$ Folic Acid)$ Soybean Oil$ Water$ Blueberries$ Eggs$ Glycerine$ Contains 2% Or Less: Corn Syrup$ Modified Food Starch$ Non Fat Dry Milk$ Leavening (sodium Acid Pyrophosphate$ Baking Soda$ Monocalcium Phosphate)$ Salt$ Natural Flavors$ Preservatives (sodium Propionate And Potassium Sorbate)$ Xanthan Gum$ Corn Starch$ Citric Acid$ Carnauba Wax";
+            DateTime exp4 = new DateTime(2021, 11, 20);
+            Entree cupcake = new Entree(txt4, exp4, true, true);
+
+            Vendor cold = new Vendor("Fridge", true);
+            cold.load(milk, 12, 2.00);
+            cold.load(sprite, 5, 1.50);
+            cold.load(coke, 3, 1.00);
+            cold.load(cupcake, 12, 3.00);
+
+            int expected = 0;
+
+            // Act
+            cold.poweroutage();
+            cold.cleanStock();
+            int actual = cold.getSize();
+
+            // Assert 
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

@@ -44,9 +44,11 @@ namespace p3
         //        is saved in Entree name
         // POST: Subtracts price of item bought from Customer's balance,
         //        returns true, else false
-        public bool buyEntree()
+        public bool buyEntree(string itemName)
         {
             bool sold = false; 
+
+
             return sold; 
         }
 

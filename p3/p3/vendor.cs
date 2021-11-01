@@ -50,7 +50,22 @@ namespace p3
         // POST: Returns the index of foundItem, otherwise returns -1
         private int findIndex(string itemName)
         {
-            return -1; 
+            bool found = false; 
+            int index = 0;
+            if (!isEmpty())
+            {
+                while (!found && index != stock.Count)
+                {
+                    index++;
+                    found = stock[index].food.getName() == itemName;
+                }
+
+                if (stock[index].food.isSpoiled())
+                {
+                    index = -1; 
+                }
+            }
+            return index; 
         }
 
         public Vendor(string name, bool isRefrigerator)
@@ -86,26 +101,17 @@ namespace p3
 
         public bool isStocked(string itemName)
         {
-            int index = -1;
-            bool found = false;
-
-            while(!found && index != stock.Count)
-            {
-                index++;
-                found = stock[index].food.getName() == itemName; 
-            }
-
-            if(stock[index].food.isSpoiled())
-            {
-                found = false; 
-            }
-
-            return found; 
+            return findIndex(itemName) >= 0 ; 
         }
-
         public void poweroutage()
         {
-
+            if (!isEmpty() && isRefrigerator)
+            {
+                for (int i = 0; i < stock.Count; i++)
+                {
+                    stock[i].food.powerOut();
+                }
+            }
         }
 
         public void sell(string entreeName)
@@ -113,9 +119,17 @@ namespace p3
 
         }
 
+        // PRE: itemName is exactly what is saved in Entree's name
+        // POST: Returns the price of the entree, if entree is not in stock, return -1 
         public double getItemPrice(string itemName)
         {
-            return 0;
+            double itemPrice = -1;
+            int itemIndex = findIndex(itemName);
+            if(itemIndex >= 0)
+            {
+                itemPrice = stock[itemIndex].price; 
+            }
+            return itemPrice;
         }
 
         public string getName()
