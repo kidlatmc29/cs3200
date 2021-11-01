@@ -21,8 +21,8 @@ namespace p3
     //    validity of purchase
     public class Vendor
     {
-        string name;
-        bool isRefrigerator;
+        private string name;
+        private bool isRefrigerator;
         private List<Item> stock; 
 
          private struct Item
@@ -36,6 +36,21 @@ namespace p3
                 qty = q;
                 price = p; 
             }
+        }
+
+        // helper fxns
+        // PRE: N/A 
+        // POST: N/A
+        private bool isEmpty()
+        {
+            return stock == null;
+        }
+
+        // PRE: itemName is exactly what is saved in Entree's name
+        // POST: Returns the index of foundItem, otherwise returns -1
+        private int findIndex(string itemName)
+        {
+            return -1; 
         }
 
         public Vendor(string name, bool isRefrigerator)
@@ -86,6 +101,21 @@ namespace p3
             }
 
             return found; 
+        }
+
+        public void poweroutage()
+        {
+
+        }
+
+        public void sell(string entreeName)
+        {
+
+        }
+
+        public double getItemPrice(string itemName)
+        {
+            return 0;
         }
 
         public string getName()
