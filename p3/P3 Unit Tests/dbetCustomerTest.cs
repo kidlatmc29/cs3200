@@ -16,7 +16,7 @@ namespace p3
 
             string txt = "Fresh Brand - Sliced Apples	2.5	70	0	0	0	0	0	19	3	15	0	apples";
             DateTime exp = new DateTime(2021, 12, 31);
-            Entree obj = new Entree(txt, exp, true, false);
+            Entree obj = new Entree(txt, exp, true, true);
 
             fruitStand.load(obj, 5, 1.50);
             int expected = 4;

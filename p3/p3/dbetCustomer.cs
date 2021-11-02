@@ -29,7 +29,7 @@ namespace p3
             {
                 double itemSugar = Convert.ToDouble(market.getItemSugar(itemName));
                 double itemPrice = market.getItemPrice(itemName); 
-                if (itemSugar + dailySugar >= MAX_SUGAR && currentBalance >= itemPrice)
+                if (itemSugar + dailySugar <= MAX_SUGAR && currentBalance >= itemPrice)
                 {
                     market.sell(itemName);
                     currentBalance -= itemPrice;
