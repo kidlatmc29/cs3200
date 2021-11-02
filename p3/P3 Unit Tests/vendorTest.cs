@@ -189,19 +189,22 @@ namespace p3
         public void Test_sell_vendor_false()
         {
             // Arrange
-            string txt = "";
-            DateTime exp = new DateTime(2021, 1, 12);
+            string txt = "Fanta	1	270	0	0	0	0	75	73	0	73	0	CARBONATED WATER$HIGH FRUCTOSE CORN SYRUP$CITRIC ACID$SODIUM BENZOATE (TO PROTECT TASTE)$NATURAL FLAVORS$MODIFIED FOOD STARCH$SODIUM POLYPHOSPHATES$GLYCEROL ESTER OF ROSIN$YELLOW 6$RED 40";
+            DateTime exp = new DateTime(2021, 11, 12);
             Entree obj = new Entree(txt, exp, true, true);
 
             Vendor fridge = new Vendor("My Fridge", true);
             fridge.load(obj, 1, 3.50);
 
-            // Act
+            int expected = 1; 
 
-            fridge.sell("");
+            // Act
+            fridge.sell("Sprite");
+            int actual = fridge.getItemQuantity("Fanta");
+
 
             // Assert 
+            Assert.AreEqual(expected, actual);
         }
-
     }
 }

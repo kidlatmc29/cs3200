@@ -52,21 +52,20 @@ namespace p3
         {
             bool found = false; 
             int index = 0;
+            int foundIndex = -1; 
             if (!isEmpty())
             {
                 while (!found && index != stock.Count)
                 {
-                    found = stock[index].food.getName() == itemName;
+                    found = stock[index].food.getName() == itemName && !stock[index].food.isSpoiled();
+                    if (found)
+                    {
+                        foundIndex = index; 
+                    }
                     index++;
                 }
-                // need to check if it's the last item 
-
-                if (stock[index].food.isSpoiled() || index == stock.Count)
-                {
-                    index = -1; 
-                }
             }
-            return index; 
+            return foundIndex; 
         }
 
         public Vendor(string name, bool isRefrigerator)
@@ -104,6 +103,7 @@ namespace p3
         {
             return findIndex(itemName) >= 0 ; 
         }
+
         public void poweroutage()
         {
             if (!isEmpty() && isRefrigerator)
@@ -138,14 +138,18 @@ namespace p3
         }
 
         // PRE: itemName is exactly what is saved in Entree's name
-        // POST: Returns the qty of the entree, if entree is not in stock, return -1
+        // POST: Returns the qty of the entree, if entree is not in stock, return 0
         public int getItemQuantity(string itemName)
         {
-            int itemQty = -1;
-            int itemIndex = findIndex(itemName);
-            if (itemIndex >= 0)
+            int itemQty = 0;
+            int itemIndex;
+            if(!isEmpty())
             {
-                itemQty = stock[itemIndex].qty;
+                if(isStocked(itemName))
+                {
+                    itemIndex = findIndex(itemName);
+                    itemQty = stock[itemIndex].qty;
+                }
             }
             return itemQty; 
         }
