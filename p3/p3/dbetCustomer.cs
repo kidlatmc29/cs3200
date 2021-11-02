@@ -41,9 +41,26 @@ namespace p3
         // POST:
         public void buy(Vendor market)
         {
-             while(dailySugar < MAX_SUGAR)
+            double currentSugar = 0; 
+            while(dailySugar < MAX_SUGAR)
             {
-
+               for(int i = 0; i < market.getSize(); i++)
+               {
+                    string itemName = market.getItemName(i);
+                    if(market.isStocked(itemName))
+                    {
+                        double itemSugar = Convert.ToDouble(market.getItemSugar(itemName));
+                        double itemPrice = market.getItemPrice(itemName);
+                        if(currentSugar + itemSugar <= MULTI_SUGAR && itemSugar + dailySugar <= MAX_SUGAR)
+                        {
+                        if (currentBalance >= itemPrice)
+                            {
+                                market.sell(itemName);
+                                currentBalance -= itemPrice;
+                            }
+                        }
+                    }
+               }
             }
         }
     }

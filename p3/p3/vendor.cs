@@ -154,6 +154,11 @@ namespace p3
             return itemQty; 
         }
 
+        public string getItemName(int index)
+        {
+            return stock[index].food.getName(); 
+        }
+
         public string getItemSugar(string itemName)
         {
             string itemSugar = "0";
