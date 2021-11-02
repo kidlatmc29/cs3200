@@ -44,7 +44,7 @@ namespace p3
         //        is saved in Entree name
         // POST: Subtracts price of item bought from Customer's balance,
         //        returns true, else false
-        public bool buyEntree(Vendor market, string itemName)
+        public bool buy(Vendor market, string itemName)
         {
             bool sold = false; 
             if(market.isStocked(itemName))
