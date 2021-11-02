@@ -48,7 +48,7 @@ namespace p3
 
         // PRE: itemName is exactly what is saved in Entree's name
         // POST: Returns the index of foundItem, otherwise returns -1
-        private int findIndex(string itemName)
+        public int findIndex(string itemName)
         {
             bool found = false; 
             int index = 0;
@@ -154,6 +154,20 @@ namespace p3
             return itemQty; 
         }
 
+        public string getItemSugar(string itemName)
+        {
+            string itemSugar = "0";
+            int itemIndex;
+            if (!isEmpty())
+            {
+                if (isStocked(itemName))
+                {
+                    itemIndex = findIndex(itemName);
+                    itemSugar = stock[itemIndex].food.getTotalSugar();
+                }
+            }
+            return itemSugar;
+        }
         public string getName()
         {
             return name; 

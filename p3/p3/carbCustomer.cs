@@ -8,7 +8,7 @@ namespace p3
     // Class invarients: 
     // Interface invarients:
     // Implementation invarients: 
-    public class carbCustomer
+    public class carbCustomer : Customer
     {
         private const double MAX_CARBS = 30;
         private double dailyCarbs; 
