@@ -21,8 +21,8 @@ namespace p3
 {
     public class Customer
     {
-        private uint accountNum;
-        private double currentBalance;
+        protected uint accountNum;
+        protected double currentBalance;
 
         public Customer(uint num = 0, double balance = 0)
         {
