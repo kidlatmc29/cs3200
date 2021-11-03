@@ -38,7 +38,6 @@ namespace p3
             }
          }
 
-        // helper fxns
         // PRE: N/A 
         // POST: N/A
         private bool isEmpty()
@@ -75,8 +74,8 @@ namespace p3
             stock = null;
         }
 
-        // PRE:
-        // POST: 
+        // PRE: food has been properly instantiated, qty and price are postive 
+        // POST: adds one Item to Vendor
         public void load(Entree food, int qty, double price)
         {
             if(stock == null)
@@ -89,8 +88,8 @@ namespace p3
             stock.Add(a); 
         }
 
-        // PRE:
-        // POST: 
+        // PRE: N/A 
+        // POST: Removes all spoiled items from Vendor
         public void cleanStock()
         {
             for (int i = 0; i < stock.Count; i++)
@@ -103,15 +102,15 @@ namespace p3
             }
         }
 
-        // PRE:
-        // POST: 
+        // PRE: itemName is written exactly as it was saved in Entree name
+        // POST: N/A 
         public bool isStocked(string itemName)
         {
             return findIndex(itemName) >= 0 ; 
         }
 
-        // PRE:
-        // POST: 
+        // PRE: N/A
+        // POST: If the Vendor is refridgerated, sets isRefrigerated of all Entrees to false
         public void poweroutage()
         {
             if (!isEmpty() && isRefrigerator)
@@ -123,8 +122,8 @@ namespace p3
             }
         }
 
-        // PRE:
-        // POST: 
+        // PRE: entreeName is exactly as it is saved in Entree name. Item is assumed to be inStock since it was checked in Customer buy
+        // POST: Item's qty is decremented by 1 
         public void sell(string entreeName)
         {
             int itemIndex = findIndex(entreeName);
