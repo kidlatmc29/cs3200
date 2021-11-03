@@ -25,7 +25,7 @@ namespace p3
         {
             if (dailyCarbs < MAX_CARBS && market.isStocked(itemName))
             {
-                double itemSugar = Convert.ToDouble(market.getItemSugar(itemName));
+                double itemSugar = Convert.ToDouble(market.getItemCarbs(itemName));
                 double itemPrice = market.getItemPrice(itemName);
                 if (itemSugar + dailyCarbs <= MAX_CARBS && currentBalance >= itemPrice)
                 {

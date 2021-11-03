@@ -135,7 +135,7 @@ namespace p3
         }
 
         // PRE: itemName is exactly what is saved in Entree's name
-        // POST: Returns the price of the entree, if entree is not in stock, return -1 
+        // POST: N/A
         public double getItemPrice(string itemName)
         {
             double itemPrice = -1;
@@ -148,7 +148,7 @@ namespace p3
         }
 
         // PRE: itemName is exactly what is saved in Entree's name
-        // POST: Returns the qty of the entree, if entree is not in stock, return 0
+        // POST: N/A 
         public int getItemQuantity(string itemName)
         {
             int itemQty = 0;
@@ -171,6 +171,25 @@ namespace p3
             return stock[index].food.getName(); 
         }
 
+        // PRE: itemName is exactly what is saved in Entree's name
+        // POST: N/A
+        public string getItemCarbs(string itemName)
+        {
+            string itemCarbs = "0";
+            int itemIndex;
+            if (!isEmpty())
+            {
+                if (isStocked(itemName))
+                {
+                    itemIndex = findIndex(itemName);
+                    itemCarbs = stock[itemIndex].food.getTotalCarbs();
+                }
+            }
+            return itemCarbs;
+        }
+
+        // PRE: itemName is exactly what is saved in Entree's name
+        // POST: N/A
         public string getItemSugar(string itemName)
         {
             string itemSugar = "0";
