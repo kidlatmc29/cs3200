@@ -8,10 +8,12 @@ namespace p3
     {
         // Class invarients: 
         //  - dbetCustomer has a daily max sugar of 50 g
+        //  - -inherits customer attributes 
         //  - When buying one item, total sugar of item must be less than or equal to 10 g
         //  - When buying mutiple items, the total sugar of those items combined must be less than or equal to 25 g
 
         // Interface invarients:
+        //  - all getters and mutators are from parent class
 
         // Implementation invarients: 
 
@@ -68,6 +70,20 @@ namespace p3
                     }
                 }
              }
+        }
+
+        // PRE: N/A
+        // POST: N/A 
+        public double getDailySugar()
+        {
+            return dailySugar; 
+        }
+
+        // PRE: N/A
+        // POST: dailySugar is set to 0
+        public void resetDailySugar()
+        {
+            dailySugar = 0; 
         }
     }
 }
