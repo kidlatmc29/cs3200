@@ -21,13 +21,19 @@ namespace p3
         // PRE: itemname is written the same way as it is saved in Vendor
         // POST: One item's price has been subtracted from the carbCustomer's balance
         // or the purchase was not made so no change to the balance 
+
+        public carbCustomer(uint accountNum = 0, double balance = 0) : base(accountNum, balance)
+        {
+            dailyCarbs = 0;
+        }
+
         public void buyOne(Vendor market, string itemName)
         {
             if (dailyCarbs < MAX_CARBS && market.isStocked(itemName))
             {
-                double itemSugar = Convert.ToDouble(market.getItemCarbs(itemName));
+                double itemCarbs = Convert.ToDouble(market.getItemCarbs(itemName));
                 double itemPrice = market.getItemPrice(itemName);
-                if (itemSugar + dailyCarbs <= MAX_CARBS && currentBalance >= itemPrice)
+                if (itemCarbs + dailyCarbs <= MAX_CARBS && currentBalance >= itemPrice)
                 {
                     market.sell(itemName);
                     currentBalance -= itemPrice;
@@ -38,9 +44,29 @@ namespace p3
         // PRE: itemname is written the same way as it is saved in Vendor
         // POST: Multiple items' prices have been subtracted from carbCustomer's balance
         // or no items were purchased so no change to the balance
-        public void buy()
+        public void buy(Vendor market)
         {
-
+            if (market.getSize() > 0)
+            {
+                for (int i = 0; i < market.getSize(); i++)
+                {
+                    string itemName = market.getItemName(i);
+                    if (market.isStocked(itemName))
+                    {
+                        double itemCarbs = Convert.ToDouble(market.getItemCarbs(itemName));
+                        double itemPrice = market.getItemPrice(itemName);
+                        if (dailyCarbs + itemCarbs <= MAX_CARBS)
+                        {
+                            if (currentBalance >= itemPrice)
+                            {
+                                market.sell(itemName);
+                                currentBalance -= itemPrice;
+                                dailyCarbs += itemCarbs;
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         // PRE: N/A
