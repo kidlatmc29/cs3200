@@ -41,6 +41,7 @@ namespace p3
                 {
                     market.sell(itemName);
                     currentBalance -= itemPrice;
+                    dailySugar += itemSugar;
                 }
             }
         }
@@ -65,6 +66,7 @@ namespace p3
                             {
                                 market.sell(itemName);
                                 currentBalance -= itemPrice;
+                                dailySugar += itemSugar;
                             }
                         }
                     }

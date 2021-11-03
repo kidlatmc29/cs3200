@@ -37,6 +37,7 @@ namespace p3
                 {
                     market.sell(itemName);
                     currentBalance -= itemPrice;
+                    dailyCarbs += itemCarbs; 
                 }
             }
         }

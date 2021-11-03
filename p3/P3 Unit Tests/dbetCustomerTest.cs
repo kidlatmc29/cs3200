@@ -140,5 +140,13 @@ namespace p3
             // Assert
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void Test_getDailySugar_sugarCustomer_true()
+        {
+            // Arrange
+            // Act
+            // Assert
+        }
     }
 }
