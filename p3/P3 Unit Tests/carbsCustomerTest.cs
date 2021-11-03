@@ -6,8 +6,9 @@ namespace p3
     public class carbsCustomerTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void Test_buy_carbCustomer_true()
         {
+
         }
     }
 }

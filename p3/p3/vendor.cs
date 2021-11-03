@@ -75,6 +75,8 @@ namespace p3
             stock = null;
         }
 
+        // PRE:
+        // POST: 
         public void load(Entree food, int qty, double price)
         {
             if(stock == null)
@@ -87,6 +89,8 @@ namespace p3
             stock.Add(a); 
         }
 
+        // PRE:
+        // POST: 
         public void cleanStock()
         {
             for (int i = 0; i < stock.Count; i++)
@@ -99,11 +103,15 @@ namespace p3
             }
         }
 
+        // PRE:
+        // POST: 
         public bool isStocked(string itemName)
         {
             return findIndex(itemName) >= 0 ; 
         }
 
+        // PRE:
+        // POST: 
         public void poweroutage()
         {
             if (!isEmpty() && isRefrigerator)
@@ -115,6 +123,8 @@ namespace p3
             }
         }
 
+        // PRE:
+        // POST: 
         public void sell(string entreeName)
         {
             int itemIndex = findIndex(entreeName);
@@ -154,6 +164,8 @@ namespace p3
             return itemQty; 
         }
 
+        // PRE: N/A 
+        // POST: N/A
         public string getItemName(int index)
         {
             return stock[index].food.getName(); 
@@ -173,11 +185,16 @@ namespace p3
             }
             return itemSugar;
         }
+
+        // PRE: N/A 
+        // POST: N/A
         public string getName()
         {
             return name; 
         }
 
+        // PRE: N/A 
+        // POST: N/A
         public int getSize()
         {
             return stock.Count; 

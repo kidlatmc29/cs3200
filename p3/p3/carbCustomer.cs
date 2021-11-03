@@ -13,9 +13,18 @@ namespace p3
         private const double MAX_CARBS = 30;
         private double dailyCarbs; 
 
-        public void buyOne()
+        public void buyOne(Vendor market, string itemName)
         {
-
+            if (dailyCarbs < MAX_CARBS && market.isStocked(itemName))
+            {
+                double itemSugar = Convert.ToDouble(market.getItemSugar(itemName));
+                double itemPrice = market.getItemPrice(itemName);
+                if (itemSugar + dailyCarbs <= MAX_CARBS && currentBalance >= itemPrice)
+                {
+                    market.sell(itemName);
+                    currentBalance -= itemPrice;
+                }
+            }
         }
 
         public void buy()
