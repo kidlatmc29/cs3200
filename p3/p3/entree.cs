@@ -47,7 +47,6 @@ namespace p3
         private bool needsRefridge;
         private bool isRefrigerated;
 
-
         public Entree(string txtLine, DateTime expirationDate, bool needsRefridge, bool isRefrigerated)
         {
             List<string> data = txtLine.Split('\t').ToList();

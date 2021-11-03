@@ -163,6 +163,13 @@ namespace p3
             return itemQty; 
         }
 
+        // PRE: itemName is exactly what is saved in Entree's name
+        // POST: N/A 
+        public bool hasIngredient(int itemIndex, string allergen)
+        {
+            return stock[itemIndex].food.hasIngredient(allergen);
+        }
+
         // PRE: N/A 
         // POST: N/A
         public string getItemName(int index)
