@@ -167,7 +167,12 @@ namespace p3
         // POST: N/A 
         public bool hasIngredient(int itemIndex, string allergen)
         {
-            return stock[itemIndex].food.hasIngredient(allergen);
+            bool hasIngredient = false;
+            if (itemIndex > -1)
+            {
+                hasIngredient = stock[itemIndex].food.hasIngredient(allergen);
+            }
+            return hasIngredient; 
         }
 
         // PRE: N/A 
