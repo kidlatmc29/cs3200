@@ -37,6 +37,23 @@ namespace p3
         }
 
         [TestMethod]
+        public void Test_buyOne_inStock_customer_true()
+        {
+
+        }
+
+        [TestMethod]
+        public void Test_buyOne_NotInStock_customer_true()
+        {
+
+        }
+
+        [TestMethod]
+        public void Test_buyOne_noMoney_customer_true()
+        {
+        }
+
+        [TestMethod]
         public void Test_buy_inStock_customer_true()
         {
             // Arrange
@@ -48,7 +65,7 @@ namespace p3
             Entree obj = new Entree(txt, exp, false, false);
 
             candy.load(obj, 3, 2.00);
-            bool expected = true; 
+            bool expected = true;
 
             // Act
             bool actual = me.buy(candy);
@@ -77,6 +94,5 @@ namespace p3
             // Assert
             Assert.AreEqual(expected, actual);
         }
-
     }
 }

@@ -19,12 +19,11 @@ namespace p3
             Entree obj = new Entree(txt, exp, true, true);
 
             fruitStand.load(obj, 5, 1.50);
-            int expected = 5;
+            bool expected = false;
 
             // Act
-            me.buyOne(fruitStand, "Fresh Brand - Sliced Apples");
-            int actual = fruitStand.getItemQuantity("Fresh Brand - Sliced Apples");
-
+            bool actual = me.buyOne(fruitStand, "Fresh Brand - Sliced Apples");
+          
             // Assert
             Assert.AreEqual(expected, actual);
         }
@@ -51,7 +50,7 @@ namespace p3
         }
 
         [TestMethod]
-        public void Test_buyOne_overDailySugar_dbCustomer_true()
+        public void Test_buyOne_overDailySugar_dbCustomer_false()
         {
             // Arrange
             dbetCustomer Joe = new dbetCustomer(13, 3.00);
@@ -63,11 +62,10 @@ namespace p3
 
             store.load(obj, 13, 2.50);
 
-            int expected = 13; 
+            bool expected = false;
 
             // Act
-            Joe.buyOne(store, "Fanta");
-            int actual = store.getItemQuantity("Fanta");
+            bool actual = Joe.buyOne(store, "Fanta");
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -144,8 +142,23 @@ namespace p3
         public void Test_getDailySugar_sugarCustomer_true()
         {
             // Arrange
+            dbetCustomer someone = new dbetCustomer(10, 4.21);
+            Vendor snacks = new Vendor("Snacc", true);
+
+            string txt = "Rhythm Superfoods Carrot Sticks	1	60	1	0	0	0	130	12	4	2	1	Organic carrots$organic high oleic sunflower oil$organic rosemary extract$	Cashew";
+            DateTime exp = new DateTime(2021, 12, 31);
+            Entree obj = new Entree(txt, exp, true, true);
+
+            snacks.load(obj, 23, 1.10);
+
+            double expected = 2;
+
             // Act
+            someone.buyOne(snacks, "Rhythm Superfoods Carrot Sticks");
+            double actual = someone.getDailySugar();
+
             // Assert
+            Assert.AreEqual(expected, actual);
         }
     }
 }
