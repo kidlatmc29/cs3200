@@ -40,24 +40,48 @@ namespace p3
             }
         }
 
+
         // PRE: The item's name that Customer wants to buy is written exactly as it
         //        is saved in Entree name
         // POST: Subtracts price of item bought from Customer's balance,
         //        returns true, else false
-        public virtual bool buy(Vendor market, string itemName)
+        public virtual bool buyOne(Vendor market, string itemName)
         {
-            bool sold = false; 
-            if(market.isStocked(itemName))
+            bool sold = false;
+            if (market.isStocked(itemName))
             {
                 double itemPrice = market.getItemPrice(itemName);
-                if(currentBalance >= itemPrice)
+                if (currentBalance >= itemPrice)
                 {
                     market.sell(itemName);
                     currentBalance -= itemPrice;
                     sold = true;
                 }
             }
-            return sold; 
+            return sold;
+        }
+        
+        // PRE: N/A
+        // POST: Subtracts price of item bought from Customer's balance,
+        //        returns true, else false
+        public virtual bool buy(Vendor market)
+        {
+            bool sold = false;
+            if(market != null)
+            {
+                for(int i = 0; i < market.getSize(); i++)
+                {
+                    string itemName = market.getItemName(i);
+                    double itemPrice = market.getItemPrice(itemName);
+                    if(itemPrice <= currentBalance)
+                    {
+                        market.sell(itemName);
+                        currentBalance -= itemPrice;
+                        sold = true; 
+                    }
+                }
+            }
+            return sold;
         }
 
         // PRE: N/A

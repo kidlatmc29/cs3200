@@ -26,8 +26,9 @@ namespace p3
             dailyCarbs = 0;
         }
 
-        public void buyOne(Vendor market, string itemName)
+        public override bool buyOne(Vendor market, string itemName)
         {
+            bool sold = false;
             if (dailyCarbs < MAX_CARBS && market.isStocked(itemName))
             {
                 double itemCarbs = Convert.ToDouble(market.getItemCarbs(itemName));
@@ -39,13 +40,15 @@ namespace p3
                     dailyCarbs += itemCarbs; 
                 }
             }
+            return sold; 
         }
 
         // PRE: itemname is written the same way as it is saved in Vendor
         // POST: Multiple items' prices have been subtracted from carbCustomer's balance
         // or no items were purchased so no change to the balance
-        public void buy(Vendor market)
+        public override bool buy(Vendor market)
         {
+            bool sold = false;
             if (market.getSize() > 0)
             {
                 for (int i = 0; i < market.getSize(); i++)
@@ -62,11 +65,13 @@ namespace p3
                                 market.sell(itemName);
                                 currentBalance -= itemPrice;
                                 dailyCarbs += itemCarbs;
+                                sold = true;
                             }
                         }
                     }
                 }
             }
+            return sold; 
         }
 
         // PRE: N/A

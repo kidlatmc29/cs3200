@@ -51,7 +51,7 @@ namespace p3
             bool expected = true; 
 
             // Act
-            bool actual = me.buy(candy, "Grandma's Chocolate Chip Cookies");
+            bool actual = me.buy(candy);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -72,7 +72,7 @@ namespace p3
             bool expected = false;
 
             // Act
-            bool actual = me.buy(candy, "Grandma's Chocolate Chip Cookies");
+            bool actual = me.buy(candy);
 
             // Assert
             Assert.AreEqual(expected, actual);

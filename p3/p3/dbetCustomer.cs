@@ -31,26 +31,31 @@ namespace p3
         // PRE: itemname is written the same way as it is saved in Vendor
         // POST: One item's price has been subtracted from the dbetCustomer's balance
         // or the purchase was not made so no change to the balance 
-        public void buyOne(Vendor market, string itemName)
+        public override bool buyOne(Vendor market, string itemName)
         {
+            bool sold = false; 
             if(dailySugar < MAX_SUGAR && market.isStocked(itemName))
             {
                 double itemSugar = Convert.ToDouble(market.getItemSugar(itemName));
-                double itemPrice = market.getItemPrice(itemName); 
-                if (itemSugar + dailySugar <= MAX_SUGAR && itemSugar <= SINGLE_SUGAR && currentBalance >= itemPrice)
+                double itemPrice = market.getItemPrice(itemName);
+                if (itemSugar + dailySugar <= MAX_SUGAR && itemSugar <= SINGLE_SUGAR)
                 {
                     market.sell(itemName);
                     currentBalance -= itemPrice;
                     dailySugar += itemSugar;
+                    sold = true;
                 }
             }
+
+            return sold; 
         }
 
         // PRE: itemname is written the same way as it is saved in Vendor
         // POST: Multiple items' prices have been subtracted from dbetCustomer's balance
         // or no items were purchased so no change to the balance
-        public void buy(Vendor market)
+        public override bool buy(Vendor market)
         {
+            bool sold = false; 
             double currentSugar = 0; 
             if(market.getSize() > 0) {
                 for (int i = 0; i < market.getSize(); i++)
@@ -67,11 +72,13 @@ namespace p3
                                 market.sell(itemName);
                                 currentBalance -= itemPrice;
                                 dailySugar += itemSugar;
+                                sold = true;
                             }
                         }
                     }
                 }
-             }
+            }
+            return sold;
         }
 
         // PRE: N/A

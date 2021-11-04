@@ -28,7 +28,7 @@ namespace p3
         // PRE: itemname is written the same way as it is saved in Vendor
         // POST: One item's price has been subtracted from the carbCustomer's balance
         // or the purchase was not made because item contained allergen so no change to the balance 
-        public override bool buy(Vendor market, string itemName)
+        public override bool buyOne(Vendor market, string itemName)
         {
             bool hasAllergen = true;
             bool sold = false; 

@@ -26,7 +26,7 @@ namespace p3
             bool expected = true;
 
             // Act
-            bool actual = me.buy(market, "Fresh Brand - Sliced Apples");
+            bool actual = me.buyOne(market, "Fresh Brand - Sliced Apples");
 
             // Assert
             Assert.AreEqual(expected, actual);

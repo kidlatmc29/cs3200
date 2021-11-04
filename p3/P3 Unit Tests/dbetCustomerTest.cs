@@ -41,11 +41,10 @@ namespace p3
             Entree obj = new Entree(txt, exp, true, true);
 
             snacks.load(obj, 23, 1.10);
-            int expected = 22;
+            bool expected = true;
 
             // Act
-            someone.buyOne(snacks, "Rhythm Superfoods Carrot Sticks");
-            int actual = snacks.getItemQuantity("Rhythm Superfoods Carrot Sticks");
+            bool actual = someone.buyOne(snacks, "Rhythm Superfoods Carrot Sticks");
 
             // Assert
             Assert.AreEqual(expected, actual);
