@@ -126,7 +126,7 @@ namespace p3
             bool actual = obj.hasIngredient("Peanuts");
 
             // Assert
-            Assert.AreEqual(false, actual);
+            Assert.AreEqual(true, actual);
         }
 
         [TestMethod]

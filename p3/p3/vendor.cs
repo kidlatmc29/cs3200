@@ -84,7 +84,6 @@ namespace p3
             }
 
             Item a = new Item(food, qty, price);
-
             stock.Add(a); 
         }
 
