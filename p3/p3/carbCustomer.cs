@@ -10,8 +10,14 @@ namespace p3
     //  - inherits customer attributes 
 
     // Interface invarients:
+    //  - all getters and mutators are inherited from Customer class
+    // - For buyOne and buy the client should be responsible for passing in an instatiated vendor or customer's will not buy anything
+    // - Client is not expected to save the boolean returned from buyOne or buy, but can use this result as necessary
+    // - Both buyOne will work as expected as long as the itemName the client give is exactly as it is saved in the Entree
 
     // Implementation invarients: 
+    //  - when a carbCustomer is created, the dailyCarbs's value starts at 0
+    //  - dailyCarbs is a const and cannot be modified by the client 
 
     public class carbCustomer : Customer
     {

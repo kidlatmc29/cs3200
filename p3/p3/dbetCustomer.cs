@@ -13,9 +13,15 @@ namespace p3
         //  - When buying mutiple items, the total sugar of those items combined must be less than or equal to 25 g
 
         // Interface invarients:
-        //  - all getters and mutators are from parent class
+        //  - all getters and mutators are inherited from Customer class
+        // - For buyOne and buy the client should be responsible for passing in an instatiated vendor or customer's will not buy anything
+        // - Client is not expected to save the boolean returned from buyOne or buy, but can use this result as necessary
+        // - Both buyOne will work as expected as long as the itemName the client give is exactly as it is saved in the Entree
 
         // Implementation invarients: 
+        //  - when a dbetCustomer is created, the dailySugar's value starts at 0
+        //  - dailySugar can be only modified using the buy() or buyOne() fxns 
+        //  - max daily sugar, sugar limit for one item, and the sugar limit for multiple items are all consts and client cannot change them
 
         private const double MAX_SUGAR = 50;
         private const double SINGLE_SUGAR = 10;
