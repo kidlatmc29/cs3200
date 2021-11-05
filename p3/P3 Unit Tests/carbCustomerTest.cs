@@ -43,7 +43,32 @@ namespace p3
         [TestMethod]
         public void Test_buy_carbCustomer_false()
         {
-            
+            // Arrange
+            carbCustomer Jake = new carbCustomer(12, 6.34);
+            Vendor bakery = new Vendor("Cupcakes and More!", true);
+
+            string txt1 = "Sprite	1	140	0	0	0	0	75	65	0	65	0	CARBONATED WATER$HIGH FRUCTOSE CORN SYRUP$CITRIC ACID$NATURAL FLAVORS$SODIUM CITRATE$SODIUM BENZOATE";
+            DateTime exp1 = new DateTime(2024, 12, 2);
+            Entree cookie = new Entree(txt1, exp1, false, true);
+
+            string txt2 = "Coke	1	240	0	0	0	0	75	65	0	65	0	CARBONATED WATER$HIGH FRUCTOSE CORN SYRUP$CARAMEL COLOR$PHOSPHORIC ACID$NATURAL FLAVORS$CAFFEINE";
+            DateTime exp2 = new DateTime(2021, 12, 30);
+            Entree soda = new Entree(txt2, exp2, true, true);
+
+            string txt3 = "Vanilla Cupcake	1	240	10	3	0	15	160	35	0	26	1	Sugar$ Bleached Enriched Flour (wheat Flour$ Malted Barley Flour$ Niacin$ Iron$ Thiamin Mononitrate$ Riboflavin$ Folic Acid)$ Soybean Oil$ Water$ Blueberries$ Eggs$ Glycerine$ Contains 2% Or Less: Corn Syrup$ Modified Food Starch$ Non Fat Dry Milk$ Leavening (sodium Acid Pyrophosphate$ Baking Soda$ Monocalcium Phosphate)$ Salt$ Natural Flavors$ Preservatives (sodium Propionate And Potassium Sorbate)$ Xanthan Gum$ Corn Starch$ Citric Acid$ Carnauba Wax	egg$milk$soy$wheat";
+            DateTime exp3 = new DateTime(2023, 5, 23);
+            Entree cupcake = new Entree(txt3, exp3, true, true);
+
+            bakery.load(cookie, 12, 2.50);
+            bakery.load(soda, 23, 1.00);
+            bakery.load(cupcake, 5, 4.50);
+
+            bool expected = false;
+            // Act
+            bool actual = Jake.buy(bakery);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
