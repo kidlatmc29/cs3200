@@ -36,11 +36,25 @@ namespace p3
         public void Test_buyOne_containsAllergen_allergyCustomer_false()
         {
             // Arrange
+            allergyCustomer Mick = new allergyCustomer(34, 1.23);
+            Vendor onlyPeanuts = new Vendor("Peanut World", false);
+
+            Mick.addAllergen("peanuts");
+
+            string txt2 = "Planters Nuts on the Go Salted Peanuts	1	170	14	2	0	0	95	5	2	1	7	Peanuts$Peanut and/or Cottonseed oil$sea salt	peanuts";
+            DateTime exp2 = new DateTime(2022, 11, 1);
+            Entree obj2 = new Entree(txt2, exp2, false, false);
+
+            onlyPeanuts.load(obj2, 100, 1.00);
+
+            bool expected = false;
 
             // Act
+            bool actual = Mick.buyOne(onlyPeanuts, "Planters Nuts on the Go Salted Peanuts");
 
             // Assert
-        }
+            Assert.AreEqual(expected, actual);
+        }   
 
         [TestMethod]
         public void Test_buy_allergyCustomer_true()

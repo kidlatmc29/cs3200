@@ -77,6 +77,12 @@ namespace p3
             this.isRefrigerated = isRefrigerated; 
         }
 
+
+        public void deepCopy(Entree original)
+        {
+            
+        }
+
         // PRE: N/A
         // POST: N/A
         public string getName()

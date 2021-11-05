@@ -45,20 +45,40 @@ namespace p3
         // or the purchase was not made because item contained allergen so no change to the balance 
         public override bool buyOne(Vendor market, string itemName)
         {
-            bool hasAllergen = true;
-            bool sold = false; 
+            bool hasAllergen = false;
+            bool sold = false;
+
             if (market != null)
             {
                 int itemIndex = market.findIndex(itemName);
-                hasAllergen = market.hasIngredient(itemIndex, itemName);
-
-                if(!hasAllergen && itemIndex > -1)
+               
+                if(allergens.Count > 0)
                 {
-                    double itemPrice = market.getItemPrice(itemName);
-                    if(currentBalance >= itemPrice)
+                    if(market.isStocked(itemName))
+                    {
+                       
+                        for(int i = 0; i < allergens.Count; i++)
+                        {
+                            if(market.hasIngredient(itemIndex, allergens[i]))
+                            {
+                                hasAllergen = true; 
+                            }
+                        }
+
+                        if(!hasAllergen && currentBalance >= market.getItemPrice(itemName))
+                        {
+                            market.sell(itemName);
+                            currentBalance -= market.getItemPrice(itemName);
+                            sold = true; 
+                        }
+                    }
+                } 
+                else
+                {
+                    if(market.isStocked(itemName) && currentBalance >= market.getItemPrice(itemName))
                     {
                         market.sell(itemName);
-                        currentBalance -= itemPrice;
+                        currentBalance -= market.getItemPrice(itemName);
                         sold = true; 
                     }
                 }
@@ -66,23 +86,35 @@ namespace p3
             return sold; 
         }
 
-        public override bool buyOne(Vendor market)
+        public override bool buy(Vendor market)
         {
+            bool hasAllergen = false;
             bool sold = false;
-            bool hasAllergen = true;
+            
             if (market != null)
             {
-                int itemIndex = market.findIndex(itemName);
-                hasAllergen = market.hasIngredient(itemIndex, itemName);
-
-                if (!hasAllergen && itemIndex > -1)
+                for (int i = 0; i < market.getSize(); i++)
                 {
-                    double itemPrice = market.getItemPrice(itemName);
-                    if (currentBalance >= itemPrice)
+                    string currentItemName = market.getItemName(i);
+                    if (allergens.Count > 0)
                     {
-                        market.sell(itemName);
-                        currentBalance -= itemPrice;
-                        sold = true;
+                        if (market.isStocked(currentItemName))
+                        {
+                            for (int j = 0; j < allergens.Count; j++)
+                            {
+                                if (market.hasIngredient(i, allergens[j]))
+                                {
+                                    hasAllergen = true;
+                                }
+                            }
+
+                            if (!hasAllergen && currentBalance >= market.getItemPrice(currentItemName))
+                            {
+                                market.sell(currentItemName);
+                                currentBalance -= market.getItemPrice(currentItemName);
+                                sold = true;
+                            }
+                        }
                     }
                 }
             }
