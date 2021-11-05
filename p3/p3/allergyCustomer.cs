@@ -65,6 +65,29 @@ namespace p3
             }
             return sold; 
         }
+
+        public override bool buyOne(Vendor market)
+        {
+            bool sold = false;
+            bool hasAllergen = true;
+            if (market != null)
+            {
+                int itemIndex = market.findIndex(itemName);
+                hasAllergen = market.hasIngredient(itemIndex, itemName);
+
+                if (!hasAllergen && itemIndex > -1)
+                {
+                    double itemPrice = market.getItemPrice(itemName);
+                    if (currentBalance >= itemPrice)
+                    {
+                        market.sell(itemName);
+                        currentBalance -= itemPrice;
+                        sold = true;
+                    }
+                }
+            }
+            return sold;
+        }
    
         public string getAllergens()
         {

@@ -184,7 +184,7 @@ namespace p3
 
         public bool hasIngredient(string target)
         {
-            return ingredients.Contains(target);
+            return contains.Contains(target) || ingredients.Contains(target);
         }
     }
 }
