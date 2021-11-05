@@ -31,10 +31,13 @@ namespace p3
         }
 
         // PRE: allergen is written exactly as it is in the ingredient list list 
-        // POST: adds 1 allergen to allergens list
+        // POST: adds 1 allergen to allergens list unless it's already in the list
         public void addAllergen(string allergen)
         {
-            allergens.Add(allergen);
+            if (!allergens.Contains(allergen))
+            {
+                allergens.Add(allergen);
+            }
         }
 
         // PRE: itemname is written the same way as it is saved in Vendor
@@ -61,6 +64,16 @@ namespace p3
                 }
             }
             return sold; 
+        }
+   
+        public string getAllergens()
+        {
+            string allergies = ""; 
+            for(int i = 0; i < allergens.Count; i++)
+            {
+               allergies += allergens[i] + '\n';
+            }
+            return allergies; 
         }
     }
 }

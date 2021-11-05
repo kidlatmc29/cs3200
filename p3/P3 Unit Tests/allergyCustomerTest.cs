@@ -7,7 +7,7 @@ namespace p3
     public class allergyCustomerTest
     {
         [TestMethod]
-        public void Test_buy_allergyCustomer_true()
+        public void Test_buyOne_allergyCustomer_true()
         {
             // Arrange
             allergyCustomer me = new allergyCustomer(230, 5.23);
@@ -33,7 +33,7 @@ namespace p3
         }
 
         [TestMethod] 
-        public void Test_buy_containsAllergen_allergyCustomer_false()
+        public void Test_buyOne_containsAllergen_allergyCustomer_false()
         {
             // Arrange
 
@@ -41,5 +41,44 @@ namespace p3
 
             // Assert
         }
+
+        [TestMethod]
+        public void Test_buy_allergyCustomer_true()
+        {
+            // Arrange
+            allergyCustomer Bob = new allergyCustomer();
+
+            // Act
+
+            // Assert
+        }
+
+        [TestMethod]
+        public void Test_buy_allergyCustomer_false()
+        {
+            // Arrange
+
+            // Act
+
+            // Assert
+        }
+
+
+        [TestMethod]
+        public void Test_addAllergen_allergyCustomer_true()
+        {
+            // Arrange
+            allergyCustomer me = new allergyCustomer();
+            me.addAllergen("peanuts");
+            bool expected = true;
+
+            // Act
+            string allergies = me.getAllergens();
+            bool actual = allergies.Contains("peanuts");
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
     }
 }
