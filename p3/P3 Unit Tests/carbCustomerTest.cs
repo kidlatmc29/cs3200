@@ -39,7 +39,6 @@ namespace p3
             Assert.AreEqual(expected, actual);
         }
 
-
         [TestMethod]
         public void Test_buy_carbCustomer_false()
         {
@@ -74,7 +73,23 @@ namespace p3
         [TestMethod]
         public void Test_buyOne_carbCustomer_true()
         {
+            // Arrange
+            Vendor milkMan = new Vendor("Milk 4 Days", true);
+            carbCustomer Helen = new carbCustomer(452, 10.00);
 
+            string txt = "Horizon Organic Whole Milk	1	150	8	5	0	35	130	13	0	12	8	Grade A Organic Milk$Vitamin D3	milk";
+            DateTime exp = new DateTime(2023, 1, 23);
+            Entree milk = new Entree(txt, exp, true, true);
+
+            milkMan.load(milk, 100, 3.40);
+
+            bool expected = true;
+
+            // Act
+            bool actual = Helen.buyOne(milkMan,"Horizon Organic Whole Milk");
+
+            // Arrange
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
