@@ -64,23 +64,18 @@ namespace p3
                 data.RemoveAt(0);
             }
 
-            List<string> ingredients = data[0].Split('$').ToList();
+            ingredients = data[0].Split('$').ToList();
+            
             data.RemoveAt(0);
             
             if(data.Count > 0)
             {
-               List<string> contains = data[0].Split('$').ToList();
+               contains = data[0].Split('$').ToList();
             }
 
             this.expirationDate = expirationDate;
             this.needsRefridge = needsRefridge;
             this.isRefrigerated = isRefrigerated; 
-        }
-
-
-        public void deepCopy(Entree original)
-        {
-            
         }
 
         // PRE: N/A
