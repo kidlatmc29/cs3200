@@ -22,8 +22,11 @@ namespace p3
             getAllBalances(students);
 
             buyAppleSlices(students, cStreet);
+            buyManyItems(students, cStreet);
 
-            Console.WriteLine("\nEnd of P3");
+            getAllBalances(students);
+
+            Console.WriteLine("End of P3");
         }
 
         static public bool getRandomBool(Random generator)
@@ -128,16 +131,20 @@ namespace p3
                 string balance = String.Format("{0:0.00}", students[i].getCurrentBalance());
                 Console.WriteLine("Account " + students[i].getAccountNum() + " Balance: $" + balance);
             }
-            Console.Write("\n");
+            Console.WriteLine("\n");
         }
 
         static public void buyAppleSlices(List<Customer> students, Vendor market)
         {
             string itemName = "Fresh Brand - Sliced Apples";
             bool valid;
-          
+            
+            Console.WriteLine("Calling buyOne(Fresh Brand - Sliced Apples) on all Customers....");
+            
             if (market.isStocked(itemName)) {
                 Console.WriteLine("Fresh Brand - Sliced Apples are in stock!");
+                double itemPrice = market.getItemPrice("Fresh Brand - Sliced Apples");
+                Console.WriteLine("The price of Fresh Brand - Sliced Apples is $" + String.Format("{0:0.00}", itemPrice));
             } else
             {
                 Console.WriteLine("Fresh Brand - Sliced Apples are not in stock!");
@@ -154,11 +161,26 @@ namespace p3
                     Console.WriteLine("Account " + students[i].getAccountNum() + " did not make a purchase.");
                 }
             }
+            Console.WriteLine("\n");
         }
 
         static public void buyManyItems(List<Customer> students, Vendor market)
         {
-
+            bool valid;
+            Console.WriteLine("Calling buy() on all Customers....");
+            for(int i = 0; i < students.Count; i++)
+            {
+                valid = students[i].buy(market);
+                if (valid)
+                {
+                    Console.WriteLine("Account " + students[i].getAccountNum() + " made purchase(s).");
+                }
+                else
+                {
+                    Console.WriteLine("Account " + students[i].getAccountNum() + " did not make a purchase.");
+                }
+            }
+            Console.WriteLine("\n");
         }
     }
 }
