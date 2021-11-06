@@ -19,6 +19,8 @@ namespace p3
             loadVendor(cStreet, fallStock, generator);
             loadStudents(students, generator);
             addBalance(students);
+            getAllBalances(students);
+
             buyAppleSlices(students, cStreet);
 
             Console.WriteLine("\nEnd of P3");
@@ -93,6 +95,10 @@ namespace p3
             // creating customers
             allergyCustomer isabel = new allergyCustomer(1, getRandomDouble(generator));
             allergyCustomer ben = new allergyCustomer(2, getRandomDouble(generator));
+            isabel.addAllergen("peanuts");
+            isabel.addAllergen("shellfish");
+            ben.addAllergen("cashews");
+            ben.addAllergen("fish");
             dbetCustomer kevin = new dbetCustomer(3, getRandomDouble(generator));
             dbetCustomer sammy = new dbetCustomer(4, getRandomDouble(generator));
             carbCustomer linda = new carbCustomer(5, getRandomDouble(generator));
@@ -108,11 +114,21 @@ namespace p3
 
         static public void addBalance(List<Customer> students)
         {
-            Console.WriteLine("Adding $5.00 to all Customers' Balances....");
+            Console.WriteLine("Adding $5.00 to all Customers' Balances....\n");
             for (int i = 0; i < students.Count; i++)
             {
                 students[i].addMoney(5.00);
             }
+        }
+
+        static public void getAllBalances(List<Customer> students)
+        {
+            for (int i = 0; i < students.Count; i++)
+            {
+                string balance = String.Format("{0:0.00}", students[i].getCurrentBalance());
+                Console.WriteLine("Account " + students[i].getAccountNum() + " Balance: $" + balance);
+            }
+            Console.Write("\n");
         }
 
         static public void buyAppleSlices(List<Customer> students, Vendor market)
@@ -138,6 +154,11 @@ namespace p3
                     Console.WriteLine("Account " + students[i].getAccountNum() + " did not make a purchase.");
                 }
             }
+        }
+
+        static public void buyManyItems(List<Customer> students, Vendor market)
+        {
+
         }
     }
 }
