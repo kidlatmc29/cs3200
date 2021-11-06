@@ -14,12 +14,12 @@ namespace p3
             List<Entree> fallStock = new List<Entree>();
 
             Console.WriteLine("Welcome to P3\n");
+
             loadEntrees("EntreesTabDelimited.txt", fallStock, generator);
-            Console.WriteLine("Num of Entrees in fallStock = " + fallStock.Count);
             loadVendor(cStreet, fallStock, generator);
-            Console.WriteLine("Num of Items in cStreet = " + cStreet.getSize());
             loadStudents(students, generator);
-            Console.WriteLine("Num of Customers = " + students.Count);
+            addBalance(students);
+            buyAppleSlices(students, cStreet);
 
             Console.WriteLine("\nEnd of P3");
         }
@@ -104,6 +104,40 @@ namespace p3
             students.Add(sammy);
             students.Add(linda);
             students.Add(max);
+        }
+
+        static public void addBalance(List<Customer> students)
+        {
+            Console.WriteLine("Adding $5.00 to all Customers' Balances....");
+            for (int i = 0; i < students.Count; i++)
+            {
+                students[i].addMoney(5.00);
+            }
+        }
+
+        static public void buyAppleSlices(List<Customer> students, Vendor market)
+        {
+            string itemName = "Fresh Brand - Sliced Apples";
+            bool valid;
+          
+            if (market.isStocked(itemName)) {
+                Console.WriteLine("Fresh Brand - Sliced Apples are in stock!");
+            } else
+            {
+                Console.WriteLine("Fresh Brand - Sliced Apples are not in stock!");
+            }
+
+            for (int i = 0; i < students.Count; i++)
+            {
+                valid = students[i].buyOne(market, itemName);
+                if(valid)
+                {
+                    Console.WriteLine("Account " + students[i].getAccountNum() + " made a purchase.");
+                } else
+                {
+                    Console.WriteLine("Account " + students[i].getAccountNum() + " did not make a purchase.");
+                }
+            }
         }
     }
 }
