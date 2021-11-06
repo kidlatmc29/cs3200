@@ -19,6 +19,10 @@ namespace p3
             loadVendor(cStreet, fallStock, generator);
             Console.WriteLine("Num of Items in cStreet = " + cStreet.getSize());
 
+            // creatinv customers
+            allergyCustomer isabel = new allergyCustomer(1, getRandomDouble(generator));
+
+
             Console.WriteLine("End of P3");
         }
 
@@ -37,7 +41,7 @@ namespace p3
             return lowerBounds.AddDays(generator.Next(range));
         }
 
-        static public int getRandomQty(Random generator)
+        static public int getRandomDouble(Random generator)
         {
             int lower = 1;
             int upper = 100;
@@ -82,7 +86,7 @@ namespace p3
         {
             for(int i = 0; i < foods.Count; i++)
             {
-                market.load(foods[i], getRandomQty(generator), getRandomPrice(generator));
+                market.load(foods[i], getRandomDouble(generator), getRandomPrice(generator));
             }
         }
     }
