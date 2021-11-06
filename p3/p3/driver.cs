@@ -13,17 +13,15 @@ namespace p3
             List<Customer> students = new List<Customer>();
             List<Entree> fallStock = new List<Entree>();
 
-            Console.WriteLine("Welcome to P3");
+            Console.WriteLine("Welcome to P3\n");
             loadEntrees("EntreesTabDelimited.txt", fallStock, generator);
             Console.WriteLine("Num of Entrees in fallStock = " + fallStock.Count);
             loadVendor(cStreet, fallStock, generator);
             Console.WriteLine("Num of Items in cStreet = " + cStreet.getSize());
+            loadStudents(students, generator);
+            Console.WriteLine("Num of Customers = " + students.Count);
 
-            // creatinv customers
-            allergyCustomer isabel = new allergyCustomer(1, getRandomDouble(generator));
-
-
-            Console.WriteLine("End of P3");
+            Console.WriteLine("\nEnd of P3");
         }
 
         static public bool getRandomBool(Random generator)
@@ -88,6 +86,24 @@ namespace p3
             {
                 market.load(foods[i], getRandomDouble(generator), getRandomPrice(generator));
             }
+        }
+   
+        static public void loadStudents(List<Customer> students, Random generator)
+        {
+            // creating customers
+            allergyCustomer isabel = new allergyCustomer(1, getRandomDouble(generator));
+            allergyCustomer ben = new allergyCustomer(2, getRandomDouble(generator));
+            dbetCustomer kevin = new dbetCustomer(3, getRandomDouble(generator));
+            dbetCustomer sammy = new dbetCustomer(4, getRandomDouble(generator));
+            carbCustomer linda = new carbCustomer(5, getRandomDouble(generator));
+            carbCustomer max = new carbCustomer(6, getRandomDouble(generator));
+
+            students.Add(isabel);
+            students.Add(ben);
+            students.Add(kevin);
+            students.Add(sammy);
+            students.Add(linda);
+            students.Add(max);
         }
     }
 }
