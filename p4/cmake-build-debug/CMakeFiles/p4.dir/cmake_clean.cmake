@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/p4.dir/main.cpp.obj"
+  "CMakeFiles/p4.dir/entree.cpp.obj"
+  "CMakeFiles/p4.dir/p4.cpp.obj"
   "libp4.dll.a"
   "p4.exe"
   "p4.exe.manifest"

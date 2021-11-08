@@ -80,7 +80,13 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/dev/cs3200/p4/main.cpp">
+		<Unit filename="C:/dev/cs3200/p4/entree.cpp">
+			<Option target="p4"/>
+		</Unit>
+		<Unit filename="C:/dev/cs3200/p4/entree.h">
+			<Option target="p4"/>
+		</Unit>
+		<Unit filename="C:/dev/cs3200/p4/p4.cpp">
 			<Option target="p4"/>
 		</Unit>
 		<Unit filename="C:/dev/cs3200/p4/CMakeLists.txt">
