@@ -1,3 +1,0 @@
-C:/dev/cs3200/p4/cmake-build-debug/CMakeFiles/p4.dir
-C:/dev/cs3200/p4/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/dev/cs3200/p4/cmake-build-debug/CMakeFiles/rebuild_cache.dir
