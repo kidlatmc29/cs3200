@@ -12,3 +12,6 @@ vendor.o: vendor.cpp
 
 customer.o: customer.cpp
 	g++ -c -pedantic -Wall -Werror customer.cpp
+
+clean:
+	rm *.o
