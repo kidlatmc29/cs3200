@@ -7,6 +7,7 @@
 #include "vendor.h"
 #include "customer.h"
 #include "dbetCustomer.h"
+#include "carbCustomer.h"
 
 using namespace std;
 
@@ -43,7 +44,7 @@ void createCustomers(vector<Customer*> &clients)
 
 void printCustomers(vector<Customer*> clients)
 {
-  for(int i = 0; i < clients.size; i++)
+  for(int i = 0; i < (int) clients.size(); i++)
   {
     cout << "Account Number: " << clients[i]->getAccountNum() << endl;
     cout << "Balance: " << clients[i]->getCurrentBalance() << endl << endl;
