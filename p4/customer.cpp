@@ -21,7 +21,7 @@ void Customer::addMoney(float amount)
   }
 }
 
-bool Customer::buyEntree(shared_ptr<Vendor> market, string entreeName)
+bool Customer::buyOne(shared_ptr<Vendor> market, string entreeName)
 {
   bool sold = false;
   if(market->isStocked(entreeName))
@@ -32,6 +32,26 @@ bool Customer::buyEntree(shared_ptr<Vendor> market, string entreeName)
       market->sell(entreeName);
       currentBalance -= itemPrice;
       sold = true;
+    }
+  }
+  return sold;
+}
+
+bool Customer::buy(shared_ptr<Vendor> market)
+{
+  bool sold = false;
+  if(market != null)
+  {
+    for(int i = 0; i < market->getSize(); i++)
+    {
+      string itemName = market->getItemName(i);
+      float itemPrice = market->getItemPrice(itemName);
+      if(itemPrice <= currentBalance)
+      {
+        market->sell(itemName);
+        currentBalance -= itemPrice;
+        sold = true;
+      }
     }
   }
   return sold;
