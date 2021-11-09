@@ -3,7 +3,7 @@
 
 #include "customer.h"
 
-Customer::Customer(int accountNum, float currentBalance)
+Customer::Customer(unsigned int accountNum, float currentBalance)
 {
   this->accountNum = accountNum;
   this->currentBalance = currentBalance;

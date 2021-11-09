@@ -41,7 +41,7 @@ class Customer
     float currentBalance;
 
   public:
-    Customer(int accountNum = 0, float currentBalance = 0.0);
+    Customer(unsigned int accountNum = 0, float currentBalance = 0.0);
 
     ~Customer();
 

@@ -105,6 +105,10 @@ class Vendor
 
     // PRE: itemName must be exactly as what is saved in Entree's name
     // POST: N/A
+    string getItemCarbs(string itemName);
+
+    // PRE: itemName must be exactly as what is saved in Entree's name
+    // POST: N/A
     string getItemNutrFacts(string itemName);
 };
 

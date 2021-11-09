@@ -246,6 +246,28 @@ string Vendor::getItemSugar(string itemName)
   return itemSugar;
 }
 
+string Vendor::getItemCarbs(string itemName)
+{
+  vendorNode *nPtr = head;
+  string itemCarbs = "";
+  if(!isEmpty()) {
+    if(nPtr->food.getName() == itemName)
+    {
+      itemCarbs = nPtr->food.getTotalCarbs();
+    } else {
+      while(nPtr && nPtr->food.getName() != itemName)
+      {
+        nPtr = nPtr->next;
+      }
+      if(nPtr)
+      {
+        itemCarbs = nPtr->food.getTotalCarbs();
+      }
+    }
+  }
+  return itemCarbs;
+}
+
 string Vendor::getItemNutrFacts(string itemName)
 {
   vendorNode *nPtr = head;

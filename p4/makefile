@@ -1,5 +1,5 @@
-p4: p4.o entree.o vendor.o customer.o dbetCustomer.o
-	g++ -o p4 p4.o entree.o vendor.o customer.o dbetCustomer.o
+p4: p4.o entree.o vendor.o customer.o dbetCustomer.o carbCustomer.o
+	g++ -o p4 p4.o entree.o vendor.o customer.o dbetCustomer.o carbCustomer.o
 
 p4.o: p4.cpp
 	g++ -c -pedantic -Wall -Werror p4.cpp
@@ -15,6 +15,9 @@ customer.o: customer.cpp
 
 dbetCustomer.o : dbetCustomer.cpp
 	g++ -c -pedantic -Wall -Werror dbetCustomer.cpp
+
+carbCustomer.o : carbCustomer.cpp
+	g++ -c -pedantic -Wall -Werror carbCustomer.cpp
 
 clean:
 	rm *.o
