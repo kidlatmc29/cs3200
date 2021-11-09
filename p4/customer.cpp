@@ -40,7 +40,7 @@ bool Customer::buyOne(shared_ptr<Vendor> market, string entreeName)
 bool Customer::buy(shared_ptr<Vendor> market)
 {
   bool sold = false;
-  if(market != null)
+  if(market != nullptr)
   {
     for(int i = 0; i < market->getSize(); i++)
     {

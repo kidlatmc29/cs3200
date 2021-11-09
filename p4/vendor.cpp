@@ -200,6 +200,30 @@ float Vendor::getItemPrice(string itemName)
   return itemPrice;
 }
 
+string Vendor::getItemName(int index)
+{
+  vendorNode *nPtr = head;
+  string itemName = "";
+  int count = 0;
+  if(!isEmpty())
+  {
+    if(index == 0)
+    {
+      itemName = nPtr->food.getName();
+    } else {
+      while(nPtr && count != index)
+      {
+        nPtr = nPtr->next;
+      }
+      if(nPtr)
+      {
+        itemName = nPtr->food.getName();
+      }
+    }
+  }
+  return itemName;
+}
+
 string Vendor::getItemNutrFacts(string itemName)
 {
   vendorNode *nPtr = head;
