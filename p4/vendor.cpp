@@ -227,7 +227,7 @@ string Vendor::getItemName(int index)
 string Vendor::getItemSugar(string itemName)
 {
   vendorNode *nPtr = head;
-  float itemSugar = "";
+  string itemSugar = "";
   if(!isEmpty()) {
     if(nPtr->food.getName() == itemName)
     {

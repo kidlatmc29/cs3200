@@ -7,6 +7,7 @@
 #include <memory>
 #include <string>
 #include "vendor.h"
+#include "customer.h"
 
 using namespace std;
 
@@ -18,8 +19,8 @@ class dbetCustomer : public Customer {
     double dailySugar;
 
   public:
-    dbetcustomer(unsigned int accountNum = 0, float currentBalance = 0)
-      : dbetCustomer(accountNum, currentBalance);
+    dbetCustomer(unsigned int accountNum = 0, float currentBalance = 0)
+      : Customer(accountNum, currentBalance) { dailySugar = 0; };
 
     // PRE: itemname is written the same way as it is saved in Vendor
     // POST: One item's price has been subtracted from the dbetCustomer's

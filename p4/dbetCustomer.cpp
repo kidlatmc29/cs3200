@@ -3,12 +3,7 @@
 
 #include "dbetCustomer.h"
 
-dbetCustomer::dbetCustomer(unsigned int accountNum, float currentBalance)
-{
-  dailySugar = 0;
-}
-
-bool dbetCustomer::buyOne(shared_ptr<Vendor> market, string itemName = "")
+bool dbetCustomer::buyOne(shared_ptr<Vendor> market, string itemName)
 {
   bool sold = false;
   if(dailySugar < MAX_SUGAR && market->isStocked(itemName))

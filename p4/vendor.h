@@ -101,7 +101,7 @@ class Vendor
 
     // PRE: itemName must be exactly as what is saved in Entree's name
     // POST: N/A
-    string getItemSugar(int itemName);
+    string getItemSugar(string itemName);
 
     // PRE: itemName must be exactly as what is saved in Entree's name
     // POST: N/A
