@@ -178,6 +178,45 @@ int Vendor::getSize()
   return size;
 }
 
+int Vendor::findIndex(string itemName)
+{
+  bool found = false;
+  int currentIndex = 0;
+  int foundIndex = -1;
+  vendorNode nPtr = head;
+  if (!isEmpty())
+  {
+    if(nPtr->food.getName() == itemName)
+    {
+      foundIndex = currentIndex;
+    } else {
+      while(nPtr && nPtr->food.getName() != itemName) // MAKE SURE THIS WORKS
+      {
+        nPtr = nPtr->next;
+        currentIndex++;
+      }
+      if(nPtr)
+      {
+        foundIndex = currentIndex;
+      }
+    }
+  }
+  return foundIndex;
+}
+
+bool Vendor::hasIngredient(int itemIndex, string allergen)
+{
+  bool hasIngredient = false;
+  if (itemIndex > -1)
+  {
+    if(itemIndex == 0)
+    {
+      hasIngredient =
+    }
+  }
+  return hasIngredient;
+}
+
 float Vendor::getItemPrice(string itemName)
 {
   vendorNode *nPtr = head;

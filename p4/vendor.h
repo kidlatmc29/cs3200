@@ -93,6 +93,14 @@ class Vendor
 
     // PRE: itemName must be exactly as what is saved in Entree's name
     // POST: N/A
+    int findIndex(string itemName);
+
+    // PRE: itemName is exactly what is saved in Entree's name
+    // POST: N/A 
+    bool hasIngredient(int itemIndex, string allergen);
+
+    // PRE: itemName must be exactly as what is saved in Entree's name
+    // POST: N/A
     float getItemPrice(string itemName);
 
     // PRE: itemName must be exactly as what is saved in Entree's name
