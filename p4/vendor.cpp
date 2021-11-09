@@ -224,6 +224,28 @@ string Vendor::getItemName(int index)
   return itemName;
 }
 
+string Vendor::getItemSugar(string itemName)
+{
+  vendorNode *nPtr = head;
+  float itemSugar = "";
+  if(!isEmpty()) {
+    if(nPtr->food.getName() == itemName)
+    {
+      itemSugar = nPtr->food.getTotalSugar();
+    } else {
+      while(nPtr && nPtr->food.getName() != itemName)
+      {
+        nPtr = nPtr->next;
+      }
+      if(nPtr)
+      {
+        itemSugar = nPtr->food.getTotalSugar();
+      }
+    }
+  }
+  return itemSugar;
+}
+
 string Vendor::getItemNutrFacts(string itemName)
 {
   vendorNode *nPtr = head;

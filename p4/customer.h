@@ -5,6 +5,7 @@
 #define CUSTOMER_H
 
 #include <memory>
+#include <string>
 #include "vendor.h"
 
 // Class invarients:
@@ -69,7 +70,7 @@ class Customer
 
     // PRE: N/A
     // POST: accountNum is set to num
-    void virtual setAccountNum(int num);
+    void virtual setAccountNum(unsigned int num);
 };
 
 #endif
