@@ -26,3 +26,13 @@ bool dbetCustomer::buy(shared_ptr<Vendor> market)
   bool sold = false;
   return sold;
 }
+
+double dbetCustomer::getDailySugar()
+{
+  return dailySugar;
+}
+
+void dbetCustomer::resetDailySugar()
+{
+  dailySugar = 0;
+}

@@ -54,6 +54,14 @@ class dbetCustomer : public Customer {
     // POST: Multiple items' prices have been subtracted from dbetCustomer's
     //   balance or no items were purchased so no change to the balance
     bool buy(shared_ptr<Vendor> market) override;
+
+    // PRE: N/A
+    // POST: N/A
+    double getDailySugar();
+
+    // PRE: N/A
+    // POST: sets dailySugar to 0 
+    void resetDailySugar();
 };
 
 #endif
