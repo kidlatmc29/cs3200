@@ -37,6 +37,8 @@ class allergyCustomer : public Customer {
     int currentSize;
     int numOfAllergens;
 
+    // need a resize fxn for allergens
+
   public:
     allergyCustomer(unsigned int accountNum = 0, float currentBalance = 0)
                     : Customer(accountNum, currentBalance)
@@ -44,6 +46,7 @@ class allergyCustomer : public Customer {
       allergens = new string[INITIAL_SIZE];
       currentSize = INITIAL_SIZE;
       numOfAllergens = 0;
+      // need to get in allergy array and set in ctor
     };
 
     // PRE: allergen is written exactly as it is in the ingredient list list

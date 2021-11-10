@@ -10,29 +10,25 @@ bool allergyCustomer::buyOne(shared_ptr<Vendor> market, string itemName)
 
   if (market != nullptr)
   {
-    int itemIndex = market->findIndex(itemName);
-      if(numOfAllergens > 0)
+      if(numOfAllergens > 0 && market->isStocked(itemName))
       {
-        if(market->isStocked(itemName))
+        for(int i = 0; i < numOfAllergens; i++)
         {
-          for(int i = 0; i < numOfAllergens; i++)
+          if(market->hasIngredient(itemName, allergens[i]))
           {
-            if(market->hasIngredient(itemIndex, allergens[i]))
-            {
-              hasAllergen = true;
-            }
+            hasAllergen = true;
           }
+        }
 
-          if(!hasAllergen && currentBalance >= market->getItemPrice(itemName))
-          {
-            market->sell(itemName);
-            currentBalance -= market->getItemPrice(itemName);
-            sold = true;
-          }
+        if(!hasAllergen && currentBalance >= market->getItemPrice(itemName))
+        {
+          market->sell(itemName);
+          currentBalance -= market->getItemPrice(itemName);
+          sold = true;
         }
       } else {
         if(market->isStocked(itemName) && currentBalance >=
-          market->getItemPrice(itemName))
+              market->getItemPrice(itemName))
         {
           market->sell(itemName);
           currentBalance -= market->getItemPrice(itemName);
@@ -50,31 +46,28 @@ bool allergyCustomer::buy(shared_ptr<Vendor> market)
 
   if (market != nullptr)
   {
-      for (int i = 0; i < market->getSize(); i++)
-      {
-          string currentItemName = market->getItemName(i);
-          if (numOfAllergens > 0)
+    for (int i = 0; i < market->getSize(); i++)
+    {
+        string currentItemName = market->getItemName(i);
+        if (numOfAllergens > 0 && market->isStocked(currentItemName))
+        {
+          for (int j = 0; j < numOfAllergens; j++)
           {
-              if (market->isStocked(currentItemName))
-              {
-                  for (int j = 0; j < numOfAllergens; j++)
-                  {
-                      if (market->hasIngredient(i, allergens[j]))
-                      {
-                          hasAllergen = true;
-                      }
-                  }
-
-                  if (!hasAllergen && currentBalance >=
-                      market->getItemPrice(currentItemName))
-                  {
-                      market->sell(currentItemName);
-                      currentBalance -= market->getItemPrice(currentItemName);
-                      sold = true;
-                  }
-              }
+            if (market->hasIngredient(currentItemName, allergens[j]))
+            {
+              hasAllergen = true;
+            }
           }
+
+          if (!hasAllergen && currentBalance >=
+              market->getItemPrice(currentItemName))
+          {
+            market->sell(currentItemName);
+            currentBalance -= market->getItemPrice(currentItemName);
+            sold = true;
+          }
+        }
       }
-  }
+    }
   return sold;
 }

@@ -8,11 +8,11 @@
 #include "customer.h"
 #include "dbetCustomer.h"
 #include "carbCustomer.h"
+#include "allergyCustomer.h"
 
 using namespace std;
 
 void createCustomers(vector<Customer*> &clients);
-
 void printCustomers(vector<Customer*> clients);
 
 int main()
@@ -36,10 +36,15 @@ void createCustomers(vector<Customer*> &clients)
   Customer* bobby = new dbetCustomer(2, 13.23);
   Customer* ling = new carbCustomer(3, 45.52);
   Customer *nancy = new carbCustomer(4, 21.62);
+  Customer *isabel = new allergyCustomer(5, 6.29);
+  Customer *ali = new allergyCustomer(6, 8.57);
+
   clients.push_back(beck);
   clients.push_back(bobby);
   clients.push_back(ling);
   clients.push_back(nancy);
+  clients.push_back(isabel);
+  clients.push_back(ali);
 }
 
 void printCustomers(vector<Customer*> clients)

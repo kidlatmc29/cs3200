@@ -180,10 +180,9 @@ int Vendor::getSize()
 
 int Vendor::findIndex(string itemName)
 {
-  bool found = false;
   int currentIndex = 0;
   int foundIndex = -1;
-  vendorNode nPtr = head;
+  vendorNode *nPtr = head;
   if (!isEmpty())
   {
     if(nPtr->food.getName() == itemName)
@@ -204,14 +203,24 @@ int Vendor::findIndex(string itemName)
   return foundIndex;
 }
 
-bool Vendor::hasIngredient(int itemIndex, string allergen)
+bool Vendor::hasIngredient(string itemName, string allergen)
 {
+  vendorNode *nPtr = head;
   bool hasIngredient = false;
-  if (itemIndex > -1)
+  if (!isEmpty())
   {
-    if(itemIndex == 0)
+    if(nPtr->food.getName() == itemName)
     {
-      hasIngredient =
+      hasIngredient = nPtr->food.hasIngredient(allergen);
+    } else {
+      while(nPtr && nPtr->food.getName() != itemName)
+      {
+        nPtr = nPtr->next;
+      }
+      if(nPtr)
+      {
+        hasIngredient = nPtr->food.hasIngredient(allergen);
+      }
     }
   }
   return hasIngredient;
