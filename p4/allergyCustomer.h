@@ -37,20 +37,21 @@ class allergyCustomer : public Customer {
     int currentSize;
     int numOfAllergens;
 
-    // need a resize fxn for allergens
+    void resize();
 
   public:
-    allergyCustomer(unsigned int accountNum = 0, float currentBalance = 0)
-                    : Customer(accountNum, currentBalance)
+    allergyCustomer(unsigned int accountNum = 0, float currentBalance = 0,
+      string* allergens = nullptr, int numOfAllergens = 0, int size = 0)
+      : Customer(accountNum, currentBalance)
     {
-      allergens = new string[INITIAL_SIZE];
-      currentSize = INITIAL_SIZE;
-      numOfAllergens = 0;
-      // need to get in allergy array and set in ctor
+      this->allergens = allergens;
+      this->numOfAllergens = numOfAllergens;
+      currentSize = size;
     };
 
     // PRE: allergen is written exactly as it is in the ingredient list list
     // POST: adds 1 allergen to allergens list unless it's already in the list
+    //    increments numOfAllergens by 1
     void addAllergen(string allergen);
 
     // PRE: itemname is written the same way as it is saved in Vendor

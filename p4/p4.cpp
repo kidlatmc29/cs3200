@@ -36,8 +36,16 @@ void createCustomers(vector<Customer*> &clients)
   Customer* bobby = new dbetCustomer(2, 13.23);
   Customer* ling = new carbCustomer(3, 45.52);
   Customer *nancy = new carbCustomer(4, 21.62);
-  Customer *isabel = new allergyCustomer(5, 6.29);
-  Customer *ali = new allergyCustomer(6, 8.57);
+
+  string* iAllergies = new string[2];
+  iAllergies[0] = "peanuts";
+  iAllergies[1] = "fish";
+
+  string *aAllergies = new string[1];
+  iAllergies[0] = "milk";
+
+  Customer *isabel = new allergyCustomer(5, 6.29, iAllergies, 2, 2);
+  Customer *ali = new allergyCustomer(6, 8.57, aAllergies, 1, 1);
 
   clients.push_back(beck);
   clients.push_back(bobby);
