@@ -3,6 +3,12 @@
 
 #include "dbetCustomer.h"
 
+dbetCustomer::dbetCustomer(unsigned int accountNum, float currentBalance)
+  : Customer (accountNum, currentBalance)
+{
+    dailySugar = 0;
+}
+
 bool dbetCustomer::buyOne(shared_ptr<Vendor> market, string itemName)
 {
   bool sold = false;

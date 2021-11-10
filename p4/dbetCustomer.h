@@ -42,8 +42,7 @@ class dbetCustomer : public Customer {
     double dailySugar;
 
   public:
-    dbetCustomer(unsigned int accountNum = 0, float currentBalance = 0)
-      : Customer(accountNum, currentBalance) { dailySugar = 0; };
+    dbetCustomer(unsigned int accountNum = 0, float currentBalance = 0);
 
     // PRE: itemname is written the same way as it is saved in Vendor
     // POST: One item's price has been subtracted from the dbetCustomer's
@@ -60,7 +59,7 @@ class dbetCustomer : public Customer {
     double getDailySugar();
 
     // PRE: N/A
-    // POST: sets dailySugar to 0 
+    // POST: sets dailySugar to 0
     void resetDailySugar();
 };
 

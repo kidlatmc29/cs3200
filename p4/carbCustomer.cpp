@@ -3,6 +3,12 @@
 
 #include "carbCustomer.h"
 
+carbCustomer::carbCustomer(unsigned int accountNum, float currentBalance)
+  : Customer(accountNum, currentBalance)
+  {
+    dailyCarbs = 0;
+  }
+
 bool carbCustomer::buyOne(shared_ptr<Vendor> market, string itemName)
 {
   bool sold = false;

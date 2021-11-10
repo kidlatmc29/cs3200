@@ -33,8 +33,7 @@ class carbCustomer : public Customer {
     double dailyCarbs;
 
   public:
-    carbCustomer(unsigned int accountNum = 0, float currentBalance = 0)
-      : Customer(accountNum, currentBalance){ dailyCarbs = 0;};
+    carbCustomer(unsigned int accountNum = 0, float currentBalance = 0);
 
     // PRE: itemname is written the same way as it is saved in Vendor
     // POST: One item's price has been subtracted from the carbCustomer's balance

@@ -32,7 +32,7 @@ void createCustomers(vector<Customer*> &clients)
 {
   cout << "Creating various Customers..." << endl;
 
-  Customer* beck = new dbetCustomer(1, 10.00);
+  Customer* beck = new dbetCustomer(1, 10.01);
   Customer* bobby = new dbetCustomer(2, 13.23);
   Customer* ling = new carbCustomer(3, 45.52);
   Customer *nancy = new carbCustomer(4, 21.62);
