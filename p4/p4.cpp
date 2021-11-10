@@ -14,6 +14,8 @@ using namespace std;
 
 void createCustomers(vector<Customer*> &clients);
 void printCustomers(vector<Customer*> clients);
+void loadingVendor(shared_ptr<Vendor> market);
+void allCustomersBuyOneAppleSlices(vector<Customer*> clients);
 
 int main()
 {
@@ -55,11 +57,24 @@ void createCustomers(vector<Customer*> &clients)
   clients.push_back(ali);
 }
 
+void loadingVendor(shared_ptr<Vendor> market)
+{
+  
+}
+
 void printCustomers(vector<Customer*> clients)
 {
   for(int i = 0; i < (int) clients.size(); i++)
   {
     cout << "Account Number: " << clients[i]->getAccountNum() << endl;
     cout << "Balance: " << clients[i]->getCurrentBalance() << endl << endl;
+  }
+}
+
+void allCustomersBuyOneAppleSlices(vector<Customer*> clients)
+{
+  for(int i = 0l i < clients.size(); i++)
+  {
+    clients[i].buyOne("");
   }
 }
