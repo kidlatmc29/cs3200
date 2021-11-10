@@ -3,6 +3,14 @@
 
 #include "allergyCustomer.h"
 
+allergyCustomer::allergyCustomer(unsigned int accountNum, float currentBalance,
+  string* allergens, int numOfAllergens, int size) : Customer (accountNum, currentBalance)
+{
+  this->allergens = allergens;
+  this->numOfAllergens = numOfAllergens;
+  currentSize = size;
+}
+
 bool allergyCustomer::buyOne(shared_ptr<Vendor> market, string itemName)
 {
   bool hasAllergen = false;
