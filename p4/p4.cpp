@@ -101,13 +101,13 @@ void loadingVendor(shared_ptr<Vendor> store)
   string popContains = "";
   Entree popcorn(popName, popIng, popNutr, popContains, "4/10/22", false, false);
 
-  store->load(soda1, 3, 1.00);
-  store->load(soda2, 5, 1.40)
-  store->load(soda3, 12, .99);
-  store->load(cookie, 1.50);
-  store->load(chips, 14, 2.50);
-  store->load(nuts, 35, .50);
-  store->load(popcorn, 8, 3.45);
+  store->Load(soda1, 3, 1.00);
+  store->Load(soda2, 5, 1.40);
+  store->Load(soda3, 12, .99);
+  store->Load(cookie, 32, 1.50);
+  store->Load(chips, 14, 2.50);
+  store->Load(nuts, 35, .50);
+  store->Load(popcorn, 8, 3.45);
 }
 
 void printCustomers(vector<Customer*> clients)
@@ -121,8 +121,8 @@ void printCustomers(vector<Customer*> clients)
 
 void allCustomersBuyOneAppleSlices(vector<Customer*> clients)
 {
-  for(int i = 0l i < clients.size(); i++)
-  {
-    clients[i].buyOne("");
-  }
+  // for(int i = 0; i < (int) clients.size(); i++)
+  // {
+    // clients[i]->buyOne("");
+  // }
 }

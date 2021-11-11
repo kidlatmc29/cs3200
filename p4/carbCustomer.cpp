@@ -12,13 +12,13 @@ carbCustomer::carbCustomer(unsigned int accountNum, float currentBalance)
 bool carbCustomer::buyOne(shared_ptr<Vendor> market, string itemName)
 {
   bool sold = false;
-  if (dailyCarbs < MAX_CARBS && market->isStocked(itemName))
+  if (dailyCarbs < MAX_CARBS && market->IsStocked(itemName))
   {
       double itemCarbs = stod(market->getItemCarbs(itemName));
       double itemPrice = market->getItemPrice(itemName);
       if (itemCarbs + dailyCarbs <= MAX_CARBS && currentBalance >= itemPrice)
       {
-          market->sell(itemName);
+          market->Sell(itemName);
           currentBalance -= itemPrice;
           dailyCarbs += itemCarbs;
           sold = true;
@@ -35,7 +35,7 @@ bool carbCustomer::buy(shared_ptr<Vendor> market)
       for (int i = 0; i < market->getSize(); i++)
       {
           string itemName = market->getItemName(i);
-          if (market->isStocked(itemName))
+          if (market->IsStocked(itemName))
           {
               double itemCarbs = stod(market->getItemCarbs(itemName));
               double itemPrice = market->getItemPrice(itemName);
@@ -43,7 +43,7 @@ bool carbCustomer::buy(shared_ptr<Vendor> market)
               {
                   if (currentBalance >= itemPrice)
                   {
-                      market->sell(itemName);
+                      market->Sell(itemName);
                       currentBalance -= itemPrice;
                       dailyCarbs += itemCarbs;
                       sold = true;

@@ -24,12 +24,12 @@ void Customer::addMoney(float amount)
 bool Customer::buyOne(shared_ptr<Vendor> market, string entreeName)
 {
   bool sold = false;
-  if(market->isStocked(entreeName))
+  if(market->IsStocked(entreeName))
   {
     float itemPrice =  market->getItemPrice(entreeName);
     if(currentBalance >= itemPrice)
     {
-      market->sell(entreeName);
+      market->Sell(entreeName);
       currentBalance -= itemPrice;
       sold = true;
     }
@@ -48,7 +48,7 @@ bool Customer::buy(shared_ptr<Vendor> market)
       float itemPrice = market->getItemPrice(itemName);
       if(itemPrice <= currentBalance)
       {
-        market->sell(itemName);
+        market->Sell(itemName);
         currentBalance -= itemPrice;
         sold = true;
       }

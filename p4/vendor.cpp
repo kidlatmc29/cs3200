@@ -21,14 +21,15 @@ Vendor::vendorNode::vendorNode(Entree f, int q, float p)
 
 Vendor::Vendor(Vendor &original)
 {
-  head = nullptr;
+  head = original.head;
   size = 0;
 
   vendorNode *copy = original.head;
 
   while(copy)
   {
-    load(copy->food, copy->qty, copy->price);
+    Load(copy->food, copy->qty, copy->price);
+    size++;
     copy = copy->next;
   }
 }
@@ -36,14 +37,15 @@ Vendor::Vendor(Vendor &original)
 Vendor& Vendor::operator=(const Vendor &original)
 {
   if(this->head != original.head) {
-    head = nullptr;
+    head = original.head;
     size = 0;
 
     vendorNode *copy = original.head;
 
     while(copy)
     {
-      load(copy->food, copy->qty, copy->price);
+      Load(copy->food, copy->qty, copy->price);
+      size++;
       copy = copy->next;
     }
   }
@@ -64,7 +66,7 @@ Vendor::~Vendor()
   head = nullptr;
 }
 
-void Vendor::load(Entree food, int qty, double price)
+void Vendor::Load(Entree food, int qty, double price)
 {
   vendorNode *newItem = new vendorNode(food, qty, price);
   newItem->next = nullptr;
@@ -84,7 +86,7 @@ void Vendor::load(Entree food, int qty, double price)
   size++;
 }
 
-void Vendor::cleanStock()
+void Vendor::CleanStock()
 {
   if(!(isEmpty()))
   {
@@ -112,7 +114,7 @@ void Vendor::cleanStock()
   }
 }
 
-bool Vendor::isStocked(string itemName)
+bool Vendor::IsStocked(string itemName)
 {
   vendorNode *nPtr = head;
   bool inStock = false;
@@ -136,7 +138,7 @@ bool Vendor::isStocked(string itemName)
   return inStock;
 }
 
-void Vendor::poweroutage()
+void Vendor::PowerOutage()
 {
   vendorNode *nPtr = head;
   if(!isEmpty()) {
@@ -148,7 +150,7 @@ void Vendor::poweroutage()
   }
 }
 
-void Vendor::sell(string entreeName)
+void Vendor::Sell(string entreeName)
 {
   vendorNode *nPtr = head;
   if(!isEmpty()) {

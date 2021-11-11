@@ -45,7 +45,7 @@ class Customer
 
     ~Customer();
 
-    // PRE: N/A
+    // PRE: If no amount is specified, adds no money to currentBalance
     // POST: Adds given amount of money to Customer's currentBalance
     void virtual addMoney(float amount = 0.0);
 

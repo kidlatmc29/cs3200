@@ -63,25 +63,25 @@ class Vendor
     // PRE: Entree food is already been instatiated and it assumed to be valid
     // POST: One vendorNode is added to the linked list, size is incremented by
     //        one
-    void load(Entree food, int qty, double price);
+    void Load(Entree food, int qty, double price);
 
     // PRE: N/A
     // POST: If there is any spoiled or expired items, they are removed from
     //      the linked list
-    void cleanStock();
+    void CleanStock();
 
     // PRE: itemName must be exactly as what is saved in Entree's name
     // POST: N/A
-    bool isStocked(string itemName);
+    bool IsStocked(string itemName);
 
     // PRE: N/A
     // POST: All Entree's isRefrigered is set to false
-    void poweroutage();
+    void PowerOutage();
 
     // PRE: isStocked has returned true and the Customer has enough money to
     //      purchase item
     // POST: The item sold's qty is decremented by 1
-    void sell(string entreeName);
+    void Sell(string entreeName);
 
     // PRE: N/A
     // POST: N/A

@@ -18,7 +18,7 @@ bool allergyCustomer::buyOne(shared_ptr<Vendor> market, string itemName)
 
   if (market != nullptr)
   {
-      if(numOfAllergens > 0 && market->isStocked(itemName))
+      if(numOfAllergens > 0 && market->IsStocked(itemName))
       {
         for(int i = 0; i < numOfAllergens; i++)
         {
@@ -30,15 +30,15 @@ bool allergyCustomer::buyOne(shared_ptr<Vendor> market, string itemName)
 
         if(!hasAllergen && currentBalance >= market->getItemPrice(itemName))
         {
-          market->sell(itemName);
+          market->Sell(itemName);
           currentBalance -= market->getItemPrice(itemName);
           sold = true;
         }
       } else {
-        if(market->isStocked(itemName) && currentBalance >=
+        if(market->IsStocked(itemName) && currentBalance >=
               market->getItemPrice(itemName))
         {
-          market->sell(itemName);
+          market->Sell(itemName);
           currentBalance -= market->getItemPrice(itemName);
           sold = true;
         }
@@ -57,7 +57,7 @@ bool allergyCustomer::buy(shared_ptr<Vendor> market)
     for (int i = 0; i < market->getSize(); i++)
     {
         string currentItemName = market->getItemName(i);
-        if (numOfAllergens > 0 && market->isStocked(currentItemName))
+        if (numOfAllergens > 0 && market->IsStocked(currentItemName))
         {
           for (int j = 0; j < numOfAllergens; j++)
           {
@@ -70,7 +70,7 @@ bool allergyCustomer::buy(shared_ptr<Vendor> market)
           if (!hasAllergen && currentBalance >=
               market->getItemPrice(currentItemName))
           {
-            market->sell(currentItemName);
+            market->Sell(currentItemName);
             currentBalance -= market->getItemPrice(currentItemName);
             sold = true;
           }
