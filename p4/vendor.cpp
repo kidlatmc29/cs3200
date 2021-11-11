@@ -22,6 +22,8 @@ Vendor::vendorNode::vendorNode(Entree f, int q, float p)
 Vendor::Vendor(Vendor &original)
 {
   head = original.head;
+  this->name = original.name;
+  this->isRefrigerator = original.isRefrigerator;
   size = 0;
 
   vendorNode *copy = original.head;
@@ -38,6 +40,8 @@ Vendor& Vendor::operator=(const Vendor &original)
 {
   if(this->head != original.head) {
     head = original.head;
+    this->name = original.name;
+    this->isRefrigerator = original.isRefrigerator;
     size = 0;
 
     vendorNode *copy = original.head;

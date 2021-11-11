@@ -34,6 +34,7 @@ class Vendor
     string name;
     bool isRefrigerator;
     int size;
+    double *totalNutrStats;
 
    // utility function
    bool isEmpty();

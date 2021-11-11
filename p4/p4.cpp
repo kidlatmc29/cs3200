@@ -2,6 +2,7 @@
 // Isabel Ovalles
 
 #include <iostream>
+#include <ctime>
 #include <vector>
 #include <memory>
 #include "vendor.h"
@@ -119,10 +120,19 @@ void printCustomers(vector<Customer*> clients)
   }
 }
 
-void allCustomersBuyOneAppleSlices(vector<Customer*> clients)
+void customersBuyOneAppleSlices(vector<Customer*> clients)
 {
-  // for(int i = 0; i < (int) clients.size(); i++)
-  // {
-    // clients[i]->buyOne("");
-  // }
+}
+
+bool getRandomBool()
+{
+  bool b = false;
+
+  return b;
+}
+
+string getRandomDate()
+{
+  string date = "";
+  return date;
 }

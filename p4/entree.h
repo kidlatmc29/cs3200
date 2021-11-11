@@ -2,6 +2,7 @@
 // entree.h
 
 #include <string>
+#include <algorithm>
 #include <ctime>
 #include <sstream>
 #include <iostream>

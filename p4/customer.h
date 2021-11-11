@@ -47,7 +47,7 @@ class Customer
 
     // PRE: If no amount is specified, adds no money to currentBalance
     // POST: Adds given amount of money to Customer's currentBalance
-    void virtual addMoney(float amount = 0.0);
+    void addMoney(float amount = 0.0);
 
     // PRE: The item's name that Customer wants to buy is written exactly as it
     //        is saved in Entree name
