@@ -28,6 +28,7 @@ int main()
   printCustomers(shoppers);
   loadingVendor(store);
   customersBuyOneCookie(shoppers, store);
+  printCustomers(shoppers);
 
   cout << endl << "End of P4" << endl << endl;
   return 0;
@@ -62,6 +63,7 @@ void createCustomers(vector<Customer*> &clients)
 
 void loadingVendor(shared_ptr<Vendor> store)
 {
+  cout << endl << "Loading a vendor..." << endl;
   string soda1Name = "Coca-Cola";
   string soda1Nutr = "1 240 0 0 0 0 75 65 0 65 0";
   string soda1Ing = "CARBONATED WATER$HIGH FRUCTOSE CORN SYRUP$CARAMEL COLOR$PHOSPHORIC ACID$NATURAL FLAVORS$CAFFEINE";
@@ -112,7 +114,7 @@ void loadingVendor(shared_ptr<Vendor> store)
   store->Load(nuts, 35, .50);
   store->Load(popcorn, 8, 3.45);
 
-  cout << store->getName() << " has " << store->getSize() << " items." << endl;
+  cout << store->getName() << " has " << store->getSize() << " items" << endl;
 }
 
 void printCustomers(vector<Customer*> clients)
@@ -120,13 +122,16 @@ void printCustomers(vector<Customer*> clients)
   for(int i = 0; i < (int) clients.size(); i++)
   {
     cout << "Account Number: " << clients[i]->getAccountNum() << endl;
-    cout << "Balance: " << clients[i]->getCurrentBalance() << endl << endl;
+    cout << "Balance: " << clients[i]->getCurrentBalance() << endl;
   }
 }
 
 void customersBuyOneCookie(vector<Customer*> clients,shared_ptr<Vendor> store)
 {
   string itemName = "Grandma's Chocolate Chip Cookies";
+
+  cout << endl << "Attempting to purchase Grandma's Chocolate Chip Cookies - $"
+       << store->getItemPrice(itemName) << endl;
   for(int i = 0; i < (int) clients.size(); i++)
   {
     if(clients[i]->buyOne(store.get(), itemName))
