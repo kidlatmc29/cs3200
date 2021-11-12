@@ -61,6 +61,11 @@ class dbetCustomer : public Customer {
     // PRE: N/A
     // POST: sets dailySugar to 0
     void resetDailySugar();
+
+    // PRE: N/A
+    //POST: Returns an int that identifies what type of Customer the object is
+    //    0 = Customer, 1 = dbetCustomer, 2 = carbCustomer, 3 = allergyCustomer
+    int whoami() override;
 };
 
 #endif

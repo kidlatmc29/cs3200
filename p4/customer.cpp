@@ -71,3 +71,8 @@ void Customer::setAccountNum(unsigned int num)
 {
   accountNum = num;
 }
+
+int Customer::whoami()
+{
+  return 0; 
+}

@@ -60,4 +60,9 @@ class allergyCustomer : public Customer {
     //    to the balance
     bool buy(Vendor *market) override;
 
+    // PRE: N/A
+    //POST: Returns an int that identifies what type of Customer the object is
+    //    0 = Customer, 1 = dbetCustomer, 2 = carbCustomer, 3 = allergyCustomer
+    int whoami() override;
+
 };

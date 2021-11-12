@@ -42,3 +42,8 @@ void dbetCustomer::resetDailySugar()
 {
   dailySugar = 0;
 }
+
+int dbetCustomer::whoami()
+{
+  return 1;
+}

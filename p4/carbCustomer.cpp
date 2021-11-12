@@ -64,3 +64,8 @@ void carbCustomer::restDailyCarbs()
 {
   dailyCarbs = 0;
 }
+
+int carbCustomer::whoami()
+{
+  return 2;
+}

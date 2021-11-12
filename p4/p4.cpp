@@ -122,6 +122,17 @@ void printCustomers(vector<Customer*> clients)
   for(int i = 0; i < (int) clients.size(); i++)
   {
     cout << "Account Number: " << clients[i]->getAccountNum() << endl;
+    cout << "Customer Type: ";
+    if(clients[i]->whoami() == 1)
+    {
+      cout << "dbetCustomer" << endl;
+    } else if(clients[i]->whoami() == 2) {
+      cout << "carbCustomer" << endl;
+    } else if(clients[i]->whoami() == 3) {
+      cout << "allergyCustomer" << endl;
+    } else {
+      cout << "Customer" << endl;
+    }
     cout << "Balance: " << clients[i]->getCurrentBalance() << endl;
   }
 }
