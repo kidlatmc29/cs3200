@@ -131,8 +131,8 @@ void customersBuyOneCookie(vector<Customer*> clients,shared_ptr<Vendor> store)
   {
     if(clients[i]->buyOne(store.get(), itemName))
     {
-      cout << "Account " << clients[i]->getAccountNum() << " completed a purchase"
-          << endl;
+      cout << "Account " << clients[i]->getAccountNum()
+           << " completed a purchase" << endl;
     }
   }
 }
