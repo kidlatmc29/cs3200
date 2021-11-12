@@ -21,7 +21,7 @@ void Customer::addMoney(float amount)
   }
 }
 
-bool Customer::buyOne(shared_ptr<Vendor> market, string entreeName)
+bool Customer::buyOne(Vendor *market, string entreeName)
 {
   bool sold = false;
   if(market->IsStocked(entreeName))
@@ -37,7 +37,7 @@ bool Customer::buyOne(shared_ptr<Vendor> market, string entreeName)
   return sold;
 }
 
-bool Customer::buy(shared_ptr<Vendor> market)
+bool Customer::buy(Vendor *market)
 {
   bool sold = false;
   if(market != nullptr)

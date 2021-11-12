@@ -9,7 +9,7 @@ carbCustomer::carbCustomer(unsigned int accountNum, float currentBalance)
     dailyCarbs = 0;
   }
 
-bool carbCustomer::buyOne(shared_ptr<Vendor> market, string itemName)
+bool carbCustomer::buyOne(Vendor *market, string itemName)
 {
   bool sold = false;
   if (dailyCarbs < MAX_CARBS && market->IsStocked(itemName))
@@ -27,7 +27,7 @@ bool carbCustomer::buyOne(shared_ptr<Vendor> market, string itemName)
   return sold;
 }
 
-bool carbCustomer::buy(shared_ptr<Vendor> market)
+bool carbCustomer::buy(Vendor *market)
 {
   bool sold = false;
   if (market->getSize() > 0)

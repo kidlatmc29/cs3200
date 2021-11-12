@@ -16,7 +16,7 @@ using namespace std;
 void createCustomers(vector<Customer*> &clients);
 void printCustomers(vector<Customer*> clients);
 void loadingVendor(shared_ptr<Vendor> store);
-void allCustomersBuyOneAppleSlices(vector<Customer*> clients);
+void customersBuyOneCookie(vector<Customer*> clients,shared_ptr<Vendor> store);
 
 int main()
 {
@@ -26,6 +26,8 @@ int main()
 
   createCustomers(shoppers);
   printCustomers(shoppers);
+  loadingVendor(store);
+  customersBuyOneCookie(shoppers, store);
 
   cout << endl << "End of P4" << endl << endl;
   return 0;
@@ -109,6 +111,8 @@ void loadingVendor(shared_ptr<Vendor> store)
   store->Load(chips, 14, 2.50);
   store->Load(nuts, 35, .50);
   store->Load(popcorn, 8, 3.45);
+
+  cout << store->getName() << " has " << store->getSize() << " items." << endl;
 }
 
 void printCustomers(vector<Customer*> clients)
@@ -120,8 +124,17 @@ void printCustomers(vector<Customer*> clients)
   }
 }
 
-void customersBuyOneAppleSlices(vector<Customer*> clients)
+void customersBuyOneCookie(vector<Customer*> clients,shared_ptr<Vendor> store)
 {
+  string itemName = "Grandma's Chocolate Chip Cookies";
+  for(int i = 0; i < (int) clients.size(); i++)
+  {
+    if(clients[i]->buyOne(store.get(), itemName))
+    {
+      cout << "Account " << clients[i]->getAccountNum() << " completed a purchase"
+          << endl;
+    }
+  }
 }
 
 bool getRandomBool()

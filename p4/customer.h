@@ -53,12 +53,12 @@ class Customer
     //        is saved in Entree name
     // POST: Subtracts price of item bought from Customer's balance,
     //        returns true, else false
-    bool virtual buyOne(shared_ptr<Vendor> market, string entreeName = "");
+    bool virtual buyOne(Vendor *market, string entreeName = "");
 
     // PRE: N/A
     // POST: Subtracts price of items bought from Customer's balance,
     //        returns true when one or more items were bought, else false
-    bool virtual buy(shared_ptr<Vendor> market);
+    bool virtual buy(Vendor *market);
 
     // PRE: N/A
     // POST: N/A

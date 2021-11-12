@@ -123,6 +123,11 @@ void Entree::setNutritionStats(string stats)
 	}
 }
 
+string* Entree::getNutritionStats()
+{
+	return nutritionStats;
+}
+
 string Entree::getName()
 {
 	return name;

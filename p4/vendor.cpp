@@ -7,6 +7,7 @@ Vendor::Vendor(string name, bool isRefrigerator)
 {
   this->name = name;
   this->isRefrigerator = isRefrigerator;
+  totalNutrStats = nullptr;
 
   head = nullptr;
   size = 0;
@@ -368,4 +369,17 @@ string Vendor::getItemNutrFacts(string itemName)
 bool Vendor::isEmpty()
 {
   return !(head);
+}
+
+void Vendor::addNutrStats(Entree food)
+{
+  if(totalNutrStats == nullptr)
+  {
+    totalNutrStats = new double[NUM_OF_NUTR_STATS];
+  }
+  string *foodNutr = food.getNutritionStats();
+  for(int i = 0; i < NUM_OF_NUTR_STATS; i++)
+  {
+    totalNutrStats[i] += stod(foodNutr[i]);
+  }
 }

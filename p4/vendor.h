@@ -31,6 +31,7 @@ using namespace std;
 class Vendor
 {
   private:
+    const int NUM_OF_NUTR_STATS = 11;
     string name;
     bool isRefrigerator;
     int size;
@@ -38,6 +39,7 @@ class Vendor
 
    // utility function
    bool isEmpty();
+   void addNutrStats(Entree food);
 
   public:
     class vendorNode{
@@ -119,6 +121,11 @@ class Vendor
     // PRE: itemName must be exactly as what is saved in Entree's name
     // POST: N/A
     string getItemNutrFacts(string itemName);
+
+    // PRE: N/A
+    // POST: returns a string that contains all the nutrition facts summed from
+    //        all purchases
+  //  void getTotalNutrStatsSold();
 };
 
 #endif

@@ -11,7 +11,7 @@ allergyCustomer::allergyCustomer(unsigned int accountNum, float currentBalance,
   currentSize = size;
 }
 
-bool allergyCustomer::buyOne(shared_ptr<Vendor> market, string itemName)
+bool allergyCustomer::buyOne(Vendor *market, string itemName)
 {
   bool hasAllergen = false;
   bool sold = false;
@@ -47,7 +47,7 @@ bool allergyCustomer::buyOne(shared_ptr<Vendor> market, string itemName)
   return sold;
 }
 
-bool allergyCustomer::buy(shared_ptr<Vendor> market)
+bool allergyCustomer::buy(Vendor *market)
 {
   bool hasAllergen = false;
   bool sold = false;

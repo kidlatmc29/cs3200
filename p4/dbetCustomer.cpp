@@ -9,7 +9,7 @@ dbetCustomer::dbetCustomer(unsigned int accountNum, float currentBalance)
     dailySugar = 0;
 }
 
-bool dbetCustomer::buyOne(shared_ptr<Vendor> market, string itemName)
+bool dbetCustomer::buyOne(Vendor *market, string itemName)
 {
   bool sold = false;
   if(dailySugar < MAX_SUGAR && market->IsStocked(itemName))
@@ -27,7 +27,7 @@ bool dbetCustomer::buyOne(shared_ptr<Vendor> market, string itemName)
   return sold;
 }
 
-bool dbetCustomer::buy(shared_ptr<Vendor> market)
+bool dbetCustomer::buy(Vendor *market)
 {
   bool sold = false;
   return sold;

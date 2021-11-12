@@ -88,6 +88,10 @@ class Entree {
 
     // PRE: N/A
     // POST: N/A
+    string* getNutritionStats();
+
+    // PRE: N/A
+    // POST: N/A
   	string getName();
 
     // PRE: N/A

@@ -52,12 +52,12 @@ class allergyCustomer : public Customer {
     // POST: One item's price has been subtracted from the carbCustomer's balance
     // or the purchase was not made because item contained allergen so no change
     //   to the balance
-    bool buyOne(shared_ptr<Vendor> market, string itemName) override;
+    bool buyOne(Vendor *market, string itemName) override;
 
     // PRE: N/A
     // POST: One item's price has been subtracted from the carbCustomer's balance
     // or the purchase was not made because item contained allergen so no change
     //    to the balance
-    bool buy(shared_ptr<Vendor> market) override;
+    bool buy(Vendor *market) override;
 
 };

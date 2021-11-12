@@ -38,12 +38,12 @@ class carbCustomer : public Customer {
     // PRE: itemname is written the same way as it is saved in Vendor
     // POST: One item's price has been subtracted from the carbCustomer's balance
     // or the purchase was not made so no change to the balance
-    bool buyOne(shared_ptr<Vendor> market, string itemName = "") override;
+    bool buyOne(Vendor *market, string itemName = "") override;
 
     // PRE: itemname is written the same way as it is saved in Vendor
     // POST: Multiple items' prices have been subtracted from carbCustomer's balance
     // or no items were purchased so no change to the balance
-    bool buy(shared_ptr<Vendor> market) override;
+    bool buy(Vendor *market) override;
 
     // PRE: N/A
     // POST: N/A
