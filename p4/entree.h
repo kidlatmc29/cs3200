@@ -17,6 +17,10 @@ using namespace std;
 // -Entree object will be in a valid state when instantiated with the
 //    parameterized ctor.
 // -Cannot get any member variable unless Entree is initialized.
+// - No overloading of any arithmatic, comparison, or logical operators. These
+//    functionalities are not expected by the client.
+// - The << operator is overloaded so clients can be able to view the contents
+//    of an Entree easily
 
 // Interface invarients:
 //  -When instantiating an Entree object, the client is responsible for:
@@ -78,6 +82,9 @@ class Entree {
 
     // move assignment
     Entree& operator=(const Entree&& original);
+
+    // << operator
+    friend ostream& operator<<(ostream& os, const Entree& food);
 
   	// deconstructor
   	~Entree();
@@ -152,7 +159,6 @@ class Entree {
     //  different values when the program is run. This can cause issues with
     //  other functions such as isSpoiled or cleanStock which could return
     //  an incorrect results.
-
     bool isExpired();
 
     // PRE: N/A

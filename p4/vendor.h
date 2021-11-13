@@ -125,7 +125,7 @@ class Vendor
     // PRE: N/A
     // POST: returns a string that contains all the nutrition facts summed from
     //        all purchases
-  //  void getTotalNutrStatsSold();
+    double* getTotalNutrStatsSold();
 };
 
 #endif

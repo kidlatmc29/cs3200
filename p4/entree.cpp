@@ -102,6 +102,15 @@ Entree& Entree::operator=(const Entree&& original)
 	return *this;
 }
 
+ostream& operator<<(ostream& os, const Entree& food)
+{
+	os << food.name << "\n" << "Expiration Date: " << food.expirationDate << "\n"
+	   << "Ingredients:" << food.ingredients << "\n"
+		 << "Contains: " << food.contains << "\n";
+
+	return os;
+}
+
 Entree::~Entree()
 {
 	delete[] nutritionStats;

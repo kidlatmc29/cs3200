@@ -74,7 +74,7 @@ class Customer
 
     // PRE: N/A
     //POST: Returns an int that identifies what type of Customer the object is
-    //    0 = Customer, 1 = dbetCustomer, 2 = carbCustomer, 3 = allergyCustomer
+    //     0 = Customer, 1 = dbetCustomer, 2 = carbCustomer, 3 = allergyCustomer
     int virtual whoami();
 };
 

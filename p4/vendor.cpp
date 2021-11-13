@@ -170,6 +170,7 @@ void Vendor::Sell(string entreeName)
       if(nPtr)
       {
         nPtr->qty--;
+        addNutrStats(nPtr->food);
       }
     }
   }
@@ -375,11 +376,16 @@ void Vendor::addNutrStats(Entree food)
 {
   if(totalNutrStats == nullptr)
   {
-    totalNutrStats = new double[NUM_OF_NUTR_STATS];
+    totalNutrStats = new double[NUM_OF_NUTR_STATS] {0};
   }
   string *foodNutr = food.getNutritionStats();
   for(int i = 0; i < NUM_OF_NUTR_STATS; i++)
   {
     totalNutrStats[i] += stod(foodNutr[i]);
   }
+}
+
+double* Vendor::getTotalNutrStatsSold()
+{
+  return totalNutrStats;
 }
