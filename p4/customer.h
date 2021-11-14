@@ -39,11 +39,15 @@ class Customer
   protected:
     unsigned int accountNum;
     float currentBalance;
+    int id;
 
   public:
     Customer(unsigned int accountNum = 0, float currentBalance = 0.0);
 
     ~Customer();
+
+    // << operator
+    friend ostream& operator<<(ostream& os, const Customer& shopper);
 
     // PRE: If no amount is specified, adds no money to currentBalance
     // POST: Adds given amount of money to Customer's currentBalance

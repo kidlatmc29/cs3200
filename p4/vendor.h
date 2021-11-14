@@ -61,6 +61,8 @@ class Vendor
 
     Vendor& operator=(const Vendor &original);
 
+    friend bool operator== (const Vendor& v1, const Vendor& v2);
+
     ~Vendor();
 
     // PRE: Entree food is already been instatiated and it assumed to be valid

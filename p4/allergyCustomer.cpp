@@ -9,6 +9,7 @@ allergyCustomer::allergyCustomer(unsigned int accountNum, float currentBalance,
   this->allergens = allergens;
   this->numOfAllergens = numOfAllergens;
   currentSize = size;
+  this->id = 3;
 }
 
 bool allergyCustomer::buyOne(Vendor *market, string itemName)
@@ -125,5 +126,5 @@ void allergyCustomer::resize()
 
 int allergyCustomer::whoami()
 {
-  return 3;
+  return id;
 }

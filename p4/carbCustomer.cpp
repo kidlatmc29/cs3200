@@ -7,6 +7,7 @@ carbCustomer::carbCustomer(unsigned int accountNum, float currentBalance)
   : Customer(accountNum, currentBalance)
   {
     dailyCarbs = 0;
+    id = 2;
   }
 
 bool carbCustomer::buyOne(Vendor *market, string itemName)
@@ -67,5 +68,5 @@ void carbCustomer::restDailyCarbs()
 
 int carbCustomer::whoami()
 {
-  return 2;
+  return id;
 }

@@ -7,10 +7,31 @@ Customer::Customer(unsigned int accountNum, float currentBalance)
 {
   this->accountNum = accountNum;
   this->currentBalance = currentBalance;
+  this->id = 0;
 }
 
 Customer::~Customer()
 {
+}
+
+ostream& operator<<(ostream& os, const Customer& shopper)
+{
+  os << "Account Num: " << shopper.accountNum << endl
+     << "Customer Type: ";
+  if(shopper.id == 1)
+  {
+    os << "Diabetic";
+  } else if(shopper.id == 2)
+  {
+    os << "Carb";
+  } else if(shopper.id == 3)
+  {
+    os << "Allergy";
+  } else {
+    os << "Customer";
+  }
+  os << endl << "Balance: $" << shopper.currentBalance << endl;
+  return os;
 }
 
 void Customer::addMoney(float amount)
@@ -74,5 +95,5 @@ void Customer::setAccountNum(unsigned int num)
 
 int Customer::whoami()
 {
-  return 0; 
+  return id;
 }

@@ -57,6 +57,11 @@ Vendor& Vendor::operator=(const Vendor &original)
   return *this;
 }
 
+ bool operator==(const Vendor& v1, const Vendor& v2)
+{
+  return v1.name == v2.name && v1.size == v2.size;
+}
+
 Vendor::~Vendor()
 {
   vendorNode *nPtr = head;
@@ -139,7 +144,6 @@ bool Vendor::IsStocked(string itemName)
       }
     }
   }
-//  cout << "inStock is: " << inStock << endl;
   return inStock;
 }
 

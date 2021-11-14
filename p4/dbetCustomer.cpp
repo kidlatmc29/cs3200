@@ -7,6 +7,7 @@ dbetCustomer::dbetCustomer(unsigned int accountNum, float currentBalance)
   : Customer (accountNum, currentBalance)
 {
     dailySugar = 0;
+    id = 1;
 }
 
 bool dbetCustomer::buyOne(Vendor *market, string itemName)
@@ -45,5 +46,5 @@ void dbetCustomer::resetDailySugar()
 
 int dbetCustomer::whoami()
 {
-  return 1;
+  return id;
 }
