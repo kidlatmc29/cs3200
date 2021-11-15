@@ -124,6 +124,13 @@ void loadingVendor(shared_ptr<Vendor> store)
   string fruitContains = "Cashew";
   Entree fruitSnacc(fruitSnaccName, fruitSnaccNutr, fruitSnaccIng, fruitContains, "5/12/23", true, true);
 
+  string milkName = "Horizon Organic Whole Milk";
+  string milkNutr = "1 150 8 5 0 35 130 13 0 12 8";
+  string milkIng = "Grade A Organic Milk$Vitamin D3	milk";
+  string milkContains = "milk";
+  Entree milk(milkName, milkNutr, milkIng, milkContains, "12/12/21", getRandomBool(), getRandomBool());
+
+
   store->Load(soda1, 3, 1.00);
   store->Load(soda2, 5, 1.40);
   store->Load(soda3, 12, .99);
@@ -131,6 +138,7 @@ void loadingVendor(shared_ptr<Vendor> store)
   store->Load(chips, 14, 2.50);
   store->Load(nuts, 35, .50);
   store->Load(popcorn, 8, 3.45);
+  store->Load(milk, 10, 2.46);
 
   cout << store->getName() << " has " << store->getSize() << " items" << endl;
 }
@@ -158,8 +166,8 @@ void customersBuyOneCookie(vector<Customer*> clients,shared_ptr<Vendor> store)
 {
   string itemName = "Grandma's Chocolate Chip Cookies";
 
-  cout << endl << "Purchasing Grandma's Chocolate Chip Cookies - $"
-       << store->getItemPrice(itemName) << endl;
+  cout << endl << "Attemping to purchase Grandma's Chocolate Chip Cookies - $"
+       << fixed << setprecision(2) << store->getItemPrice(itemName) << endl;
   for(int i = 0; i < (int) clients.size(); i++)
   {
     if(clients[i]->buyOne(store.get(), itemName))
@@ -233,7 +241,8 @@ void areVendorsEqual()
   Vendor a("Costco", getRandomBool());
   Vendor b("Walmart", getRandomBool());
 
-  cout << "Is " << a.getName() << " the same as " << b.getName() << "?" << endl;
+  cout << endl << "Is " << a.getName() << " the same as " << b.getName()
+       << "?" << endl;
   if(a == b)
   {
     cout << "Yes" << endl;

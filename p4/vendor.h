@@ -130,6 +130,7 @@ class Vendor
     // POST: returns a string that contains all the nutrition facts summed from
     //        all purchases
     double* getTotalNutrStatsSold();
+
 };
 
 #endif
