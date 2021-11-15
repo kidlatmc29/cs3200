@@ -71,6 +71,7 @@ bool allergyCustomer::buy(Vendor *market)
           if (!hasAllergen && currentBalance >=
               market->getItemPrice(currentItemName))
           {
+            cout << "Buying" << currentItemName << endl;
             market->Sell(currentItemName);
             currentBalance -= market->getItemPrice(currentItemName);
             sold = true;
