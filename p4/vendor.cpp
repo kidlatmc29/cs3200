@@ -143,13 +143,13 @@ bool Vendor::IsStocked(string itemName)
       {
         nPtr = nPtr->next;
       }
-      if(nPtr && nPtr->food.getName() == itemName &&
-        !(nPtr->food.isSpoiled()) && nPtr->qty > 0)
+      if(nPtr && !(nPtr->food.isSpoiled()) && nPtr->qty > 0)
       {
         inStock = true;
       }
     }
   }
+  cout << "inStock is: " << inStock << endl;
   return inStock;
 }
 

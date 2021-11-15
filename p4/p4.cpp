@@ -134,11 +134,11 @@ void loadingVendor(shared_ptr<Vendor> store)
   Entree milk(milkName, milkNutr, milkIng, milkContains, "12/12/21", getRandomBool(), getRandomBool());
 
 
+  store->Load(chips, 14, 2.50);
   store->Load(soda1, 3, 1.00);
   store->Load(soda2, 5, 1.40);
   store->Load(soda3, 12, .99);
   store->Load(cookie, 32, 1.50);
-  store->Load(chips, 14, 2.50);
   store->Load(nuts, 35, .50);
   store->Load(popcorn, 8, 3.45);
   store->Load(milk, 10, 2.46);
