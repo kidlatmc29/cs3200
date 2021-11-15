@@ -123,8 +123,3 @@ void allergyCustomer::resize()
   allergens = temp;
   currentSize *= 2;
 }
-
-int allergyCustomer::whoami()
-{
-  return id;
-}

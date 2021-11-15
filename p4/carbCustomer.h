@@ -52,9 +52,4 @@ class carbCustomer : public Customer {
     // PRE: N/A
     // POST: dailySugar is set to 0
     void restDailyCarbs();
-
-    // PRE: N/A
-    //POST: Returns an int that identifies what type of Customer the object is
-    //    0 = Customer, 1 = dbetCustomer, 2 = carbCustomer, 3 = allergyCustomer
-    int whoami() override;
 };
