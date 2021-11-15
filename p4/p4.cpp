@@ -6,6 +6,8 @@
 #include <vector>
 #include <memory>
 #include <iomanip>
+#include <random>
+#include <time.h>
 #include "vendor.h"
 #include "customer.h"
 #include "dbetCustomer.h"
@@ -21,9 +23,12 @@ void loadingVendor(shared_ptr<Vendor> store);
 void customersBuyOneCookie(vector<Customer*> clients,shared_ptr<Vendor> store);
 void customersBuy(vector<Customer*> clients,shared_ptr<Vendor> store);
 void printVendorTotalNutrStats(shared_ptr<Vendor> store);
+void areVendorsEqual();
+bool getRandomBool();
 
 int main()
 {
+  srand(time(0));
   shared_ptr<Vendor> store(new Vendor("The Corner Store", true));
   vector<Customer*> shoppers;
   cout << endl << "Welcome to P4" << endl << endl;
@@ -35,6 +40,7 @@ int main()
   customersBuyOneCookie(shoppers, store);
   customersBuy(shoppers, store);
   printVendorTotalNutrStats(store);
+  areVendorsEqual();
 
   cout << endl << "End of P4" << endl << endl;
   return 0;
@@ -222,15 +228,21 @@ void printVendorTotalNutrStats(shared_ptr<Vendor> store)
   }
 }
 
-bool getRandomBool()
+void areVendorsEqual()
 {
-  bool b = false;
+  Vendor a("Costco", getRandomBool());
+  Vendor b("Walmart", getRandomBool());
 
-  return b;
+  cout << "Is " << a.getName() << " the same as " << b.getName() << "?" << endl;
+  if(a == b)
+  {
+    cout << "Yes" << endl;
+  } else {
+    cout << "No" << endl;
+  }
 }
 
-string getRandomDate()
+bool getRandomBool()
 {
-  string date = "";
-  return date;
+  return (rand() % 1) == 1;
 }

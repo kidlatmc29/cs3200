@@ -57,9 +57,14 @@ Vendor& Vendor::operator=(const Vendor &original)
   return *this;
 }
 
- bool operator==(const Vendor& v1, const Vendor& v2)
+bool operator==(const Vendor& v1, const Vendor& v2)
 {
   return v1.name == v2.name && v1.size == v2.size;
+}
+
+bool operator!=(const Vendor& v1, const Vendor& v2)
+{
+  return v1.name != v2.name || v1.size != v2.size;
 }
 
 Vendor::~Vendor()

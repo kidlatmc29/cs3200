@@ -61,7 +61,9 @@ class Vendor
 
     Vendor& operator=(const Vendor &original);
 
-    friend bool operator== (const Vendor& v1, const Vendor& v2);
+    friend bool operator==(const Vendor& v1, const Vendor& v2);
+
+    friend bool operator!=(const Vendor& v1, const Vendor& v2);
 
     ~Vendor();
 
