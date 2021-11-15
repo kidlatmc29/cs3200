@@ -97,3 +97,12 @@ int Customer::whoami()
 {
   return id;
 }
+
+double Customer::getDaily()
+{
+  return -1;
+}
+
+void Customer::resetDaily()
+{
+}

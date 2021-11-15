@@ -47,6 +47,8 @@ bool dbetCustomer::buy(Vendor *market)
         {
           if(currentBalance >= itemPrice)
           {
+            cout << "Buying" << itemName << endl;
+            cout << "itemSugar = " << itemSugar << endl;
             market->Sell(itemName);
             currentBalance -= itemPrice;
             dailySugar += itemSugar;
@@ -59,12 +61,12 @@ bool dbetCustomer::buy(Vendor *market)
   return sold;
 }
 
-double dbetCustomer::getDailySugar()
+double dbetCustomer::getDaily()
 {
   return dailySugar;
 }
 
-void dbetCustomer::resetDailySugar()
+void dbetCustomer::resetDaily()
 {
   dailySugar = 0;
 }

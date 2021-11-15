@@ -56,12 +56,12 @@ bool carbCustomer::buy(Vendor *market)
   return sold;
 }
 
-double carbCustomer::getDailyCarbs()
+double carbCustomer::getDaily()
 {
   return dailyCarbs;
 }
 
-void carbCustomer::restDailyCarbs()
+void carbCustomer::restDaily()
 {
   dailyCarbs = 0;
 }

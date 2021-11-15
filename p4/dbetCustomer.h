@@ -56,11 +56,11 @@ class dbetCustomer : public Customer {
 
     // PRE: N/A
     // POST: N/A
-    double getDailySugar();
+    double getDaily() override;
 
     // PRE: N/A
     // POST: sets dailySugar to 0
-    void resetDailySugar();
+    void resetDaily();
 };
 
 #endif

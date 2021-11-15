@@ -80,6 +80,16 @@ class Customer
     //POST: Returns an int that identifies what type of Customer the object is
     //     0 = Customer, 1 = dbetCustomer, 2 = carbCustomer, 3 = allergyCustomer
     int virtual whoami();
+
+    // PRE: N/A
+    // POST: Returns the daily nutr fact that is being tracked, if Customer
+    //      returns -1
+    double virtual getDaily();
+
+    // PRE: N/A
+    // POST: sets daily nutr fact that is being tacked to  0, if Customer
+    //      fxn does nothing
+    void virtual resetDaily();
 };
 
 #endif

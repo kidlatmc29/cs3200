@@ -47,9 +47,9 @@ class carbCustomer : public Customer {
 
     // PRE: N/A
     // POST: N/A
-    double getDailyCarbs();
+    double getDaily() override;
 
     // PRE: N/A
-    // POST: dailySugar is set to 0
-    void restDailyCarbs();
+    // POST: dailyCarbs is set to 0
+    void restDaily();
 };

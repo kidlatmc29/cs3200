@@ -25,6 +25,8 @@ void customersBuy(vector<Customer*> clients,shared_ptr<Vendor> store);
 void printVendorTotalNutrStats(shared_ptr<Vendor> store);
 void areVendorsEqual();
 bool getRandomBool();
+void printCustomerDailies(vector<Customer*> clients);
+//void resetCustomerDailies(vector<Customer*> &clients);
 
 int main()
 {
@@ -39,6 +41,7 @@ int main()
   loadingVendor(store);
   customersBuyOneCookie(shoppers, store);
   customersBuy(shoppers, store);
+  printCustomerDailies(shoppers);
   printVendorTotalNutrStats(store);
   areVendorsEqual();
 
@@ -181,7 +184,7 @@ void customersBuyOneCookie(vector<Customer*> clients,shared_ptr<Vendor> store)
 
 void customersBuy(vector<Customer*> clients,shared_ptr<Vendor> store)
 {
-  cout << "Buying multiple items from  " << store->getName() << "...." << endl;
+  cout << "Buying multiple items from " << store->getName() << "...." << endl;
   for(int i = 0; i < (int) clients.size(); i++)
   {
     if(clients[i]->buy(store.get()))
@@ -254,4 +257,36 @@ void areVendorsEqual()
 bool getRandomBool()
 {
   return (rand() % 1) == 1;
+}
+
+void printCustomerDailies(vector<Customer*> clients)
+{
+  cout << endl << "Printing out Customer's dailies...." << endl;
+  for(int i = 0; i < (int) clients.size(); i++)
+  {
+    if(clients[i]->whoami() == 1)
+    {
+      cout << "Account Num: " << clients[i]->getAccountNum() << endl
+           << "Daily sugar: " << clients[i]->getDaily() << " g"<< endl;
+    } else if(clients[i]->whoami() == 2) {
+      cout << "Account Num: " << clients[i]->getAccountNum() << endl
+           << "Daily carbs: " << clients[i]->getDaily() << " g"<< endl;
+    }
+    cout << endl;
+  }
+}
+
+void resetCustomerDailies(vector<Customer*> &clients)
+{
+  for(int i = 0; i < (int) clients.size(); i++)
+  {
+    if(clients[i]->whoami() == 1)
+    {
+      cout << "Reseting daily sugar..." << endl;
+      clients[i]->resetDaily();
+    } else if(clients[i]->whoami() == 2) {
+      cout << "Reseting daily carbs..." << endl;
+      clients[i]->resetDaily();
+    }
+  }
 }
