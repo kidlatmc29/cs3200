@@ -1,4 +1,4 @@
-// p4.cpp
+// p4Driver.cpp
 // Isabel Ovalles
 
 #include <iostream>
@@ -21,9 +21,9 @@ void printCustomers(vector<Customer*> clients);
 void printEntree();
 void loadingVendor(shared_ptr<Vendor> store);
 void customersBuyOneCookie(vector<Customer*> clients,shared_ptr<Vendor> store);
-void customersBuy(vector<Customer*> clients,shared_ptr<Vendor> store);
+void customersBuy(vector<Customer*> clients, shared_ptr<Vendor> store);
 void printVendorTotalNutrStats(shared_ptr<Vendor> store);
-void areVendorsEqual();
+void areVendorsEqual(shared_ptr<Vendor> store);
 bool getRandomBool();
 void printCustomerDailies(vector<Customer*> clients);
 //void resetCustomerDailies(vector<Customer*> &clients);
@@ -41,9 +41,10 @@ int main()
   loadingVendor(store);
   customersBuyOneCookie(shoppers, store);
   customersBuy(shoppers, store);
+  printCustomers(shoppers);
   printCustomerDailies(shoppers);
   printVendorTotalNutrStats(store);
-  areVendorsEqual();
+  areVendorsEqual(store);
 
   cout << endl << "End of P4" << endl << endl;
   return 0;
@@ -83,43 +84,43 @@ void loadingVendor(shared_ptr<Vendor> store)
   string soda1Nutr = "1 240 0 0 0 0 75 65 0 65 0";
   string soda1Ing = "CARBONATED WATER$HIGH FRUCTOSE CORN SYRUP$CARAMEL COLOR$PHOSPHORIC ACID$NATURAL FLAVORS$CAFFEINE";
   string soda1Contains = "";
-  Entree soda1(soda1Name, soda1Ing, soda1Nutr, soda1Contains, "12/20/24", true, true);
+  Entree soda1(soda1Name, soda1Ing, soda1Nutr, soda1Contains, "12/20/24", getRandomBool(), getRandomBool());
 
   string soda2Name = "Sprite";
   string soda2Nutr = "1 140 0 0 0 0 75 65 0 65 0";
   string soda2Ing = "CARBONATED WATER$HIGH FRUCTOSE CORN SYRUP$CITRIC ACID$NATURAL FLAVORS$SODIUM CITRATE$SODIUM BENZOATE ";
   string soda2Contains = "";
-  Entree soda2(soda2Name, soda2Ing, soda2Nutr, soda2Contains, "12/20/23", true, true);
+  Entree soda2(soda2Name, soda2Ing, soda2Nutr, soda2Contains, "12/20/23", getRandomBool(), getRandomBool());
 
   string soda3Name = "Fanta";
   string soda3Nutr = "1 270 0 0 0 0 75 73 0 73 0";
   string soda3Ing = "CARBONATED WATER$HIGH FRUCTOSE CORN SYRUP$CITRIC ACID$SODIUM BENZOATE (TO PROTECT TASTE)$NATURAL FLAVORS$MODIFIED FOOD STARCH$SODIUM POLYPHOSPHATES$GLYCEROL ESTER OF ROSIN$YELLOW 6$RED 40";
   string soda3Contains = "";
-  Entree soda3(soda3Name, soda3Ing, soda3Nutr, soda3Contains, "12/20/21", true, true);
+  Entree soda3(soda3Name, soda3Ing, soda3Nutr, soda3Contains, "12/20/21", getRandomBool(), getRandomBool());
 
   string cookieName = "Grandma's Chocolate Chip Cookies";
   string cookieNutr = "2 200 10 4 0 0 125 25 1 12 2";
   string cookieIng = "Enriched flour(bleached wheat flour, niacin, reduced iron, thiamin mononitrate, roboflavin, folic acid)$vegetable shortening (palm and canola oil [with TBHQ to preserve freshness])$ semi-sweet chocolate chips (sugar, chocolate liquor, cocoa butter, dextrose, milk fat, soy lecithin, natural and artificial flavors)$sugar$high fructose corn syrup$dairy product solids$less 2% of$molasses$fructose$modified corn starch$polydextrose$leavening (baking soda, ammonium bicarbonate)$propylene glycol mono- and diesters of fats and fatty acides, mono- and diglycerides$soy lecithin$salt$eggs$caramel color$natural and artificial flavors";
   string cookieContains = "egg$milk$soy$wheat";
-  Entree cookie(cookieName, cookieIng,cookieNutr,cookieContains, "10/15/23", false, false);
+  Entree cookie(cookieName, cookieIng,cookieNutr,cookieContains, "10/15/23", getRandomBool(), getRandomBool());
 
   string chipsName = "Lay's Classic Potato Chips";
   string chipsNutr = "2 160 10 2 0 0 170 15 1 0 2";
   string chipsIng = "Potatoes$Vegetable Oil(Sunflower, Corn and/or Canola Oil)$Salt";
   string chipsContains = "";
-  Entree chips(chipsName, chipsIng, chipsNutr, chipsContains, "12/1/22", false, false);
+  Entree chips(chipsName, chipsIng, chipsNutr, chipsContains, "12/1/22", getRandomBool(), getRandomBool());
 
   string nutsName = "Planters Nuts on the Go Salted Peanuts";
   string nutsNutr = "1 170 14 2 0 0 95 5 2 1 7";
   string nutsIng = "Peanuts$Peanut and/or Cottonseed oil$sea salt";
   string nutsContains ="peanuts";
-  Entree nuts(nutsName, nutsIng, nutsNutr, nutsContains, "11/31/22", false, false);
+  Entree nuts(nutsName, nutsIng, nutsNutr, nutsContains, "11/31/22", getRandomBool(), getRandomBool());
 
   string popName = "Skinny Pop Popcorn";
   string popNutr = "1	100	6	0.5	0	9	45 9 9 0 2";
   string popIng = "Popcorn$Sunflower oil$salt";
   string popContains = "";
-  Entree popcorn(popName, popIng, popNutr, popContains, "4/10/22", false, false);
+  Entree popcorn(popName, popIng, popNutr, popContains, "4/10/22", getRandomBool(), getRandomBool());
 
   string fruitSnaccName = "Rhythm Superfoods Carrot Sticks";
   string fruitSnaccNutr = "1 60 1 0 0 0 130 12 4 2 1";
@@ -231,7 +232,7 @@ void printVendorTotalNutrStats(shared_ptr<Vendor> store)
   }
 }
 
-void areVendorsEqual()
+void areVendorsEqual(shared_ptr<Vendor> store)
 {
   Vendor a("Costco", getRandomBool());
   Vendor b("Walmart", getRandomBool());
@@ -239,6 +240,15 @@ void areVendorsEqual()
   cout << endl << "Is " << a.getName() << " the same as " << b.getName()
        << "?" << endl;
   if(a == b)
+  {
+    cout << "Yes" << endl;
+  } else {
+    cout << "No" << endl;
+  }
+
+  cout << "Is " << store->getName() << " the same as " << a.getName()
+       << "?" << endl;
+  if(*store == a)
   {
     cout << "Yes" << endl;
   } else {

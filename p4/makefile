@@ -1,8 +1,8 @@
-p4: p4.o entree.o vendor.o customer.o dbetCustomer.o carbCustomer.o allergyCustomer.o
-	g++ -o p4 p4.o entree.o vendor.o customer.o dbetCustomer.o carbCustomer.o allergyCustomer.o
+P4driver: P4driver.o entree.o vendor.o customer.o dbetCustomer.o carbCustomer.o allergyCustomer.o
+	g++ -o p4 P4driver.o entree.o vendor.o customer.o dbetCustomer.o carbCustomer.o allergyCustomer.o
 
-p4.o: p4.cpp
-	g++ -c -pedantic -Wall -Werror p4.cpp
+P4driver.o: P4driver.cpp
+	g++ -c -pedantic -Wall -Werror P4driver.cpp
 
 entree.o: entree.cpp
 	g++ -c -pedantic -Wall -Werror entree.cpp
