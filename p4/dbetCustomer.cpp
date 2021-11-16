@@ -13,10 +13,15 @@ dbetCustomer::dbetCustomer(unsigned int accountNum, float currentBalance)
 bool dbetCustomer::buyOne(Vendor *market, string itemName)
 {
   bool sold = false;
+  string strSugar = "";
+  double itemSugar = 0;
+  double itemPrice = 0;
   if(dailySugar < MAX_SUGAR && market->IsStocked(itemName))
   {
-    double itemSugar = stod(market->getItemSugar(itemName));
-    double itemPrice = market->getItemPrice(itemName);
+    strSugar = market->getItemSugar(itemName);
+
+    itemSugar = stod(strSugar);
+    itemPrice = market->getItemPrice(itemName);
     if (itemSugar + dailySugar <= MAX_SUGAR && itemSugar <= SINGLE_SUGAR)
     {
       market->Sell(itemName);
@@ -32,12 +37,13 @@ bool dbetCustomer::buy(Vendor *market)
 {
   bool sold = false;
   double currentSugar = 0;
+  string itemName = "";
 
   if(market != nullptr && market->getSize() > 0)
   {
     for(int i = 0; i < market->getSize(); i++)
     {
-      string itemName = market->getItemName(i);
+      itemName = market->getItemName(i);
       if(market->IsStocked(itemName))
       {
         double itemSugar = stod(market->getItemSugar(itemName));

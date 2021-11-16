@@ -31,15 +31,20 @@ bool carbCustomer::buyOne(Vendor *market, string itemName)
 bool carbCustomer::buy(Vendor *market)
 {
   bool sold = false;
+  string strCarbs = "";
+  double itemCarbs = 0;
+  double itemPrice = 0;
+
   if (market->getSize() > 0)
   {
-      for (int i = 0; i < market->getSize(); i++)
-      {
+    for (int i = 0; i < market->getSize(); i++)
+    {
           string itemName = market->getItemName(i);
           if (market->IsStocked(itemName))
           {
-              double itemCarbs = stod(market->getItemCarbs(itemName));
-              double itemPrice = market->getItemPrice(itemName);
+              strCarbs = market->getItemCarbs(itemName);
+              itemCarbs = stod(strCarbs);
+              itemPrice = market->getItemPrice(itemName);
               if (dailyCarbs + itemCarbs <= MAX_CARBS)
               {
                   if (currentBalance >= itemPrice)

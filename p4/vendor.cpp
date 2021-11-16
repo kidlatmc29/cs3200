@@ -149,7 +149,6 @@ bool Vendor::IsStocked(string itemName)
       }
     }
   }
-  cout << "inStock is: " << inStock << endl;
   return inStock;
 }
 
@@ -280,6 +279,7 @@ string Vendor::getItemName(int index)
       while(nPtr && count != index)
       {
         nPtr = nPtr->next;
+        count++;
       }
       if(nPtr)
       {

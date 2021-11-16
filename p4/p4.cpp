@@ -125,14 +125,7 @@ void loadingVendor(shared_ptr<Vendor> store)
   string fruitSnaccNutr = "1 60 1 0 0 0 130 12 4 2 1";
   string fruitSnaccIng = "Organic carrots$organic high oleic sunflower oil$organic rosemary extract";
   string fruitContains = "Cashew";
-  Entree fruitSnacc(fruitSnaccName, fruitSnaccNutr, fruitSnaccIng, fruitContains, "5/12/23", true, true);
-
-  string milkName = "Horizon Organic Whole Milk";
-  string milkNutr = "1 150 8 5 0 35 130 13 0 12 8";
-  string milkIng = "Grade A Organic Milk$Vitamin D3	milk";
-  string milkContains = "milk";
-  Entree milk(milkName, milkNutr, milkIng, milkContains, "12/12/21", getRandomBool(), getRandomBool());
-
+  Entree fruitSnacc(fruitSnaccName, fruitSnaccNutr, fruitSnaccIng, fruitContains, "5/12/23", getRandomBool(), getRandomBool());
 
   store->Load(chips, 14, 2.50);
   store->Load(soda1, 3, 1.00);
@@ -141,7 +134,6 @@ void loadingVendor(shared_ptr<Vendor> store)
   store->Load(cookie, 32, 1.50);
   store->Load(nuts, 35, .50);
   store->Load(popcorn, 8, 3.45);
-  store->Load(milk, 10, 2.46);
 
   cout << store->getName() << " has " << store->getSize() << " items" << endl;
 }
@@ -200,7 +192,7 @@ void printVendorTotalNutrStats(shared_ptr<Vendor> store)
 {
   double *currentStats = store->getTotalNutrStatsSold();
 
-  cout << "Printing total nutrition stats of items sold...." << endl;
+  cout << endl << "Printing total nutrition stats of items sold...." << endl;
   for(int i = 0; i < 11; i++)
   {
     if(i == 0){
@@ -272,7 +264,6 @@ void printCustomerDailies(vector<Customer*> clients)
       cout << "Account Num: " << clients[i]->getAccountNum() << endl
            << "Daily carbs: " << clients[i]->getDaily() << " g"<< endl;
     }
-    cout << endl;
   }
 }
 
