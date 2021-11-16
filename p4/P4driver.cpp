@@ -26,7 +26,6 @@ void printVendorTotalNutrStats(shared_ptr<Vendor> store);
 void areVendorsEqual(shared_ptr<Vendor> store);
 bool getRandomBool();
 void printCustomerDailies(vector<Customer*> clients);
-//void resetCustomerDailies(vector<Customer*> &clients);
 
 int main()
 {
@@ -273,21 +272,6 @@ void printCustomerDailies(vector<Customer*> clients)
     } else if(clients[i]->whoami() == 2) {
       cout << "Account Num: " << clients[i]->getAccountNum() << endl
            << "Daily carbs: " << clients[i]->getDaily() << " g"<< endl;
-    }
-  }
-}
-
-void resetCustomerDailies(vector<Customer*> &clients)
-{
-  for(int i = 0; i < (int) clients.size(); i++)
-  {
-    if(clients[i]->whoami() == 1)
-    {
-      cout << "Reseting daily sugar..." << endl;
-      clients[i]->resetDaily();
-    } else if(clients[i]->whoami() == 2) {
-      cout << "Reseting daily carbs..." << endl;
-      clients[i]->resetDaily();
     }
   }
 }
