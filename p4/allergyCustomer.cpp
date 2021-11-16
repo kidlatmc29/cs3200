@@ -12,6 +12,12 @@ allergyCustomer::allergyCustomer(unsigned int accountNum, float currentBalance,
   this->id = 3;
 }
 
+allergyCustomer::~allergyCustomer()
+{
+  delete allergens;
+  allergens = nullptr; 
+}
+
 bool allergyCustomer::buyOne(Vendor *market, string itemName)
 {
   bool hasAllergen = false;

@@ -14,10 +14,10 @@
 //    to accountNum and currentBalance
 // - Customers can buyOne() item from a Vendor, given a Vendor and the itemName
 // - Customer can buy() multiple items from a Vendor, given a Vendor
+//  - No arithimatic operators, comparison, or logical operators are overloaded
+//   These functionalities are not expected by the client.
 //  - << operator is overloaded so clients can be able to print out customer
 //      attributes easily
-//  - No arithimatic operators are overloaded for this class since those
-//    functionalties are not natural for the client nor is it expected
 
 // Interface invarients:
 // - Customers can be created without specifying account number or
@@ -48,10 +48,14 @@ class Customer
   public:
     Customer(unsigned int accountNum = 0, float currentBalance = 0.0);
 
-    ~Customer();
+    virtual ~Customer();
 
     // << operator
     friend ostream& operator<<(ostream& os, const Customer& shopper);
+
+    friend bool operator==(const Customer& c1, const Customer& c2);
+
+    friend bool operator!=(const Customer& c1, const Customer& c2);
 
     // PRE: If no amount is specified, adds no money to currentBalance
     // POST: Adds given amount of money to Customer's currentBalance

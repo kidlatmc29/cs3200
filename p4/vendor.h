@@ -15,6 +15,10 @@ using namespace std;
 // -It also holds the name of the Vendor and if the Vendor's stock is a
 //    refridgerator
 // -Vendor is instantiated with 0 items to begin with
+// - No overloading of any arithmatic, comparison, or logical operators. These
+//    functionalities are not expected by the client.
+// - == and != operators are overloaded so clients are able to tell 
+//    between different Vendor objects by name and size
 
 // Interface invarients:
 //  - Entree objects must be instantiated before loading them into a Vendor

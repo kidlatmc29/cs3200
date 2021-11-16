@@ -21,19 +21,17 @@ using namespace std;
 //    functionalities are not expected by the client.
 // - The << operator is overloaded so clients can be able to view the contents
 //    of an Entree easily
+// - The == and != operator is overloaded so clients are able to compare
+//    Entrees if they are same batch of Entrees
 
 // Interface invarients:
 //  -When instantiating an Entree object, the client is responsible for:
 //    1.) The expiration date must be in MM/DD/YY for expected results.
 //    2.) All nutritional facts must be passed to the ctor and be in the correct
 //          order.
-//    3.) The ingredients list and contains must have the $ as the delimiter
-//        between ingredients.
 
 // Implementation invarients:
-// -Client cannot get nutritional stats if the Entree's nutritionalStat is
-//    nullptr
-// -isExpired and isSpoiled is not saved as internal states, Client
+// -isExpired and isSpoiled is not saved as internal states, client
 //    must request for states
 
 class Entree {
@@ -83,8 +81,11 @@ class Entree {
     // move assignment
     Entree& operator=(const Entree&& original);
 
-    // << operator
     friend ostream& operator<<(ostream& os, const Entree& food);
+
+    friend bool operator==(const Entree& a, const Entree& b);
+
+    friend bool operator!=(const Entree& a, const Entree& b);
 
   	// deconstructor
   	~Entree();

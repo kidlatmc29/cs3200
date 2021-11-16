@@ -43,6 +43,8 @@ class allergyCustomer : public Customer {
     allergyCustomer(unsigned int accountNum = 0, float currentBalance = 0,
       string* allergens = nullptr, int numOfAllergens = 0, int size = 0);
 
+    ~allergyCustomer();
+
     // PRE: allergen is written exactly as it is in the ingredient list list
     // POST: adds 1 allergen to allergens list unless it's already in the list
     //    increments numOfAllergens by 1

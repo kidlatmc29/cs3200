@@ -111,6 +111,16 @@ ostream& operator<<(ostream& os, const Entree& food)
 	return os;
 }
 
+bool operator==(const Entree& a, const Entree& b)
+{
+	return a.name == b.name;
+}
+
+bool operator!=(const Entree& a, const Entree& b)
+{
+	return !operator==(a,b);
+}
+
 Entree::~Entree()
 {
 	delete[] nutritionStats;

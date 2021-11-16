@@ -34,9 +34,19 @@ ostream& operator<<(ostream& os, const Customer& shopper)
   return os;
 }
 
+bool operator==(const Customer& c1, const Customer& c2)
+{
+  return c1.accountNum == c2.accountNum;
+}
+
+bool operator!=(const Customer& c1, const Customer& c2)
+{
+  return !operator==(c1,c2);
+}
+
 void Customer::addMoney(float amount)
 {
-  if(amount > 0.0) // checking if amount is pos
+  if(amount >= 0.0) // checking if amount is pos
   {
     currentBalance += amount;
   }
