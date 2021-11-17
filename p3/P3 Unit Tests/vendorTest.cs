@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System; 
 
-namespace p3
+namespace p5
 {
     [TestClass]
     public class vendorTest
@@ -190,7 +190,7 @@ namespace p3
         {
             // Arrange
             string txt = "Fanta	1	270	0	0	0	0	75	73	0	73	0	CARBONATED WATER$HIGH FRUCTOSE CORN SYRUP$CITRIC ACID$SODIUM BENZOATE (TO PROTECT TASTE)$NATURAL FLAVORS$MODIFIED FOOD STARCH$SODIUM POLYPHOSPHATES$GLYCEROL ESTER OF ROSIN$YELLOW 6$RED 40";
-            DateTime exp = new DateTime(2021, 11, 12);
+            DateTime exp = new DateTime(2022, 11, 12);
             Entree obj = new Entree(txt, exp, true, true);
 
             Vendor fridge = new Vendor("My Fridge", true);

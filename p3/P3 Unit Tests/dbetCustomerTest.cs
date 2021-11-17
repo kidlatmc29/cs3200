@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace p3
+namespace p5
 {
     [TestClass]
     public class dbetCustomerTest
