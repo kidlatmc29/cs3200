@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace p3
+namespace p5
 {
     [TestClass]
     public class carbCustomerTest
@@ -86,7 +86,7 @@ namespace p3
             bool expected = true;
 
             // Act
-            bool actual = Helen.buyOne(milkMan,"Horizon Organic Whole Milk");
+            bool actual = Helen.buyOne(milkMan, "Horizon Organic Whole Milk");
 
             // Arrange
             Assert.AreEqual(expected, actual);

@@ -20,7 +20,7 @@ namespace p5
         private double accountBalance;
         private string employer;
 
-        Employee()
+        public Employee()
         {
             fName = "N/A";
             lName = "N/A";
@@ -29,18 +29,18 @@ namespace p5
             employer = "N/A"; 
         }
 
-        Employee(string fName, string lName, int payLvl = 1, double accountBalance = 0.0, string employer = "N/A")
+        public Employee(string fName, string lName, int payLvl = 1, string employer = "N/A")
         {
             this.fName = fName;
             this.lName = lName; 
             this.payLvl = payLvl;
-            this.accountBalance = accountBalance;
+            accountBalance = 0.0;
             this.employer = employer; 
         }
 
         // PRE: N/A
         // POST: N/A
-       public int getPayLvl()
+        public int getPayLvl()
         {
             return payLvl; 
         }

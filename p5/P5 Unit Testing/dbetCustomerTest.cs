@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace p3
+namespace p5
 {
     [TestClass]
     public class dbetCustomerTest
@@ -23,7 +23,7 @@ namespace p3
 
             // Act
             bool actual = me.buyOne(fruitStand, "Fresh Brand - Sliced Apples");
-          
+
             // Assert
             Assert.AreEqual(expected, actual);
         }
@@ -99,8 +99,8 @@ namespace p3
 
             // Act
             me.buy(fruitStand);
-            double actual = me.getCurrentBalance(); 
-            
+            double actual = me.getCurrentBalance();
+
             // Assert
             Assert.AreEqual(expected, actual);
         }

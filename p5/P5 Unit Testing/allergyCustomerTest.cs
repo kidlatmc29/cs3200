@@ -1,7 +1,7 @@
-﻿using System; 
+﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace p3
+namespace p5
 {
     [TestClass]
     public class allergyCustomerTest
@@ -32,7 +32,7 @@ namespace p3
             Assert.AreEqual(expected, actual);
         }
 
-        [TestMethod] 
+        [TestMethod]
         public void Test_buyOne_containsAllergen_allergyCustomer_false()
         {
             // Arrange
@@ -54,7 +54,7 @@ namespace p3
 
             // Assert
             Assert.AreEqual(expected, actual);
-        }   
+        }
 
         [TestMethod]
         public void Test_buy_allergyCustomer_true()
@@ -82,7 +82,7 @@ namespace p3
             fruitStand.load(obj2, 10, 3.00);
             fruitStand.load(obj3, 6, 2.50);
 
-            bool expected = true; 
+            bool expected = true;
 
             // Act
             bool actual = Bob.buy(fruitStand);
@@ -95,7 +95,7 @@ namespace p3
         public void Test_buy_allergyCustomer_false()
         {
             // Arrange
-            allergyCustomer Nancy = new allergyCustomer(123, 10.00); 
+            allergyCustomer Nancy = new allergyCustomer(123, 10.00);
             Vendor snacks = new Vendor("Fast Snaccs", true);
 
             Nancy.addAllergen("peanuts");

@@ -1,7 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System; 
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace p3
+namespace p5
 {
     [TestClass]
     public class vendorTest
@@ -10,7 +10,7 @@ namespace p3
         public void Test_getName_vendor_true()
         {
             // Arrange
-            string expected = "Sweets 4 Life"; 
+            string expected = "Sweets 4 Life";
             Vendor candyStore = new Vendor(expected, false);
 
             // Act
@@ -196,7 +196,7 @@ namespace p3
             Vendor fridge = new Vendor("My Fridge", true);
             fridge.load(obj, 1, 3.50);
 
-            int expected = 1; 
+            int expected = 1;
 
             // Act
             fridge.sell("Sprite");
