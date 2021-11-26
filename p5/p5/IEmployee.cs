@@ -11,6 +11,6 @@ namespace p5
         double getAccountBalance();
         string getEmployer();
         void setEmployer(string e);
-
+        void weeklyPay();
     }
 }
