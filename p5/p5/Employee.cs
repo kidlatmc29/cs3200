@@ -7,15 +7,15 @@ namespace p5
     // Class invarients:
     // Interface invarients:
     // Implementation invarients: 
-   public class Employee
+   public class Employee : IEmployee
     {
         const int MAX_PAYLVL = 3;
         const int MIN_PAYLVL = 1;
-        private string fName; 
-        private string lName; 
-        private int payLvl; 
+        private string fName;
+        private string lName;
+        private int payLvl;
         private double accountBalance;
-        string employer; 
+        private string employer;
 
         Employee()
         {
@@ -37,14 +37,14 @@ namespace p5
 
         // PRE: N/A
         // POST: N/A
-        int getPayLvl()
+       public int getPayLvl()
         {
             return payLvl; 
         }
 
         // PRE: N/A 
         // POST: payLvl is set to a valid pay level.
-        void setPayLvl(int payLvl)
+        public void setPayLvl(int payLvl)
         {
             if(payLvl >= MIN_PAYLVL && payLvl <= MAX_PAYLVL)
             {
@@ -54,21 +54,21 @@ namespace p5
 
         // PRE: N/A 
         // POST: N/A 
-        double getAccountBalance()
+        public double getAccountBalance()
         {
             return accountBalance; 
         }
 
         // PRE: N/A
         // POST: N/A 
-        string getEmployer()
+        public string getEmployer()
         {
             return employer;
         }
 
         // PRE: N/A 
         // POST: employer is changed to the value of e. 
-        void setEmployer(string e)
+        public void setEmployer(string e)
         {
             employer = e; 
         }
