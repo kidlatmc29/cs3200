@@ -91,5 +91,33 @@ namespace p5
                 accountBalance += PAY_3; 
             }
         }
+
+        // PRE: N/A
+        // POST: N/A  
+        public string getFName()
+        {
+            return fName;
+        }
+
+        // PRE: N/A
+        // POST: N/A
+        public string getLName()
+        {
+            return lName; 
+        }
+
+        // PRE: N/A
+        // POST: fName is set to new string
+        public void setFName(string fName)
+        {
+            this.fName = fName;
+        }
+
+        // PRE: N/A
+        // POST: lName is set to new string
+        public void setLName(string lName)
+        {
+            this.lName = lName;
+        }
     }
 }

@@ -47,7 +47,6 @@ namespace p5
             }
         }
 
-
         // PRE: The item's name that Customer wants to buy is written exactly as it
         //        is saved in Entree name
         // POST: Subtracts price of item bought from Customer's balance,

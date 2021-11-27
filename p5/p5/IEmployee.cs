@@ -12,5 +12,9 @@ namespace p5
         string getEmployer();
         void setEmployer(string e);
         void weeklyPay();
+        string getFName();
+        string getLName();
+        void setFName(string fName);
+        void setLName(string lName);
     }
 }
