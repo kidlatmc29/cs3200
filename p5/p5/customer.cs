@@ -26,7 +26,7 @@ using System.Text;
 
 namespace p5
 {
-    public class Customer
+    public class Customer : ICustomer
     {
         protected uint accountNum;
         protected double currentBalance;
