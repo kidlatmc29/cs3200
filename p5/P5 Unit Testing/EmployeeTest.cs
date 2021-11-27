@@ -10,8 +10,8 @@ namespace p5
         public void Test_PAYLVL1_weeklyPay_employee_true()
         {
             // Arrange
-            Employee bob = new Employee("Bob", "Smith", 0, "QFC");
-            double expected = 12.00;
+            Employee bob = new Employee("Bob", "Smith", 1, "QFC");
+            double expected = 150.00;
 
             // Act
             bob.weeklyPay();
@@ -25,8 +25,8 @@ namespace p5
         public void Test_PAYLVL2_weeklyPay_employee_true()
         {
             // Arrange
-            Employee bob = new Employee("Bob", "Smith", 1, "QFC");
-            double expected = 15.00;
+            Employee bob = new Employee("Bob", "Smith", 2, "QFC");
+            double expected = 300.00;
 
             // Act
             bob.weeklyPay();
@@ -40,8 +40,8 @@ namespace p5
         public void Test_PAYLVL3_weeklyPay_employee_true()
         {
             // Arrange
-            Employee bob = new Employee("Bob", "Smith", 2, "QFC");
-            double expected = 20.00;
+            Employee bob = new Employee("Bob", "Smith", 3, "QFC");
+            double expected = 400.00;
 
             // Act
             bob.weeklyPay();

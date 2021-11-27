@@ -7,7 +7,7 @@ namespace p5
     // Class invarients:
     // Interface invarients:
     // Implementation invarients: 
-   public class Employee : IEmployee
+    class EmployeeCustomer : IEmployee, ICustomer
     {
         const int MAX_PAYLVL = 3;
         const int MIN_PAYLVL = 1;
@@ -20,36 +20,80 @@ namespace p5
         private double accountBalance;
         private string employer;
 
-        public Employee()
+        ICustomer c;
+        public EmployeeCustomer()
         {
+            c =  new Customer();
             fName = "N/A";
             lName = "N/A";
             payLvl = MIN_PAYLVL;
             accountBalance = 0.0;
-            employer = "N/A"; 
+            employer = "N/A";
         }
-
-        public Employee(string fName, string lName, int payLvl = 1, string employer = "N/A")
+        
+        public EmployeeCustomer(string fName, string lName, int payLvl, string employer, ICustomer c) 
         {
             this.fName = fName;
-            this.lName = lName; 
+            this.lName = lName;
             this.payLvl = payLvl;
             accountBalance = 0.0;
-            this.employer = employer; 
+            this.employer = employer;
+
+            if(c == null)
+            {
+                c = new Customer(); 
+            } else
+            {
+                this.c = c; 
+            }
+        }
+
+        public void addMoney(double amount)
+        {
+            c.addMoney(amount);
+        }
+
+        public bool buy(Vendor market)
+        {
+            Console.WriteLine("buying from EmployeeCustomer!"); 
+            return c.buy(market);
+        }
+
+        public bool buyOne(Vendor market, string itemName)
+        {
+            Console.WriteLine("buyingOne from EmployeeCustomer!");
+            return c.buyOne(market, itemName);
+        }
+
+        public double getCurrentBalance()
+        {
+            return c.getCurrentBalance(); 
+        }
+
+        public uint getAccountNum()
+        {
+            return c.getAccountNum();
+        }
+
+        // PRE: N/A
+        // POST: accountNum is set to num
+        public void setAccountNum(uint num)
+        {
+            c.setAccountNum(num);
         }
 
         // PRE: N/A
         // POST: N/A
         public int getPayLvl()
         {
-            return payLvl; 
+            return payLvl;
         }
 
         // PRE: N/A 
         // POST: payLvl is set to a valid pay level.
         public void setPayLvl(int payLvl)
         {
-            if(payLvl >= MIN_PAYLVL && payLvl <= MAX_PAYLVL)
+            if (payLvl >= MIN_PAYLVL && payLvl <= MAX_PAYLVL)
             {
                 this.payLvl = payLvl;
             }
@@ -59,7 +103,7 @@ namespace p5
         // POST: N/A 
         public double getAccountBalance()
         {
-            return accountBalance; 
+            return accountBalance;
         }
 
         // PRE: N/A
@@ -73,22 +117,24 @@ namespace p5
         // POST: employer is changed to the value of e. 
         public void setEmployer(string e)
         {
-            employer = e; 
+            employer = e;
         }
 
         // PRE: N/A 
         // POST: paycheck amount is added to the accountBalance
         public void weeklyPay()
         {
-            if(payLvl == 1)
+            if (payLvl == 0)
             {
                 accountBalance += PAY_1;
-            } else if(payLvl == 2)
+            }
+            else if (payLvl == 1)
             {
                 accountBalance += PAY_2;
-            } else
+            }
+            else
             {
-                accountBalance += PAY_3; 
+                accountBalance += PAY_3;
             }
         }
 
@@ -103,7 +149,7 @@ namespace p5
         // POST: N/A
         public string getLName()
         {
-            return lName; 
+            return lName;
         }
 
         // PRE: N/A

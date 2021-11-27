@@ -10,10 +10,10 @@ namespace p5
         {
             Random generator = new Random();
             Vendor cStreet = new Vendor("cStreet", true);
-            List<Customer> students = new List<Customer>();
+            List<ICustomer> students = new List<ICustomer>();
             List<Entree> fallStock = new List<Entree>();
 
-            Console.WriteLine("Welcome to P3\n");
+            Console.WriteLine("Welcome to P5\n");
 
             loadEntrees("EntreesTabDelimited.txt", fallStock, generator);
             loadVendor(cStreet, fallStock, generator);
@@ -26,7 +26,7 @@ namespace p5
 
             getAllBalances(students);
 
-            Console.WriteLine("End of P3");
+            Console.WriteLine("End of P5");
         }
 
         static public bool getRandomBool(Random generator)
@@ -93,7 +93,7 @@ namespace p5
             }
         }
 
-        static public void loadStudents(List<Customer> students, Random generator)
+        static public void loadStudents(List<ICustomer> students, Random generator)
         {
             // creating customers
             allergyCustomer isabel = new allergyCustomer(1, getRandomDouble(generator));
@@ -106,6 +106,8 @@ namespace p5
             dbetCustomer sammy = new dbetCustomer(4, getRandomDouble(generator));
             carbCustomer linda = new carbCustomer(5, getRandomDouble(generator));
             carbCustomer max = new carbCustomer(6, getRandomDouble(generator));
+            EmployeeCustomer employee_isabel = new EmployeeCustomer("Isabel", "Ovalles", 1, "Whole Foods", isabel);
+            EmployeeCustomer employee_sammy = new EmployeeCustomer("Sammy", "Wills", 3, "Trader Joe's", sammy);
 
             students.Add(isabel);
             students.Add(ben);
@@ -113,9 +115,11 @@ namespace p5
             students.Add(sammy);
             students.Add(linda);
             students.Add(max);
+            students.Add(employee_isabel);
+            students.Add(employee_sammy);
         }
 
-        static public void addBalance(List<Customer> students)
+        static public void addBalance(List<ICustomer> students)
         {
             Console.WriteLine("Adding $5.00 to all Customers' Balances....\n");
             for (int i = 0; i < students.Count; i++)
@@ -124,7 +128,7 @@ namespace p5
             }
         }
 
-        static public void getAllBalances(List<Customer> students)
+        static public void getAllBalances(List<ICustomer> students)
         {
             for (int i = 0; i < students.Count; i++)
             {
@@ -134,7 +138,7 @@ namespace p5
             Console.WriteLine("\n");
         }
 
-        static public void buyAppleSlices(List<Customer> students, Vendor market)
+        static public void buyAppleSlices(List<ICustomer> students, Vendor market)
         {
             string itemName = "Fresh Brand - Sliced Apples";
             bool valid;
@@ -167,7 +171,7 @@ namespace p5
             Console.WriteLine("\n");
         }
 
-        static public void buyManyItems(List<Customer> students, Vendor market)
+        static public void buyManyItems(List<ICustomer> students, Vendor market)
         {
             bool valid;
             Console.WriteLine("Calling buy() on all Customers....");
