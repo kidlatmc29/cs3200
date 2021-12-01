@@ -138,5 +138,63 @@ namespace p5
 
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void Test_buy_EmployeeCustomer_true()
+        {
+            
+        }
+
+        [TestMethod]
+        public void Test_buy_EmployeeCustomer_false()
+        {
+        }
+
+        [TestMethod]
+        public void Test_buyOne_EmpolyeeCustomer_true()
+        {
+            // Arrange
+            Vendor milkMan = new Vendor("Milk 4 Days", true);
+            carbCustomer h = new carbCustomer(452, 10.00);
+            EmployeeCustomer helen = new EmployeeCustomer("Helen", "Keller", 3, "Target", h);
+
+            string txt = "Horizon Organic Whole Milk	1	150	8	5	0	35	130	13	0	12	8	Grade A Organic Milk$Vitamin D3	milk";
+            DateTime exp = new DateTime(2023, 1, 23);
+            Entree milk = new Entree(txt, exp, true, true);
+
+            milkMan.load(milk, 100, 3.40);
+
+            bool expected = true;
+
+            // Act
+            helen.setPay();
+            bool actual = helen.buyOne(milkMan, "Horizon Organic Whole Milk");
+
+            // Arrange
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Test_buyOne_EmployeeCustomer_false()
+        {
+            // Arrange
+            dbetCustomer me = new dbetCustomer(24, 10.00);
+            EmployeeCustomer isabel = new EmployeeCustomer("Isabel", "Ovalles", 2, "McPhee", me);
+            Vendor fruitStand = new Vendor("McPhee's", true);
+
+            string txt = "Fresh Brand - Sliced Apples	2.5	70	0	0	0	0	0	19	3	15	0	apples";
+            DateTime exp = new DateTime(2021, 12, 31);
+            Entree obj = new Entree(txt, exp, true, true);
+
+            fruitStand.load(obj, 5, 1.50);
+            bool expected = false;
+
+            // Act
+            isabel.setPay();
+            bool actual = isabel.buyOne(fruitStand, "Fresh Brand - Sliced Apples");
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

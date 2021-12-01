@@ -9,11 +9,11 @@ namespace p5
     // Implementation invarients: 
    public class Employee : IEmployee
     {
-        const int MAX_PAYLVL = 3;
-        const int MIN_PAYLVL = 1;
-        const double PAY_1 = 150.00;
-        const double PAY_2 = 300.00;
-        const double PAY_3 = 400.00;
+        private const int MAX_PAYLVL = 3;
+        private const int MIN_PAYLVL = 1;
+        private const double PAY_1 = 150.00;
+        private const double PAY_2 = 300.00;
+        private const double PAY_3 = 400.00;
         private string fName;
         private string lName;
         private int payLvl;

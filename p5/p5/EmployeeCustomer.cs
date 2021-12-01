@@ -57,14 +57,23 @@ namespace p5
 
         public bool buy(Vendor market)
         {
-            Console.WriteLine("buying from EmployeeCustomer!"); 
             return c.buy(market);
         }
 
         public bool buyOne(Vendor market, string itemName)
         {
-            Console.WriteLine("buyingOne from EmployeeCustomer!");
-            return c.buyOne(market, itemName);
+            bool sold = false; 
+            double itemPrice = market.getItemPrice(itemName);
+            if(market.getName() == employer && paycheck - itemPrice > 0 && c.buyOne(market, itemName))
+            {
+                paycheck -= itemPrice;
+                c.addMoney(itemPrice);
+                sold = true;
+            } else
+            {
+                sold = c.buyOne(market, itemName);
+            }
+            return sold;
         }
 
         public double getCurrentBalance()
