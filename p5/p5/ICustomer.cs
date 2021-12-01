@@ -4,7 +4,7 @@ using System.Text;
 
 namespace p5
 {
-    interface ICustomer
+    public interface ICustomer
     {
         void addMoney(double amount);
         bool buyOne(Vendor market, string itemName);

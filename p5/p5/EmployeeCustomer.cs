@@ -7,7 +7,7 @@ namespace p5
     // Class invarients:
     // Interface invarients:
     // Implementation invarients: 
-    class EmployeeCustomer : IEmployee, ICustomer
+    public class EmployeeCustomer : IEmployee, ICustomer
     {
         const int MAX_PAYLVL = 3;
         const int MIN_PAYLVL = 1;
@@ -180,7 +180,7 @@ namespace p5
 
         // PRE: N/A 
         // POST: resets paycheck back to the specific pay lvl
-        public void resetPay()
+        public void setPay()
         {
             if (payLvl == 1)
             {

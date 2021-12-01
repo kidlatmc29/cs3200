@@ -4,7 +4,7 @@ using System.Text;
 
 namespace p5
 {
-    interface IEmployee
+   interface IEmployee
     {
         int getPayLvl();
         void setPayLvl(int payLvl);
