@@ -57,7 +57,23 @@ namespace p5
 
         public bool buy(Vendor market)
         {
-            return c.buy(market);
+            bool sold = false;
+            if(paycheck > 0)
+            {
+                double beforeBalance = c.getCurrentBalance();
+                sold = c.buy(market);
+                if(sold)
+                {
+                    double afterBalance = c.getCurrentBalance();
+                    double diff = beforeBalance - afterBalance;
+                    paycheck -= diff;
+                    c.addMoney(diff);
+                }
+            } else
+            {
+                sold = c.buy(market);
+            }
+            return sold;
         }
 
         public bool buyOne(Vendor market, string itemName)
@@ -161,6 +177,13 @@ namespace p5
         public string getLName()
         {
             return lName;
+        }
+
+        // PRE: N/A 
+        // POST: N/A
+        public double getPaycheck()
+        {
+            return paycheck;
         }
 
         // PRE: N/A

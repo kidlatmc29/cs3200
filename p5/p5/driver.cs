@@ -11,6 +11,7 @@ namespace p5
             Random generator = new Random();
             Vendor cStreet = new Vendor("cStreet", true);
             List<ICustomer> students = new List<ICustomer>();
+            List<IEmployee> empolyees = new List<IEmployee>();
             List<Entree> fallStock = new List<Entree>();
 
             Console.WriteLine("Welcome to P5\n");
