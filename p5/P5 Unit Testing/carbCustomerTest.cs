@@ -93,12 +93,6 @@ namespace p5
         }
 
         [TestMethod]
-        public void Test_buyOne_carbCustomer_false()
-        {
-
-        }
-
-        [TestMethod]
         public void Test_getDailyCarbs_carbsCustomer_true()
         {
             // Arrange

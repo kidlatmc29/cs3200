@@ -19,6 +19,7 @@ namespace p5
         private int payLvl;
         private double accountBalance;
         private string employer;
+        private double paycheck;
 
         ICustomer c;
         public EmployeeCustomer()
@@ -29,6 +30,7 @@ namespace p5
             payLvl = MIN_PAYLVL;
             accountBalance = 0.0;
             employer = "N/A";
+            paycheck = PAY_1; 
         }
         
         public EmployeeCustomer(string fName, string lName, int payLvl, string employer, ICustomer c) 
@@ -126,15 +128,15 @@ namespace p5
         {
             if (payLvl == 0)
             {
-                accountBalance += PAY_1;
+                accountBalance += paycheck;
             }
             else if (payLvl == 1)
             {
-                accountBalance += PAY_2;
+                accountBalance += paycheck;
             }
             else
             {
-                accountBalance += PAY_3;
+                accountBalance += paycheck;
             }
         }
 
@@ -164,6 +166,34 @@ namespace p5
         public void setLName(string lName)
         {
             this.lName = lName;
+        }
+    
+        // PRE: N/A 
+        // POST: substracts the amount in deduction from the weekly paycheck
+        public void adjustPaycheck(double deduction)
+        {
+           if(paycheck - deduction > 0)
+            {
+                paycheck -= deduction;
+            }
+        }
+
+        // PRE: N/A 
+        // POST: resets paycheck back to the specific pay lvl
+        public void resetPay()
+        {
+            if (payLvl == 1)
+            {
+                paycheck = PAY_1;
+            }
+            else if (payLvl == 2)
+            {
+                paycheck = PAY_2;
+            }
+            else
+            {
+                paycheck = PAY_3;
+            }
         }
     }
 }
