@@ -11,7 +11,7 @@ namespace p5
             Random generator = new Random();
             Vendor cStreet = new Vendor("cStreet", true);
             List<ICustomer> students = new List<ICustomer>();
-            List<IEmployee> empolyees = new List<IEmployee>();
+            List<IEmployee> employees = new List<IEmployee>();
             List<Entree> fallStock = new List<Entree>();
 
             Console.WriteLine("Welcome to P5\n");
@@ -19,6 +19,8 @@ namespace p5
             loadEntrees("EntreesTabDelimited.txt", fallStock, generator);
             loadVendor(cStreet, fallStock, generator);
             loadStudents(students, generator);
+            loadEmployees(employees, generator);
+
             addBalance(students);
             getAllBalances(students);
 
@@ -45,7 +47,7 @@ namespace p5
             return lowerBounds.AddDays(generator.Next(range));
         }
 
-        static public int getRandomDouble(Random generator)
+        static public int getRandomInt(Random generator)
         {
             int lower = 1;
             int upper = 100;
@@ -53,13 +55,28 @@ namespace p5
             return generator.Next(range);
         }
 
+        static public double getRandomDouble(Random generator)
+        {
+            double lower = 1.00;
+            double upper = 100.00;
+            double range = upper - lower;
+
+            return generator.NextDouble() * (upper - lower) + lower;
+        }
+
         static public double getRandomPrice(Random generator)
         {
             double lower = 1.00;
             double upper = 15.00;
-            double range = upper - lower;
-
             return generator.NextDouble() * (upper - lower) + lower;
+        }
+
+        static public int getRandomPayLvl(Random generator)
+        {
+            int lower = 1;
+            int upper = 3;
+            int range = upper - lower;
+            return generator.Next(range);
         }
 
         static public void loadEntrees(string fileName, List<Entree> foods, Random generator)
@@ -90,7 +107,7 @@ namespace p5
         {
             for (int i = 0; i < foods.Count; i++)
             {
-                market.load(foods[i], getRandomDouble(generator), getRandomPrice(generator));
+                market.load(foods[i], getRandomInt(generator), getRandomPrice(generator));
             }
         }
 
@@ -120,6 +137,22 @@ namespace p5
             students.Add(employee_sammy);
         }
 
+        static public void loadEmployees(List<IEmployee> employees, Random generator)
+        {
+            allergyCustomer isabel = new allergyCustomer(1, getRandomDouble(generator));
+            dbetCustomer sammy = new dbetCustomer(4, getRandomDouble(generator));
+            isabel.addAllergen("peanuts");
+            isabel.addAllergen("shellfish");
+            EmployeeCustomer employee_isabel = new EmployeeCustomer("Isabel", "Ovalles", getRandomPayLvl(generator), "cStreet", isabel);
+            EmployeeCustomer employee_sammy = new EmployeeCustomer("Sammy", "Wills", getRandomPayLvl(generator), "Trader Joe's", sammy);
+
+            Employee mike = new Employee("Mike", "Paker", getRandomPayLvl(generator), "Whole Foods");
+            Employee rin = new Employee("Rin", "Sana", getRandomPayLvl(generator), "cStreet");
+
+            employees.Add(employee_isabel);
+            employees.Add(employee_sammy);
+        }
+
         static public void addBalance(List<ICustomer> students)
         {
             Console.WriteLine("Adding $5.00 to all Customers' Balances....\n");
@@ -137,6 +170,11 @@ namespace p5
                 Console.WriteLine("Account " + students[i].getAccountNum() + " Balance: $" + balance);
             }
             Console.WriteLine("\n");
+        }
+
+        static public void getAllEmployeeBalances(List<IEmployee> employees)
+        {
+
         }
 
         static public void buyAppleSlices(List<ICustomer> students, Vendor market)
