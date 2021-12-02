@@ -16,5 +16,6 @@ namespace p5
         string getLName();
         void setFName(string fName);
         void setLName(string lName);
+        double viewPaycheck();
     }
 }

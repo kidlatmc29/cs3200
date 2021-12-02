@@ -119,5 +119,25 @@ namespace p5
         {
             this.lName = lName;
         }
+
+        // PRE: N/A
+        // POST: N/A 
+        public double viewPaycheck()
+        {
+            double paycheck = 0.0;
+            if (payLvl == 1)
+            {
+                paycheck = PAY_1;
+            }
+            else if (payLvl == 2)
+            {
+                paycheck = PAY_2;
+            }
+            else
+            {
+                paycheck = PAY_3;
+            }
+            return paycheck;
+        }
     }
 }

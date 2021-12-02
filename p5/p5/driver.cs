@@ -26,11 +26,13 @@ namespace p5
             getAllBalances(students);
 
             buyAppleSlices(students, cStreet);
+            getAllBalances(students);
             buyManyItems(students, cStreet);
-
             getAllBalances(students);
 
             Console.WriteLine("Employee Tests.....");
+            getAllEmployeeBalances(employees);
+            allEmployeesWeeklyPay(employees);
             getAllEmployeeBalances(employees);
 
             Console.WriteLine("End of P5");
@@ -146,13 +148,16 @@ namespace p5
             isabel.addAllergen("peanuts");
             isabel.addAllergen("shellfish");
             EmployeeCustomer employee_isabel = new EmployeeCustomer("Isabel", "Ovalles", getRandomPayLvl(generator), "cStreet", isabel);
-            EmployeeCustomer employee_sammy = new EmployeeCustomer("Sammy", "Wills", getRandomPayLvl(generator), "Trader Joe's", sammy);
-
+            EmployeeCustomer employee_sammy = new EmployeeCustomer("Sammy", "Wills", getRandomPayLvl(generator), "cStreet", sammy);
+            employee_isabel.setPay();
+            employee_sammy.setPay();
             Employee mike = new Employee("Mike", "Paker", getRandomPayLvl(generator), "Whole Foods");
             Employee rin = new Employee("Rin", "Sana", getRandomPayLvl(generator), "cStreet");
 
             employees.Add(employee_isabel);
             employees.Add(employee_sammy);
+            employees.Add(mike);
+            employees.Add(rin);
         }
 
         static public void addBalance(List<ICustomer> students)
@@ -180,8 +185,9 @@ namespace p5
             for(int i = 0; i < employees.Count; i++)
             {
                 string balance = String.Format("{0:0.00}", employees[i].getAccountBalance());
-                Console.WriteLine("Account: " + employees[i].getFName() + " " + employees[i].getLName() + " Balance: $" + balance);
+                Console.WriteLine(employees[i].getFName() + " " + employees[i].getLName() + " Balance: $" + balance);
             }
+            Console.WriteLine("\n");
         }
 
         static public void buyAppleSlices(List<ICustomer> students, Vendor market)
@@ -232,6 +238,17 @@ namespace p5
                 {
                     Console.WriteLine("Account " + students[i].getAccountNum() + " did not make a purchase.");
                 }
+            }
+            Console.WriteLine("\n");
+        }
+
+        static public void allEmployeesWeeklyPay(List<IEmployee> employees)
+        {
+            for (int i = 0; i < employees.Count; i++)
+            {
+                string weeklyPay = String.Format("{0:0.00}", employees[i].viewPaycheck());
+                Console.WriteLine(employees[i].getFName() + " " + employees[i].getLName() + " weekly pay: " + weeklyPay);
+                employees[i].weeklyPay();
             }
             Console.WriteLine("\n");
         }

@@ -58,7 +58,7 @@ namespace p5
         public bool buy(Vendor market)
         {
             bool sold = false;
-            if(paycheck > 0)
+            if(market.getName() == employer)
             {
                 double beforeBalance = c.getCurrentBalance();
                 sold = c.buy(market);
@@ -66,11 +66,11 @@ namespace p5
                 {
                     double afterBalance = c.getCurrentBalance();
                     double diff = beforeBalance - afterBalance;
-                    paycheck -= diff;
+                    adjustPaycheck(diff);
                     c.addMoney(diff);
                 }
-            } else
-            {
+            } else {
+                //Console.WriteLine("not deducting from paycheck, using customer balance");
                 sold = c.buy(market);
             }
             return sold;
@@ -80,13 +80,19 @@ namespace p5
         {
             bool sold = false; 
             double itemPrice = market.getItemPrice(itemName);
-            if(market.getName() == employer && paycheck - itemPrice > 0 && c.buyOne(market, itemName))
+            Console.WriteLine(employer + " vs " + market.getName());
+            if(market.getName() == employer)
             {
-                paycheck -= itemPrice;
-                c.addMoney(itemPrice);
-                sold = true;
+                if(c.buyOne(market, itemName))
+                {
+                    adjustPaycheck(itemPrice);
+                    c.addMoney(itemPrice);
+                    sold = true;
+                }
+
             } else
             {
+                //Console.WriteLine("not deducting from paycheck, using customer balance");
                 sold = c.buyOne(market, itemName);
             }
             return sold;
@@ -206,6 +212,7 @@ namespace p5
         {
            if(paycheck - deduction > 0)
             {
+                Console.WriteLine("adjusting paycheck here...");
                 paycheck -= deduction;
             }
         }
@@ -226,6 +233,13 @@ namespace p5
             {
                 paycheck = PAY_3;
             }
+        }
+
+        // PRE: N/A
+        // POST: N/A
+        public double viewPaycheck()
+        {
+            return paycheck; 
         }
     }
 }
