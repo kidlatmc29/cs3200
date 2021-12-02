@@ -15,12 +15,13 @@ namespace p5
             List<Entree> fallStock = new List<Entree>();
 
             Console.WriteLine("Welcome to P5\n");
-
+            Console.WriteLine("Customer Tests....");
             loadEntrees("EntreesTabDelimited.txt", fallStock, generator);
             loadVendor(cStreet, fallStock, generator);
             loadStudents(students, generator);
             loadEmployees(employees, generator);
 
+            getAllBalances(students);
             addBalance(students);
             getAllBalances(students);
 
@@ -28,6 +29,9 @@ namespace p5
             buyManyItems(students, cStreet);
 
             getAllBalances(students);
+
+            Console.WriteLine("Employee Tests.....");
+            getAllEmployeeBalances(employees);
 
             Console.WriteLine("End of P5");
         }
@@ -127,14 +131,12 @@ namespace p5
             EmployeeCustomer employee_isabel = new EmployeeCustomer("Isabel", "Ovalles", 1, "Whole Foods", isabel);
             EmployeeCustomer employee_sammy = new EmployeeCustomer("Sammy", "Wills", 3, "Trader Joe's", sammy);
 
-            students.Add(isabel);
+            students.Add(employee_isabel);
             students.Add(ben);
             students.Add(kevin);
-            students.Add(sammy);
+            students.Add(employee_sammy);
             students.Add(linda);
             students.Add(max);
-            students.Add(employee_isabel);
-            students.Add(employee_sammy);
         }
 
         static public void loadEmployees(List<IEmployee> employees, Random generator)
@@ -164,6 +166,7 @@ namespace p5
 
         static public void getAllBalances(List<ICustomer> students)
         {
+            Console.WriteLine("Getting Customers' Balances....");
             for (int i = 0; i < students.Count; i++)
             {
                 string balance = String.Format("{0:0.00}", students[i].getCurrentBalance());
@@ -174,7 +177,11 @@ namespace p5
 
         static public void getAllEmployeeBalances(List<IEmployee> employees)
         {
-
+            for(int i = 0; i < employees.Count; i++)
+            {
+                string balance = String.Format("{0:0.00}", employees[i].getAccountBalance());
+                Console.WriteLine("Account: " + employees[i].getFName() + " " + employees[i].getLName() + " Balance: $" + balance);
+            }
         }
 
         static public void buyAppleSlices(List<ICustomer> students, Vendor market)
