@@ -15,11 +15,17 @@ namespace p5
             List<Entree> fallStock = new List<Entree>();
 
             Console.WriteLine("Welcome to P5\n");
+
+            Console.WriteLine("Employee Tests.....");
+            loadEmployees(employees, generator);
+            getAllEmployeeBalances(employees);
+            allEmployeesWeeklyPay(employees);
+            getAllEmployeeBalances(employees);
+
             Console.WriteLine("Customer Tests....");
             loadEntrees("EntreesTabDelimited.txt", fallStock, generator);
             loadVendor(cStreet, fallStock, generator);
             loadStudents(students, generator);
-            loadEmployees(employees, generator);
 
             getAllBalances(students);
             addBalance(students);
@@ -30,10 +36,7 @@ namespace p5
             buyManyItems(students, cStreet);
             getAllBalances(students);
 
-            Console.WriteLine("Employee Tests.....");
-            getAllEmployeeBalances(employees);
-            allEmployeesWeeklyPay(employees);
-            getAllEmployeeBalances(employees);
+
 
             Console.WriteLine("End of P5");
         }
@@ -119,7 +122,6 @@ namespace p5
 
         static public void loadStudents(List<ICustomer> students, Random generator)
         {
-            // creating customers
             allergyCustomer isabel = new allergyCustomer(1, getRandomDouble(generator));
             allergyCustomer ben = new allergyCustomer(2, getRandomDouble(generator));
             isabel.addAllergen("peanuts");
@@ -130,8 +132,8 @@ namespace p5
             dbetCustomer sammy = new dbetCustomer(4, getRandomDouble(generator));
             carbCustomer linda = new carbCustomer(5, getRandomDouble(generator));
             carbCustomer max = new carbCustomer(6, getRandomDouble(generator));
-            EmployeeCustomer employee_isabel = new EmployeeCustomer("Isabel", "Ovalles", 1, "Whole Foods", isabel);
-            EmployeeCustomer employee_sammy = new EmployeeCustomer("Sammy", "Wills", 3, "Trader Joe's", sammy);
+            EmployeeCustomer employee_isabel = new EmployeeCustomer("Isabel", "Ovalles", 1, "cStreet", isabel);
+            EmployeeCustomer employee_sammy = new EmployeeCustomer("Sammy", "Wills", 3, "cStreet", sammy);
 
             students.Add(employee_isabel);
             students.Add(ben);
@@ -151,7 +153,7 @@ namespace p5
             EmployeeCustomer employee_sammy = new EmployeeCustomer("Sammy", "Wills", getRandomPayLvl(generator), "cStreet", sammy);
             employee_isabel.setPay();
             employee_sammy.setPay();
-            Employee mike = new Employee("Mike", "Paker", getRandomPayLvl(generator), "Whole Foods");
+            Employee mike = new Employee("Mike", "Paker", getRandomPayLvl(generator), "cStreet");
             Employee rin = new Employee("Rin", "Sana", getRandomPayLvl(generator), "cStreet");
 
             employees.Add(employee_isabel);
@@ -182,7 +184,7 @@ namespace p5
 
         static public void getAllEmployeeBalances(List<IEmployee> employees)
         {
-            for(int i = 0; i < employees.Count; i++)
+            for (int i = 0; i < employees.Count; i++)
             {
                 string balance = String.Format("{0:0.00}", employees[i].getAccountBalance());
                 Console.WriteLine(employees[i].getFName() + " " + employees[i].getLName() + " Balance: $" + balance);
@@ -247,7 +249,7 @@ namespace p5
             for (int i = 0; i < employees.Count; i++)
             {
                 string weeklyPay = String.Format("{0:0.00}", employees[i].viewPaycheck());
-                Console.WriteLine(employees[i].getFName() + " " + employees[i].getLName() + " weekly pay: " + weeklyPay);
+                Console.WriteLine(employees[i].getFName() + " " + employees[i].getLName() + " weekly pay: $" + weeklyPay);
                 employees[i].weeklyPay();
             }
             Console.WriteLine("\n");

@@ -50,15 +50,20 @@ namespace p5
             }
         }
 
+        // PRE: N/A
+        // POST: Adds given amount of money to Customer's currentBalance
         public void addMoney(double amount)
         {
             c.addMoney(amount);
         }
 
+        // PRE: N/A
+        // POST: Subtracts price of items bought from Customer's balance,
+        //        returns true when one or more items were bought, else false
         public bool buy(Vendor market)
         {
             bool sold = false;
-            if(market.getName() == employer)
+            if (market.getName() == employer)
             {
                 double beforeBalance = c.getCurrentBalance();
                 sold = c.buy(market);
@@ -70,12 +75,15 @@ namespace p5
                     c.addMoney(diff);
                 }
             } else {
-                //Console.WriteLine("not deducting from paycheck, using customer balance");
                 sold = c.buy(market);
             }
             return sold;
         }
 
+        // PRE: The item's name that Customer wants to buy is written exactly as it
+        //        is saved in Entree name
+        // POST: Subtracts price of item bought from Customer's balance,
+        //        returns true, else false
         public bool buyOne(Vendor market, string itemName)
         {
             bool sold = false; 
@@ -92,17 +100,20 @@ namespace p5
 
             } else
             {
-                //Console.WriteLine("not deducting from paycheck, using customer balance");
                 sold = c.buyOne(market, itemName);
             }
             return sold;
         }
-
+        
+        // PRE: N/A
+        // POST: N/A
         public double getCurrentBalance()
         {
             return c.getCurrentBalance(); 
         }
 
+        // PRE: N/A
+        // POST: N/A
         public uint getAccountNum()
         {
             return c.getAccountNum();
