@@ -184,6 +184,7 @@ namespace p5
 
         static public void getAllEmployeeBalances(List<IEmployee> employees)
         {
+            Console.WriteLine("Getting Employees' Balances....");
             for (int i = 0; i < employees.Count; i++)
             {
                 string balance = String.Format("{0:0.00}", employees[i].getAccountBalance());
@@ -246,6 +247,7 @@ namespace p5
 
         static public void allEmployeesWeeklyPay(List<IEmployee> employees)
         {
+            Console.WriteLine("Payday for all Employees....");
             for (int i = 0; i < employees.Count; i++)
             {
                 string weeklyPay = String.Format("{0:0.00}", employees[i].viewPaycheck());

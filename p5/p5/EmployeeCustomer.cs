@@ -100,7 +100,6 @@ namespace p5
         {
             bool sold = false; 
             double itemPrice = market.getItemPrice(itemName);
-            Console.WriteLine(employer + " vs " + market.getName());
             if(market.getName() == employer)
             {
                 if(c.buyOne(market, itemName))
