@@ -5,8 +5,20 @@ using System.Text;
 namespace p5
 {
     // Class invarients:
+    // - EmployeeCustomer has an account number and a current balance
+    // - EmployeeCustomer can buyOne() item from a Vendor, given a Vendor and the itemName
+    // - EmployeeCustomer can buy() multiple items from a Vendor, given a Vendor 
+    // - EmployeeCustomer has a first name, last name, employeer all stored as strings
+    // - EmployeeCustomer also has a payLvl from 1-3
+    // - EmployeeCustomer have an accountBalance where their weekly pay is deposited, saved as a double
+    // - Given an ICustomer, it must be not null in order to be used in EmployeeCustomer
     // Interface invarients:
+    //  - The type of ICustomer in EmployeeCustomer can be changed to any Customer in the hierarchy tree
+    //  - payLvl can be changed at any time in EmployeeCustomer
+    //  - All attributes of EmployeeCustomer can be viewed using get methods
     // Implementation invarients: 
+    //  - Simulatating multiple inheritence with composition with ICustomer and single inheritence IEmployee 
+    //  - paycheck stores the current weekly pay of EmployeeCustomer. Needs to be reset to the correct paylvl after weeklypay is called
     public class EmployeeCustomer : IEmployee, ICustomer
     {
         const int MAX_PAYLVL = 3;
@@ -165,7 +177,7 @@ namespace p5
         }
 
         // PRE: N/A 
-        // POST: paycheck amount is added to the accountBalance
+        // POST: paycheck amount is added to the accountBalance and paycheck is reset
         public void weeklyPay()
         {
             if (payLvl == 0)
@@ -180,6 +192,8 @@ namespace p5
             {
                 accountBalance += paycheck;
             }
+
+            setPay(); 
         }
 
         // PRE: N/A

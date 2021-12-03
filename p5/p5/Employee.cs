@@ -5,9 +5,17 @@ using System.Text;
 namespace p5
 {
     // Class invarients:
+    //  - Employee has a first name, last name, employeer all stored as strings
+    //  - Employee also has a payLvl from 1-3
+    //  - Employees have an accountBalance where their weekly pay is deposited, saved as a double
     // Interface invarients:
+    //  - Employee implements the methods from IEmployee
+    //  - Employees can be instantiated with all attributes given, or none.
+    //  - Employee default constructor will set all attributes to "zero" values
     // Implementation invarients: 
-   public class Employee : IEmployee
+    //  - Employees accountBalances is set to $0.00 regardless of how it is instantiated
+    //  - weeklyPay() adds the pay to accountBalance, given the current payLvl saved
+    public class Employee : IEmployee
     {
         private const int MAX_PAYLVL = 3;
         private const int MIN_PAYLVL = 1;
